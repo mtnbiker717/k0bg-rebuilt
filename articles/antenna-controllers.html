@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Controllers — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Complete guide to mobile HF antenna controllers: turn-counting vs. SWR-sensing types, proper choke placement, and why most factory chokes are inadequate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Controllers</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="introduction">What Controllers Do (and Don't Do)</h2>
+
+        <p>An antenna controller automates the process of adjusting a remotely tuned mobile HF antenna. Instead of stopping the car, getting out, and manually turning the adjustment mechanism on your antenna coil, you press a button (or let the radio do it for you) and the controller drives a motor that changes the resonant frequency. That is the promise, anyway. The reality is considerably more nuanced, and the path from "plug it in" to "reliable automatic operation" is littered with the carcasses of installations done by people who did not understand what they were dealing with.</p>
+
+        <p>There are two fundamental types of antenna controllers: turn-counting and SWR-sensing. Each works on a completely different principle, each has distinct advantages and pitfalls, and confusing the requirements of one with the other is a reliable recipe for frustration.</p>
+
+        <h2 id="turn-counting">Turn-Counting Controllers</h2>
+
+        <p>The turn-counting controller is conceptually simple. A small magnet is attached to the motor shaft (or gear train) inside the antenna. Each time the shaft completes a rotation, the magnet passes a reed switch and generates a pulse. The controller counts these pulses.</p>
+
+        <p>To set up the system, you "park" the antenna &mdash; collapsing the coil to its highest-frequency position (shortest electrical length). From that known starting point, you tune each band manually, noting the pulse count for each resonant point. These counts are stored in the controller's memory. From then on, when you want to change bands, you press a button and the controller drives the motor until the pulse count matches the stored value for that band.</p>
+
+        <p>The MFJ-1924 and Ameritron SDC-102B are common examples of turn-counting controllers. Some models interface with the radio's data port (CI-V or equivalent), allowing the controller to automatically select the correct antenna position when you change frequency on the radio. In theory, this is the hands-free mobile operating experience everyone wants.</p>
+
+        <h3 id="parking">A Word About Parking</h3>
+
+        <p>"Parking" means driving the antenna coil to one extreme of its travel &mdash; typically the highest-frequency (most collapsed) position. This establishes the known reference point from which all pulse counts are measured. Every time the controller loses its position reference (power interruption, miscounted pulse, etc.), it must re-park to recalibrate.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Some controllers, including newer versions of the MFJ-1924, auto-park and recalibrate every time they power up. While this ensures accuracy, it adds mechanical wear to the antenna's motor and gear train. Every park cycle runs the motor to the end of its travel, and those cycles add up over time. If you leave your radio on all day and the controller re-parks every time, you are putting unnecessary miles on a mechanism that was not designed for infinite duty cycles.</p>
+        </div>
+
+        <h3 id="sdc-100-issues">SDC-100 Erratic Operation</h3>
+
+        <p>The SDC-100 (predecessor to the SDC-102B) is known for erratic behavior that sends operators on wild goose chases through their entire installation. Before you tear apart your wiring or blame RFI, check the stall current setting. The SDC-100 detects the end of antenna travel by sensing when motor current spikes (because the motor has stalled against the mechanical stop). If the stall current threshold is set incorrectly, the controller either overshoots (does not detect the stall) or stops prematurely (false stall detection from normal running current variation). It is a simple adjustment that solves an outsized percentage of SDC-100 complaints.</p>
+
+        <h2 id="swr-sensing">SWR-Sensing Controllers</h2>
+
+        <p>SWR-sensing controllers take a different approach. Instead of counting motor turns, they transmit a brief carrier, measure the SWR, and drive the motor in the direction that lowers the SWR. The process repeats until the SWR falls below a preset threshold. No parking, no pulse counting, no stored positions. The controller simply hunts for the lowest SWR in real time.</p>
+
+        <p>This sounds like the superior approach, and in some ways it is. There is no reference point to lose, no recalibration needed, and the system adapts automatically to any frequency you transmit on. But there is a critical prerequisite that many operators overlook, and overlooking it is the single most common reason SWR-sensing controllers fail to perform.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Proper impedance matching is an <strong>absolute prerequisite</strong> for reliable SWR-sensing controller operation. The controller can only find resonance by minimizing SWR. If the antenna system is not properly matched to 50 ohms at resonance, the SWR minimum the controller finds may not correspond to actual resonance. The controller will park the antenna at whatever point produces the lowest SWR number, which &mdash; as explained in the <a href="antenna-matching.html">Antenna Matching</a> article &mdash; is frequently not the point of true resonance.</p>
+        </div>
+
+        <p>For true automatic operation with an SWR-sensing controller, a fixed shunt coil is the only correct matching solution. No substitutes &mdash; not a UNUN, not a capacitance box, not an autotransformer. The shunt coil must be properly sized for your antenna and mounting configuration. Without proper matching, the SWR-sensing controller is chasing a phantom. It will find <em>a</em> minimum, but that minimum may not be where you want the antenna tuned.</p>
+
+        <h2 id="choke-placement">Choke Placement: The Make-or-Break Detail</h2>
+
+        <p>If there is one thing in this entire article that you remember, make it this: <strong>the motor lead choke must be located outside the vehicle, as close to the antenna base as physically possible.</strong></p>
+
+        <p>Not inside the vehicle. Not under the dashboard. Not in the trunk, tucked in next to the controller. <em>Outside.</em> At the antenna base.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>If the motor lead choke is inside the vehicle, you will be plagued with RFI and erratic controller operation. This is not a maybe. This is not a sometimes. This is a certainty. Everything on the antenna side of the choke is part of the antenna system, coupled to the RF field. Motor leads running from the antenna base, through the vehicle body, to a choke inside the cab are acting as antenna elements themselves, radiating and receiving RF energy the entire length of their run. The controller is connected directly to these RF-carrying wires, and it will behave accordingly &mdash; which is to say, badly.</p>
+        </div>
+
+        <p>The reason is fundamental. The motor control wires run through the RF field of the antenna. Without adequate choking, RF current flows on those wires right back to the controller. The controller's electronics were not designed to operate in the presence of significant RF energy. The reed switch signals get corrupted. The motor drive signals get distorted. The controller makes wrong decisions, misses counts, and generally acts possessed.</p>
+
+        <p>Placing the choke at the antenna base, outside the vehicle, means the RF energy is blocked before it ever enters the vehicle. The wires from the choke to the controller inside the car are clean, carrying only DC motor current and reed switch pulses. The controller operates in a quiet electrical environment and works as intended.</p>
+
+        <h2 id="factory-chokes">Factory-Supplied Chokes Are Inadequate</h2>
+
+        <p>I will say this plainly: the ferrite beads and toroids shipped with most antenna controllers and antenna kits are almost always inadequate. They are too small. They use the wrong ferrite mix. They have insufficient turns. They are, to put it charitably, a token gesture toward a problem that demands a serious solution.</p>
+
+        <p>The choke impedance must be at least two orders of magnitude greater than the circuit impedance it is protecting. In practical terms, this means the choke must present at least 5,000 ohms (5 kilohms) of impedance at the operating frequency. For short or stubby antennas, or installations with marginal mounting, the requirement goes up &mdash; 10 to 15 kilohms is not unreasonable.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>"The antenna came with ferrite beads for the motor leads, so I'm covered." No, you are not. Those beads typically provide a few hundred ohms of impedance at best. That is one to two orders of magnitude below what is needed. You need a proper wound choke on the correct ferrite material, with enough turns to develop the required impedance. The factory beads are better than nothing, but "better than nothing" is a low bar.</p>
+        </div>
+
+        <p>Why do short or stubby antennas require more choke impedance? Because shorter antennas have lower radiation resistance, which means the currents in the system are proportionally higher for a given power level. Higher current means more RF on the motor leads, which means you need a higher-impedance choke to keep those currents out of the controller. The math is straightforward, even if the antenna manufacturers prefer to ignore it.</p>
+
+        <h2 id="motor-lead-hazard">Motor Leads Shorted to Mast</h2>
+
+        <p>Here is a failure mode that will ruin your day and empty your wallet: if the motor control leads become shorted to the antenna mast &mdash; through chafing insulation, a pinched wire, or improper assembly &mdash; transmitting RF will send that energy directly into the controller. The result is not gradual degradation. The result is instantaneous destruction of the controller's output stage.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>If the motor leads are shorted to the antenna mast, transmitting will destroy the controller. Check for continuity between motor leads and the mast during installation and periodically thereafter. This is especially important after removing and reinstalling the antenna, when wires are most likely to get pinched or abraded.</p>
+        </div>
+
+        <p>A simple continuity check with a multimeter between each motor lead and the antenna mast will catch this before it becomes an expensive lesson. Do it during installation. Do it after any antenna service. It takes thirty seconds.</p>
+
+        <h2 id="radio-interface">Radio Data Interface Issues</h2>
+
+        <p>Many operators connect their antenna controller to the radio's data port (CI-V, CAT, or equivalent) so the controller automatically tracks frequency changes. This generally works well, but be aware of a compatibility issue: mail (email) software that uses the radio's data interface can cause conflicts.</p>
+
+        <p>Programs like Winlink, JS8Call, and various digital mode applications that poll the radio's frequency or send control commands through the data port may confuse the antenna controller. The controller sees frequency data on the bus, interprets it as a band change command, and starts driving the antenna motor. Or the controller's commands conflict with the software's commands, and both misbehave.</p>
+
+        <p>The solution is either to use separate data ports (if your radio has more than one) or to implement a switching arrangement that disconnects the controller from the data bus when digital software is active. Some operators simply unplug the controller's data cable when running digital modes. It is not elegant, but it works.</p>
+
+        <h2 id="choosing-a-controller">Choosing the Right Controller</h2>
+
+        <p>The choice between turn-counting and SWR-sensing comes down to your operating style and how much effort you are willing to invest in the installation:</p>
+
+        <ul>
+          <li><strong>Turn-counting controllers</strong> are reliable and predictable once properly set up. They require initial calibration (parking and storing band positions) and periodic recalibration as temperature and other factors cause minor shifts. They work without transmitting, which means you can pre-position the antenna before you start calling. Their main weakness is that they can lose position reference, requiring a re-park.</li>
+          <li><strong>SWR-sensing controllers</strong> are more automated in daily use &mdash; no stored positions, no parking. But they absolutely demand proper impedance matching to function correctly, and they require a brief transmit cycle to find resonance. If your matching is not right, the controller will never work reliably, and no amount of troubleshooting the controller itself will fix it.</li>
+        </ul>
+
+        <p>Regardless of which type you choose, the installation fundamentals are the same: choke outside the vehicle at the antenna base, adequate choke impedance, proper impedance matching, and verified isolation of motor leads from the mast. Get these right and the controller will do its job. Skip any one of them and you will spend more time troubleshooting than operating.</p>
+
+        <h2 id="summary">The Bottom Line</h2>
+
+        <p>Antenna controllers are not magic boxes. They are electromechanical devices that operate in a hostile RF environment, and they are only as good as the installation supporting them. The controller cannot compensate for poor bonding, inadequate chokes, missing impedance matching, or shorted motor leads. It can only do its narrowly defined job &mdash; counting turns or minimizing SWR &mdash; in an environment clean enough for its electronics to function.</p>
+
+        <p>Provide that environment and the controller becomes the reliable, convenient device you paid for. Fail to provide it and the controller becomes a source of endless frustration that you will eventually rip out and replace with manual tuning, cursing the manufacturer all the while for a problem that was never theirs to begin with.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="amplifiers.html">Amplifiers</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

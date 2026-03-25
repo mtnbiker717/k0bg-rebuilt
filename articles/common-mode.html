@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common Mode Currents — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Understanding and eliminating common mode currents in mobile HF installations. Ferrite choke construction, placement, and measurement techniques for amateur radio operators.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Common Mode Currents</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="the-silent-killer">The Silent Killer of Mobile Performance</h2>
+
+        <p>If you have spent any amount of time on the HF mobile forums, you have heard the term "common mode current" thrown around. Most operators nod along as if they understand it, then go right back to doing things the wrong way. So let us cut through the hand-waving and talk about what common mode current actually is, why it matters in a mobile installation, and what you can do about it.</p>
+
+        <p>In a properly functioning coaxial cable, RF current flows in one direction on the center conductor and returns on the inside surface of the shield. These are <em>differential mode</em> currents, and they are what you want. Common mode current, by contrast, flows on the <em>outside</em> of the coax shield. It has no business being there. It turns your feedline into an antenna&mdash;and not the kind you want.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>In a mobile installation without a common mode choke, the coax cable often makes a better <strong>noise</strong> antenna than a signal antenna. Why? Because the coax runs through the interior of the vehicle, right where the vast majority of electrical noise is generated. Every microprocessor, every data bus, every switching power supply in your vehicle is pumping noise into that space&mdash;and common mode current on your coax is picking it all up like a sponge.</p>
+        </div>
+
+        <p>This is a two-way problem. Common mode current does not just bring noise into your receiver. It also radiates a portion of your transmitted signal from the coax rather than from the antenna, degrading your transmitted signal-to-noise ratio and altering your radiation pattern in unpredictable ways. In severe cases, it can also cause RFI to the vehicle's own electronics. So if you have been wondering why your mobile signal reports are mediocre despite running a quality antenna and a solid radio, common mode current is very likely a major contributor.</p>
+
+        <h2 id="what-causes-it">What Causes Common Mode Current</h2>
+
+        <p>There will <em>always</em> be some common mode current in every mobile installation. Read that sentence again. You are not going to eliminate it entirely, and anyone who tells you otherwise is selling something. What you can control is the <em>level</em>, and that is where your efforts should be focused.</p>
+
+        <p>The level of common mode current is directly related to ground plane losses. A mobile antenna mounted on a vehicle is working against an imperfect ground plane&mdash;the vehicle body. Current that should be flowing symmetrically through the ground plane finds paths of unequal impedance, and some of that current ends up on the outside of the coax shield. The worse your ground plane, the worse your common mode problem.</p>
+
+        <p>This is one of the many reasons why antenna mounting matters so much. A lip mount or clip mount on the edge of a trunk lid, with its minimal ground plane contact, will exhibit significantly more common mode current than a properly installed through-hole mount on a large, well-bonded surface. Antennas mounted through sheet metal via ball mounts exhibit slightly less common mode current than alternatives like lip mounts or mag mounts, but make no mistake&mdash;a choke is still required regardless of your mounting method.</p>
+
+        <p>Poor antenna mounting exacerbates common mode current in ways that are not always obvious. If the antenna base does not make excellent electrical contact with the vehicle body, the impedance mismatch at the feedpoint drives more current onto the outside of the shield. If your mount is on a trunk lid or hatch that is not bonded to the main body, you have effectively created a floating ground plane section that is practically begging for common mode problems.</p>
+
+        <h2 id="measuring">Measuring Common Mode Current</h2>
+
+        <p>You cannot fix what you cannot measure. One of the most useful tools for diagnosing common mode current is the MFJ-854 RF current meter, which runs about $130. I will be blunt: buying one of these and actually using it on your installation will be a real eye opener. Most operators are stunned by how much current is flowing on the outside of their coax when they first measure it.</p>
+
+        <p>The MFJ-854 is a clamp-on device that you simply place around the coax at various points. By measuring at the antenna feedpoint and again at the radio end, you can quantify exactly how much common mode current is present and, more importantly, verify that your choke is doing its job. If you are serious about mobile HF, this is not an optional accessory&mdash;it is a diagnostic necessity.</p>
+
+        <h2 id="the-coax-choke">The Coax Choke: Building One That Works</h2>
+
+        <p>The solution to common mode current is a coax choke, sometimes called a common mode choke or current balun. The principle is straightforward: you introduce a high impedance in series with the <em>outside</em> of the coax shield to block common mode current, while the differential mode signals inside the coax pass through unaffected.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Coax wrapped around a ferrite core forms a tuned circuit. The self-resonant frequency (SRF) of that circuit must fall within the band of interest for the choke to be effective. This is why a choke that works beautifully on 20 meters may do absolutely nothing useful on 80 meters&mdash;the physics do not care about your good intentions.</p>
+        </div>
+
+        <p>For mobile HF work, the recipe is well proven:</p>
+
+        <ul>
+          <li><strong>Ferrite material:</strong> Fair-Rite mix 31 (do not substitute; other mixes have different frequency characteristics)</li>
+          <li><strong>Core size:</strong> 3/4-inch inner diameter split bead (the split makes installation far easier)</li>
+          <li><strong>Winding:</strong> 6 to 7 turns of coax through the bead</li>
+        </ul>
+
+        <p>With 6 turns, you will get approximately 2.2 kilohms of impedance at 10 MHz. That is adequate for operation on 80 through 10 meters. Wind 7 turns of RG-8X and the impedance climbs to approximately 2.7 kilohms, which may be sufficient for 160-meter operation&mdash;though 160 meters with a poor mount may demand more aggressive measures.</p>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Coax wound through mix 31 split bead</span>
+          <p>6-7 turns of RG-8X coax wound through a 3/4-inch ID mix 31 ferrite split bead, installed at the antenna feedpoint outside the vehicle.</p>
+          <span class="placeholder-source">Photo requested from W1AST (stationproject.blog)</span>
+        </figure>
+
+        <h3 id="increasing-impedance">Increasing the Impedance</h3>
+
+        <p>If 2.2 kilohms is not enough&mdash;and on 160 meters or with a marginal antenna mount, it may not be&mdash;there is a simple solution. Snap a second split bead over the existing turns on the first bead. This nearly doubles the impedance. For 160-meter work with a poor mounting arrangement, you may well need this second bead, or even a second complete choke assembly.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>For the choke to be effective across a wide bandwidth, the <strong>resistive</strong> component of its impedance must be larger than the <strong>inductive</strong> component. A choke that is primarily inductive will only work well near its resonant frequency. Steve Hunt, G3TXQ, published excellent impedance charts for various ferrite materials and winding configurations. His data is widely available online and is well worth studying before you build your choke.</p>
+        </div>
+
+        <h3 id="placement">Placement Matters</h3>
+
+        <p>Where you install the choke is just as important as how you build it. The choke must be placed as close to the base of the antenna as physically possible. Not inside the vehicle. Not midway along the coax run. At the antenna feedpoint.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Installing the choke inside the vehicle defeats much of its purpose. The whole point is to prevent common mode current from flowing on the coax <em>inside</em> the vehicle where the noise sources are. If the choke is at the radio end, you have left the entire coax run unprotected. Put it at the antenna base, period.</p>
+        </div>
+
+        <p>In practice, this means the choke is usually exposed to the elements. Weatherproof it with self-amalgamating tape or heat-shrink tubing. A little preparation here prevents a lot of grief later when moisture wicks into the ferrite and degrades its performance.</p>
+
+        <h2 id="multi-turn-vs-single">Multi-Turn Choke vs. Single-Turn Beads</h2>
+
+        <p>This is where some basic math saves you a staggering amount of money. The impedance of a ferrite choke goes up by the <em>square</em> of the number of turns. This is not a linear relationship, and understanding it is the key to building an effective choke economically.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>Some operators believe that stringing a bunch of single-turn snap-on ferrites along the coax is equivalent to a proper multi-turn choke. The math says otherwise. Seven turns on a single 3/4-inch mix 31 bead produces approximately 2.7 kilohms at 10 MHz. To duplicate that impedance with single-turn snap-on beads, you would need <strong>49 beads</strong>. At roughly $5 to $6 each, that is about $275 worth of ferrites&mdash;compared to about $6 for the single split bead with multiple turns. The multi-turn choke is not just better; it is roughly 45 times cheaper.</p>
+        </div>
+
+        <p>The square-of-turns relationship is fundamental. Two turns gives you four times the impedance of one turn. Three turns gives you nine times. Seven turns gives you forty-nine times. There is simply no economic or technical argument for the single-turn approach when a multi-turn choke on a single bead does the job so effectively.</p>
+
+        <h2 id="receive-performance">The Receive Side of the Problem</h2>
+
+        <p>Most operators fixate on the transmit side of the common mode problem&mdash;radiated power being wasted, RFI to vehicle electronics, and so forth. But common mode ingress on receive is arguably the more damaging issue for day-to-day operation.</p>
+
+        <p>Every noise source in your vehicle is coupling into the coax via common mode paths. The vehicle's CAN bus, its switching power supplies, the LED lighting, the infotainment system&mdash;all of this noise rides the outside of the coax shield straight into your receiver. A proper common mode choke dramatically improves your received signal-to-noise ratio by blocking this noise path.</p>
+
+        <p>I have seen operators gain two to three S-units of noise floor improvement simply by installing a properly built and properly placed common mode choke. That is the difference between pulling a weak DX station out of the noise and not hearing them at all. If that does not motivate you to wind six turns of coax through a ferrite bead, nothing will.</p>
+
+        <h2 id="special-cases">Special Cases: 160 Meters and Problem Mounts</h2>
+
+        <p>The lower you go in frequency, the harder it is to achieve adequate choking impedance. On 160 meters, the wavelength is long enough that common mode current has more coax to work with, and the typically poor efficiency of 160-meter mobile antennas means ground plane losses are higher&mdash;which, as we discussed, drives more common mode current.</p>
+
+        <p>For serious 160-meter mobile work, plan on a minimum of 7 turns on a mix 31 bead, plus a second bead snapped over those turns. If your mounting situation is less than ideal&mdash;a lip mount, a mag mount, an unbonded trunk lid&mdash;you may need a second complete choke assembly spaced a short distance from the first along the coax. Measure with the MFJ-854 and keep adding choking until the common mode current drops to an acceptable level.</p>
+
+        <p>There is no magic formula for "enough" choking impedance because every installation is different. The ground plane, the antenna mount, the coax routing, the vehicle's noise environment&mdash;all of these interact in ways that defy simple rules of thumb. Measure, choke, measure again. That is the only reliable method.</p>
+
+        <h2 id="summary">The Bottom Line</h2>
+
+        <p>Common mode current is not an exotic or theoretical problem. It is present in every single mobile HF installation, and in most cases it is the single largest factor limiting both transmit efficiency and receive performance. The fix is straightforward, cheap, and well proven: a multi-turn coax choke on a mix 31 ferrite bead, installed at the antenna feedpoint.</p>
+
+        <p>There is no excuse for not doing this. The materials cost less than a fast-food meal. The construction takes ten minutes. The performance improvement can be dramatic. If you have not yet installed a common mode choke in your mobile setup, stop reading and go build one. Your signal reports will thank you.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

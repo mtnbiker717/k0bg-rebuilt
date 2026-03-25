@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABCs of Mobile HF — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="A no-nonsense guide to getting started with mobile HF amateur radio. Planning, equipment selection, installation fundamentals, and the mistakes to avoid.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>ABCs of Mobile HF</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+        <!-- JS generates TOC from H2s -->
+      </div>
+
+      <div class="article-body">
+
+        <p>Mobile HF is one of the most rewarding aspects of amateur radio. It is also one of the most misunderstood, most poorly executed, and most frustrating endeavors you will ever undertake &mdash; if you do it wrong. And the overwhelming majority of hams do it wrong, usually because they were in a hurry, listened to bad advice on a forum, or both.</p>
+
+        <p>This article is your starting point. Read it completely before you buy a single piece of equipment, drill a single hole, or run a single wire. I mean that. If you skip ahead and start bolting things to your vehicle, you will almost certainly end up doing it twice &mdash; and the second time will cost more than the first.</p>
+
+        <h2>Slow Down</h2>
+
+        <p>The single most important piece of advice I can give you is this: <strong>do not get in a hurry</strong>. A proper mobile HF installation is not a weekend project. The average install, done correctly, takes well over a day of actual labor. For a first-timer, plan on a full weekend at minimum, and do not be surprised if it stretches into a second.</p>
+
+        <p>Getting in a hurry to go mobile is a prescription for spending more money than you intended. You will buy the wrong mount, discover your wiring is inadequate, find out your antenna does not perform as advertised, and end up ripping everything out to start over. I have watched this cycle repeat itself hundreds of times over the decades, and it always begins the same way: someone gets excited, skips the planning, and starts bolting things together.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Plan carefully, then follow your plan. A proper mobile installation is a system &mdash; antenna, mount, bonding, wiring, and radio all work together. A weakness in any one area degrades the whole system. You cannot fix a bad installation by throwing money at one component.</p>
+        </div>
+
+        <h2>Know Your Vehicle</h2>
+
+        <p>Before you do anything else, <strong>buy a Service Manual for your specific vehicle</strong>. Not a Haynes manual, not a Chilton guide &mdash; the actual factory service manual, or at minimum, a high-quality reproduction. You need to know where every wire runs, where every airbag is located, where the fuel lines are routed, and how to remove trim panels without breaking the clips that hold them in place.</p>
+
+        <p>It is often necessary to remove seats or trim panels to route wiring properly. If you do not know how the trim panels come apart, you will break the retaining clips, and your interior will rattle for the life of the vehicle. A service manual pays for itself the first time you avoid snapping a $15 clip that the dealer has to order from Japan.</p>
+
+        <h3>Hybrid and Electric Vehicles</h3>
+
+        <p>If your installation includes HF coverage and you drive a hybrid or full electric vehicle, <strong>change your plans</strong>. I am not being flippant. Hybrid and EV powertrains generate staggering amounts of broadband electrical noise across the HF spectrum. The inverters, motor controllers, and high-voltage DC-DC converters produce noise floors that will bury all but the strongest signals. Some owners have managed marginal success on certain bands with extensive filtering and shielding, but the results are almost never satisfactory for serious HF operation.</p>
+
+        <p>VHF and UHF operation in hybrids and EVs is generally workable, as the noise is predominantly an HF problem. But if HF is your goal, you need a conventionally powered vehicle.</p>
+
+        <h3>Aluminum-Bodied Vehicles</h3>
+
+        <p>Aluminum-bodied vehicles &mdash; and there are more of them every year &mdash; require special considerations regarding wiring, antenna mounting, and bonding. The primary concern is <strong>galvanic corrosion</strong>, which occurs when dissimilar metals are in contact in the presence of moisture. Steel bolts in aluminum panels, copper wire against aluminum body panels, and steel antenna mounts on aluminum roofs will all corrode if not properly isolated or treated. This is not a theoretical concern; it is a certainty. Consult the <a href="bonding.html">Bonding</a> article for specific guidance.</p>
+
+        <h2>Where to Mount the Radio</h2>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>Do not mount anything atop the dashboard.</strong> Modern vehicles have passenger-side airbags concealed behind the dashboard surface. When an airbag deploys, it does so with explosive force. Anything sitting on the dash becomes a projectile aimed directly at the occupants. A two-pound transceiver head launched at 200 mph will kill you just as dead as the accident would have.</p>
+        </div>
+
+        <p><strong>Do not mount gear in foot wells</strong>, especially the driver's. Anything in the driver's foot well can slide under the brake pedal. It does not matter how well you think you secured it. In a panic stop or a collision, things move. If your radio or a mounting bracket ends up under the brake pedal, you cannot stop the vehicle. This is not hypothetical &mdash; it has happened.</p>
+
+        <p>A popular mounting location for remotable transceivers is under the passenger seat. This can work well, but use extra care. You need to ensure the transceiver body has adequate ventilation (most seats restrict airflow), that the wiring is not pinched by the seat rails, and that the unit is secured firmly enough to survive a collision. Also verify there are no seat-mounted side airbag components in the way. Check your service manual.</p>
+
+        <h2>Mounting Standards</h2>
+
+        <p>Let me be blunt about what is and is not acceptable for securing equipment in a vehicle:</p>
+
+        <p><strong>No magnets. No bungee cords. No wedged wood. No double-sided tape. No Velcro.</strong></p>
+
+        <p>None of these are adequate. A vehicle experiences vibration, temperature extremes, and the occasional sudden deceleration. Anything held in place by friction, adhesive, or hope will eventually come loose, and it will do so at the worst possible moment. Use proper mounting brackets bolted to structural members of the vehicle. If you cannot find a commercial bracket for your vehicle, fabricate one from aluminum plate. There is no shortcut here.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Be neat and tidy. Dangling wires are a distraction and a safety hazard. Every wire in the vehicle should be routed out of sight, secured with proper cable ties or loom, and protected from chafing against sheet metal edges. If your installation looks messy, it probably is messy &mdash; and messy installations develop problems.</p>
+        </div>
+
+        <h2>Wiring: The Foundation You Cannot Skip</h2>
+
+        <p>Proper wiring is just as important as any other step in a mobile installation, and arguably more so. Bad wiring causes noise, voltage drops, intermittent operation, blown fuses, and in the worst case, vehicle fires.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>NEVER use existing vehicle wiring to power radio gear.</strong> The vehicle's electrical system is engineered for the vehicle's needs, not yours. Tapping into existing circuits introduces ground loops, shares noisy circuits with your receiver, and risks overloading wiring that was sized for a specific load. Run dedicated power leads directly from the battery, with proper fusing at the battery end. Both the positive and negative leads must be dedicated. See the <a href="wiring.html">Wiring</a> article for complete details.</p>
+        </div>
+
+        <h2>Antennas: The Hard Truth</h2>
+
+        <p>This is where most hams go wrong, because this is where marketing meets physics, and physics always wins.</p>
+
+        <h3>Mounting Method Matters</h3>
+
+        <p>All antennas on clip mounts, lip mounts, and mag mounts will be lossier than permanently through-hole mounted ones. Period. A mag mount sitting on your roof is not making the same connection to the vehicle body that a properly installed NMO or SO-239 mount makes. The capacitive coupling through the paint and the mag mount's rubber boot introduces loss, and worse, it provides an inadequate RF ground plane. If you are serious about mobile HF, drill the hole. I know, I know &mdash; it affects resale value. So does rust, and that mag mount is doing nothing to prevent water from pooling where it sits.</p>
+
+        <h3>Matching and Efficiency</h3>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Any antenna that does not require matching will be much lossier than one that does. If your antenna presents a near-perfect 50-ohm match across the entire HF spectrum without a tuner or matching network, it is achieving that match through resistive loss &mdash; your transmit power is being converted to heat, not radiated. A truly efficient antenna is reactive and requires a matching device to present 50 ohms to the transceiver.</p>
+        </div>
+
+        <p><strong>Overall length matters.</strong> Radiation resistance is directly related to the square of the electrical length. A short antenna is inherently less efficient than a tall one. There is no magic design, no secret loading coil configuration, and no wonder material that changes this fundamental relationship. A 3-foot HF whip is a compromise. A 7-foot whip is less of a compromise. A full quarter-wave on 20 meters (about 16.5 feet) is what the physics wants.</p>
+
+        <p>All remotely-tuned (motorized) antennas require an adequately-sized motor lead choke &mdash; <strong>no exceptions</strong>. Without it, RF from your transmitter travels down the motor leads, into the controller, and into the vehicle wiring. The result is RFI, erratic controller behavior, and potentially damaged electronics.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>The ability to work any given station with any given antenna is NOT indicative of antenna efficiency. Propagation, the other station's equipment, and sheer luck play enormous roles. The fact that you worked a DX station with your hamstick does not mean the hamstick is efficient. It means conditions were good enough to overcome the antenna's deficiencies. Try that same contact on a marginal day and see what happens.</p>
+        </div>
+
+        <h2>Automation Is Not Optional</h2>
+
+        <p>Make everything as automatic as possible. This is not about convenience &mdash; it is about safety. You are operating a motor vehicle and a radio station simultaneously. Every moment you spend fiddling with controls is a moment you are not watching the road.</p>
+
+        <p>A top priority is an <strong>automatic antenna controller</strong>. Manually adjusting a screwdriver antenna or swapping resonators while driving is a recipe for an accident. A good controller will retune the antenna in seconds when you change bands, without requiring you to take your eyes off the road or your hands off the wheel. Yes, they cost money. So do funerals. See the <a href="antenna-controllers.html">Antenna Controllers</a> article for recommendations.</p>
+
+        <h2>Choosing a Transceiver</h2>
+
+        <p>Selecting a transceiver for mobile use is a deeply personal decision, but there are some universal guidelines:</p>
+
+        <p><strong>Do not trust online reviews.</strong> Most online reviews are written by people who just spent $1,500 and need to justify the purchase to themselves. They are not objective assessments. The only review that matters is your own hands-on experience.</p>
+
+        <p><strong>Do not buy anything older than 10 years</strong> unless you have verified that repair parts are still available. Mobile environments are brutal on electronics &mdash; heat, vibration, voltage spikes &mdash; and a radio that cannot be repaired is an expensive paperweight.</p>
+
+        <p><strong>Do not buy without playing with it first.</strong> Visit a dealer, attend a hamfest, borrow one from a club member. You need to operate the controls, see the display in sunlight, and determine whether the ergonomics work for you in a vehicle environment. What works beautifully on a desk may be impossible to operate while driving.</p>
+
+        <p>Remotable transceivers (where the control head separates from the body) are strongly preferred for mobile use. They give you far more flexibility in mounting locations and keep the heavy, heat-generating main body out of your limited cockpit space.</p>
+
+        <h2>The Bottom Line</h2>
+
+        <p>A successful mobile HF installation is the product of careful planning, quality components, proper technique, and patience. There are no shortcuts. Every corner you cut will manifest as a problem later &mdash; noise you cannot track down, intermittent connections, poor antenna performance, or an installation that simply looks and feels amateur in the worst sense of the word.</p>
+
+        <p>Read through the other articles on this site before you start. Understand <a href="bonding.html">bonding</a>, understand <a href="wiring.html">wiring</a>, understand antenna fundamentals. Then make your plan. Then follow your plan. You will end up with an installation that works well, looks professional, and lasts for years.</p>
+
+        <p>Or you can skip all of this, slap a mag mount on the roof and a cigarette lighter power cord on the radio, and spend the next two years wondering why mobile HF does not work. Your choice.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a href="installation.html">Installation Notes</a>
+          <a href="safety.html">Safety</a>
+          <a href="wiring.html">Wiring</a>
+          <a href="bonding.html">Bonding</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

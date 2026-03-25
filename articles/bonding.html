@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonding — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Complete guide to RF bonding your vehicle for mobile amateur radio. Learn why bonding matters, what to bond, and how to do it right with flat copper braid.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Bonding</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="what-is-bonding">What Is Bonding, and Why Should You Care?</h2>
+
+        <p>Bonding is the process of installing grounding straps between the vehicle's frame or unibody structure and all of its bolted-on hardware. Doors, hoods, trunk lids, exhaust systems, bumper backing plates, and truck beds are all examples of components that need to be electrically tied together. If you're running an HF mobile installation and you haven't bonded your vehicle, you're leaving performance on the table. Period.</p>
+
+        <p>Let me be blunt about something right up front: bonding is not primarily about DC safety. Your vehicle's 12-volt system works just fine without bonding straps. The starter cranks, the headlights illuminate, and the engine computer does its thing. Modern vehicles are more-or-less DC contiguous through their bolt-on assemblies. But here's the catch that trips up nearly everyone: <strong>DC contiguous does not mean RF contiguous.</strong> Not even close.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>The primary function of bonding is to improve the ground plane your vehicle offers to the antenna system. A vehicle body riddled with RF-isolated panels is a lousy ground plane. Bonding ties all those panels together so they behave as a single, unified conductive surface at radio frequencies.</p>
+        </div>
+
+        <p>Think about it this way. A bolt through a painted hole, even one torqued to specification, might measure a fraction of an ohm on your multimeter. DC current flows through it without complaint. But at 14 MHz, that same bolted joint looks like a high-impedance mess. Paint, corrosion, oxide layers, rubber grommets, and the sheer inductance of a round bolt all conspire to make these joints invisible to RF. Your vehicle's sheet metal might as well be a collection of unconnected panels as far as your antenna is concerned.</p>
+
+        <h2 id="the-exhaust-problem">The Exhaust System: A Special Problem</h2>
+
+        <p>If there's one thing that catches new mobile operators off guard, it's the exhaust system. Your exhaust is thermally and physically isolated from the vehicle body by design. It hangs from rubber isolators. It passes through heat shields. One end may be DC grounded to the engine block (which is bolted to the frame), while the other end &mdash; the tailpipe &mdash; floats electrically. In RF terms, your exhaust system is a long, resonant conductor dangling underneath the vehicle, coupled to nothing useful and potentially reradiating your signal in unpredictable ways.</p>
+
+        <p>The exhaust system is also a spectacular noise generator. Those rubber hangers and heat-shield clamps create intermittent metal-to-metal contact that generates broadband noise as you drive. Every bump in the road turns your exhaust into a spark-gap transmitter. If you've ever heard a rhythmic popping or crackling on HF that varies with road conditions, the exhaust is almost certainly part of the problem.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>The exhaust system gets extremely hot. Bond it at every joint and hanger point, but use hardware rated for the thermal environment. Stainless steel hardware is recommended for exhaust bonding. Route straps so they won't contact the exhaust pipe directly along their length, and leave enough slack to accommodate thermal expansion and the normal movement of rubber isolators.</p>
+        </div>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Exhaust system bonding at hanger points</span>
+          <p>Flat copper braid connecting exhaust pipe sections at hanger points. Stainless steel hardware used to resist heat corrosion.</p>
+          <span class="placeholder-source">Photo requested from 0ut0fmyelement.wordpress.com</span>
+        </figure>
+
+        <h2 id="what-to-bond">What to Bond</h2>
+
+        <p>Here is the complete list of what needs bonding in a typical vehicle installation. No shortcuts. Do them all.</p>
+
+        <ul>
+          <li><strong>Exhaust system</strong> &mdash; Bond at every joint and at every hanger point. This is the single most impactful bonding you will do.</li>
+          <li><strong>Hood</strong> &mdash; Bond across both hinges. The hinge pin and the painted hinge leaves are not reliable RF conductors.</li>
+          <li><strong>Trunk lid</strong> &mdash; Bond across both hinges, same as the hood.</li>
+          <li><strong>All doors</strong> &mdash; Bond across each hinge on every door. Yes, all of them. A four-door sedan has eight hinges minimum.</li>
+          <li><strong>Tailgate and lift gates</strong> &mdash; SUVs and hatchbacks need bonding here too. The gas struts and torsion bars are not conductors.</li>
+          <li><strong>Bumper backing plates</strong> &mdash; Modern plastic bumper covers hide steel or aluminum reinforcement bars. Bond these to the frame or unibody.</li>
+          <li><strong>Truck bed to cab</strong> &mdash; On both sides. The truck bed sits on rubber isolators and is electrically floating. This is a big one for pickup truck installations.</li>
+          <li><strong>Frame to body</strong> &mdash; On body-on-frame vehicles, the body mounts use rubber bushings by design. Bond across them.</li>
+          <li><strong>Engine block to frame</strong> &mdash; Often there is an OEM ground strap here, but it may not be adequate for RF. Add a proper bonding strap.</li>
+        </ul>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Hood bonding strap across both hinges</span>
+          <p>1-inch copper braid installed across both hood hinges with star washers biting through paint to bare metal. Straps must be kept short and flat.</p>
+          <span class="placeholder-source">Photo requested from W1AST (stationproject.blog)</span>
+        </figure>
+
+        <h2 id="body-on-frame-vs-unibody">Body-on-Frame vs. Unibody</h2>
+
+        <p>Body-on-frame vehicles &mdash; most pickup trucks, older SUVs, and full-size vans &mdash; require significantly more bonding work than unibody vehicles. The reason is simple: the body literally sits on rubber bushings atop the frame. Every single body mount is an RF discontinuity. You need bonding straps across every body mount, plus all the doors, hood, and tailgate work common to any vehicle.</p>
+
+        <p>Unibody vehicles have it somewhat easier. The roof, pillars, floor pan, and fenders are all welded together into one structure. Doors, hood, and trunk still need bonding, and the exhaust still needs attention, but you don't have the body-to-frame isolation problem. Don't get complacent, though. "Easier" doesn't mean "unnecessary."</p>
+
+        <h2 id="materials-and-methods">Materials and Methods</h2>
+
+        <p>Use flat braided copper strap, 3/4-inch to 1-inch wide. This is not negotiable.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>Round wire is not a substitute for flat braid. RF current travels on the outside surface of a conductor due to skin effect. A round wire has the minimum possible surface area for its cross-section. Flat braid maximizes surface area and minimizes inductance. A piece of 8 AWG round wire might look beefy, but it is electrically inferior to a 3/4-inch flat braid for RF bonding purposes.</p>
+        </div>
+
+        <p>Keep every bonding strap as short as physically possible. <strong>Any strap longer than 10 inches is too long.</strong> Inductance increases with length, and at HF frequencies, even a foot-long strap can become a significant impedance. If you can't reach between two points with a 10-inch strap, you need to find a closer bonding point or create an intermediate connection.</p>
+
+        <h3 id="connection-technique">Connection Technique</h3>
+
+        <p>At every connection point, you must scrape the paint down to bare metal. A wire brush on a drill works well, as does coarse sandpaper. Don't be dainty about it &mdash; you need clean, bright metal. Then use serrated (star) lock washers under the bolt head and under the nut. These toothed washers bite through any residual coating and ensure metal-to-metal contact that persists over time. A flat washer between the star washer and the braid protects the braid from being cut by the teeth.</p>
+
+        <p>Once installed, a dab of paint or corrosion inhibitor over the connection point will slow future oxidation without compromising the electrical joint.</p>
+
+        <h3 id="sourcing-braid">Where to Get Braid</h3>
+
+        <p>Flat copper braid is available from several sources:</p>
+        <ul>
+          <li><strong>DX Engineering</strong> &mdash; Sells bonding kits and bulk braid specifically for mobile installations.</li>
+          <li><strong>Ham Radio Outlet (HRO)</strong> &mdash; Usually stocks bonding braid.</li>
+          <li><strong>Electric Motion EM2080</strong> &mdash; A good commercial bonding strap product.</li>
+          <li><strong>Salvaged coax shield</strong> &mdash; Strip the jacket and center conductor from discarded RG-8 or RG-213 and you have perfectly serviceable bonding braid. Free is a good price.</li>
+        </ul>
+
+        <p>One thing that is <em>not</em> suitable for bonding: 3M 1181 copper foil tape. It's excellent for shielding and can be useful for other purposes in a mobile installation, but it is not a bonding material. It lacks the mechanical durability and current-carrying capacity needed for structural bonding.</p>
+
+        <h2 id="what-bonding-is-not">What Bonding Is NOT</h2>
+
+        <p>Let's clear up some persistent nonsense.</p>
+
+        <p>Bonding is not a workaround for improper antenna mounting. If your antenna is mounted on a mirror bracket, a gutter clip, or a magnetic mount sitting on the trunk lid, no amount of bonding will fix the fundamental problem. Bonding improves a ground plane that already works; it doesn't create one from nothing.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Running a ground strap from your antenna mount directly to the vehicle frame is a common but misguided practice. Doing so can actually <em>exacerbate</em> common mode currents and create ground loop problems. The antenna mount's connection to the vehicle body <em>is</em> the ground connection. Adding a strap to the frame creates an alternate RF path that invites trouble.</p>
+        </div>
+
+        <p>Here is a rule you should commit to memory: <strong>if adding a ground strap fixed, reduced, or eliminated an RFI problem, then something else in your installation was already wrong.</strong> The strap didn't fix the root cause; it masked a symptom. Maybe the coax shield wasn't properly grounded at the mount. Maybe the antenna mount itself had a poor connection to the body. Maybe there was a common mode current problem on the feedline. Whatever it was, the strap papered over the real deficiency, and it will come back to bite you in other ways.</p>
+
+        <h2 id="real-world-results">Real-World Results</h2>
+
+        <p>For the skeptics &mdash; and there are always skeptics &mdash; here's what a systematic bonding campaign looks like in practice.</p>
+
+        <p>A typical vehicle with no bonding might exhibit an ambient noise floor of S9 or higher on the HF bands while parked with the engine running. The noise is a combination of ignition system hash, alternator whine, and broadband noise from intermittent metal-to-metal contact throughout the vehicle structure.</p>
+
+        <p>After bonding the exhaust system and the major body panels (hood, doors, trunk), the noise floor typically drops to S3 or S4. That alone is a dramatic improvement &mdash; you've just recovered five or six S-units of usable signal, which translates to the difference between copying a weak station and not hearing it at all.</p>
+
+        <p>Continue the bonding work to include every remaining joint, add appropriate ferrite chokes on the power leads and feedline (see the articles on <a href="common-mode.html">Common Mode Currents</a> and <a href="rfi.html">RFI Problems</a>), and the noise floor can drop to S0. Zero. At that point, the only noise you hear is atmospheric and propagation noise &mdash; exactly what you'd hear on a well-built home station.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Do your bonding work systematically and measure the results at each stage. Use a consistent frequency and note the S-meter reading with the engine running and the vehicle in Park. This way you'll know which bonds made the most difference, and you'll have documentation if a bond fails later and noise comes back.</p>
+        </div>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>Bonding is not optional for a serious HF mobile installation. It's not difficult. It's not expensive. It just requires crawling around your vehicle with braid, hardware, and a wire brush, making clean metal-to-metal connections across every bolted joint. The payoff is a dramatically quieter receiver and a more effective antenna system. There is no magic here &mdash; just physics, applied with a little effort and attention to detail.</p>
+
+        <p>Skip the bonding, and you're operating with one hand tied behind your back. Do it right, and you'll wonder why you didn't do it sooner.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

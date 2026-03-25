@@ -1,0 +1,16 @@
+# Claude Code project file
+CLAUDE.md
+
+# Outreach emails (contain contact info)
+images/PHOTO_OUTREACH.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

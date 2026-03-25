@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiring — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="How to properly wire your mobile amateur radio installation. Dedicated power leads, correct wire gauge, fusing, connectors, and cable routing for HF mobile.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Wiring</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="the-cardinal-rule">The Cardinal Rule</h2>
+
+        <p>Let me start with the single most important rule in all of mobile radio wiring. Memorize it. Tattoo it on your forearm if you have to.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p><strong>Never, ever, use existing vehicle wiring to power any radio gear.</strong> Not the cigarette lighter socket. Not an accessory tap. Not a fuse panel piggyback. Not the conveniently-located power wire behind the dash. Never. Run dedicated leads directly from the battery &mdash; both positive AND negative.</p>
+        </div>
+
+        <p>I cannot overstate how many mobile installation problems trace back to this single mistake. The number of emails I received over the years from hams complaining about alternator whine, ignition noise, or mysterious RFI &mdash; only to discover they had their transceiver plugged into a cigarette lighter socket &mdash; would fill a book. A thick one.</p>
+
+        <p>Your vehicle's factory wiring is designed to carry DC current for vehicle systems. It is routed alongside computer bus wires, sensor leads, and actuator cables. It shares ground paths with dozens of noisy loads. It passes through connectors that were never designed with RF in mind. When you tap into this wiring for radio power, you inject every bit of that electrical filth directly into your transceiver. You also create the opportunity for your transmitted RF to find its way back into the vehicle's electronics, which the vehicle manufacturer will not be amused about and neither will you.</p>
+
+        <p>The negative lead is just as important as the positive. Many hams dutifully run a dedicated positive lead to the battery, then connect the negative lead to the nearest body bolt. Don't do this. Run both leads to the battery. The negative lead provides a clean, low-impedance return path that doesn't share current with windshield wiper motors, blower fans, or heated seats. It also helps prevent ground loops that can couple noise into the receiver.</p>
+
+        <h2 id="wire-gauge">Wire Gauge: Getting It Right</h2>
+
+        <p>Wire gauge matters, and the correct gauge depends on two factors: the current draw of your equipment and the length of the cable run. Both matter. A wire that's adequate for an 8-foot run may be completely inadequate for a 14-foot run in a full-size pickup truck.</p>
+
+        <p>A typical 100-watt HF transceiver draws approximately 22 amps on transmit. That's the number you design around &mdash; not the receive current, not the average current, but the peak transmit current. Here are the practical guidelines:</p>
+
+        <ul>
+          <li><strong>10 AWG</strong> &mdash; Adequate for cable runs under 10 feet at 100W transceiver current levels.</li>
+          <li><strong>8 AWG</strong> &mdash; The minimum for cable runs over 10 feet. This covers most pickup trucks and full-size SUVs.</li>
+          <li><strong>6 AWG or larger</strong> &mdash; Required if you're running, or planning to run, an HF amplifier.</li>
+        </ul>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>If there is any chance you will add an amplifier later, wire for it now. Pulling new cable through a vehicle that's already assembled is miserable work. Run 6 AWG from the start, even if you're only running barefoot today. The incremental cost of heavier wire is trivial compared to the labor of doing it twice.</p>
+        </div>
+
+        <p>Undersized wire doesn't just waste power as heat &mdash; though it does that too. It causes voltage drop under load. Your transceiver is designed to operate at 13.8 volts. At 22 amps through undersized wire over a long run, you can easily lose a volt or more. The radio's power output drops, the finals work harder, and in extreme cases the radio's protection circuits start cycling. I have seen installations where the transceiver was barely putting out 60 watts because the wiring couldn't deliver adequate voltage under load. The owner thought his radio was broken. It wasn't. His wiring was.</p>
+
+        <h2 id="fusing">Fusing</h2>
+
+        <p>The positive lead must be fused, and the fuse must be located as close to the battery as physically possible. Not at the radio end. Not in the middle. At the battery. The purpose of the fuse is to protect the wire, not the radio. If the wire shorts to the vehicle body anywhere along its run, the fuse blows before the wire melts and starts a fire. If the fuse is at the radio end, the entire length of wire between the battery and the fuse is unprotected.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>A fuse protects the wire, not the equipment. Size the fuse to the wire gauge, and place it as close to the battery as possible terminal. The radio has its own internal fusing or protection circuits for the radio itself.</p>
+        </div>
+
+        <p>Fuse types in common use for mobile installations:</p>
+
+        <ul>
+          <li><strong>ATC/ATO blade fuses</strong> &mdash; The standard automotive blade fuse. Available up to 40 amps. Widely available, inexpensive, and reliable. Inline fuse holders for these are easy to find. This is the go-to choice for most 100W transceiver installations.</li>
+          <li><strong>Maxi fuses</strong> &mdash; Larger blade-style fuses rated up to 80 amps. Use these for amplifier installations or multi-radio setups. Maxi fuse holders are available at any auto parts store.</li>
+          <li><strong>5AG (cartridge) fuses</strong> &mdash; The old round glass or ceramic tube fuses, available up to about 50 amps. These are getting hard to find, and the holders are becoming scarce. If you have a working setup with 5AG fuses there's no reason to change, but for a new installation, blade fuses are the better choice.</li>
+        </ul>
+
+        <p>Size the fuse appropriately. For a single 100W transceiver on 10 AWG wire, a 30-amp fuse is typical. Don't use a 50-amp fuse "just in case" &mdash; oversized fuses defeat the purpose of having one. The fuse must blow before the wire reaches its current-carrying limit.</p>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Fuse holder installed near battery terminal</span>
+          <p>Maxi fuse holder mounted as close to the battery positive terminal as possible, with weather-resistant housing.</p>
+          <span class="placeholder-source">Seeking CC-licensed photo — see images/SOURCES.md</span>
+        </figure>
+
+        <h2 id="connectors">Connectors: Anderson Powerpoles</h2>
+
+        <p>For the interconnections between your power cable and your equipment, Anderson Powerpole connectors are the standard and for good reason. They are polarized, so you can't reverse polarity. They have no exposed pins or blades that can short against the vehicle body. They lock together positively but disconnect easily when you need to remove equipment. They're rated for the currents involved. And they've been adopted as the standard by ARES, RACES, and most emergency communications organizations, which means your gear can plug into anyone's power distribution setup.</p>
+
+        <p>The PP45 (45-amp) size is correct for most HF transceiver installations. Larger PP75 and PP120 sizes are available for amplifier feeds.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>When crimping Powerpole contacts, use the proper Anderson crimping tool or a calibrated ratcheting crimper. A pair of pliers and enthusiasm is not a crimping tool. A bad crimp is worse than a bad solder joint &mdash; it will develop resistance over time, cause voltage drop, generate heat, and eventually fail. If you can't crimp properly, solder the contacts. Anderson says not to, but a good solder joint is vastly superior to a bad crimp.</p>
+        </div>
+
+        <p>One color convention note: the ARES/RACES standard uses red and black housings for positive and negative DC power connections, and you should follow that convention for your radio's power leads. Reserve red and black exclusively for DC power. For motor leads, control wiring, or actuator connections, use a different color pair&mdash;yellow and blue, for example&mdash;so that motor leads are visually distinct from power wiring and cannot be accidentally cross-connected.</p>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Anderson Powerpole PP45 connections</span>
+          <p>Properly crimped PP45 Powerpole connectors on 10 AWG wire. Red/black housings for DC power leads.</p>
+          <span class="placeholder-source">Seeking CC-licensed photo — see images/SOURCES.md</span>
+        </figure>
+
+        <h2 id="cable-routing">Cable Routing</h2>
+
+        <p>Where you route your power cables through the vehicle matters enormously. Poor routing is an invitation for noise pickup, RFI problems, and potentially dangerous interactions with vehicle safety systems.</p>
+
+        <h3 id="what-to-avoid">What to Avoid</h3>
+
+        <ul>
+          <li><strong>ECU and vehicle computer wiring</strong> &mdash; The engine control unit and its associated wiring harness carry sensitive low-level signals. Route your power cables well away from these. In most vehicles, the ECU is located on the firewall or under the dash. Find it and avoid it.</li>
+          <li><strong>ABS wiring</strong> &mdash; The anti-lock brake system uses wheel speed sensors with low-level signals that are susceptible to RF interference. Keep your cables away from ABS wiring, particularly the sensor leads that run to each wheel.</li>
+          <li><strong>Airbag wiring</strong> &mdash; This deserves its own special emphasis. Airbag circuits are designed to be sensitive to electrical signals &mdash; that's how they work. Routing RF-carrying cables near airbag wiring could, in a worst case, cause inadvertent deployment. The airbag wiring in most vehicles is bundled in yellow conduit specifically so you can identify and avoid it. Do so.</li>
+          <li><strong>Fuel lines</strong> &mdash; Not an electrical concern, but a physical safety one. Don't route cables where they could chafe against fuel lines. A short circuit near a fuel line is the kind of problem that makes the evening news.</li>
+        </ul>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Airbag wiring is identified by its yellow conduit or yellow connectors. Never route radio power or coax cables alongside, across, or through airbag wiring bundles. An inadvertent airbag deployment while driving can cause a serious accident and injury.</p>
+        </div>
+
+        <p>The best routing path in most vehicles is along the rocker panel or door sill area, under the carpet and trim. This path typically avoids the major electronic modules and provides good physical protection for the cable. Use grommets where cables pass through the firewall, and secure the cable every 12 to 18 inches with cable ties or adhesive-backed mounts so it doesn't dangle, vibrate, or chafe.</p>
+
+        <h2 id="twisting-myth">The Twisted-Pair Myth</h2>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>You do not need to twist your positive and negative power leads together. This advice gets repeated endlessly on forums, usually by people who heard it from someone who heard it from someone. The reasoning goes: "CAT5 cable is twisted, so twisting must reject noise." Wrong. CAT5 cable uses twisted pairs for differential signaling, where the signal is the <em>difference</em> between the two conductors. DC power is not a differential signal. Twisting heavy-gauge power leads together accomplishes nothing useful and may damage the insulation. Just run them side by side.</p>
+        </div>
+
+        <h2 id="aluminum-vehicles">Aluminum-Bodied Vehicles</h2>
+
+        <p>The increasing use of aluminum body panels (Ford F-150 starting in 2015, various others since) introduces a specific concern. Aluminum and copper are galvanically incompatible. When dissimilar metals are in contact in the presence of moisture, galvanic corrosion will destroy the joint &mdash; and it's the aluminum that loses.</p>
+
+        <p>For aluminum-bodied vehicles:</p>
+        <ul>
+          <li>Use aluminum mounting hardware (bolts, nuts, washers) for any electrical connections to aluminum body panels.</li>
+          <li>Follow the vehicle manufacturer's guidelines for grounding and bonding points. These vehicles often have specific factory-designated grounding locations that use compatible hardware.</li>
+          <li>Apply anti-corrosion compound (such as Penetrox or No-Ox-Id) to any connections between dissimilar metals that can't be avoided.</li>
+          <li>Inspect bonding and grounding connections annually for signs of corrosion.</li>
+        </ul>
+
+        <h2 id="putting-it-together">Putting It All Together</h2>
+
+        <p>A proper mobile power installation is not complicated. It's just deliberate. Here's the sequence:</p>
+
+        <ol>
+          <li>Determine your total current requirement (transceiver plus any amplifier, plus a reasonable margin).</li>
+          <li>Select wire gauge based on current and run length.</li>
+          <li>Install an appropriately-sized fuse holder as close to the battery as possible's positive terminal.</li>
+          <li>Route both positive and negative leads through the firewall (using a grommet) and along the vehicle interior, away from ECU, ABS, airbag, and fuel line routing.</li>
+          <li>Terminate both leads at the battery &mdash; positive to the positive terminal, negative to the negative terminal. Not the body. Not the frame. The battery terminal.</li>
+          <li>At the radio end, terminate with Anderson Powerpole connectors.</li>
+          <li>Secure the cable run with cable ties every 12 to 18 inches.</li>
+          <li>Test under load: key the transmitter and measure voltage at the radio. You should see no more than 0.5V drop from the battery terminal voltage.</li>
+        </ol>
+
+        <p>That's it. No tricks, no shortcuts, no clever hacks. Just solid, properly-sized wire run directly from the battery, fused at the source, routed away from sensitive electronics, and terminated with quality connectors. Do it right once and you'll never think about it again. Do it wrong and you'll be chasing noise, blowing fuses, and wondering why your radio sounds like a garbage disposal.</p>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>The wiring in a mobile installation is the foundation that everything else depends on. A perfect antenna on a perfectly bonded vehicle will still sound terrible if the power wiring couples engine noise into the receiver. Dedicated leads to the battery, correct wire gauge, proper fusing, quality connectors, and careful routing &mdash; these aren't optional refinements. They're the baseline. Start here, get it right, and the rest of the installation has a fighting chance.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="safety.html">Safety</a>
+          <a class="related-card" href="abcs.html">ABCs of Mobile HF</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

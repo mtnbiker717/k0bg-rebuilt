@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K0BG — Mobile Amateur Radio Resource</title>
+  <meta name="description" content="The encyclopedic reference for mobile amateur radio installation, antennas, bonding, wiring, RFI, and more. Based on the original work of Alan Applegate, K0BG.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="articles/safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="articles/bonding.html">Bonding</a></li>
+          <li><a href="articles/wiring.html">Wiring</a></li>
+          <li><a href="articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="articles/rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="articles/installation.html">Installation Notes</a></li>
+          <li><a href="articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="articles/otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="hero">
+      <h1>Mobile Amateur Radio</h1>
+      <p class="subtitle">
+        The encyclopedic reference for mobile HF and VHF installation.
+        Based on the original work of <span class="callsign">Alan Applegate, K0BG</span> — preserved and expanded for the amateur radio community.
+      </p>
+    </div>
+
+    <!-- Start Here -->
+    <div class="start-here">
+      <div class="start-here-card">
+        <h2>New to Mobile HF? Start Here.</h2>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <span class="step-label">Safety First</span>
+              <a class="step-link" href="articles/safety.html">Read article &rarr;</a>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <span class="step-label">Learn the ABCs</span>
+              <a class="step-link" href="articles/abcs.html">Read article &rarr;</a>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <span class="step-label">Antenna &amp; Mounting</span>
+              <a class="step-link" href="articles/installation.html">Read article &rarr;</a>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <span class="step-label">Bonding</span>
+              <a class="step-link" href="articles/bonding.html">Read article &rarr;</a>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <span class="step-label">Wiring</span>
+              <a class="step-link" href="articles/wiring.html">Read article &rarr;</a>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <span class="step-label">RFI Cleanup</span>
+              <a class="step-link" href="articles/rfi.html">Read article &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Sections -->
+    <div class="section-grid">
+      <h2>Getting Started</h2>
+      <div class="card-grid">
+        <a class="card" href="articles/abcs.html">
+          <h3>ABCs of Mobile HF</h3>
+          <p>The essential getting-started guide. What to buy, what to avoid, and how to plan your installation.</p>
+        </a>
+        <a class="card" href="articles/safety.html">
+          <h3>Safety</h3>
+          <p>Airbag hazards, RF exposure, electrical safety, and keeping your installation out of harm's way.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>Electrical Fundamentals</h2>
+      <div class="card-grid">
+        <a class="card" href="articles/bonding.html">
+          <h3>Bonding</h3>
+          <p>Why your vehicle isn't RF-contiguous and how to fix it with proper grounding straps.</p>
+        </a>
+        <a class="card" href="articles/wiring.html">
+          <h3>Wiring</h3>
+          <p>Dedicated power leads, correct gauge, fusing, Anderson Powerpoles, and the cardinal rule.</p>
+        </a>
+        <a class="card" href="articles/common-mode.html">
+          <h3>Common Mode Currents</h3>
+          <p>The hidden signal killer. How common mode works, why it matters, and how to choke it.</p>
+        </a>
+        <a class="card" href="articles/rfi.html">
+          <h3>RFI Problems</h3>
+          <p>Identifying, diagnosing, and eliminating every source of radio frequency interference in your vehicle.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>Antenna System</h2>
+      <div class="card-grid">
+        <a class="card" href="articles/installation.html">
+          <h3>Installation Notes</h3>
+          <p>Mounting options, drilling holes, trim panel removal, and working around airbags.</p>
+        </a>
+        <a class="card" href="articles/antenna-problems.html">
+          <h3>Antenna Problems</h3>
+          <p>Motor lead chokes, grounding myths, coax selection, and screwdriver antenna pitfalls.</p>
+        </a>
+        <a class="card" href="articles/antenna-matching.html">
+          <h3>Antenna Matching</h3>
+          <p>Shunt coils, UNUNs, matching theory, and why you can't trust SWR alone.</p>
+        </a>
+        <a class="card" href="articles/coil-adjustment.html">
+          <h3>Coil Adjustment</h3>
+          <p>Setting up screwdriver and resonator antennas for optimal performance across bands.</p>
+        </a>
+        <a class="card" href="articles/antenna-controllers.html">
+          <h3>Antenna Controllers</h3>
+          <p>Turn-counting vs. SWR-sensing controllers, choke placement, and automatic operation.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>Equipment</h2>
+      <div class="card-grid">
+        <a class="card" href="articles/amplifiers.html">
+          <h3>Amplifiers</h3>
+          <p>When to add power, what to avoid, and why your antenna matters more than your amp.</p>
+        </a>
+        <a class="card" href="articles/vhf-options.html">
+          <h3>VHF/UHF Options</h3>
+          <p>FM mobile installation, NMO mounts, multiband antennas, and aluminum-body vehicles.</p>
+        </a>
+        <a class="card" href="articles/otr-rv.html">
+          <h3>OTR &amp; RV</h3>
+          <p>Special challenges for big rigs and recreational vehicles — long runs, poor ground planes, and more.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>Reference</h2>
+      <div class="card-grid">
+        <a class="card" href="articles/tricks.html">
+          <h3>Tricks of the Trade</h3>
+          <p>Practical tips on tools, fasteners, connectors, shielding, and materials.</p>
+        </a>
+        <a class="card" href="articles/glossary.html">
+          <h3>Glossary</h3>
+          <p>Definitions of every technical term used on this site.</p>
+        </a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+      <p>This site is not affiliated with or endorsed by the K0BG estate. Content has been reconstructed and expanded from publicly available sources.</p>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

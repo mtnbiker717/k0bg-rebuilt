@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Comprehensive glossary of terms used in mobile amateur radio installation, including antenna, electrical, vehicle, and digital communications terminology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Glossary</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <p>Mobile amateur radio straddles two technical worlds: RF engineering and automotive electronics. The jargon from both fields can be impenetrable if you are new to either one. This glossary covers the terms you will encounter throughout this site and in the broader mobile HF community. If a term is used on these pages and is not defined here, let us know and we will add it.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Terms that appear frequently in mobile HF discussions are cross-referenced to the relevant articles on this site where you can find detailed explanations and practical guidance.</p>
+        </div>
+
+        <h2 id="section-a">A</h2>
+
+        <dl>
+          <dt id="aprs">APRS</dt>
+          <dd>Automatic Packet Reporting System. A digital communications system using the AX.25 protocol, primarily on VHF (144.39 MHz in North America, 144.80 MHz in Europe). APRS is used for real-time position reporting, weather station data, short messaging, and telemetry. Despite the name, the "A" originally stood for "Automatic" rather than a reference to any specific technology. Most modern implementations use GPS for position data, transmitted at regular intervals or triggered by course changes.</dd>
+        </dl>
+
+        <h2 id="section-b">B</h2>
+
+        <dl>
+          <dt id="b-can">B-CAN</dt>
+          <dd>Body Controller Area Network. A vehicle data bus that connects body electronics including lighting, power locks, windows, mirrors, and seat controls. B-CAN operates at varying data rates (typically 125 to 250 kbps depending on the manufacturer) and can be a significant source of RFI, producing evenly-spaced birdies across the HF spectrum. The spacing of these birdies corresponds to the bus clock frequency. See the <a href="rfi.html">RFI Problems</a> article for mitigation strategies.</dd>
+
+          <dt id="bms">BMS</dt>
+          <dd>Battery Management System. The electronic circuitry that monitors and protects lithium-based batteries (including LiFePO4). A BMS controls charging voltage and current, prevents over-discharge, monitors cell temperatures, and performs cell balancing to keep all cells in a pack at equal state of charge. A quality BMS is not optional with lithium batteries; it is a safety requirement. Cheap units with inadequate protection have caused vehicle fires.</dd>
+
+          <dt id="bonding">Bonding</dt>
+          <dd>The practice of installing low-impedance grounding straps between the vehicle frame or unibody and all bolted-on components (hood, trunk lid, doors, fenders, exhaust system) to ensure RF continuity across the entire vehicle surface. Bonding is NOT primarily about DC safety grounding; it is about making the vehicle body function as a coherent ground plane and counterpoise for the antenna system. Poor bonding is the single most common cause of RFI and common-mode problems in mobile installations. See the <a href="bonding.html">Bonding</a> article.</dd>
+        </dl>
+
+        <h2 id="section-c">C</h2>
+
+        <dl>
+          <dt id="common-mode">Common Mode</dt>
+          <dd>Current flowing on the outside of a coaxial cable shield, or equally (in phase) on both conductors of a balanced line. Common mode current is unwanted in virtually all amateur radio installations. In mobile work, the level of common mode current on the feed line is directly related to the quality of the vehicle's ground plane. High common mode current causes RFI to vehicle electronics, distorted audio reports, and RF burns. See the <a href="common-mode.html">Common Mode Currents</a> article.</dd>
+
+          <dt id="counterpoise">Counterpoise</dt>
+          <dd>A conductor or system of conductors used as a substitute for a direct earth ground connection, forming the "other half" of the antenna system. In mobile installations, the vehicle body serves as the counterpoise. Its effectiveness depends entirely on bonding quality and the antenna mounting location relative to the vehicle's metal surface area. A vehicle with poor bonding is a poor counterpoise, regardless of how expensive the antenna is.</dd>
+        </dl>
+
+        <h2 id="section-e">E</h2>
+
+        <dl>
+          <dt id="erp">ERP</dt>
+          <dd>Effective Radiated Power. The actual power radiated by an antenna system in its direction of maximum gain, calculated as the product of transmitter output power, feed line efficiency, and antenna gain (or loss, as is usually the case with mobile HF antennas). ERP is the number that actually determines whether your signal is heard at the other end. A 100-watt transmitter feeding a mobile antenna with 6 dB of loss produces an ERP of 25 watts. Understanding this keeps your expectations realistic.</dd>
+        </dl>
+
+        <h2 id="section-g">G</h2>
+
+        <dl>
+          <dt id="ground-loop">Ground Loop</dt>
+          <dd>A condition where multiple ground paths between two pieces of equipment create a closed loop that can act as a receiving antenna, picking up noise, RFI, and alternator whine. Ground loops are a frequent problem in mobile installations where the transceiver, amplifier, and antenna controller each have their own ground connections to different points on the vehicle. The solution is a single-point grounding scheme, not adding more ground wires. See the <a href="wiring.html">Wiring</a> article.</dd>
+        </dl>
+
+        <h2 id="section-i">I</h2>
+
+        <dl>
+          <dt id="imd">IMD</dt>
+          <dd>Intermodulation Distortion. Spurious signals generated when two or more signals mix in a non-linear device such as a transistor amplifier stage. In mobile HF context, the most relevant fact is that solid-state transceivers generate excessive IMD when presented with an SWR much above 1.8:1. The output transistors are forced into non-linear operation by the reflected power, producing splatter on adjacent frequencies. This is why proper antenna matching matters: not just for your own signal quality, but out of courtesy to others on the band.</dd>
+        </dl>
+
+        <h2 id="section-j">J</h2>
+
+        <dl>
+          <dt id="jump-points">Jump Points</dt>
+          <dd>Pre-stored antenna motor positions in a turn-counting controller, each corresponding to the resonant point on a specific band. When you press the button for 20 meters, the controller drives the motor to the stored position for that band. Properly calibrated jump points let you change bands in seconds rather than minutes. See the <a href="antenna-controllers.html">Antenna Controllers</a> and <a href="coil-adjustment.html">Coil Adjustment</a> articles for setup procedures.</dd>
+        </dl>
+
+        <h2 id="section-l">L</h2>
+
+        <dl>
+          <dt id="ldt">LDT</dt>
+          <dd>Live Data Terminal. A vehicle diagnostic interface used by dealership technicians to read real-time sensor data, perform module programming, and clear fault codes. Relevant to mobile installations because aftermarket wiring that interferes with vehicle data buses can set diagnostic trouble codes that only an LDT can properly clear.</dd>
+
+          <dt id="lfp">LFP / LiFePO4</dt>
+          <dd>Lithium Iron Phosphate. A lithium battery chemistry increasingly popular for auxiliary power in mobile amateur radio installations. LiFePO4 cells have a nominal voltage of 3.2V (four cells in series produce 12.8V, a near-perfect match for 12V systems). They offer high energy density, long cycle life (2000+ cycles), and excellent thermal stability compared to other lithium chemistries. They require a BMS and have a different charging profile than SLI lead-acid batteries: the alternator's charge voltage must be regulated or the BMS will disconnect to protect the cells.</dd>
+
+          <dt id="lid">LID</dt>
+          <dd>Amateur radio slang for a poor or inconsiderate operator. Apocryphally said to stand for "Licensed Idiot Designation," though the term predates that backronym. You will encounter LIDs on every band. Do not be one.</dd>
+
+          <dt id="loading-coil">Loading Coil</dt>
+          <dd>An inductor placed in series with an antenna element to electrically lengthen a physically short antenna. The coil adds the inductive reactance needed to cancel the capacitive reactance of the short element, bringing the antenna to resonance. In screwdriver antennas, a motor-driven variable loading coil allows tuning across multiple bands. The trade-off is that energy stored in the coil's magnetic field is subject to resistive loss, reducing radiation efficiency. See the <a href="coil-adjustment.html">Coil Adjustment</a> article.</dd>
+        </dl>
+
+        <h2 id="section-m">M</h2>
+
+        <dl>
+          <dt id="mag-mount">Mag Mount</dt>
+          <dd>Magnetic mount antenna base. Uses one or more permanent magnets to temporarily attach an antenna to a vehicle's roof, trunk, or other flat metal surface. Adequate for VHF and UHF work where the short wavelength makes ground plane quality less critical. On HF, however, mag mounts introduce significant loss because the RF ground connection depends on capacitive coupling through the paint and the small contact area of the magnets. For serious HF mobile work, a permanent through-body mount is strongly preferred. See the <a href="installation.html">Installation Notes</a> article.</dd>
+
+          <dt id="matching-coil">Matching Coil</dt>
+          <dd>A small inductor, typically a shunt coil, installed at the antenna feed point to transform the antenna's impedance to match the 50-ohm feed line. On mobile HF antennas where the radiation resistance is well below 50 ohms, a matching coil (sometimes called a shunt matching network) provides a simple, broadband impedance transformation. Also provides a DC ground path for the antenna element, which helps dissipate static charge. See the <a href="antenna-matching.html">Antenna Matching</a> article.</dd>
+
+          <dt id="maxifuse">Maxifuse</dt>
+          <dd>A blade-type automotive fuse rated from 20A to 80A, physically larger than standard ATC/ATO fuses. Commonly used to protect the main power feed from the battery to radio equipment. Maxifuses are available at any auto parts store and fit standard Maxifuse holders. Always fuse both the positive and negative leads at the battery end of the power cable.</dd>
+
+          <dt id="mics">MICS</dt>
+          <dd>Media Independent Communication System. A vehicle data bus protocol used by some manufacturers for communication between electronic modules. Like B-CAN, MICS bus activity can generate RFI on HF frequencies. The exact characteristics depend on the implementation and data rate.</dd>
+
+          <dt id="mil">MIL</dt>
+          <dd>Malfunction Indicator Lamp. The "check engine" light on your dashboard. In the context of mobile radio installation, a lit MIL can be triggered by aftermarket wiring that interferes with vehicle electronic modules, damaged wiring harnesses from improper antenna mount installation, or RFI from the transmitter coupling into vehicle sensor circuits. If your MIL illuminates after a radio installation, the two events are probably related.</dd>
+        </dl>
+
+        <h2 id="section-n">N</h2>
+
+        <dl>
+          <dt id="nmo">NMO</dt>
+          <dd>New Motorola mount. The industry-standard professional mobile antenna mounting system, requiring a 3/4-inch (19mm) hole through the vehicle surface. NMO mounts provide excellent RF grounding, mechanical strength, and weather sealing when properly installed. Genuine NMO mounts from reputable manufacturers (Larsen, PCTEL, Laird) are precision-machined and meet tight tolerances. Be aware that cheap import "NMO-style" mounts are often not dimensionally compatible with genuine NMO connectors and antennas, leading to intermittent connections and water intrusion.</dd>
+        </dl>
+
+        <h2 id="section-o">O</h2>
+
+        <dl>
+          <dt id="obdii">OBDII</dt>
+          <dd>On-Board Diagnostics, version II. The standardized vehicle diagnostic port mandated on all vehicles sold in the United States since 1996. The OBDII connector is required to be located within 3 feet of the driver's seating position, typically under the dashboard on the driver's side. The port provides access to the vehicle's diagnostic data bus and is used with scan tools to read fault codes. Relevant to mobile radio work because it is the interface through which RFI-induced fault codes can be read and cleared.</dd>
+        </dl>
+
+        <h2 id="section-p">P</h2>
+
+        <dl>
+          <dt id="polyfuse">Polyfuse</dt>
+          <dd>A resettable fuse based on a PTC (Positive Temperature Coefficient) thermistor. When overcurrent heats the device, its resistance increases dramatically, effectively opening the circuit. When the device cools, it resets to its low-resistance state. Polyfuses are used in some antenna controllers and transceivers for overcurrent protection. A notable gotcha: in cold weather, motor running current increases (cold lubricants are stiffer), which can cause a polyfuse to trip prematurely. If your antenna motor stops running in winter but works fine in summer, a polyfuse is likely the culprit.</dd>
+        </dl>
+
+        <h2 id="section-r">R</h2>
+
+        <dl>
+          <dt id="radiation-resistance">Radiation Resistance</dt>
+          <dd>The component of an antenna's feed point impedance that represents actual power radiated as electromagnetic waves. Radiation resistance is directly proportional to the square of the antenna's electrical length. A full-size quarter-wave vertical has a radiation resistance of about 36 ohms. A typical mobile HF antenna on 40 meters might have a radiation resistance of only 2 to 5 ohms, meaning that the vast majority of the feed point impedance is loss resistance in the loading coil and ground system. This is why every fraction of an ohm matters in mobile HF, and why proper bonding and the longest possible whip are so important.</dd>
+
+          <dt id="reactance">Reactance</dt>
+          <dd>The imaginary component of impedance, caused by inductance (positive reactance, +jX) or capacitance (negative reactance, -jX), measured in ohms. At resonance, an antenna's inductive and capacitive reactances cancel and the net reactance equals zero. Reactance causes energy to be stored and returned to the source rather than radiated, which is why tuning an antenna to resonance (zero reactance) matters. Your antenna analyzer's reactance reading is the single most important number during antenna adjustment.</dd>
+
+          <dt id="reed-switch">Reed Switch</dt>
+          <dd>A magnetically-actuated switch consisting of two ferromagnetic contacts sealed in a glass envelope. In turn-counting antenna controllers, a small magnet attached to the motor shaft passes a reed switch once per revolution. The controller counts these pulses to track the coil position. Reed switches have a finite life (typically rated for millions of cycles) and can fail, causing the controller to lose track of position. A failed reed switch is a common cause of a controller that "overshoots" stored positions.</dd>
+
+          <dt id="repeater">Repeater</dt>
+          <dd>An automated radio station, usually located on a hilltop or tall structure, that receives signals on one frequency (the input) and simultaneously retransmits them on another frequency (the output), extending the communication range of low-power mobile and handheld stations. Repeaters are primarily a VHF/UHF resource and are largely outside the scope of this site's focus on HF mobile operation, but many mobile operators maintain VHF/UHF capability for local communication alongside their HF installation.</dd>
+
+          <dt id="resonance">Resonance</dt>
+          <dd>The frequency at which an antenna's net reactance equals zero; that is, where the inductive and capacitive reactances exactly cancel. At resonance, the feed point impedance is purely resistive. Critically, resonance is NOT necessarily the point of lowest SWR. On mobile HF antennas where the radiation resistance is far from 50 ohms, the lowest SWR point and the resonant frequency can differ by tens of kilohertz. Always tune for zero reactance (resonance) first, then address the resistive mismatch separately. See the <a href="antenna-matching.html">Antenna Matching</a> and <a href="coil-adjustment.html">Coil Adjustment</a> articles.</dd>
+        </dl>
+
+        <h2 id="section-s">S</h2>
+
+        <dl>
+          <dt id="screwdriver">Screwdriver (antenna)</dt>
+          <dd>A continuously-variable HF mobile antenna that uses a DC motor to drive a shorting contact up and down a loading coil, changing the inductance in the circuit and thereby tuning the antenna across multiple bands. The name originates from the earliest designs, which repurposed the motor and gear train from a battery-powered cordless screwdriver. Modern screwdriver antennas use purpose-built motors but the name persists. They are the most versatile type of mobile HF antenna, capable of covering 3.5 to 54 MHz with a single antenna, at the cost of mechanical complexity.</dd>
+
+          <dt id="shadowing">Shadowing</dt>
+          <dd>Signal attenuation caused by the vehicle body partially blocking the antenna's radiation pattern. A roof-mounted antenna is shadowed in the direction of the vehicle body below it; a trunk-lip mount is shadowed by the entire vehicle in the forward direction. Shadowing can amount to 6 dB or more in the blocked direction, which is a full S-unit. Mount location selection is a trade-off between shadowing, ground plane quality, and mechanical constraints. See the <a href="installation.html">Installation Notes</a> article.</dd>
+
+          <dt id="simplex">Simplex</dt>
+          <dd>Direct radio-to-radio communication on a single frequency, without the use of a repeater. All HF communication is simplex (or split-frequency simplex in the case of cross-band DX contacts). On VHF/UHF, simplex operation is used for direct local communication when repeater access is not needed or not available.</dd>
+
+          <dt id="sli">SLI Battery</dt>
+          <dd>Starting, Lighting, Ignition. The standard lead-acid battery found in virtually all motor vehicles. SLI batteries are designed to deliver very high current for short periods (engine cranking) and to be maintained near full charge by the alternator. They are NOT designed for deep discharge cycles. Drawing an SLI battery below 50% state of charge significantly shortens its life. If you need deep-cycle capability for extended radio operation with the engine off, install a separate auxiliary battery (preferably LiFePO4).</dd>
+
+          <dt id="soc">SOC</dt>
+          <dd>State of Charge. The remaining usable capacity of a battery expressed as a percentage, where 100% is fully charged and 0% is fully discharged. For SLI lead-acid batteries, useful SOC range is roughly 50% to 100%. For LiFePO4, the usable range is typically 10% to 100%, which is one of their significant advantages for auxiliary power applications.</dd>
+
+          <dt id="srs">SRS</dt>
+          <dd>Supplemental Restraint System. The vehicle's airbag system, including crash sensors, the airbag control module, wiring harnesses, and the inflator units located in the steering wheel, dashboard, door panels, headliner, and seat bolsters. SRS components are EXTREMELY dangerous to work around. Airbag inflators contain explosive charges that can cause severe injury or death if accidentally triggered. Never run radio wiring near SRS harnesses (typically identified by yellow connectors and conduit). If you must remove interior panels that contain SRS components, disconnect the battery and wait a minimum of 10 minutes for the backup capacitors to discharge before proceeding. Better yet, do not remove those panels at all. See the <a href="safety.html">Safety</a> article.</dd>
+
+          <dt id="strapping">Strapping</dt>
+          <dd>The process of installing bonding straps between vehicle body panels and the frame or unibody structure to ensure RF continuity. Often used interchangeably with "bonding," though strapping specifically refers to the physical act of connecting panels with flat copper braid. See the <a href="bonding.html">Bonding</a> article for complete guidance on materials, methods, and what to strap.</dd>
+
+          <dt id="swr">SWR</dt>
+          <dd>Standing Wave Ratio. A dimensionless measure of the impedance mismatch between a transmission line and its load (the antenna). An SWR of 1:1 indicates a perfect match; higher ratios indicate increasing mismatch. Modern solid-state transceivers begin to reduce output power at SWR levels above approximately 2:1 to protect their output transistors, and most will shut down entirely above 3:1. SWR is the number most operators obsess over, but by itself it tells you nothing about whether the mismatch is resistive or reactive. See the <a href="antenna-matching.html">Antenna Matching</a> article for why this distinction matters.</dd>
+        </dl>
+
+        <h2 id="section-t">T</h2>
+
+        <dl>
+          <dt id="telemetrics">Telemetrics</dt>
+          <dd>Remote monitoring and management systems, commonly used in commercial vehicles for fleet tracking, driver behavior monitoring, fuel management, and maintenance scheduling. Telemetrics systems typically include a cellular modem, GPS receiver, and connections to the vehicle's data bus. They can be a source of RFI due to their always-on cellular transmitters and data bus polling activity. In commercial vehicle installations (see <a href="otr-rv.html">OTR &amp; RV</a>), telemetrics interference must be identified and addressed.</dd>
+
+          <dt id="tnc">TNC</dt>
+          <dd>Terminal Node Controller. A device (hardware or software-implemented) that converts digital data to and from audio tones for transmission and reception via a radio. TNCs implement the AX.25 protocol used by packet radio and APRS. Modern implementations are often software-based (software TNCs or software modems), eliminating the need for dedicated hardware. A TNC is required for APRS operation unless using a radio with a built-in TNC such as the Kenwood TM-D710.</dd>
+
+          <dt id="tps">TPS</dt>
+          <dd>Throttle Position Sensor. An electronic sensor in the vehicle's engine management system that reports the position of the throttle plate (or the electronic throttle actuator in drive-by-wire systems) to the engine control module. Relevant to mobile radio installations because TPS signal wiring, if routed near radio power cables, can pick up RFI and cause erratic engine behavior during transmission. Maintain adequate separation between radio wiring and engine management harnesses.</dd>
+        </dl>
+
+        <h2 id="section-u">U</h2>
+
+        <dl>
+          <dt id="unun">UNUN</dt>
+          <dd>An impedance transformer that matches an unbalanced source to an unbalanced load (hence UN-UN, as opposed to a BAL-UN which matches balanced to unbalanced). In mobile HF antenna systems, a UNUN is used to transform the low feed point impedance of the antenna (often 12 to 25 ohms on the mid-HF bands) up to the 50-ohm impedance of the coaxial feed line. Typical ratios are 4:1 or 9:1. A properly designed UNUN also provides a DC ground path for the antenna element, which is important for dissipating static charges that would otherwise damage the transceiver's front end. See the <a href="antenna-matching.html">Antenna Matching</a> article.</dd>
+        </dl>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="abcs.html">ABCs of Mobile HF</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

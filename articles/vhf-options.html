@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VHF/UHF Options — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Mobile VHF and UHF installation guide covering NMO mounts, mag mounts, antenna selection, RFI challenges, and why the same installation principles that apply to HF matter just as much above 50 MHz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>VHF/UHF Options</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="same-principles">The Same Principles Apply</h2>
+
+        <p>If you've spent any time reading the other articles on this site, you know that proper mobile HF installation requires attention to wiring, bonding, mounting, and safety. Here is something that shouldn't surprise you but apparently surprises a lot of people: <strong>every single one of those principles applies to VHF and UHF installations too.</strong> The frequencies are different. The physics is the same.</p>
+
+        <p>In fact, the case can be made that proper installation practices are <em>more</em> important for VHF/UHF mobile work, not less. The reason is simple: the incidence of RFI problems is often higher at VHF and UHF than at HF. Modern vehicles are packed with microprocessor-controlled systems operating at clock speeds that generate harmonics right into the VHF and UHF amateur bands. The vehicle's wiring harness acts as both a transmitting and receiving antenna for this digital hash. At HF, the coupling is often manageable. At VHF, it can be fierce.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Do not assume that because VHF/UHF antennas are small and the power is modest, you can cut corners on installation. Proper wiring, safe mounting, and attention to RFI are just as important above 50 MHz as they are below it. Sometimes more so.</p>
+        </div>
+
+        <h2 id="rfi-considerations">RFI: A Different Problem</h2>
+
+        <p>There's an important distinction between commercial-grade FM transceivers and amateur VHF/UHF radios that most hams never think about. Commercial mobile radios &mdash; the Motorola, Kenwood, and Harris units used by public safety and business fleets &mdash; are designed with narrow front-end filtering. They receive only within their assigned frequency band and reject everything else. These radios are nearly impervious to AM-detected RFI because their receivers simply don't respond to out-of-band signals.</p>
+
+        <p>Amateur VHF/UHF transceivers are a different animal entirely. They feature wide-band receive capability, often covering from broadcast FM through 900 MHz or beyond. This is a feature that hams love and that engineers wince at. That wide-open front end means the receiver happily detects anything that gets into it, including the broadband hash from your vehicle's CAN bus, engine computer, LED headlights, and every other digital system under the hood.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>AM RFI detection is a square-law function. This means that reducing the interfering signal by 3 dB reduces the detected noise level by 6 dB. This works in your favor: even modest improvements in shielding, filtering, or bonding yield outsized improvements in received noise levels. You don't have to eliminate the RFI source entirely. Just knocking it down partway can make a dramatic difference.</p>
+        </div>
+
+        <p>The practical implication is that common mode chokes on your feedline and power cables, plus proper hood and exhaust bonding, are often necessary even for a "simple" VHF/UHF installation. If you're hearing a buzzing, whining, or hissing noise on 2 meters or 70 cm that varies with engine RPM or appears when you turn on the headlights, you have an RFI problem that bonding and choking will address. Don't ignore it. Don't just turn up the squelch and pretend it's not there. Fix it. The articles on <a href="common-mode.html">Common Mode Currents</a> and <a href="rfi.html">RFI Problems</a> apply fully to VHF/UHF installations.</p>
+
+        <h2 id="roof-mounting">Roof Mounting</h2>
+
+        <p>The roof of the vehicle is the best possible location for a VHF/UHF antenna, bar none. It provides the most symmetrical ground plane, the highest vantage point, and the best omnidirectional coverage. For VHF and UHF, where the antenna is physically small and the ground plane requirements are modest compared to HF, a center-of-roof mount is as close to ideal as you'll get in a mobile installation.</p>
+
+        <p>There is, however, a complication that didn't exist twenty years ago.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Most modern vehicles have side curtain airbag (SRS) modules concealed within the headliner along the roof rails. The headliner must be partially removed to install a roof-mounted antenna, and in doing so there is real risk of disturbing the airbag wiring or triggering a fault code. Consult your vehicle's service manual before drilling the roof. On some vehicles, the side curtain airbag inflator is literally inches from where you'd want to place a roof-mount antenna cable. Proceed with caution, or have a professional shop do the installation.</p>
+        </div>
+
+        <p>This doesn't mean you shouldn't roof-mount. It means you need to know what's up there before you drill. Get the service manual. Identify the airbag module locations. Plan your cable routing to avoid them entirely. On some vehicles this is easy; on others it requires creative routing.</p>
+
+        <h2 id="mag-mounts">Magnetic Mounts</h2>
+
+        <p>Mag mounts are the path of least resistance for VHF/UHF, and to be fair, they work adequately for this purpose. At VHF and UHF wavelengths, the capacitive coupling between the mag mount's base and the vehicle roof provides a reasonably low-impedance path to the ground plane. The antenna pattern is acceptable. The SWR is usually fine. For casual 2-meter and 70-cm FM operation, a mag mount on the roof will get the job done without drilling holes.</p>
+
+        <p>That said, "adequate" is not "good." A permanent NMO mount will always outperform a mag mount. The direct electrical connection to the vehicle body eliminates the capacitive coupling loss and provides a more consistent ground plane connection. The mechanical security is vastly superior &mdash; mag mounts can and do come loose at highway speed, particularly on hot days when the magnet's holding force decreases, or when you drive through a car wash and forget the antenna is there.</p>
+
+        <p>For HF, mag mounts are much less adequate. The capacitive coupling that works passably at 146 MHz is grossly insufficient at 7 MHz. But this article is about VHF/UHF, so I'll simply note that if you're running an HF mobile installation, the mag mount needs to go. See the <a href="installation.html">Installation Notes</a> article.</p>
+
+        <h2 id="nmo-mounts">NMO Mounts: The Standard</h2>
+
+        <p>The NMO (New Motorola) mount is the de facto standard for professional and amateur mobile VHF/UHF antenna installations. A genuine NMO mount provides a weatherproof, mechanically robust, electrically solid connection between the antenna and the vehicle body. It requires a 3/4-inch hole in the mounting surface. Install it properly and forget about it for years.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>There is an important distinction between genuine NMO mounts and the import "NMO-style" mounts flooding the market. The import mounts are <strong>not compatible</strong> with genuine NMO antennas. The threading, the contact dimensions, and the mechanical tolerances differ enough that an antenna designed for a genuine NMO mount will not seat properly in an import mount, and vice versa. You'll get intermittent connections, poor SWR, and frustration. Buy genuine NMO mounts from reputable sources: Larsen, PCTEL, Laird, or equivalent. The few dollars you save on an import mount will cost you many times over in troubleshooting time.</p>
+        </div>
+
+        <p>While we're on the subject of imports: the import antennas themselves deserve scrutiny. Many are overpriced for what they deliver, of questionable mechanical sturdiness, and some use SO-239 connectors at the base rather than the NMO bayonet. An SO-239 connection at the antenna base is mechanically inferior to a proper NMO bayonet and introduces an unnecessary impedance discontinuity. It is a cost-cutting measure that benefits the manufacturer, not you.</p>
+
+        <h2 id="multiband-antennas">Multiband Antennas: Caveat Emptor</h2>
+
+        <p>The market is flooded with "multiband wonder antennas" that claim to cover 2 meters, 70 cm, 23 cm, and sometimes 6 meters, all from a single antenna with spectacular gain on every band. The claims range from optimistic to physically impossible.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>One popular import antenna's manual proudly claims it uses "two phasing coils to increase gain." A careful examination of the antenna reveals that one of these "phasing coils" is actually just a coupling element &mdash; a necessary part of getting the antenna to present 50 ohms on multiple bands. It does not increase gain. It cannot increase gain. Calling a matching network a "gain-increasing phasing coil" is marketing fiction, not antenna engineering.</p>
+        </div>
+
+        <p>Real-world gain from a mobile VHF/UHF antenna is modest. A quarter-wave ground plane on 2 meters (about 19 inches tall) has roughly 0 dBd gain. A 5/8-wave design gains about 3 dBd. A collinear design can push that to 5 or maybe 6 dBd, but it's going to be 4 to 5 feet tall and increasingly directional in elevation &mdash; fine on flat terrain, less useful in hilly country where you need some upward radiation angle.</p>
+
+        <p>Be particularly skeptical of any antenna shorter than 20 inches that claims more than unity gain on 2 meters. Physics doesn't care about marketing departments.</p>
+
+        <h2 id="aluminum-vehicles">Aluminum-Bodied Vehicles</h2>
+
+        <p>The increasing prevalence of aluminum body panels &mdash; Ford F-150s, Jaguar and Land Rover products, various luxury vehicles &mdash; introduces a specific concern for antenna mounting.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>On aluminum-bodied vehicles, use ONLY aluminum hardware for antenna mounting, including aluminum NMO mounts. Mixing dissimilar metals (copper, brass, or steel hardware against aluminum panels) causes galvanic corrosion. In the presence of road salt and moisture, this corrosion can progress rapidly, weakening the mount and degrading the electrical connection. The result is a mount that literally eats itself over one or two winters.</p>
+        </div>
+
+        <p>Contact your vehicle dealer or consult the service manual before installing any antenna mount on an aluminum-bodied vehicle. Some manufacturers have specific guidance &mdash; or specific prohibitions &mdash; regarding drilling into aluminum body panels. Warranty implications may also apply. It's better to ask first than to discover afterward that you've voided your body corrosion warranty.</p>
+
+        <h2 id="aprs">APRS Considerations</h2>
+
+        <p>APRS (Automatic Packet Reporting System) installations share all the same VHF installation requirements as voice, but with one additional wrinkle: the radio transmits automatically, on a schedule, without any action from the operator. This means that any RFI problem, any common mode issue, any poorly suppressed noise source will be aggravated continuously rather than only when you press the PTT.</p>
+
+        <p>GPS receivers used for APRS position reporting are also sensitive to RFI. A poorly installed VHF antenna radiating common mode currents along the feedline can desensitize or jam a GPS receiver mounted nearby. The symptom is intermittent position fixes or complete loss of GPS lock during transmit. The fix is the same as always: choke the common mode on the feedline. A few turns through a suitable ferrite core near the radio end of the feedline is usually sufficient.</p>
+
+        <p>Mount the GPS antenna as far from the VHF transmit antenna as practical. On a sedan, the VHF antenna on the center of the roof and the GPS antenna on the rear deck works well. On a smaller vehicle, a combination VHF/GPS antenna from a reputable manufacturer may be the better choice, as the internal filtering is designed to handle the coexistence problem.</p>
+
+        <h2 id="handhelds">Handhelds in the Vehicle</h2>
+
+        <p>A handheld radio sitting in a cup holder with its rubber duck antenna is not a mobile installation. It's a handheld being used in a car. The distinction matters because performance is abysmal: the rubber duck antenna inside the vehicle body is shielded from the outside world by the vehicle's sheet metal, and what little signal escapes does so in an unpredictable, inefficient pattern.</p>
+
+        <p>If you must use a handheld as your "mobile" rig, at minimum connect it to an external antenna mounted on the vehicle. Most handhelds accept a BNC or SMA adapter to connect external antennas. This single change &mdash; moving the antenna from inside the car to outside the car, mounted on the roof or trunk &mdash; will improve your effective radiated power by 10 to 20 dB. That is not an exaggeration.</p>
+
+        <p>Power wiring for handhelds is simpler than for full-power mobiles, but the same safety considerations apply. Use a proper power adapter, fused at the appropriate current, run from a solid power source. Don't use a cigarette lighter adapter for permanent installations. They are mechanically unreliable and introduce additional voltage drop.</p>
+
+        <h2 id="ssb-on-vhf">SSB on VHF</h2>
+
+        <p>Weak-signal VHF work &mdash; SSB, CW, and digital modes on 2 meters and above &mdash; has its own set of considerations. These modes are far more sensitive to noise than FM, because there is no capture effect or squelch to mask low-level interference. Every bit of vehicle-generated noise that an FM receiver would squelch out, an SSB receiver will faithfully present to your ears.</p>
+
+        <p>If you plan to operate SSB on 2 meters or 70 cm from the vehicle, the installation requirements approach or equal those of a serious HF mobile installation. Thorough bonding, common mode suppression, and careful attention to noise sources become essential. The antenna requirements also differ: SSB operators prefer horizontally polarized antennas for weak-signal work, which means a different antenna system than the vertical whip used for FM repeater operation. Some operators carry a portable mast and horizontal antenna for use during stops, keeping the vertical for FM use while mobile.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>For mobile SSB on VHF, consider operating with the engine off when possible. Park on a hilltop, shut down the engine, and enjoy a noise floor that drops dramatically. Many successful VHF contest and DX contacts are made this way &mdash; it's "portable" as much as "mobile," but it works.</p>
+        </div>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>VHF/UHF mobile installation is not the casual, slap-it-on-and-go affair that many operators treat it as. The same fundamentals that make an HF installation work well &mdash; proper wiring, secure mounting, adequate bonding, common mode suppression &mdash; apply equally above 50 MHz. The antennas are smaller and the power is lower, but the physics hasn't changed and the vehicles have gotten noisier. Take the installation seriously, use genuine mounting hardware, be skeptical of miracle antennas, and you'll have a VHF/UHF setup that performs reliably instead of one that "works, sort of, most of the time."</p>
+
+        <p>That last phrase, by the way, is the hallmark of a lazy installation. Don't settle for it.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="installation.html">Installation Notes</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="safety.html">Safety</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

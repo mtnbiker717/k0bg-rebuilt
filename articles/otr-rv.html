@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTR &amp; RV Installations — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Practical guidance for installing HF amateur radio in over-the-road trucks and recreational vehicles, covering antenna mounting, grounding, RFI suppression, and wiring challenges unique to large vehicles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>OTR &amp; RV Installations</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="reality-check">A Reality Check</h2>
+
+        <p>Every few months, someone on the forums asks how to "just throw an HF rig" into their Class A motorhome or Peterbilt. The short answer is: you don't <em>just</em> do anything when it comes to OTR trucks and recreational vehicles. The answers aren't always simple, the solutions are almost always more expensive than in a passenger vehicle, and the manufacturers are generally less cooperative&mdash;especially when the chassis and coachwork come from different companies, which is nearly always the case.</p>
+
+        <p>If you've read the other articles on this site, you know that a successful mobile HF installation depends on a solid ground plane, short cable runs, proper bonding, and effective RFI suppression. OTR trucks and RVs challenge every single one of those requirements. That's not a reason to give up. It's a reason to understand what you're dealing with before you start drilling holes and stringing coax.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Nearly everything that makes passenger-vehicle HF installations straightforward&mdash;all-steel bodies, short cable runs, a unified ground plane&mdash;is absent or compromised in OTR trucks and RVs. Plan accordingly, and budget accordingly.</p>
+        </div>
+
+        <h2 id="the-body-problem">The Body Problem: It Isn't Steel</h2>
+
+        <p>This is the single biggest issue and the one that most newcomers fail to grasp. The body of your RV or the sleeper/cab of your OTR truck is, in large part, <strong>not steel</strong>. Fiberglass, aluminum, composite panels, rubber-mounted cab assemblies&mdash;these are the norm, not the exception. A Class A motorhome is essentially a fiberglass box bolted to a chassis. A fifth-wheel is even worse: it has no electrical connection to a tow vehicle's ground plane at all when unhitched.</p>
+
+        <p>What does this mean in practice? It means you have no unified, low-impedance ground plane for your antenna system. It means the factory wiring harnesses&mdash;which are <em>long</em>, sometimes absurdly so&mdash;run through and along non-conducting body panels with only a myriad of ground straps and individual conductors providing any return path. Those long lengths of unshielded wire become antennas in their own right, providing inordinate RF ingress and egress paths.</p>
+
+        <p>Every wire in the vehicle becomes a potential source of RFI or a victim of your transmitted signal. The slide-out motors, the leveling jacks, the awning controller, the entertainment system, the LP gas detector, the inverter&mdash;all of them are connected by long runs of wire through a body that does absolutely nothing to shield them from RF.</p>
+
+        <h2 id="power-systems">Power Systems: The Good News and the Bad</h2>
+
+        <p>OTR trucks and RVs are rarely short of electrical power. A typical Class A motorhome has one or two chassis batteries plus a house battery bank, often 400 amp-hours or more. OTR trucks commonly run 150 to 250 amp alternators, and some have dual alternators. You will not have a power problem running a 100-watt HF transceiver.</p>
+
+        <p>However&mdash;and there's always a however&mdash;those large alternators and multiple charging systems are prolific sources of RFI. Dual alternators are particularly troublesome because they can produce intermodulation products that are extremely difficult to filter. The high-current charging cables, which may run six feet or more, radiate broadband noise that loves to couple into your receive system.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Some heavy-duty OTR trucks use <strong>24-volt electrical systems</strong>. Check before you connect anything. Most amateur transceivers are designed for 13.8 VDC nominal. Connecting one to a 24-volt system will destroy it instantly, and your warranty won't cover your mistake.</p>
+        </div>
+
+        <p>Proper power wiring for the transceiver follows the same principles outlined in the <a href="wiring.html">Wiring</a> article, but with the added caveat that your cable runs will almost certainly be longer. Use appropriately sized wire&mdash;10 AWG minimum for runs over 10 feet at 100 watts&mdash;and fuse both the positive and negative leads at the battery. Do not tap into existing circuits, do not use the cigarette lighter socket, and do not rely on the chassis for your negative return. Run a dedicated negative wire back to the battery.</p>
+
+        <h2 id="rfi-suppression">RFI Suppression: Split Beads Are Not Optional</h2>
+
+        <p>Let me be blunt: if you're installing HF in an OTR truck or RV, the liberal use of split ferrite beads is <strong>mandatory</strong>. Not suggested. Not recommended. Mandatory.</p>
+
+        <p>The combination of non-conducting body panels, long factory wiring harnesses, and multiple electronic control systems creates an RF environment that would make a passenger-vehicle installer weep. You will need split beads (type 31 or 43 material for HF) on:</p>
+
+        <ul>
+          <li>The transceiver power leads</li>
+          <li>The coax feed line (common mode choke&mdash;more on this below)</li>
+          <li>Motor control cables for slides, jacks, and awnings</li>
+          <li>The entertainment system wiring</li>
+          <li>LP gas detector leads</li>
+          <li>Inverter AC and DC leads</li>
+          <li>Any cable that runs more than a few feet through the vehicle</li>
+        </ul>
+
+        <p>Yes, this gets expensive. Welcome to OTR/RV mobile. Nobody said it was cheap.</p>
+
+        <h3 id="motor-control-cables">Motor Control Cables</h3>
+
+        <p>The long motor control cable runs in RVs deserve special attention. These cables&mdash;going to slide-out motors, leveling jacks, and other actuators&mdash;can be 20 feet or more in length. Split beads may not be sufficient. In some cases, you may need to replace the factory cable with <strong>shielded cable</strong>.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>If you use shielded cable for motor control runs, ground the shield on the <strong>antenna end only</strong>&mdash;that is, the end closest to your antenna installation. Do NOT ground both ends. Grounding both ends of a shield creates a ground loop that will make your RFI problem worse, not better.</p>
+        </div>
+
+        <h2 id="common-mode-chokes">Common Mode Chokes: Non-Negotiable</h2>
+
+        <p>On any vehicle with non-conducting body surfaces, you must install a common mode choke on the coax feed line to the antenna. This is true whether your antenna is mounted on the roof, on a bumper bracket, or on a trailer hitch mount. The outer surface of the coax braid will carry common mode currents back into the vehicle, and with no conducting body to provide a low-impedance path, those currents will find their way into every wire in the coach.</p>
+
+        <p>A proper common mode choke for HF can be made by winding 8 to 10 turns of your coax through a type 31 toroid core (FT-240-31 is the standard choice), or by stacking multiple snap-on split beads of the same material. See the <a href="common-mode.html">Common Mode Currents</a> article for construction details.</p>
+
+        <h2 id="antenna-mounting">Antenna Mounting: Where the Compromises Live</h2>
+
+        <p>Antenna mounting on an OTR truck or RV is where most of the painful compromises happen. The ideal HF mobile antenna mount&mdash;centered on a large, flat, all-steel roof&mdash;simply doesn't exist on these vehicles. You're working with fiberglass roofs, aluminum skin over wooden framing, rubber-mounted cabs, and surfaces that flex and leak if you drill through them carelessly.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p><strong>Do NOT mount a screwdriver antenna base inside the RV with only the whip protruding through the roof.</strong> This is the single lossiest possible configuration. The loading coil must be outside the vehicle where it can radiate. Mounting the base inside puts the high-current portion of the antenna system inside a lossy enclosure surrounded by wiring that will absorb your signal. You will be heard by nobody.</p>
+        </div>
+
+        <p>Practical mounting options for RVs include:</p>
+
+        <ul>
+          <li><strong>Roof-mounted base on a steel plate:</strong> A steel plate (at least 12 by 12 inches, bonded to whatever chassis ground is accessible) provides a local ground plane. Not ideal, but workable.</li>
+          <li><strong>Bumper or hitch mount:</strong> Keeps the antenna on the steel frame, which helps with ground plane. Watch for feed line routing.</li>
+          <li><strong>Ladder mount:</strong> If the RV has a steel rear ladder bolted to the frame, this can be a decent mounting point.</li>
+        </ul>
+
+        <p>For OTR trucks, the mirror brackets and cab roof are common mounting points, but remember that rubber-mounted cabs are electrically isolated from the chassis. You'll need a bonding strap from the cab to the frame.</p>
+
+        <h2 id="stationary-operation">Stationary Operation: Forget the Tripod Fantasy</h2>
+
+        <p>Here's where I'm going to upset some people. A mobile antenna stuck on a tripod next to your parked RV, with or without a few radials tossed on the ground, is <strong>not an efficient antenna</strong>. It's a compromise on top of a compromise. The ground losses with a few short radials on dirt or pavement are enormous, and the radiation pattern is mediocre at best.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>A pair of Hamstick dipoles on a tripod is not a meaningful improvement. Hamsticks are already a severe compromise as mobile antennas; using them as a fixed dipole when you have the space and time to put up a proper antenna is just lazy. Use a real dipole&mdash;even a simple wire dipole strung between two trees or a mast and your RV will dramatically outperform any Hamstick arrangement.</p>
+        </div>
+
+        <p>If you're going to be stationary for any length of time, put up a proper dipole. A simple wire dipole for 40 meters costs about five dollars in wire and a balun. It will outperform your mobile antenna on a tripod by 10 to 15 dB on receive and nearly as much on transmit. That's the difference between working a station easily and not hearing them at all.</p>
+
+        <h2 id="cowl-and-body-variations">Cowl and Body Variations</h2>
+
+        <p>One thing that makes OTR and RV installations especially frustrating is the variation between models and model years. The cowl area&mdash;where the windshield meets the dashboard and the firewall transitions to the body&mdash;varies enormously. What worked on a 2018 Freightliner Cascadia may not work on a 2020. What worked on a Winnebago View may be completely different on a Navion, even though they share a chassis.</p>
+
+        <p>Plastic and fiberglass body sections in the cowl area mean that factory wiring harnesses pass through non-shielding material. If you're chasing RFI, you may need to trace harnesses through areas you didn't expect, and you may find that bonding solutions that work on one vehicle are ineffective on another. Take good notes, be methodical, and don't assume anything transfers between vehicles.</p>
+
+        <h2 id="practical-approach">A Practical Approach</h2>
+
+        <p>If I were starting from scratch on an RV or OTR installation, here's the order I'd tackle things:</p>
+
+        <ol>
+          <li><strong>Power first.</strong> Run dedicated, properly fused, properly sized power leads from the battery to the radio location. Get this right before you do anything else.</li>
+          <li><strong>Antenna mount and feed line.</strong> Choose your mounting location, install the mount with proper bonding to the nearest steel, run the coax with a common mode choke.</li>
+          <li><strong>Receive-only test.</strong> Before you ever transmit, listen. Tune across the bands and identify every source of noise. Fix them one at a time with ferrite beads, starting at the radio and working outward.</li>
+          <li><strong>Transmit test.</strong> Key up into a dummy load first. Does anything in the RV go haywire? If so, you have common mode issues to resolve before you put power to the antenna.</li>
+          <li><strong>On-air test.</strong> Now you can try the antenna. Check SWR, make some contacts, and listen for reports of your signal quality.</li>
+        </ol>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Keep a log of every modification, every bead you install, and every RFI source you identify. OTR and RV installations are iterative&mdash;you'll be revisiting and refining for weeks or months. Good notes save you from repeating work.</p>
+        </div>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>Installing HF in an OTR truck or RV is absolutely doable, but it requires more effort, more expense, and more patience than a passenger vehicle. The non-conducting body panels, long cable runs, multiple electronic systems, and limited antenna mounting options all conspire against you. The solutions are the same as in any mobile installation&mdash;bonding, common mode suppression, proper wiring, and sensible antenna choices&mdash;but you'll need more of everything and you'll need to be more methodical about it.</p>
+
+        <p>Don't let forum posts or YouTube videos convince you it's a weekend project. Do it right, or don't do it at all. A poorly installed HF system in an RV is worse than no system&mdash;it's a source of frustration and RFI that will sour you on mobile operating forever.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

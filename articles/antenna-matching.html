@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Matching — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="How to properly match a mobile HF antenna to 50 ohms using shunt coils, UNUNs, and stub matching. Why chasing low SWR instead of zero reactance is a mistake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Matching</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="why-matching-matters">Why Matching Matters</h2>
+
+        <p>Every modern solid-state HF transceiver on the market has built-in protection circuitry that reduces output power when the SWR climbs above roughly 2:1. Some rigs fold back even sooner. This is not a defect &mdash; it is the manufacturer keeping you from cooking the final transistors. The practical consequence is straightforward: if your antenna system presents anything worse than about 2:1 SWR to the radio, you are not getting full power to the antenna. Period.</p>
+
+        <p>So matching a mobile HF antenna to 50 ohms is not optional. It is required. Not "recommended," not "a good idea" &mdash; <em>required</em>. If you want your transceiver to deliver rated power, you must present it with a load close to 50 ohms resistive.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Your target is an SWR below 1.6:1 at resonance. Anything below that and you are close enough. If your unmatched antenna already reads below 1.6:1 at resonance, you do not need a matching device &mdash; but you probably need to examine whether your antenna and mounting are actually working correctly, because a properly mounted HF mobile antenna rarely presents a perfect 50-ohm load without help.</p>
+        </div>
+
+        <h2 id="the-impedance-reality">The Impedance Reality</h2>
+
+        <p>Here is the fact that trips up most newcomers: a correctly mounted HF mobile antenna, at resonance, typically presents a feed-point impedance of around 25 ohms resistive. In a 50-ohm system, that is a 2:1 SWR &mdash; right at the threshold where your radio starts cutting power. This is normal. This is expected. And this is exactly why you need a matching device.</p>
+
+        <p>If your unmatched SWR at resonance is significantly worse than 2:1 &mdash; say 3:1 or higher &mdash; you do not have a matching problem. You have an antenna or mounting problem. No matching device will fix poor bonding, a bad ground plane, or a defective antenna. Fix the underlying issue first, then worry about matching. Putting a matching network on a broken antenna system is like putting a fresh coat of paint on a car with a blown engine.</p>
+
+        <h2 id="reactance-vs-swr">Reactance vs. SWR: The Critical Distinction</h2>
+
+        <p>This is where most people get it wrong, and I mean <em>most</em> people. Sit down, because this matters.</p>
+
+        <p>When adjusting your antenna for resonance, you should be looking for the point of lowest reactance (X=0), <strong>not</strong> the point of lowest SWR. These are not the same point. Read that again. They are not the same point.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>If you adjust your antenna below resonance, the indicated SWR will drop to approximately 1.5:1. This looks great on the meter, and it fools people every single day. But you are not at resonance. You have simply moved to a point where the complex impedance happens to present a numerically lower SWR to a 50-ohm instrument. The antenna is not resonant, and your system is not optimized. You have traded actual performance for a number that makes you feel good.</p>
+        </div>
+
+        <p>The only way to find true resonance is with an antenna analyzer that has a reactance readout. You want the frequency where X equals zero (or as close to zero as you can get). The SWR at that point will typically be around 2:1 for an unmatched mobile antenna &mdash; and that is correct. That is where you apply your matching device.</p>
+
+        <p>An SWR-only meter or an analyzer without reactance display is inadequate for this task. If your analyzer does not show reactance, get one that does. This is not the place to economize.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>"My antenna manufacturer told me to cut my coax to a specific length for best SWR." Ignore this advice. Completely. If the SWR changes when you change coax length, you have a common-mode current problem, not a matching problem. Cutting coax to a magic length masks the real issue while doing nothing to solve it. It is a band-aid on a broken leg.</p>
+        </div>
+
+        <h2 id="dc-grounding">DC Grounding the Antenna Element</h2>
+
+        <p>Before we get into matching methods, a word about DC grounding. Your antenna element should be DC grounded &mdash; meaning there is a direct-current path from the radiating element to the vehicle chassis. This is important for two reasons:</p>
+
+        <ol>
+          <li><strong>Static discharge.</strong> A mobile antenna moving through the air accumulates static charge. Without a DC path to ground, this charge builds up until it arcs across your matching device or into your coax, generating noise that sounds like bacon frying in your receiver. A DC ground bleeds off this charge continuously and silently.</li>
+          <li><strong>Lightning safety.</strong> While no antenna system will protect you from a direct lightning strike, a DC-grounded element provides a preferential path for nearby static discharge rather than through your radio. It is basic safety practice.</li>
+        </ol>
+
+        <p>Now, a critical clarification: DC grounded does <em>not</em> mean RF grounded. At radio frequencies, a direct wire to chassis has significant impedance. The matching methods described below all provide a DC ground path while simultaneously transforming impedance at RF. Do not confuse the two functions.</p>
+
+        <h2 id="matching-methods">The Three Matching Methods</h2>
+
+        <p>There are three legitimate ways to match a mobile HF antenna to 50 ohms: the shunt coil (LC network), the UNUN, and stub matching. Each has its place. Here is when and how to use them.</p>
+
+        <h3 id="shunt-coil">Shunt Coil (LC Network) &mdash; The Preferred Method</h3>
+
+        <p>The shunt coil is an inductor connected from the antenna feed point to ground, forming an LC matching network with the antenna's inherent capacitance. This is the preferred matching method for most mobile HF installations, and for good reason: it is simple, broadband enough for practical use, provides a DC ground, and introduces minimal loss.</p>
+
+        <p>The typical value needed is approximately 1 microhenry, though the actual optimum will fall somewhere between 0.5 and 1.5 microhenries depending on your specific antenna and mounting. A practical starting point is 9 turns of #14 Thermaleze wire wound on a 1-inch inside diameter form, with a form factor (length-to-diameter ratio) close to 1:1.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The ground end of the shunt coil must be collocated with the coax shield ground point. If these two ground connections are separated by even a few inches, you introduce a ground loop that will compromise the match and potentially create common-mode current problems. Same bolt, same point, no exceptions.</p>
+        </div>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Shunt coil at antenna feedpoint</span>
+          <p>Hand-wound shunt coil — 9 turns, 1-inch inside diameter, #14 Thermaleze wire — installed at the antenna base with ground end collocated with the coax shield connection.</p>
+          <span class="placeholder-source">Photo requested from W1AST (stationproject.blog)</span>
+        </figure>
+
+        <p>You adjust the match by compressing or spreading the turns, or by tapping the coil at different points. Start with all turns in the circuit and remove turns (or move the tap point) until you achieve the best match at resonance. Remember: find resonance first (X=0), then adjust the shunt coil for lowest SWR at that frequency.</p>
+
+        <p>A word about commercial shunt coils with fixed inductance values: avoid them. A fixed-value coil cannot provide an ideal match across the full span of operating conditions. Your antenna's feed-point impedance varies with frequency, mounting location, and even vehicle type. An adjustable coil lets you optimize the match for your specific installation. A fixed coil is a compromise, and in this case, it is an unnecessary one.</p>
+
+        <h3 id="unun">The UNUN</h3>
+
+        <p>An UNUN (unbalanced-to-unbalanced transformer) provides both a DC ground and an impedance transformation. The MFJ-907 is a commercially available example. The UNUN is particularly well-suited for installations using different-length monobander antennas, where you may need to change the matching between bands.</p>
+
+        <p>With a remotely tuned antenna, you can change taps on the UNUN between bands to maintain a good match across a wide frequency range. This makes the UNUN more versatile than a shunt coil in multi-band installations where the feed-point impedance varies significantly from band to band.</p>
+
+        <p>For the do-it-yourself crowd, an effective UNUN can be built using an F114-67 ferrite core wound with 9 bifilar turns of #14 enameled copper wire. Cover the finished winding with 3M #27 glass tape for mechanical protection and moisture resistance. The ferrite mix matters &mdash; type 67 is specified because it provides adequate permeability with acceptable loss across the HF spectrum. Do not substitute random ferrite material and expect the same results.</p>
+
+        <h3 id="stub-matching">Stub Matching</h3>
+
+        <p>Stub matching uses a length of transmission line as a matching element. While it works, it is the least common method for mobile installations because it requires a specific length of coax that changes with frequency. It is mentioned here for completeness, but for most practical mobile installations, the shunt coil or UNUN will serve you better.</p>
+
+        <h2 id="motor-lead-considerations">Motor Lead Considerations</h2>
+
+        <p>If you are using a remotely tuned antenna (and most serious mobile operators are), pay attention to this: <strong>disconnect the motor leads before adjusting your matching device.</strong></p>
+
+        <p>The motor control wires running up to the antenna coil are coupled to the RF field. If they are connected while you are trying to adjust your matching network, they will affect the readings. Adjust the match with the motor leads disconnected, then reconnect them.</p>
+
+        <p>Here is the diagnostic part: if reconnecting the motor leads changes your matching point, your motor lead choke impedance is too low. The choke on those leads must present enough impedance at RF to effectively decouple them from the antenna system. If reconnecting the leads shifts your match, you need a better choke. See the <a href="antenna-controllers.html">Antenna Controllers</a> article for details on proper choke construction.</p>
+
+        <h2 id="imd-and-swr">IMD and SWR</h2>
+
+        <p>There is another reason to keep your SWR low that has nothing to do with power output: intermodulation distortion. Solid-state transceivers can generate excessive IMD when operating into a mismatched load. When the SWR exceeds approximately 1.8:1, the final amplifier stage is no longer operating in its designed impedance environment, and the linearity suffers.</p>
+
+        <p>The result is spurious signals &mdash; splatter on adjacent frequencies that makes you sound like a buzzsaw and earns you no friends on the band. Garbage in, garbage out. A clean match means a clean signal. If you care about signal quality (and you should), keep that SWR under control.</p>
+
+        <h2 id="bci-on-analyzers">BCI on Your Antenna Analyzer</h2>
+
+        <p>One more practical note. If you are using an antenna analyzer and notice that the SWR meter deflects when the analyzer is in frequency counter mode (not transmitting, just receiving), you have broadcast interference &mdash; BCI. The analyzer is picking up strong local broadcast signals that are contaminating your measurements.</p>
+
+        <p>This will make your SWR readings unreliable. Move to a location away from broadcast towers, or use the analyzer at a time when local AM stations are at reduced power (late night). Better yet, use an analyzer with better front-end filtering. Inaccurate measurements lead to incorrect adjustments, and you will chase your tail all afternoon wondering why the antenna won't tune right.</p>
+
+        <h2 id="summary">Putting It All Together</h2>
+
+        <p>The matching procedure, done correctly, goes like this:</p>
+
+        <ol>
+          <li>Verify your antenna is properly mounted with adequate bonding and ground plane. Fix any problems first.</li>
+          <li>Disconnect motor leads if using a remotely tuned antenna.</li>
+          <li>Use an antenna analyzer with reactance readout to find the frequency where X=0. That is resonance.</li>
+          <li>Note the SWR at resonance. It will typically be around 2:1 for an unmatched, correctly installed mobile antenna.</li>
+          <li>Install your matching device (shunt coil or UNUN) and adjust for lowest SWR at the resonant frequency.</li>
+          <li>Reconnect motor leads. If the match shifts, improve your motor lead choke.</li>
+          <li>Verify SWR is below 1.6:1. You are done.</li>
+        </ol>
+
+        <p>It is not complicated. But it does require doing things in the right order, with the right instruments, and resisting the temptation to chase numbers instead of understanding what those numbers actually mean.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="amplifiers.html">Amplifiers</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

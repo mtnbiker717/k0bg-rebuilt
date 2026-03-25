@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Comprehensive safety guide for mobile amateur radio installations. Covers airbag hazards, RF exposure, electrical safety, mounting safety, driving distraction, and vehicle-specific dangers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Safety</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+        <!-- JS generates TOC from H2s -->
+      </div>
+
+      <div class="article-body">
+
+        <p>Safety is not a suggestion. It is not something you get around to after the installation is working. It is the first consideration and the last check, and if you treat it as anything less, you are putting yourself, your passengers, and other drivers at risk. I have seen hams do spectacularly dangerous things in the name of getting on the air from their vehicles, and the fact that most of them got away with it does not make it acceptable.</p>
+
+        <p>This article covers every major safety consideration in a mobile amateur radio installation. Read it before you start. Refer back to it during your installation. And if something here conflicts with your plan, change your plan &mdash; not this article.</p>
+
+        <h2>Airbags and the SRS System</h2>
+
+        <p>Modern vehicles are packed with airbags, and most hams have no idea how many or where they are located. The Supplemental Restraint System (SRS) in a current-production vehicle typically includes:</p>
+
+        <ul>
+          <li><strong>Steering wheel airbag</strong> &mdash; directly in front of the driver</li>
+          <li><strong>Passenger dashboard airbag</strong> &mdash; concealed behind the dash surface on the passenger side</li>
+          <li><strong>Side curtain airbags</strong> &mdash; hidden along the headliner, deploying downward to cover the side windows</li>
+          <li><strong>Seat-mounted side airbags</strong> &mdash; in the outboard bolsters of the front seats</li>
+          <li><strong>Knee airbags</strong> &mdash; below the steering column and sometimes the passenger side</li>
+        </ul>
+
+        <p>The wiring for these systems runs through the roof pillars (A-pillar, B-pillar, and C-pillar), along the headliner, under the dash, and through the seats. When you route your radio wiring or coax through any of these areas, you risk damaging SRS wiring. If an airbag fails to deploy in a collision because you nicked its wiring while fishing coax behind the headliner, someone may die.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>NEVER work near SRS wiring without first disconnecting the vehicle battery and waiting a minimum of 10 minutes.</strong> The SRS system contains capacitors that store enough energy to deploy an airbag even with the battery disconnected. These capacitors require time to discharge. Your vehicle's service manual will specify the exact wait time &mdash; for some vehicles it is 10 minutes, for others it is longer. Do not guess. An airbag deploying in your face while you are working under the dash can cause severe injury or death.</p>
+        </div>
+
+        <p>SRS wiring is typically enclosed in bright yellow conduit or has yellow connectors. Learn to recognize it. Do not cut it, splice into it, zip-tie your wiring to it, or run your cables in the same conduit. Give it a wide berth and treat it with the respect that an explosive device deserves &mdash; because that is exactly what an airbag inflator is.</p>
+
+        <h3>Dashboard Mounting and Airbag Deployment Zones</h3>
+
+        <p>Do not mount anything atop the dashboard. This bears repeating from the <a href="abcs.html">ABCs</a> article because it is a safety issue, not merely an installation preference. The passenger airbag deploys upward through a concealed seam in the dash surface. Anything sitting on that surface &mdash; a radio head, a GPS, a cell phone mount, your coffee cup &mdash; becomes a projectile. At the speeds involved in airbag deployment, even a small object can cause lethal injuries.</p>
+
+        <p>Do not mount equipment in foot wells, particularly the driver's. An object that slides under the brake pedal during a panic stop or collision will prevent you from stopping the vehicle. It does not matter how small it is or how well you believe it is secured.</p>
+
+        <h2>RF Exposure</h2>
+
+        <p>Radio frequency energy at the power levels we use in mobile operation is not ionizing radiation, and it will not give you cancer. But it can cause tissue heating, and at HF through UHF frequencies, the effects are well documented and real. The FCC publishes guidelines in <strong>OET Bulletin 65</strong> that every amateur is required to follow. Being in a vehicle does not exempt you.</p>
+
+        <h3>Antenna Placement</h3>
+
+        <p>The single most important factor in RF exposure safety is <strong>keeping the antenna as far from the passenger compartment as possible</strong>. A center-of-roof mount is ideal for VHF/UHF. For HF whip antennas, a rear bumper, trailer hitch, or rear fender mount puts the maximum practical distance between the antenna and the vehicle occupants.</p>
+
+        <p>Power density decreases with the square of the distance from the antenna. Doubling the distance reduces exposure by a factor of four. This is why a trunk-lip mount at the rear of the vehicle is dramatically safer than a fender mount near the passenger compartment.</p>
+
+        <h3>HF vs. VHF Exposure Considerations</h3>
+
+        <p>The human body absorbs RF energy differently at different frequencies. At HF frequencies (3&ndash;30 MHz), the wavelengths are long relative to the human body, and absorption is relatively low but not zero. At VHF and especially UHF frequencies (above 30 MHz), the body absorbs energy much more efficiently. A 50-watt VHF signal from a poorly placed antenna is a greater exposure concern than 100 watts on 80 meters from the same distance.</p>
+
+        <p>Do not operate high power (more than 50 watts) on VHF/UHF with the antenna mounted anywhere close to the passenger compartment. And never transmit on any frequency with a handheld held against your head inside a vehicle &mdash; the metal roof and pillars create reflections that can increase local RF exposure significantly.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Perform an RF exposure evaluation for your specific installation using the FCC's OET Bulletin 65 guidelines or the ARRL's online RF exposure calculator. This is not optional &mdash; it is a regulatory requirement. Document your results and keep them with your station records.</p>
+        </div>
+
+        <h2>Electrical Safety</h2>
+
+        <p>Improperly wired radio installations cause vehicle fires. This is not an exaggeration or a scare tactic. I have personally seen the aftermath of three vehicle fires caused by amateur radio wiring, and I have heard of dozens more. In every case, the cause was the same: inadequate fusing, undersized wire, or both.</p>
+
+        <h3>Fusing</h3>
+
+        <p><strong>Always fuse at the battery.</strong> Both the positive and negative leads must have fuses, and those fuses must be located as close to the battery terminals as possible. The purpose of a fuse is not to protect your radio &mdash; it is to protect the wire. If the wire chafes through its insulation and contacts the vehicle body (which is the negative return path), the full current capacity of your battery will flow through that wire. A car battery can deliver 500 to 1,000 amperes into a dead short. An unfused 10-gauge wire carrying that current will glow red and ignite anything it touches in seconds.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The fuse protects the wire, not the radio. Size the fuse for the wire gauge, not for the equipment. A 40-amp fuse on a wire rated for 20 amps is not a fuse &mdash; it is a fire waiting to happen. Both the positive and negative leads must be dedicated runs from the battery with fuses at the battery end.</p>
+        </div>
+
+        <h3>Dedicated Wiring</h3>
+
+        <p>Never use existing vehicle wiring to power radio equipment. Never tap into the fuse box. Never splice into the cigarette lighter circuit. Every one of these shortcuts introduces noise into your receiver, creates ground loops, and risks overloading circuits that were designed for specific loads. Run dedicated wires directly from the battery, properly fused, using wire gauges appropriate for the current draw and the length of the run. See the <a href="wiring.html">Wiring</a> article for sizing tables and routing guidance.</p>
+
+        <h2>Driving Distraction</h2>
+
+        <p>Let me be direct: operating a radio while driving is an inherently distracting activity. You are splitting your attention between piloting a multi-ton vehicle at highway speeds and communicating on the radio. The only responsible way to manage this is to minimize the operational demands of the radio to the greatest extent possible.</p>
+
+        <h3>Automation</h3>
+
+        <p>Use an automatic antenna controller. Use a radio with memories programmed for your most-used frequencies. Use voice keying if you operate contests. Use anything and everything that reduces the number of times you must look away from the road or take a hand off the wheel.</p>
+
+        <p><strong>Do not tune your antenna while driving.</strong> Do not adjust your screwdriver antenna manually while driving. Do not swap resonators while driving. If you must make changes that require your attention, pull over. It will cost you two minutes. An accident will cost you a great deal more.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Many jurisdictions now have distracted driving laws that explicitly or implicitly cover amateur radio operation. A radio mounted where it obstructs your view, or the act of operating it in a way that diverts your attention, can result in citations. More importantly, it can result in collisions. No QSO is worth a life.</p>
+        </div>
+
+        <h2>Lightning</h2>
+
+        <p>A vertical antenna on the roof of your vehicle is, by definition, the highest point on the vehicle. Lightning will find it. While a direct strike on a moving vehicle is relatively rare, it does happen, and the consequences range from destroyed electronics to structural damage to the vehicle.</p>
+
+        <p>DC-grounded antennas &mdash; those with a direct DC path from the antenna element to the vehicle body &mdash; are inherently safer than antennas with series capacitors or matching networks that block DC. A DC-grounded antenna provides a path for static charge to dissipate before it builds to the point where a strike becomes likely. Most screwdriver antennas and continuously loaded whips are DC grounded. Many base-loaded antennas are not.</p>
+
+        <p>If you are parked during a thunderstorm, disconnect the coax from the radio. Better yet, disconnect the antenna entirely if practical. The energy in even a nearby strike can induce voltages in your antenna system that will destroy your transceiver's front end. A replacement radio costs far more than the inconvenience of disconnecting a cable.</p>
+
+        <h2>High Voltage Hazards</h2>
+
+        <h3>Amplifiers</h3>
+
+        <p>Mobile amplifiers that use vacuum tubes (and some solid-state designs with internal power supplies) contain <strong>lethal voltages</strong>. A typical mobile tube amplifier operates with plate voltages of 1,200 to 2,500 volts DC. This will kill you. It will not merely give you a tingle or throw you across the room &mdash; it will stop your heart.</p>
+
+        <p>Never open a mobile amplifier enclosure while it is connected to power. Even after disconnecting power, capacitors in the power supply may retain a lethal charge for minutes. If you are not trained in high-voltage safety procedures, do not service your own amplifier. Send it to someone who is.</p>
+
+        <h3>Antenna Tip Voltages</h3>
+
+        <p>Loading coils on HF mobile antennas can develop surprisingly high RF voltages at the tip of the antenna during transmission. On the lower bands (160 and 80 meters), where the antenna is a tiny fraction of a wavelength and the loading coil has high Q, tip voltages can exceed <strong>several thousand volts</strong>. This is enough to cause painful RF burns on contact and can arc to nearby grounded objects.</p>
+
+        <p>Keep this in mind when choosing an antenna length and mounting location. An antenna tip that a pedestrian, cyclist, or occupant of an adjacent vehicle can touch is a liability. Antennas mounted low on the vehicle body are particularly problematic in this regard. A whip mounted at bumper height with its tip at face level for a pedestrian is an RF burn waiting to happen.</p>
+
+        <h2>Vehicle-Specific Dangers</h2>
+
+        <h3>Hybrid and Electric Vehicle High-Voltage Systems</h3>
+
+        <p>Hybrid and electric vehicles contain high-voltage systems operating at <strong>300 to 800 volts DC</strong>. The orange-jacketed cables running between the battery pack, inverter, and motor carry enough energy to kill you instantly. These cables are routed through areas of the vehicle where you might be inclined to run radio wiring &mdash; under the rear seats, through the floor pan, along the center tunnel.</p>
+
+        <p>Do not disturb, reroute, or run your wiring alongside the high-voltage cables in a hybrid or EV. Consult your service manual for the exact routing of all high-voltage components before you plan any wiring routes. Some hybrid vehicles also have high-voltage junction boxes under seats or in the trunk area where you might otherwise mount a transceiver body.</p>
+
+        <h3>Fuel Line Routing</h3>
+
+        <p>Know where your fuel lines run before you route any wiring. Fuel lines in most vehicles run along the floor pan, often on the driver's side, from the tank at the rear to the engine compartment. A chafed wire in contact with a fuel line is a catastrophic failure waiting to happen. Route your radio wiring on the opposite side of the vehicle from the fuel lines whenever possible, and never secure radio wiring to fuel lines or their mounting brackets.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Your vehicle's service manual is the definitive reference for the location of every safety-critical system &mdash; airbags, fuel lines, high-voltage cables, brake lines, and structural members. Buy one before you start your installation. There is no substitute and no shortcut.</p>
+        </div>
+
+        <h2>A Final Word</h2>
+
+        <p>Every safety precaution in this article adds time and effort to your installation. None of them add to the fun of operating mobile. And every single one of them exists because someone, somewhere, learned the hard way that it was necessary. Some of those people lived to tell the story. Some did not.</p>
+
+        <p>Mobile amateur radio is a wonderful capability. It connects you to the world while you travel, provides communications in emergencies, and makes long drives far more enjoyable. But it must be done responsibly. Take the time to do it safely, and you will enjoy it for decades. Cut corners, and you may not enjoy anything at all.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a href="abcs.html">ABCs of Mobile HF</a>
+          <a href="installation.html">Installation Notes</a>
+          <a href="wiring.html">Wiring</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coil Adjustment — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="How to properly adjust screwdriver and resonator antennas for optimal mobile HF performance. Covers tuning procedures, whip length, weather effects, and common mistakes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Coil Adjustment</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="how-a-screwdriver-tunes">How a Screwdriver Antenna Tunes</h2>
+
+        <p>If you have arrived at this page without first reading the <a href="antenna-matching.html">Antenna Matching</a> article, stop now and go read it. I mean it. Half the problems people encounter with coil adjustment come from a fundamental misunderstanding of what they are actually trying to accomplish. I will wait.</p>
+
+        <p>A screwdriver antenna is, at its heart, a variable loading coil mounted in a weatherproof housing with a DC motor that drives a shorting contact up and down the coil's winding. The name comes from the original designs that literally used the guts of a cordless screwdriver as the drive mechanism. When the shorting contact (sometimes called a wiper or slider) is at the bottom of the coil, the maximum number of turns are in the circuit and the antenna resonates at its lowest frequency. Drive the contact toward the top and you progressively short out turns, reducing inductance, and raising the resonant frequency. Simple in concept, surprisingly fiddly in practice.</p>
+
+        <p>The entire antenna system consists of three main parts: a base section (the mount and lower mast), the loading coil housing, and the stainless steel whip that extends above the coil. All three affect performance on every band. Change one and you change everything. Keep that firmly in mind as we proceed.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>A screwdriver antenna is a system. The mount, coil position, and whip length are interdependent. Adjusting any single element shifts the resonant point on every band, not just the one you are working on.</p>
+        </div>
+
+        <h2 id="engine-running">Always Tune with the Engine Running</h2>
+
+        <p>This is non-negotiable, and yet I see people ignore it constantly. Your vehicle's electrical system voltage is different with the engine off versus running. A typical SLI battery at rest sits around 12.6 volts. With the engine running and the alternator charging, you will see 13.8 to 14.4 volts. That difference matters because the motor in your screwdriver antenna runs faster at higher voltage. If you carefully set your turn counts with the engine off, every single position will be wrong when you actually operate with the engine running. The motor overshoots or undershoots depending on the controller's braking characteristics, and your carefully recorded positions become useless.</p>
+
+        <p>Furthermore, with the engine running you have a more realistic picture of the noise environment and any voltage-dependent effects on your matching network. So: engine on, always. No exceptions.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Never adjust or record antenna positions with the engine off. Voltage sag changes motor speed and final coil position. Every setting you record with the engine off will be wrong when you operate.</p>
+        </div>
+
+        <h2 id="resonance-vs-swr">Resonance vs. Lowest SWR: They Are Not the Same</h2>
+
+        <p>This is the single most misunderstood concept in mobile HF, and it leads to more wasted time than any other mistake. <strong>Resonance</strong> is the frequency at which the antenna's reactance equals zero. <strong>Lowest SWR</strong> is the frequency at which the impedance mismatch between your feed line and antenna is smallest. These are only the same thing when the antenna's radiation resistance happens to be exactly 50 ohms, which on a mobile HF antenna is almost never the case.</p>
+
+        <p>On the lower HF bands (40 meters and below), a typical screwdriver antenna presents a feed point impedance well below 50 ohms at resonance. You might see 12 ohms on 40 meters and as little as 3 to 5 ohms on 75 meters. At those impedances, an SWR meter will show a mismatch even at exact resonance. The SWR meter does not care about reactance independently; it only sees the composite impedance mismatch. So chasing lowest SWR with your transceiver's built-in meter is chasing your tail.</p>
+
+        <p>What you need is an antenna analyzer that displays reactance (the j component) separately from resistance. Set the coil so that reactance reads zero (or as close to zero as you can get) at your desired frequency. Then deal with the resistive mismatch separately using a matching coil or UNUN, as described in the <a href="antenna-matching.html">Antenna Matching</a> article.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>Lowest SWR does not mean your antenna is resonant. On the lower bands especially, the point of lowest SWR and the point of zero reactance can be tens of kilohertz apart. Use an analyzer that reads reactance, not your transceiver's SWR bridge.</p>
+        </div>
+
+        <h2 id="setting-resonant-points">Setting Resonant Points Band by Band</h2>
+
+        <p>The procedure for establishing resonant points is straightforward, but it requires patience and a methodical approach. Here is how to do it properly:</p>
+
+        <h3>Step 1: Start at the Highest Frequency Band</h3>
+
+        <p>Begin with 10 meters (or 6 meters if your antenna covers it). Drive the coil contact all the way to the top so that minimum inductance is in the circuit. Connect your antenna analyzer at the feed point. Sweep to find the frequency where reactance crosses zero. Record the motor position (turn count) and the exact frequency.</p>
+
+        <h3>Step 2: Work Downward Through Each Band</h3>
+
+        <p>Move to 12 meters, then 15, 17, 20, 30, 40, 60, and finally 75/80 meters. At each band, drive the motor until the analyzer shows zero reactance at your target frequency (typically the middle of the band or the portion you use most). Record the turn count for each band.</p>
+
+        <p>Why start high and work down? Because the motor is driving the contact further down the coil as you go lower in frequency, and it is easier to maintain consistent mechanical tension in one direction. Also, the higher bands require very small coil position changes for significant frequency shifts, so you want to set those with fresh attention rather than after you have been fiddling for an hour.</p>
+
+        <h3>Step 3: Leave Room for Frequency Agility</h3>
+
+        <p>Do not set your resonant point at the absolute band edge. If you operate mostly on 14.250 MHz (SSB), set resonance there, but verify that you can also reach 14.150 and 14.340 without the SWR climbing above what your transceiver can tolerate. On wider bands like 75 meters, you may need to accept that you cannot cover the entire band without re-tuning the coil. That is simply a limitation of a physically short antenna, and no amount of wishful thinking changes it.</p>
+
+        <h3>Step 4: Program Your Controller</h3>
+
+        <p>Once you have a complete set of turn counts, program them into your antenna controller as jump points. A good controller (see the <a href="antenna-controllers.html">Antenna Controllers</a> article) will let you store positions for each band and jump directly to them at the push of a button.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Keep a written log of your turn counts in addition to programming the controller. Controllers fail, memories get erased, and you do not want to repeat this entire process from scratch.</p>
+        </div>
+
+        <h2 id="whip-length">Whip Length: The Overlooked Variable</h2>
+
+        <p>The stainless steel whip above the loading coil is not just a structural element. It is the actual radiating portion of the antenna, and its length has a profound effect on performance across all bands. A longer whip means higher radiation resistance, which means more of your power actually leaves the antenna as RF instead of being dissipated as heat in the loading coil. The improvement is not trivial. Going from a 36-inch whip to a 60-inch whip can double your radiation resistance on 20 meters.</p>
+
+        <p>The trade-off is mechanical. A 60-inch whip on top of a 5-foot screwdriver antenna puts the tip at roughly 10 feet above the vehicle roof, which starts to become unwieldy in parking garages, drive-throughs, and under low tree branches. Most operators settle on something in the 36 to 60 inch range and accept the compromise.</p>
+
+        <p>Here is what matters: once you change the whip length, you must re-do every turn count for every band. A longer whip shifts resonance downward on every band. A shorter whip shifts it up. There is no shortcut. Change the whip, re-tune everything.</p>
+
+        <p>For the best balance of performance and practicality, I suggest starting with a 48-inch whip and adjusting from there based on your operating habits and vehicle constraints. If you never enter parking garages and do not care about funny looks, go longer. Every inch helps.</p>
+
+        <h2 id="weather-effects">Weather Effects</h2>
+
+        <p>Temperature changes affect resonance. Cold weather contracts metals slightly and changes the dielectric properties of insulating materials in the coil housing. The shift is usually small, on the order of a few kilohertz, but it is real. If you set up your antenna on a warm summer day and then operate in January, do not be surprised if your jump points are slightly off.</p>
+
+        <p>Rain and wet conditions are worse. Water on the antenna changes the effective electrical length and detunes the system. Heavy rain or ice accumulation can shift resonance by 50 kHz or more on the higher bands. There is nothing you can do about this except re-tune. Do not obsess over a 0.1:1 SWR change in wet weather. It is normal. Your transceiver can handle a 1.5:1 SWR without breaking a sweat, and the difference in radiated signal between 1.2:1 and 1.5:1 is less than a tenth of a dB. Completely unmeasurable at the other end.</p>
+
+        <h2 id="resonator-antennas">Resonator-Type Antennas</h2>
+
+        <p>Resonator antennas like the Hustler and Hamstick families take a fundamentally different approach. Instead of a variable coil, each resonator is a single-band device: a fixed loading coil wound on a fiberglass or phenolic form, topped with a tunable whip. You change bands by physically swapping resonators or by mounting multiple resonators on separate mounts.</p>
+
+        <h3>Adjusting a Single Resonator</h3>
+
+        <p>Most resonators provide two adjustment methods. The whip (the thin steel rod extending above the coil) can be extended or retracted in its collet, and on some models the coil windings can be slightly compressed or expanded. Always start with the whip adjustment. Extend the whip to lower resonance, retract it to raise resonance. Small changes produce significant frequency shifts, so work in quarter-inch increments.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Before you adjust anything on a resonator, mark the current whip position with a piece of tape or a permanent marker. If you make things worse, you can at least get back to where you started.</p>
+        </div>
+
+        <p>Use an antenna analyzer, just as with a screwdriver antenna. Find zero reactance at your target frequency. On Hustler-style resonators mounted on a proper mast, you will typically find radiation resistance in the range of 20 to 35 ohms on 20 meters, which gives an SWR around 1.5:1 to 2.5:1 depending on the mount and vehicle. A matching coil at the base can bring this down to near 1:1 if desired.</p>
+
+        <h3>Multiple Resonators and Interaction</h3>
+
+        <p>When you mount multiple resonators on the same vehicle, they interact. A 40-meter resonator mounted 18 inches from a 20-meter resonator will detune both of them, because 40 meters is the second harmonic of... wait, I have that backwards. Twenty meters is the second harmonic of 40 meters. The point is that closely-spaced resonators on harmonically-related bands couple strongly and shift each other's resonant frequencies.</p>
+
+        <p>The solution is adequate spacing. If you can manage 4 feet or more between resonators, the interaction becomes negligible. If you are limited on mounting locations (and who is not?), tune each resonator with all the others in their normal positions. Tuning one in isolation and then mounting it next to its neighbors guarantees it will be off-frequency.</p>
+
+        <h2 id="common-mistakes">Common Mistakes</h2>
+
+        <p>In no particular order, here are the mistakes I see most often. Avoid all of them.</p>
+
+        <h3>Over-Tightening Hustler Mast Joints</h3>
+
+        <p>Hustler resonators thread onto a mast made of nesting aluminum tubes. Inside each joint is a ferrule that grips when the sections are tightened. If you over-tighten these joints, the ferrule deforms permanently and loses its grip. The next time you hit a bump, the resonator works loose and you lose it at highway speed. This is not a theoretical concern; I have seen it happen. Tighten firmly by hand. Do not use pliers, do not use a pipe wrench, and do not ask your friend who "works on cars" to tighten it for you.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Over-tightening Hustler-style mast joints deforms the internal ferrule, permanently weakening the connection. Tighten by hand only. A resonator departing your vehicle at 70 mph is a genuine hazard to other motorists.</p>
+        </div>
+
+        <h3>Not Disconnecting Motor Leads</h3>
+
+        <p>When measuring a screwdriver antenna with an analyzer, disconnect the motor leads from the controller. The motor winding and control wiring can couple into your measurement and give false readings. On some antennas this effect is subtle; on others it shifts the apparent resonance by 100 kHz or more. Just disconnect them. It takes thirty seconds.</p>
+
+        <h3>Using the Transceiver's SWR Meter</h3>
+
+        <p>I have already explained why this is inadequate. Your transceiver's SWR meter shows composite mismatch. It cannot distinguish between a resistive mismatch and a reactive one. You need an analyzer with a reactance display. Period. There are several good ones available at reasonable prices. If you can afford a screwdriver antenna and a controller, you can afford an analyzer. Consider it part of the cost of doing mobile HF.</p>
+
+        <h3>Tuning in a Parking Garage</h3>
+
+        <p>A reinforced concrete parking structure is essentially a large Faraday cage with metal rebar on all sides. The reflections from all that steel create a wildly distorted impedance environment around your antenna. You can tune for perfect SWR inside the garage and find a 3:1 mismatch once you drive out into the open. Always tune in an open area, well away from large metal structures, power lines, and other vehicles. A large, empty parking lot works fine. So does a quiet residential street.</p>
+
+        <h3>Not Running the Engine</h3>
+
+        <p>Yes, I am repeating myself. Because people keep making this mistake.</p>
+
+        <h2 id="post-adjustment">Post-Adjustment Verification</h2>
+
+        <p>After you have set all your resonant points, do a verification sweep on each band. Check SWR (or better, impedance) at several frequencies within each band: the low end, your resonant point, and the high end. The SWR should follow a smooth, roughly parabolic curve centered near your target frequency. If you see any of the following, you have a problem:</p>
+
+        <ul>
+          <li><strong>Erratic SWR readings</strong> that jump around as you sweep: Intermittent connection somewhere. Check all joints, connectors, and the coax itself.</li>
+          <li><strong>A double dip</strong> (two SWR minimums on the same band): Something is resonating that should not be. Common cause is an un-bonded body panel or a ground strap that has become an accidental radiator. See the <a href="antenna-problems.html">Antenna Problems</a> article.</li>
+          <li><strong>SWR that does not change</strong> as you sweep: The analyzer is not seeing the antenna at all. You have an open circuit somewhere, probably a bad coax connection or a broken conductor inside the coil housing.</li>
+          <li><strong>Very high minimum SWR</strong> (above 5:1) on bands where it was previously acceptable: Water intrusion into the coil housing. This is depressingly common on older antennas. Disassemble, dry thoroughly, and reseal.</li>
+        </ul>
+
+        <p>Do this verification with the antenna analyzer, not the transceiver. And yes, with the engine running.</p>
+
+        <h2 id="final-thoughts">Final Thoughts</h2>
+
+        <p>Coil adjustment is not difficult, but it does require the right tools, a methodical approach, and an understanding of what you are actually measuring. The single most important investment you can make is a decent antenna analyzer. Without one, you are guessing, and guessing in RF engineering is a reliable way to produce poor results and blame the equipment.</p>
+
+        <p>Take your time with the initial setup. A Saturday afternoon spent carefully establishing and recording resonant points will save you months of frustration. And when someone on the repeater tells you they just tune for lowest SWR on the radio's meter, you can smile quietly and know better.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="tricks.html">Tricks of the Trade</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

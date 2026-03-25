@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation Notes — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Practical guidance on installing mobile HF radio equipment in vehicles — antenna mounting, transceiver placement, wiring, and the compromises involved.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Installation Notes</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="the-hard-truth">The Hard Truth About Mobile Installation</h2>
+
+        <p>Let me say this plainly: the performance of your mobile HF station is <em>directly</em> dependent on the time, effort, and expense you're willing to invest. There are no shortcuts. There are no magic bullets. There is no miracle product at the hamfest flea market that will turn a sloppy installation into a good one. If you want it to work well, you have to do it right, and doing it right takes work.</p>
+
+        <p>Very few amateurs go shopping for a vehicle with antenna mounting in mind. Most of us buy a car or truck for practical reasons — commuting, hauling the family, towing a boat — and then try to figure out how to bolt radio equipment onto it after the fact. This is understandable. It is also the beginning of most problems.</p>
+
+        <h2 id="vehicle-challenges">Vehicle Selection and Its Consequences</h2>
+
+        <p>Some vehicles are simply harder to work with than others. Pickup trucks with metal bodies and a solid roof remain the gold standard for mobile HF. A steel roof provides a ground plane directly under the antenna, a bed or trunk offers space for equipment, and there is usually a straightforward path for wiring.</p>
+
+        <p>Then there is everything else. Minivans, SUVs, Jeeps, station wagons, crossovers, and vehicles with plastic body panels present the greatest challenges. The reasons are numerous: fiberglass or plastic roof panels with no metal underneath, limited interior space, complex headliner assemblies, and vehicle designs that seem to actively resist modification.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>It is the metal mass <strong>directly under</strong> the antenna that counts — not what is alongside it, not what is behind it, and not what is in front of it. A steel roof with an antenna mounted dead center is ideal. A plastic roof with sheet metal somewhere in the general vicinity is not a substitute, no matter how many forum posts claim otherwise.</p>
+        </div>
+
+        <p>If your vehicle has a fiberglass or composite roof panel — and many modern SUVs and crossovers do — you have a fundamental problem that no amount of bonding straps will solve. You need metal under the antenna. Period. This sometimes means fabricating a ground plane, which is a topic unto itself. More often, it means accepting a mounting location that offers adequate metal mass even if it is not the highest point on the vehicle.</p>
+
+        <h2 id="drilling-holes">Yes, You Will Need to Drill Holes</h2>
+
+        <p>This is where I lose about half my audience. Typically, a proper installation requires drilling holes in your vehicle. There, I said it. I can already hear the sharp intake of breath from some readers. Allow me to address this directly.</p>
+
+        <p>I have encountered amateurs who go to extraordinary lengths to avoid drilling a single hole in their vehicle. They use magnetic mounts on a cookie sheet. They clamp antennas to luggage racks with hose clamps. They stick transceivers to dashboards with Velcro. The use of Velcro, in particular, demonstrates a level of dedication towards the preservation of their cars to such an extent that they would rather risk injury or death than drill any holes. Think about that for a moment. A Velcro-mounted transceiver becomes a projectile in a collision. A properly through-bolted mount does not.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>An unsecured transceiver weighing 5 to 10 pounds becomes a deadly projectile in a 30 mph collision. The forces involved are enormous. Velcro, suction cups, and friction mounts are not adequate restraints. Mount your equipment properly or accept the consequences.</p>
+        </div>
+
+        <p>Your vehicle is a tool. It depreciates every day whether you drill holes in it or not. A properly installed NMO mount with a dab of silicone sealant will not cause rust, will not leak, and will not materially affect the resale value of your vehicle. You know what does affect resale value? A cracked windshield from a transceiver that flew off the dashboard. But I digress.</p>
+
+        <h2 id="get-a-manual">Get a Repair Manual</h2>
+
+        <p>Before you touch a single wire or drill a single hole, buy a repair manual for your specific vehicle. A factory service manual from the dealer will run $75 to $125, but it contains everything: wiring diagrams, torque specifications, component locations, and the information you need to avoid damaging something expensive. An aftermarket manual from Haynes or Chilton costs roughly $25 and covers the basics adequately for most installations.</p>
+
+        <p>Why is this important? Because modern vehicles are crammed with wiring, sensors, control modules, and other components that you can easily damage if you do not know where they are. Drilling through a roof pillar without checking the manual first is a fine way to sever an airbag harness — and that is a mistake you really do not want to make.</p>
+
+        <h2 id="airbag-safety">Airbag Safety — This Is Not Optional Reading</h2>
+
+        <p>Modern vehicles contain Supplemental Restraint Systems (SRS) — airbags — in locations that may surprise you. Side curtain airbags run along the headliner edges. Their wiring often routes through the roof pillars (A-pillar, B-pillar, C-pillar). Knee airbags hide under the dashboard. Some vehicles have airbags in the seats themselves.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Airbags are explosive devices. The inflators contain propellant charges that deploy with enough force to cause serious injury or death if triggered outside their housings. <strong>Never</strong> probe, cut, splice, or route wiring near SRS components without consulting the factory service manual. If you are apprehensive about working near airbag components — and a healthy respect for them is entirely reasonable — seek professional help. This is not a place for guesswork.</p>
+        </div>
+
+        <p>SRS wiring is typically enclosed in yellow conduit or connectors to distinguish it from other vehicle wiring. Learn to recognize it. Stay away from it. If your planned cable routing requires passing near SRS wiring, find another route.</p>
+
+        <h2 id="transceiver-mounting">Transceiver Mounting — Where and How</h2>
+
+        <p>Choosing a location for your transceiver involves balancing several competing requirements: accessibility for operating, adequate ventilation, structural support for mounting, and safety in the event of a collision.</p>
+
+        <p>Let me first address what <em>not</em> to do. Do not use cubby holes, center consoles, headrest supports, or storage boxes as transceiver mounting locations. I see this constantly, and it is wrong for one simple reason: transceivers need airflow. A transceiver stuffed into an enclosed cubby hole with no ventilation will overheat. Modern transceivers have thermal protection that will reduce output power or shut down entirely when overheated. You did not buy a 100-watt radio to have it throttle itself to 25 watts because you could not be bothered to mount it properly.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Always use the factory-supplied mounting bracket for your transceiver. The manufacturer designed it to provide proper heat dissipation and secure mounting. Aftermarket brackets, homemade solutions, and "creative" mounting schemes are almost always inferior.</p>
+        </div>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Transceiver mounted with factory bracket</span>
+          <p>Mobile transceiver secured using the manufacturer's mounting bracket with proper ventilation clearance. No cubby holes, no storage compartments.</p>
+          <span class="placeholder-source">Photo requested from lonneys-notebook.blogspot.com</span>
+        </figure>
+
+        <p>On the subject of heat management: do <em>not</em> install an auxiliary fan blowing on the transceiver heat sink. This sounds counterintuitive, but there is a good reason. The engineers who designed your radio calculated the heat dissipation requirements and designed the heat sink accordingly. An external fan blowing ambient air — which in a vehicle interior can easily be 130 degrees Fahrenheit or more in summer — across the heat sink does nothing useful. Worse, it can blow dust and debris into the radio. The transceiver has its own internal fan if it needs one. Trust the design.</p>
+
+        <h2 id="keep-it-simple">Resist the Temptation to Over-Install</h2>
+
+        <p>New mobile operators have a tendency to install every piece of equipment they own, whether they need it or not. Here is a good rule of thumb: if you do not need it for the mode you are operating, do not install it.</p>
+
+        <p>An SWR/wattmeter permanently plumbed into the feed line of an FM radio is a classic example. What, exactly, are you monitoring? FM is constant-carrier. The SWR is not going to change while you are driving down the highway. All that meter is doing is introducing another connection point (read: potential failure point), adding loss, and taking up space. If you need to check SWR, check it during setup and put the meter away.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>More equipment does not equal a better station. Every unnecessary component adds weight, draws power, introduces potential failure points, and clutters your operating position. Install what you need. Leave the rest at home.</p>
+        </div>
+
+        <h2 id="bed-box-mounts">Truck Bed Boxes as Antenna Mounts</h2>
+
+        <p>Truck bed-mounted toolboxes and storage boxes are popular antenna mounting locations, and they can work — with caveats. The box itself is typically aluminum or steel and sits in the bed of the truck, which seems like a reasonable platform for an antenna mount.</p>
+
+        <p>However, these boxes often sit on rubber or plastic pads that electrically isolate them from the truck bed. If you mount an antenna on an isolated box, that box is not part of the vehicle ground plane. You must bond the box to the bed — metal to metal, with proper hardware, paint removed at the contact points. See the <a href="bonding.html">Bonding</a> article for details.</p>
+
+        <p>Additionally, do not mount the antenna in the center of the box lid. Mount it at the rear edge or a corner, as close to the truck bed metal as possible. Remember the fundamental rule: it is the metal <em>under</em> the antenna that matters. The aluminum lid of a toolbox is not a ground plane. The steel truck bed, properly bonded to the box, is.</p>
+
+        <h2 id="cable-routing">Cable Routing</h2>
+
+        <p>Routing coax, power cables, and control wiring through a vehicle requires patience and planning. Here are the essentials:</p>
+
+        <p>Route coax and power cables separately where possible. When they must share a path, keep power cables at least a few inches from coax. Use existing grommets and wire passages wherever the vehicle provides them — the factory engineers have already identified the safe routes through the firewall and body panels. If you must drill a new hole, deburr it thoroughly and install a proper grommet. A coax cable chafing against a raw metal edge will eventually short, and you will spend hours troubleshooting a problem that was entirely preventable.</p>
+
+        <p>Keep cables away from moving parts: seat rails, pedal mechanisms, steering columns, and door hinges. Secure cables with proper clamps or tie wraps at regular intervals. A cable that hangs loose will eventually find something to snag on, and it is always the most inaccessible cable in the installation.</p>
+
+        <h2 id="summary">The Bottom Line</h2>
+
+        <p>A good mobile installation is not glamorous work. It requires crawling under dashboards, pulling headliners, running cables through tight spaces, and drilling holes in a vehicle you probably still owe money on. It takes a repair manual, the right tools, a free weekend, and the willingness to do things correctly even when nobody will see the result.</p>
+
+        <p>The reward is a station that works reliably, sounds good on the air, does not generate interference, and will not try to kill you in a collision. That seems like a reasonable trade for a few drilled holes.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="abcs.html">ABCs of Mobile HF</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="safety.html">Safety</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

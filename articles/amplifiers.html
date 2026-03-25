@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amplifiers — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Should you add an HF amplifier to your mobile installation? Honest guidance on when amplifiers help, what to avoid, and why your antenna system matters more than raw power.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Amplifiers</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="before-you-buy">Before You Buy an Amplifier</h2>
+
+        <p>The decision to add an HF amplifier to your mobile installation has ramifications that most operators don't think through before handing over the money. Let me save you some grief: <strong>most mobile operators would gain more effective radiated power by upgrading their antenna system and mounting arrangement than by bolting on an amplifier.</strong> That is not an opinion; it is measurable, demonstrable fact.</p>
+
+        <p>An amplifier takes whatever signal your transceiver produces and makes it bigger. That sounds wonderful until you remember that it also makes every problem in your installation bigger. Common mode currents? Amplified. RFI into your vehicle's electronics? Amplified. Noise coupling back into your receiver? Amplified. A mediocre antenna with 3 dB of unnecessary loss? The amplifier has to produce twice the power just to overcome what the antenna is wasting, and you've gained nothing at all.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>The fundamental assumption of this article is that you have already wrung out every last drop of efficiency from your antenna system before even considering an amplifier. That means proper mounting (not a mirror bracket, not a mag mount), thorough bonding, correct feedline routing, and verified common mode suppression. If you haven't done all of that, stop reading this article and go do it. The amplifier can wait.</p>
+        </div>
+
+        <p>Here's the math that should give you pause. Going from 100 watts to 500 watts is a gain of 7 dB. That's roughly one and a quarter S-units on the other station's meter. Noticeable? Yes. Life-changing? Hardly. Now consider that upgrading from a poorly mounted lip-mount antenna to a properly installed, center-of-roof or stake-pocket mounted antenna with adequate ground plane can easily yield 6 to 10 dB of improvement. You can get as much or more benefit for free, just by doing the installation correctly, as you can by spending a thousand dollars on an amplifier.</p>
+
+        <h2 id="available-options">What's Actually Available</h2>
+
+        <p>The market for mobile HF amplifiers is thin. The only currently manufactured 500-watt class amplifier designed for mobile use is the Ameritron ALS-500M. And let's be honest about the numbers: while it's marketed as a 500-watt amplifier, the ALS-500M realistically produces around 400 watts PEP on a good day with adequate primary voltage. Mobile primary voltage is rarely "adequate" by the amplifier's standards, particularly while transmitting with the engine off.</p>
+
+        <p>The ALS-500M uses four MOSFET devices in a push-pull broadband configuration. It requires no tuning, which is convenient, and it draws substantial current from the vehicle's electrical system, which is not. Plan on at least 80 amps on voice peaks. If your wiring isn't up to the task &mdash; and if you haven't read the <a href="wiring.html">Wiring</a> article, it probably isn't &mdash; you're going to have voltage drop problems that will limit the amplifier's output and potentially damage it.</p>
+
+        <p>Used amplifiers occasionally surface. The SGC SG-500, the Mirage units, and a handful of others have come and gone over the years. If you find one in working order, the same principles apply. But be cautious about used amplifiers with unknown histories. A mobile amplifier lives a hard life: heat, vibration, voltage transients, and frequently inadequate cooling.</p>
+
+        <h2 id="bonding-and-amplifiers">Bonding: Even More Critical Now</h2>
+
+        <p>If bonding was important at 100 watts &mdash; and it was, as the <a href="bonding.html">Bonding</a> article makes clear &mdash; it becomes absolutely non-negotiable at 400 or 500 watts. Every RF discontinuity in your vehicle's ground plane that was causing minor problems at 100 watts is now causing major problems at five times the power.</p>
+
+        <p>The increase is not linear in its effects. Noise generated by intermittent contact between unbonded panels increases with the square of the current flowing through those junctions. Doubling the RF power more than doubles the noise, the RFI, and the common mode problems. If you had "acceptable" performance at 100 watts with mediocre bonding, you will have unacceptable performance at 500 watts with that same mediocre bonding. Count on it.</p>
+
+        <h2 id="common-mode-the-big-problem">Common Mode: The Really Big Problem</h2>
+
+        <p>Common mode current is a nuisance at 100 watts. At amplifier power levels, it becomes the dominant problem in most mobile installations. I cannot stress this strongly enough: <strong>you MUST choke common mode currents on the feedline and on every other cable entering or leaving the transceiver before operating an amplifier.</strong></p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Operating an amplifier without adequate common mode suppression is asking for trouble. At 400+ watts, common mode currents can cause RFI to the vehicle's engine management computer, ABS system, airbag controller, and other safety-critical electronics. It can also cause RF burns on exposed metal inside the passenger compartment. These are not theoretical risks. They happen.</p>
+        </div>
+
+        <p>Common mode current ingress is a two-way street, and this is the part that most operators overlook. Yes, common mode on the feedline during transmit causes RFI to vehicle systems. But common mode also allows vehicle-generated noise to couple into your receive path. That alternator whine, that ignition hash, that broadband digital noise from the ECU &mdash; all of it rides common mode currents back up the feedline and into your receiver. At amplifier power levels, the common mode paths are already well-established, and they work just as efficiently on receive. Your received signal-to-noise ratio suffers severely.</p>
+
+        <p>Motor lead chokes on screwdriver antenna motors and other actuators remain essential. In fact, the higher RF fields present at amplifier power levels make motor lead RFI ingress even more likely. A motor lead that was marginally acceptable at 100 watts will almost certainly cause controller lockup or erratic behavior at 500 watts.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Before spending money on an amplifier, spend an afternoon with an RF current probe (or build one from a clip-on ferrite and a piece of wire) and measure common mode currents on your feedline, power cable, and any control cables at 100 watts. If you see significant common mode at 100 watts, fix it before you ever turn on an amplifier. The problems will only multiply.</p>
+        </div>
+
+        <h2 id="antenna-compatibility">Antennas to Avoid with an Amplifier</h2>
+
+        <p>Not every mobile HF antenna can handle amplifier power levels. Some can't handle 100 watts reliably; they just fail more slowly so you don't notice until the day they arc over and the SWR goes to infinity. Here is the list of antenna characteristics that disqualify an antenna from amplifier service. If your antenna has any of these, don't bother with an amplifier until you replace it:</p>
+
+        <ul>
+          <li><strong>Any vinyl-covered antenna with large metal end caps.</strong> The vinyl traps heat. At amplifier power levels, the loading coil underneath cooks itself. The metal end caps act as low-Q parasitic elements that waste power.</li>
+          <li><strong>Any screwdriver antenna wound with more than 10 turns per inch.</strong> Close-wound coils have high inter-turn capacitance that limits power handling and causes arc-over at high power.</li>
+          <li><strong>Any antenna with a loading coil smaller than 2 inches in diameter.</strong> Small-diameter coils have high current density and inadequate surface area for heat dissipation. They will overheat at sustained amplifier power.</li>
+          <li><strong>Any loading coil wound with wire smaller than #12 AWG.</strong> Thin wire means higher loss and less thermal mass. At 400 watts key-down, small wire gets hot fast.</li>
+          <li><strong>Any loading coil larger than 3.5 inches in diameter.</strong> Oversized coils may seem like they'd handle more power, but they have excessive distributed capacitance and tend to be inefficient. More is not always better.</li>
+          <li><strong>Any antenna using an aluminum shorting plunger.</strong> Aluminum-to-copper or aluminum-to-brass contact is a recipe for corrosion and intermittent high-resistance connections. At amplifier power, intermittent connections mean arcing and failure.</li>
+          <li><strong>Any antenna exhibiting unmatched SWR consistently below 1.6:1 across a band.</strong> This sounds counterintuitive, but an antenna with suspiciously flat SWR is almost certainly lossy. A truly efficient mobile antenna on the lower HF bands will show a narrow SWR bandwidth. If your antenna shows 1.5:1 across all of 40 meters, it's because the resistive losses are so high that they're masking the actual impedance variation. You're heating the loading coil, not radiating.</li>
+        </ul>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>A low SWR does not mean your antenna is working well. It means the impedance presented to the transmitter is close to 50 ohms. That 50 ohms can be radiation resistance (good) or loss resistance (bad). A dummy load has a perfect 1.0:1 SWR and radiates nothing. A genuinely efficient mobile HF antenna on 40 or 80 meters will have a narrow SWR bandwidth &mdash; that's a sign it's actually working.</p>
+        </div>
+
+        <p>Remotely tuned antennas like the Scorpion 680 series are popular with amplifier users, and for good reason: they are solidly built and handle the power. However, the automatic antenna controllers paired with these antennas are susceptible to RFI ingress, and that susceptibility is dramatically exacerbated at amplifier power levels. The controller may exhibit erratic tuning, fail to find a match, or lock up entirely. Ferrite chokes on every control cable are mandatory, not optional.</p>
+
+        <h2 id="mounting-and-swr">Fix Your Mounting First</h2>
+
+        <p>If your antenna mount is questionable at 100 watts, it is dangerous at amplifier power. A lip mount with a mediocre ground connection will arc at high power. A trunk-lip mount that relies on set screws biting through paint will develop a hot spot that melts the paint, loosens the connection, and makes the problem progressively worse. A mag mount is simply not suitable for amplifier use. Period.</p>
+
+        <p>Fix the mount before you add the amplifier. This means a through-body mount with proper grounding, or an NMO mount on a surface with verified bonding to the vehicle structure. There are no shortcuts here.</p>
+
+        <h2 id="swr-meters-and-monitoring">A Note on Permanent SWR Meters</h2>
+
+        <p>Some operators insist on installing a permanent SWR meter between the amplifier and the antenna. My advice: don't. It is one more thing to go wrong, one more set of connectors introducing loss and potential failure points, and one more distraction while you should be driving. Use an SWR meter during initial setup and troubleshooting, then remove it. If your antenna system is properly installed and maintained, you don't need to stare at an SWR meter while you drive. If the SWR changes suddenly, you'll know &mdash; the amplifier will fold back, the transceiver will complain, or both.</p>
+
+        <p>With a mono-band antenna, a band switch is equally moot. You're on one band. There's nothing to switch. Keep the installation simple.</p>
+
+        <h2 id="mounting-the-amplifier">Mounting the Amplifier Itself</h2>
+
+        <p>Where you put the amplifier matters. The passenger compartment is not the best choice, though it's where most people put it because it's convenient.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Mounting an amplifier inside the passenger compartment raises legitimate safety concerns. In a collision, an unsecured or poorly secured amplifier becomes a projectile. Even properly mounted, it presents hard, sharp edges in the occupant space. The trunk or cargo area, with the amplifier securely bolted down, is the preferred location. Run the coax and power cables to the trunk and keep the high-power RF equipment out of the passenger space.</p>
+        </div>
+
+        <p>Heat is the other consideration. The ALS-500M and similar amplifiers generate substantial heat. Inside a closed trunk on a summer day, temperatures can exceed 150 degrees Fahrenheit before you even key up. The amplifier needs airflow. If it's trunk-mounted, some provision for ventilation is essential &mdash; whether that's a small fan, vents cut into the trunk floor or package shelf, or simply leaving the trunk partially open during extended operating sessions.</p>
+
+        <h2 id="power-wiring">Power Wiring for Amplifier Service</h2>
+
+        <p>The amplifier's power demands are significant. The ALS-500M draws upward of 80 amps on SSB voice peaks. That current must come from the vehicle's battery and alternator through wiring that can handle it without excessive voltage drop. At 80 amps, even small resistances matter. A 0.05-ohm total resistance in the power wiring &mdash; which sounds negligible &mdash; drops 4 volts at 80 amps. That's the difference between 13.8 volts at the amplifier (good) and 9.8 volts (the amplifier shuts down or produces anemic output).</p>
+
+        <p>The <a href="wiring.html">Wiring</a> article covers this in detail, but the short version is: run dedicated, heavy-gauge power cables directly from the battery to the amplifier. Use 4 AWG minimum, 2 AWG preferred. Both positive and negative. Fused at the battery. No exceptions, no compromises, no sharing the transceiver's power cable. The amplifier gets its own dedicated power run.</p>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>An amplifier is the last thing you add to a mobile HF installation, not the first. It is a force multiplier, which means it multiplies whatever you've got &mdash; good or bad. If your antenna system is efficient, your bonding is thorough, your common mode is suppressed, and your wiring is adequate, an amplifier will give you a useful boost on the air. If any of those things are deficient, the amplifier will amplify the deficiency and you'll spend more time troubleshooting than operating.</p>
+
+        <p>Do the work first. Get the antenna right. Bond the vehicle. Choke the common mode. Fix the wiring. Then, and only then, consider adding an amplifier. You may find that once you've done all that, you don't need one.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

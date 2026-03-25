@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Problems — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Diagnosing and solving common mobile HF antenna problems — ground straps, motor lead choking, coax issues, screwdriver antenna maintenance, and RFI troubleshooting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Problems</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="properly-mounted">Start With a Proper Mount</h2>
+
+        <p>Before we discuss antenna problems, let us establish a baseline that will save you an enormous amount of grief: if your antenna is properly mounted — through-bolted or NMO-mounted to sheet metal with adequate ground plane beneath it — then no additional grounding, strapping, scraping, or supplemental connections are necessary. None. The vehicle body, properly bonded, <em>is</em> your ground plane, and it works exactly as intended without help.</p>
+
+        <p>I cannot overstate how much time and frustration this single fact will save you. If you find yourself reaching for copper braid, ground straps, or a wire brush to scrape paint, stop and ask yourself: is my antenna properly mounted? Nine times out of ten, the answer is no, and no amount of supplemental strapping will compensate for a fundamentally flawed mount.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Bonding is <strong>not</strong> a workaround for improper antenna mounting. If your antenna is not mounted correctly, bonding straps will not fix it. Fix the mount first. Then — and only then — address bonding if specific electrical measurements indicate it is needed.</p>
+        </div>
+
+        <h2 id="ground-strap-myth">The Ground Strap Problem</h2>
+
+        <p>This section will be controversial, so let me be direct: running a ground strap from your antenna mount to the vehicle frame can actually <em>exacerbate</em> common mode currents, ground loops, and RFI. Yes, you read that correctly. The very thing most amateurs reach for first — a ground strap — can make the problem worse.</p>
+
+        <p>Here is why. A ground strap creates a parallel current path. RF current on the coax shield, which should transition cleanly to the vehicle body at the antenna mount, now has an alternative route through the strap to the frame. This creates a loop. Loops radiate. Loops pick up noise. Loops cause the very problems you were trying to solve.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>If adding a ground strap fixed an RFI problem, <strong>something else was wrong</strong> — typically a poor antenna mount connection, a bad coax shield bond, or inadequate metal-to-metal contact at the mounting point. The strap did not fix the real problem; it masked it by providing an alternative current path. Find and fix the actual cause.</p>
+        </div>
+
+        <p>There is a simple rule regarding ground straps that has served well for decades: any ground strap longer than 10 inches is too long. At HF frequencies, a strap of any meaningful length has significant inductance. It is not the low-impedance path to ground that most people imagine. It is a piece of wire with reactance, and it behaves accordingly — which is to say, unpredictably and often counterproductively.</p>
+
+        <h2 id="coax-shield">Coax Shield Continuity</h2>
+
+        <p>The coax shield must be electrically consistent with the start of the ground plane. In plain language: where the coax connects to the antenna mount, the shield must make solid, low-impedance contact with the vehicle metal that serves as your ground plane. If there is paint, corrosion, a rubber gasket, or any other insulating material between the coax shield connection and the vehicle body, you have a problem.</p>
+
+        <p>This sounds elementary, and it is. Yet it is the single most common cause of antenna system problems in mobile installations. The coax connector is tight, the antenna mount looks solid, but there is a thin layer of paint or primer between the mount and the vehicle body that nobody scraped away during installation. The result is an antenna that seems to tune, sort of works, but generates RFI, produces common mode currents, and performs well below expectations.</p>
+
+        <p>Check this connection first. Check it with an ohmmeter. Check it before you do anything else. You will be amazed how often this is the entire problem.</p>
+
+        <h2 id="motor-lead-choke">Motor Lead Choking — The Most Critical and Most Neglected Step</h2>
+
+        <p>If you run a screwdriver antenna — and a great many mobile HF operators do — this section may be the single most important thing you read on this entire website. Pay attention.</p>
+
+        <p>The motor leads on a screwdriver antenna operate <em>above</em> RF ground. The motor sits at the top of the antenna, surrounded by the coil and whip, immersed in the RF field. The wires running down from the motor to your controller inside the vehicle are not just DC power leads. At RF frequencies, they are part of the antenna system. They carry RF current into the vehicle, through the controller, and into every wire connected to it.</p>
+
+        <p>These motor leads <strong>must</strong> be choked. This is not optional. This is not a nice-to-have. This is an absolute requirement for a properly functioning screwdriver antenna installation.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>The ferrite beads supplied by most screwdriver antenna manufacturers are <strong>wholly inadequate</strong> for proper RF choking. They may reduce the problem slightly, but they do not solve it. Do not rely on manufacturer-supplied beads as your only RF choke on the motor leads.</p>
+        </div>
+
+        <h3 id="proper-choke">Building a Proper Motor Lead Choke</h3>
+
+        <p>The proper choke for screwdriver antenna motor leads consists of 13 turns of nylon-insulated #18 wire wound on a suitable ferrite core. This produces approximately 10 kilohms of impedance at 10 MHz — enough to effectively block RF from traveling down the motor leads and into the vehicle.</p>
+
+        <p>Let me address the shortcuts I know some of you are already contemplating:</p>
+
+        <ul>
+          <li><strong>4 or 5 turns is not enough.</strong> I have seen this recommended in forums, in club newsletters, and even by people who should know better. The impedance produced by 4-5 turns is a fraction of what is needed. You might see a slight improvement in RFI, declare victory, and live with a station that performs well below its potential. Use 13 turns.</li>
+          <li><strong>There are no substitutes.</strong> Do not use clip-on ferrites snapped over the motor leads. Do not use a random assortment of beads slid over the wire. Do not use a ferrite rod with wire wrapped around it. Build the choke correctly or do not bother.</li>
+          <li><strong>There are no workarounds.</strong> None. You cannot compensate for unchoked motor leads by adding ground straps, changing coax, rerouting cables, or any other technique. The RF on those leads must be stopped at the source.</li>
+        </ul>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>The motor lead choke must be installed <strong>outside</strong> the vehicle, as close to the antenna base as practical. All wire between the motor and the choke is part of the antenna — it is in the RF field and carrying RF current. The choke must be placed before the motor leads enter the vehicle. Installing the choke inside the vehicle, under the dashboard, or at the controller is ineffective because the RF has already entered the vehicle by that point.</p>
+        </div>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Motor lead choke: 13 turns on mix 31 bead</span>
+          <p>13 turns of nylon-insulated #18 wire wound on a mix 31 ferrite bead, producing approximately 10 kilohms impedance at 10 MHz. Installed outside the vehicle at the antenna base.</p>
+          <span class="placeholder-source">Photo requested from W1AST (stationproject.blog)</span>
+        </figure>
+
+        <h2 id="isolated-power">The Isolated Power Fallacy</h2>
+
+        <p>A recurring suggestion in online forums is to run a separate, dedicated power circuit for the transceiver, isolated from the vehicle electrical system, as a way to eliminate RFI and common mode problems. This does not work. Isolating the transceiver power does not eliminate RFI or common mode currents because those problems originate in the antenna system, not the power supply wiring.</p>
+
+        <p>What isolated power <em>does</em> do is reduce the voltage available to the antenna motor. The voltage drop across long, separate power leads — especially if undersized — means the motor may see significantly less than battery voltage. At a 10-amp load, which is typical for a screwdriver motor during tuning, battery voltage at the motor can drop below 11.5 volts. The motor slows considerably. Tuning takes longer. You sit there on frequency, waiting, while other stations wonder if you have fallen asleep.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Always perform antenna setup and tuning with the engine running. The alternator maintains battery voltage at approximately 13.8 to 14.2 volts, which keeps the antenna motor operating at proper speed and ensures the electrical system is in its normal operating state.</p>
+        </div>
+
+        <h2 id="polyfuse">Polyfuse Protection Issues</h2>
+
+        <p>Many screwdriver antenna controllers incorporate Polyfuse (resettable fuse) protection for the motor circuit. These are temperature-sensitive devices — their trip point decreases as ambient temperature drops. In cold weather, the motor draws higher current due to thicker lubricant in the motor bearings, and the Polyfuse trip point is lower than normal. The result: the Polyfuse opens prematurely, the motor stops, and you are stuck on whatever frequency you happened to be tuning to.</p>
+
+        <p>If you experience intermittent motor stalling in cold weather that resolves after the vehicle warms up, the Polyfuse is the likely culprit. The solution is to replace the Polyfuse with an appropriately rated conventional fuse, or to relocate the Polyfuse to a warmer location inside the vehicle. Understand, however, that you are removing a protection device — size the replacement fuse correctly.</p>
+
+        <h2 id="motor-polarity">DC Motor Polarity — Trust but Verify</h2>
+
+        <p>Here is a fact that will make you shake your head: at least three screwdriver antenna manufacturers use whatever motor wire colors they happen to have on hand during assembly. Red does not necessarily mean positive. Black does not necessarily mean negative. The motor will run in either direction depending on polarity, and if the polarity is reversed from what your controller expects, the antenna will tune in the wrong direction — going up when the controller commands down, and vice versa.</p>
+
+        <p>Check motor direction on the bench before you install the antenna on the vehicle. Apply power, observe which direction the contact moves, and label the wires. This takes two minutes and prevents hours of frustration.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>When using Anderson Power Pole connectors for motor leads, do <strong>not</strong> use the standard red and black housings. Reserve red/black for power connections. Use a different color pair — yellow/blue, for example — to prevent accidental cross-connection and to make motor leads visually distinct from power wiring.</p>
+        </div>
+
+        <h2 id="coax-size">Coax Selection — Bigger Is Not Better</h2>
+
+        <p>I regularly encounter amateurs running RG-213, LMR-400, or even hardline coax in their mobile installations, convinced that larger coax means lower loss and better performance. In a base station installation with a 100-foot run, they would be correct. In a mobile installation with a 10-foot run, they are wasting money and making the installation harder for no meaningful benefit.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>In a typical mobile installation with roughly 10 feet of coax, the difference in loss between RG-8X and RG-213 is a fraction of a dB — an amount that is completely unmeasurable on the air. Use RG-8X. It is easier to route, easier to terminate, and occupies less space. Save the large coax for your base station feed line.</p>
+        </div>
+
+        <h2 id="screwdriver-maintenance">Screwdriver Antenna Maintenance</h2>
+
+        <p>Never lubricate the coil of a screwdriver antenna. I know this seems counterintuitive — the contact rides on the coil, metal on metal, and lubrication would seem to reduce wear and improve contact. It does neither.</p>
+
+        <p>Lubricant on the coil attracts brake dust. Every vehicle on the road generates brake dust, and it finds its way onto every exposed surface. Mix brake dust with lubricant and you get an abrasive paste that accelerates wear rather than reducing it. Add moisture — rain, dew, road spray — and you get a conductive slurry that promotes arcing between coil turns. The result is pitting, burning, and eventual coil failure.</p>
+
+        <p>WD-40 is especially problematic. It is not a lubricant — it is a water displacement compound that leaves a sticky residue. That residue is a magnet for every contaminant in the environment. If someone has already applied WD-40 or other lubricant to your antenna coil, clean it thoroughly with a non-residue solvent and leave it dry.</p>
+
+        <h2 id="troubleshooting-shorts">Checking for Shorts and Opens</h2>
+
+        <p>When a screwdriver antenna motor stops responding, the first step is simple: measure the resistance of the motor feed wires at the controller end. Disconnect the motor leads from the controller and measure with an ohmmeter.</p>
+
+        <ul>
+          <li><strong>Open circuit (infinite resistance):</strong> You have a break somewhere in the motor leads — a severed wire, a corroded connector, or a failed connection at the motor itself.</li>
+          <li><strong>Short circuit (near zero ohms):</strong> The motor leads are shorted together somewhere along the run, or the motor itself has failed with a shorted winding.</li>
+          <li><strong>Normal motor resistance (typically 1-5 ohms):</strong> The motor wiring is intact. The problem lies elsewhere — controller, Polyfuse, power supply, or the motor brushes are worn but not yet failed.</li>
+        </ul>
+
+        <p>This takes 30 seconds with a multimeter and eliminates the most common failure modes immediately. Yet I have watched amateurs disassemble entire installations, replace controllers, and rewire vehicles before performing this basic check. Troubleshoot systematically. Start with the simple tests.</p>
+
+        <h2 id="summary">Parting Thoughts</h2>
+
+        <p>Most antenna problems in mobile installations are not antenna problems at all. They are installation problems, mounting problems, and choking problems. The antenna itself — whether it is a screwdriver, a hamstick, a resonator, or a whip — is typically the least problematic component in the system. It is everything between the antenna and the transceiver, and everything between the antenna mount and the vehicle body, where problems originate.</p>
+
+        <p>Fix the mount. Choke the motor leads. Verify the coax shield connection. Check resistance before replacing components. Follow these steps and you will solve the vast majority of mobile antenna problems before they require anything more exotic.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

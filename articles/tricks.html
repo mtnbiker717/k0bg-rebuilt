@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tricks of the Trade — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Practical tips, shortcuts, and hard-won wisdom for mobile amateur radio installations — bonding materials, fasteners, tools, coax, antenna care, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Tricks of the Trade</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <p>This article is a collection of practical tips, materials recommendations, and hard-won lessons that don't fit neatly into any single topic. Think of it as the stuff you learn after you've done a dozen installations and ruined a few parts along the way. Some of these will save you money. Some will save you time. A few might save your antenna from departing the vehicle at highway speed.</p>
+
+        <h2 id="bonding-materials">Bonding Materials</h2>
+
+        <h3 id="salvaged-braid">Salvaged Braid from Coax</h3>
+
+        <p>Need bonding braid and don't want to pay a premium? Salvage the outer braid from discarded RG-8 or RG-213 coax. Strip off the jacket, pull the braid free, and flatten it. You'll get perfectly serviceable copper braid that costs you nothing but a few minutes of work.</p>
+
+        <p>The catch: salvaged braid is almost always tarnished or corroded. Before you use it, clean it with <strong>DipIt</strong> tarnish remover (the coffee pot cleaner&mdash;yes, really). Soak the braid for a few minutes, rinse thoroughly, and you'll have bright, clean copper ready for a low-resistance bond. Don't skip the cleaning step. Corroded braid makes a poor bond, and a poor bond is worse than no bond at all because it gives you a false sense of security.</p>
+
+        <h3 id="commercial-braid">Commercial Bonding Braid</h3>
+
+        <p>If you'd rather buy purpose-made material, 1-inch heavy-duty flat braid is available from Ham Radio Outlet and other suppliers. For a premium option, <strong>Electric Motion EM2080</strong> braid comes with pre-installed eyelets, which saves you the trouble of crimping or soldering your own terminations. It's not cheap, but it's done right.</p>
+
+        <h3 id="copper-foil">Copper Foil Tape</h3>
+
+        <p><strong>3M 1181 copper foil tape</strong> is excellent for shielding purposes&mdash;wrapping cable bundles, lining enclosures, that sort of thing. But do not confuse shielding with bonding. Copper foil tape does not have the cross-sectional area or the mechanical integrity for structural bonding connections. Use it for what it's good at, not for what it can't do.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Shielding and bonding are related but not interchangeable. Shielding blocks RF coupling. Bonding provides a low-impedance path. Copper foil tape shields. Braid bonds. Use the right material for the right job.</p>
+        </div>
+
+        <h2 id="coaxial-connections">Coaxial Connections and Weatherproofing</h2>
+
+        <p>I see this constantly and it never stops being irritating: people wrapping their outdoor coaxial connections with vinyl electrical tape. <strong>Stop doing this.</strong></p>
+
+        <p>Vinyl electrical tape is not waterproof. It's water-<em>resistant</em> at best, and over time&mdash;especially in sunlight and temperature extremes&mdash;it shrinks, cracks, and unwraps. Worse, it traps moisture against the connector. Once water gets under that vinyl wrap, it stays there. The result is corrosion, rust on steel connectors, and eventually an intermittent or failed connection that drives you mad trying to diagnose.</p>
+
+        <p>Use <strong>self-amalgamating tape</strong> (also called self-vulcanizing or butyl rubber tape). Scotch 130C is the industry standard, but there are adequate generic alternatives. This tape fuses to itself to form a solid, waterproof, UV-resistant seal. It's what the professionals use on tower installations, and it works just as well on your mobile antenna connector.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>For extra protection, apply a thin layer of insulating varnish or potting compound over weatherproofed connections. This is especially worthwhile on antenna base connections that see constant vibration and road spray.</p>
+        </div>
+
+        <h2 id="fasteners">Fasteners</h2>
+
+        <h3 id="star-washers">Star Washers</h3>
+
+        <p>When you need to make an electrical bond through a painted surface, <strong>star washers</strong> (also called internal-tooth lock washers) are your friend. The teeth bite through the paint to make metal-to-metal contact. This is far more reliable than trying to scrape paint away in a precise circle, and it maintains the bond even as the fastener is tightened.</p>
+
+        <h3 id="self-drilling-screws">Self-Drilling Screws</h3>
+
+        <p>For mounting brackets and grounding plates to vehicle body panels, <strong>stainless steel 14 x 3/4 hex-head self-drilling screws</strong> are the right choice. The hex head gives you a positive drive that won't strip, the self-drilling tip eliminates the need for a pilot hole in sheet metal, and stainless steel won't corrode. Phillips-head screws are inferior for this application&mdash;they strip too easily when driving into steel.</p>
+
+        <h3 id="lugs">Lugs</h3>
+
+        <p>Not all crimp lugs are created equal. The cheap, vinyl-insulated lugs from the hardware store have thin barrels that don't grip the wire properly and insulation that melts if they're anywhere near heat. Use <strong>uninsulated copper lugs</strong> with proper barrel lengths, and insulate them yourself with heat-shrink tubing after crimping. Your connections will be mechanically and electrically superior.</p>
+
+        <h2 id="tools">Tools: Get the Right Ones</h2>
+
+        <p>Using the wrong tool is the fastest way to create a bad connection, and bad connections are the root cause of more mobile installation problems than any other single factor. There are a few tools that are absolutely worth the investment.</p>
+
+        <h3 id="lineman-scissors">Lineman's Scissors</h3>
+
+        <p>A pair of <strong>lineman's scissors</strong> (about $15 from Ideal Industries) will cut wire, strip insulation, and trim cable ties more cleanly and safely than a knife. They're also invaluable for cutting bonding braid. If you do any amount of wiring work, you need these.</p>
+
+        <h3 id="crimping-tools">Crimping Tools</h3>
+
+        <p>Here is where spending money makes a real difference. A proper lug crimping tool costs about $50. A cheap one costs about $15. The difference is in the <strong>die</strong>. A good crimping tool has a die that produces a uniform, gas-tight crimp that will never work loose. A cheap tool produces an oval mash that may or may not hold, and will almost certainly develop resistance over time as vibration works the connection loose.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>A bad crimp is an invisible failure. It will look fine, it will test fine with an ohmmeter when the vehicle is sitting still, and then it will fail intermittently under vibration&mdash;creating noise, voltage drops, and maddening problems that are nearly impossible to troubleshoot. Spend the $50 on a real crimping tool.</p>
+        </div>
+
+        <figure class="image-placeholder">
+          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-label">Proper crimping tools vs. cheap alternatives</span>
+          <p>Comparison of a quality ratcheting crimp tool (~$50) with proper dies versus a cheap stamped-steel crimper (~$15). The die makes all the difference in crimp quality.</p>
+          <span class="placeholder-source">Seeking CC-licensed photo — see images/SOURCES.md</span>
+        </figure>
+
+        <p>For <strong>Anderson Powerpole PP75, PP120, and PP180</strong> connectors, you need the Anderson commercial-grade crimping tool. These are not cheap, but these larger Powerpole connectors are not designed for the standard PP15/PP45 crimping tool. Using the wrong tool produces a substandard crimp that will fail under load.</p>
+
+        <h2 id="wiring-tips">Wiring Tips</h2>
+
+        <h3 id="powerpole-orientation">Powerpole Crimp Pin Orientation</h3>
+
+        <p>When crimping Powerpole contacts, the orientation of the crimp pin matters. The contact must be inserted into the housing with the correct orientation or it won't latch. For <strong>PP45 connectors</strong>&mdash;which are the right choice for most amateur radio power applications&mdash;the crimp wing folds should face the mating surface. Get this wrong and the contact either won't seat or will pull out under tension.</p>
+
+        <h3 id="wire-colors">Wire Colors</h3>
+
+        <p>Use red for positive DC power and black for negative DC power. For everything else&mdash;motor control lines, antenna controller cables, sensor leads&mdash;use <strong>non-red, non-black colors</strong>. This seems obvious, but I've seen plenty of installations where someone ran black wire for an antenna tuner control line, and then six months later couldn't remember which black wire was power and which was signal. Use blue, green, yellow, white&mdash;anything but red and black for non-power wiring.</p>
+
+        <h2 id="fuses">Fuses</h2>
+
+        <p>The old 5AG (13/32" x 1-1/2") round glass fuses are limited to 50 amps maximum, and the industry has discontinued ratings over 30 amps because they can't reliably interrupt higher fault currents in that form factor. If you need fusing above 30 amps, switch to <strong>Maxi fuses</strong>, which are rated to 80 amps and have proper blade contacts that won't develop the resistance problems that old AGC fuse holders are notorious for.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>Always fuse both the positive and negative leads at the battery, not just the positive. In a mobile environment, a short between your negative wire and the vehicle body is just as dangerous as a short on the positive side.</p>
+        </div>
+
+        <h2 id="car-polish">Car Polish and RF: A Hidden Problem</h2>
+
+        <p>This one surprises people. <strong>Do not use car polish or wax anywhere near RF connections, antenna mounts, or bonding points.</strong> Most car polishes contain metallic compounds that are electrically conductive. When polish residue gets into a joint, it creates a thin conductive film that looks clean but is actually a resistive layer that degrades your bond. Worse, it seals moisture into the joint rather than keeping it out.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>Car polish does NOT protect antenna mounts or RF connections. It makes them worse. The conductive residue and moisture-sealing properties are exactly what you don't want at an RF joint. Use <strong>RainX</strong> on painted surfaces near antenna mounts instead&mdash;it sheds water without leaving conductive residue.</p>
+        </div>
+
+        <h2 id="hustler-antennas">Hustler Antenna Tips</h2>
+
+        <p>Hustler resonator coils are held onto the mast by a pressed-in stud with approximately five threads. That's it&mdash;five threads between your coil and the pavement rushing by at 70 miles per hour. The ferrule (the threaded collar at the bottom of the coil) is <strong>press-fit</strong>, not welded or brazed.</p>
+
+        <p><strong>Overtightening the coil onto the mast will loosen the ferrule from the coil body.</strong> Once that ferrule is loose, the coil will unscrew itself from vibration and depart the vehicle. This is not a theoretical risk. It happens regularly, and a Hustler resonator bouncing down the interstate is a hazard to following traffic and a $30 lesson in reading the manual.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Tighten Hustler coils to the mast hand-tight only, then secure with a guy line. Use <strong>Phillystrand</strong> (a Phillystran product&mdash;woven Kevlar cord) as a safety lanyard from the coil to the mount or vehicle body. If the coil works loose, the lanyard catches it instead of letting it become a highway projectile.</p>
+        </div>
+
+        <p>Another Hustler issue: the vinyl covering on the coils traps moisture. Over time, water wicks under the vinyl and sits against the coil windings, causing arcing under transmit power. If you notice erratic SWR readings that vary with weather, moisture under the vinyl is a likely culprit. Some operators carefully slit the vinyl, dry the coil, and seal it with insulating varnish or potting compound.</p>
+
+        <h2 id="whip-materials">Stainless Steel Whips</h2>
+
+        <p>Most stainless steel whips used in amateur mobile antennas are made from <strong>17-7 PH stainless steel</strong>. Some are chrome-plated or otherwise coated. All stainless steel whips are <strong>lossier than aluminum</strong> whips of the same dimensions, because stainless has significantly higher resistivity than aluminum.</p>
+
+        <p>Does this matter in practice? At HF, the additional loss is small&mdash;perhaps a fraction of a dB. But it's worth knowing, especially if you're trying to eke out every last bit of performance from a compromise antenna system. If you have a choice between a stainless whip and an aluminum whip of equal mechanical suitability, the aluminum whip is the better RF performer.</p>
+
+        <h2 id="coax-selection">RG-8X: Probably All You Need</h2>
+
+        <p>There's a persistent belief that you need RG-213 or even hardline for mobile HF. You don't. <strong>RG-8X is adequate for virtually all mobile HF installations.</strong></p>
+
+        <p>In a typical mobile installation, your coax run is 10 feet, maybe 15 at the outside. At HF frequencies (3 to 30 MHz), the loss difference between RG-8X and RG-213 over a 10-foot run is negligible&mdash;a fraction of a dB that you will never notice in practice. RG-8X is easier to route, easier to connectorize, and takes up less space. Save the RG-213 for your home station feed line runs where you might have 100 feet to deal with.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>Coax loss is a function of frequency and length. At HF frequencies over a 10-foot run, the difference between RG-8X and larger coax is measured in fractions of a dB. Don't waste money and installation effort on coax that provides no meaningful benefit at these distances.</p>
+        </div>
+
+        <h2 id="ignition-shielding">Ignition RFI Shielding</h2>
+
+        <p>On late-model vehicles with coil-on-plug ignition systems, adding aftermarket ignition shielding is largely a <strong>waste of time and money</strong>. The ignition noise on modern vehicles is primarily conducted, not radiated, and the frequencies involved are mostly VHF and above. Bonding and shielding techniques that work well at HF are ineffective at VHF for ignition-sourced RFI.</p>
+
+        <p>If you have ignition RFI on VHF, the solution is usually ferrite suppression at the source (on the coil pack harness) or acceptance that your vehicle generates noise on 2 meters. Wrapping plug wires in copper foil accomplishes nothing except making your engine bay look like a science project.</p>
+
+        <h2 id="summary">Summary</h2>
+
+        <p>None of these tips are glamorous, and none of them will make for exciting forum posts. But they're the difference between an installation that works reliably for years and one that fights you every time you turn on the radio. Use the right materials, invest in proper tools, pay attention to the small details, and your mobile station will reward you with trouble-free operation.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

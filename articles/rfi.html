@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RFI Problems — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Identifying and solving RFI problems in mobile amateur radio installations. Covers ignition noise, data bus interference, alternator whine, and vehicle electronics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Getting Started</span>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Electrical Fundamentals</span>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Antenna System</span>
+        <ul>
+          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Equipment</span>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Reference</span>
+        <ul>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="search-wrapper">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>RFI Problems</h1>
+        <div class="article-date">Last updated: March 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="the-major-bane">The Major Bane of Mobile Operation</h2>
+
+        <p>Radio frequency interference is the major bane of every mobile operator. It does not matter whether you are running a thousand-dollar transceiver or a budget rig&mdash;if your vehicle is pouring noise into your receiver, your on-air experience will be miserable. Modern vehicles are, from an RF perspective, rolling noise factories. Every year the manufacturers add more microprocessors, more switching regulators, more LED lighting, and more high-speed data buses. None of these were designed with amateur radio in mind, and all of them are potential RFI sources.</p>
+
+        <p>The good news is that most RFI problems are solvable. The bad news is that solving them requires patience, systematic troubleshooting, and a willingness to resist the urge to throw parts at the problem before you understand it.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">🔑 KEY CONCEPT</div>
+          <p>The correct sequence is this: install everything first, following all recommendations for bonding, wiring, antenna mounting, and common mode choking. <strong>Then</strong>&mdash;and only then&mdash;assess what additional RFI mitigation is needed. Do not pre-emptively throw ferrites at everything in sight. An installation done right from the start will have far fewer RFI problems than you expect, and you will know exactly which issues remain to be addressed.</p>
+        </div>
+
+        <p>I cannot emphasize this enough. The number of operators who skip proper bonding, use marginal antenna mounts, run their coax without a common mode choke, and then complain about RFI is staggering. Most of the time, the RFI they are fighting is a direct consequence of the shortcuts they took during installation. Fix the foundation first. Then deal with whatever is left.</p>
+
+        <h2 id="spark-ignition">Spark Ignition Noise</h2>
+
+        <p>Spark ignition noise presents as rapid static or hash that varies with engine RPM. It is one of the oldest and most recognizable forms of mobile RFI. The sound is distinctive&mdash;a raspy, ticking buzz that speeds up as you accelerate and slows as you decelerate.</p>
+
+        <p>The severity of ignition noise is directly related to the age and condition of the spark plugs and spark plug wires. Worn plugs with eroded electrodes require higher voltage to fire, which means stronger RF impulses. Degraded plug wires with cracked or deteriorated insulation leak RF energy. In many cases, simply replacing the plugs and wires with quality components significantly reduces or eliminates the problem.</p>
+
+        <p>Proper bonding of the vehicle body panels is the first line of defense. The hood, fenders, and exhaust system should all be bonded to the main chassis. This contains the ignition noise within the engine compartment rather than allowing it to radiate from every seam and gap in the body.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p>Attempting to shield the ignition system on late-model vehicles is a <strong>complete waste of time</strong> and can cause serious problems. Modern coil-on-plug ignition systems use precisely timed signals from the engine control module. Adding shielding, resistive components, or bypass capacitors to this wiring can interfere with ignition timing, cause misfires, and trigger the MIL (Malfunction Indicator Light, a.k.a. Check Engine Light). This is especially true of GM V8 engines using the Gen III and Gen IV architecture. Leave the ignition system alone and address the noise through bonding and common mode choking instead.</p>
+        </div>
+
+        <h2 id="data-buses">Vehicle Data Buses</h2>
+
+        <p>Modern vehicles are networks on wheels. The various electronic modules communicate over high-speed serial data buses known by names like B-CAN, MICS, and CANBUS. These buses operate at frequencies that produce harmonics well into the HF spectrum, and sometimes beyond.</p>
+
+        <p>The telltale signature of data bus interference is evenly-spaced birdies&mdash;carriers at regular frequency intervals across the HF bands. They are typically weak but persistent, and they can mask weak signals. If you tune across a band and hear little carriers popping up at mathematically regular intervals, you are almost certainly hearing data bus harmonics.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ WARNING</div>
+          <p><strong>Never</strong> choke or bypass vehicle data bus wiring. These buses depend on precise signal timing, and adding impedance in the form of ferrites or capacitors will cause timing errors that can affect vehicle operation in unpredictable and potentially dangerous ways. Airbag systems, ABS braking, stability control, and engine management all communicate over these buses. The consequences of interfering with them range from warning lights to genuine safety hazards.</p>
+        </div>
+
+        <p>So what can you do? In most cases, the answer is to accept a modest level of data bus interference and deal with it at the receiver. Many modern HF transceivers include auto-notch filters (sometimes called DSP notch filters) that can automatically detect and suppress these narrow-band carriers. If your radio has this feature, use it. If it does not, this is one more reason to choose a radio with good DSP capability for mobile use.</p>
+
+        <p>The other half of the solution is to minimize common mode current ingress on your coax, which is the primary path by which data bus noise reaches your receiver. A proper common mode choke at the antenna feedpoint, as described in the <a href="common-mode.html">Common Mode Currents</a> article, will substantially reduce the level of data bus birdies you hear.</p>
+
+        <h2 id="power-cabling">Power Cabling: A Misunderstood Topic</h2>
+
+        <div class="callout myth">
+          <div class="callout-title">🔥 MYTH BUSTED</div>
+          <p>Twisting the positive and negative power cables together to "cancel RFI" is one of the most persistent myths in mobile amateur radio. It does essentially nothing. The currents in the positive and negative power leads are not equal and opposite at RF frequencies, so twisting them does not produce the cancellation that people imagine. Worse, it gives operators a false sense that they have addressed a problem, when in fact they have done nothing useful. If you have RFI, twisting your power cable is not the answer. Proper bonding, common mode choking, and correct wiring practices are.</p>
+        </div>
+
+        <p>Power cabling is frequently and wrongly blamed for RFI problems. In a properly installed system with adequate wire gauge, direct battery connections, and proper fusing, the power cables are not a significant RFI path. When operators experience noise that seems related to their power wiring, the actual cause is almost always poor bonding or common mode current on the coax&mdash;not the power cables themselves.</p>
+
+        <h2 id="infotainment">Modern Infotainment and Audio Systems</h2>
+
+        <p>Here is a particularly annoying one. Modern vehicles have sophisticated audio and infotainment systems with amplifiers that are wired hot at all times&mdash;they draw power even when the system appears to be off. These amplifiers have high gain stages that make them both sources of RFI and susceptible to RF energy from your transmitter.</p>
+
+        <p>On the receive side, switching power supplies inside the head unit and amplifier modules generate broadband noise that can be surprisingly strong. On the transmit side, RF energy from your antenna can be demodulated by the audio amplifier, producing your voice or a distorted version of it through the vehicle speakers. Both problems are maddening.</p>
+
+        <p>Ferrite snap-on beads on the wiring to the amplified device can help. The ideal approach is to wind multiple turns through a single snap-on bead, since impedance increases by the square of the number of turns&mdash;multiple turns on one bead is far more effective than one turn on multiple beads. However, there is a practical difficulty: factory wiring harnesses rarely have enough slack to wind multiple turns through a snap-on bead. If you are limited to a single pass through the ferrite, you will need to stack several beads to achieve useful impedance, but this is a distant second-best to the multi-turn approach. Apply the beads as close to the amplified device as possible, not at the radio end of things.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>When troubleshooting infotainment RFI, start by pulling the fuse for the audio amplifier to confirm it is the source. If the noise disappears with the fuse pulled, you have identified the culprit. Then apply ferrite beads to the amplifier's power and signal wiring. If the interference is from your transmitter into the audio system, the beads go on the audio system wiring&mdash;not on the radio's coax or power leads.</p>
+        </div>
+
+        <h2 id="navigation-led">Navigation Systems, LEDs, and Fluorescent Lighting</h2>
+
+        <p>Navigation systems and interior lighting&mdash;both fluorescent and LED&mdash;are increasingly common sources of RFI in modern vehicles. The common thread is rapid switching. LED drivers and fluorescent ballasts use high-frequency switching circuits that generate harmonics across the HF spectrum. Navigation units contain oscillators and digital processors that do the same.</p>
+
+        <p>LED lighting is particularly insidious because it is everywhere in newer vehicles: instrument panels, dome lights, running lights, brake lights, and turn signals. Each LED driver is a potential noise source. The aggregate effect can raise your noise floor significantly.</p>
+
+        <p>Treatment follows the same principles: ferrite beads on the power leads to the offending device, applied as close to the device as possible. For LED lighting, this can be difficult because the wiring is often deeply embedded in the vehicle's harness. In some cases, you may simply have to accept a slightly elevated noise floor from LED sources and compensate with good antenna mounting and common mode choking.</p>
+
+        <h2 id="rear-defroster">Rear Window Defroster</h2>
+
+        <p>If you have mounted your antenna on a hatch or tailgate that incorporates a rear window defroster, you may have discovered an unpleasant surprise. The defroster grid is a collection of resistive conductors embedded in the glass, and when energized, they generate broadband RFI. Even when the defroster is off, the grid can interact with your antenna's near field and distort the radiation pattern.</p>
+
+        <p>This problem is especially severe with clip mounts or lip mounts on the edge of the hatch, where the antenna is in close proximity to the defroster grid. The defroster wiring acts as a parasitic element that couples energy into and out of the antenna in unpredictable ways.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>The best solution is to avoid mounting antennas on surfaces with rear window defrosters. If you must use a hatch or tailgate mount, a through-hole mount positioned as far from the defroster grid as possible will give better results than a clip mount. And make absolutely certain the hatch or tailgate is properly bonded to the main vehicle body.</p>
+        </div>
+
+        <h2 id="alternator-whine">Alternator Whine</h2>
+
+        <p>Alternator whine is a high-pitched whine that varies in pitch with engine RPM. It is caused by the rectifier diodes in the alternator, which convert AC to DC with just enough ripple to produce an audible tone in your receiver.</p>
+
+        <p>Before you do anything else, address your bonding. In the majority of cases, alternator whine is a bonding problem, not an alternator problem. The engine block, alternator bracket, and body must all be well bonded with low-impedance straps. If the whine persists after thorough bonding, ferrite beads on the alternator output wiring can provide additional attenuation.</p>
+
+        <p>Note that alternator whine conducted through the power cables is relatively rare in a properly wired installation with direct battery connections. The battery itself acts as a massive filter capacitor. If you are hearing alternator whine, check your bonding before blaming the wiring.</p>
+
+        <h2 id="color-burst">Color Burst Crystal Oscillators</h2>
+
+        <p>This one catches VHF operators completely off guard. Older vehicle computers and some instrument clusters contain a color burst crystal oscillator running at 3.579545 MHz. This is the NTSC color subcarrier frequency, used for legacy display compatibility. By itself, it is well below the VHF bands and seems harmless.</p>
+
+        <p>However, the 41st harmonic of 3.579545 MHz falls at 146.76 MHz&mdash;right in the middle of the 2-meter band, and right on top of commonly used repeater pairs. In practice, component tolerances shift this harmonic across a range of roughly 146.70 to 146.80 MHz, so the birdie may not land exactly on 146.76. If you have a persistent, weak carrier anywhere in that range that is present whenever the vehicle is running, you are almost certainly hearing this harmonic.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">💡 TIP</div>
+          <p>This is primarily an issue with older vehicles. If you are operating a vehicle from the 1990s or early 2000s with an aftermarket VHF radio and hearing a birdie near 146.76 MHz, the color burst oscillator is the likely culprit. Ferrite beads on the wiring to the offending module can help, though identifying which module contains the oscillator may require some detective work with a portable receiver.</p>
+        </div>
+
+        <h2 id="future-concerns">Laser Ignition and Future Concerns</h2>
+
+        <p>Looking ahead, laser ignition systems are on the horizon for internal combustion engines. These systems use pulsed lasers to ignite the fuel-air mixture, driven by pulse-width modulation circuits. PWM-driven laser systems have the potential to generate significant RFI across a wide spectrum, and the amateur radio community will need to develop new mitigation techniques as these systems enter production.</p>
+
+        <p>The broader trend is clear: vehicles are becoming more electrically complex, not less. Every new feature, every new module, every new digital bus is a potential RFI source. The fundamentals of mitigation&mdash;bonding, common mode choking, proper antenna mounting, and systematic troubleshooting&mdash;will remain your most effective tools regardless of what the automotive industry throws at us next.</p>
+
+        <h2 id="systematic-approach">A Systematic Approach</h2>
+
+        <p>Let me leave you with a practical sequence for dealing with RFI in a mobile installation:</p>
+
+        <ol>
+          <li><strong>Install everything correctly first.</strong> Follow the recommendations in the <a href="bonding.html">Bonding</a>, <a href="wiring.html">Wiring</a>, and <a href="common-mode.html">Common Mode Currents</a> articles. Do not skip steps.</li>
+          <li><strong>Assess what remains.</strong> With the engine running and the vehicle fully powered up, tune across the bands and note what you hear. Categorize the noise: is it broadband hash, evenly-spaced birdies, whine that varies with RPM, or something else?</li>
+          <li><strong>Isolate the source.</strong> Turn off accessories one at a time. Pull fuses if necessary. Determine exactly which system is generating the interference.</li>
+          <li><strong>Apply targeted mitigation.</strong> Use ferrite beads on the wiring to the specific offending device, as close to the device as possible. Do not shotgun ferrites onto everything.</li>
+          <li><strong>Verify.</strong> After each change, reassess. Did the noise decrease? By how much? Is it now acceptable?</li>
+        </ol>
+
+        <p>This is not glamorous work. It requires patience and methodical thinking. But it is the only approach that reliably produces a quiet, effective mobile installation. Throwing parts at the problem without understanding it is a waste of time and money&mdash;and it rarely works.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG (SK). Preserved for the amateur radio community.</p>
+    </footer>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
