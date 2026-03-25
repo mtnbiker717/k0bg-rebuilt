@@ -1056,8 +1056,7 @@ figure figcaption { font-family: var(--font-sans); font-size: 0.8125rem; color: 
     font-weight: 500;
   }
 
-  /* Hide inline TOC when rail is visible */
-  .toc { display: none; }
+  /* Inline TOC remains visible — rail is supplementary */
 }
 
 /* ===== Table Overflow Protection ===== */
