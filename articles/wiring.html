@@ -108,7 +108,9 @@
 
         <p>Your vehicle's factory wiring is designed to carry DC current for vehicle systems. It is routed alongside computer bus wires, sensor leads, and actuator cables. It shares ground paths with dozens of noisy loads. It passes through connectors that were never designed with RF in mind. When you tap into this wiring for radio power, you inject every bit of that electrical filth directly into your transceiver. You also create the opportunity for your transmitted RF to find its way back into the vehicle's electronics, which the vehicle manufacturer will not be amused about and neither will you.</p>
 
-        <p>The negative lead is just as important as the positive. Many hams dutifully run a dedicated positive lead to the battery, then connect the negative lead to the nearest body bolt. Don't do this. Run both leads to the battery. The negative lead provides a clean, low-impedance return path that doesn't share current with windshield wiper motors, blower fans, or heated seats. It also helps prevent ground loops that can couple noise into the receiver.</p>
+        <p>The negative lead is just as important as the positive. Many hams dutifully run a dedicated positive lead to the battery, then connect the negative lead to the nearest body bolt. This is a mistake &mdash; you need a clean, dedicated, low-impedance return path that doesn't share current with windshield wiper motors, blower fans, or heated seats. A sloppy ground invites ground loops that couple noise into the receiver.</p>
+
+        <p><strong>On older vehicles</strong> (roughly pre-2017), the traditional advice is correct: run the negative lead directly to the battery negative terminal. On <strong>modern vehicles</strong> equipped with an Intelligent Battery Sensor (IBS) on the negative terminal, this approach can cause problems. See the <a href="#modern-vehicles">Modern Vehicle Considerations</a> section below for the updated guidance.</p>
 
         <h2 id="wire-gauge">Wire Gauge: Getting It Right</h2>
 
@@ -214,6 +216,77 @@
           <li>Inspect bonding and grounding connections annually for signs of corrosion.</li>
         </ul>
 
+        <h2 id="modern-vehicles">Modern Vehicle Considerations (2017+)</h2>
+
+        <p>Much of the mobile installation advice in the amateur radio community &mdash; including the original K0BG material &mdash; was written when vehicles had simple batteries with exposed terminals and alternators that charged at a fixed 14.4 volts. Modern vehicles are significantly more complex, and some of the classic advice needs updating.</p>
+
+        <h3 id="battery-fuse-blocks">Battery-Mounted Fuse Blocks</h3>
+
+        <p>Many modern vehicles &mdash; GM trucks from ~2019+, Ford F-150s and Explorers, Stellantis products &mdash; have a <strong>Battery-Mounted Fuse Block</strong> (BMFB) or <strong>Battery Junction Box</strong> (BJB) integrated directly onto the positive battery terminal. This is a plastic housing containing high-current mega fuses (100A&ndash;300A) that protect the vehicle's main wiring harnesses. On some vehicles, the battery positive terminal is completely inaccessible underneath this assembly.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The mega fuses in the BMFB protect the <strong>vehicle's</strong> wiring from catastrophic shorts. They do NOT protect your accessory wire. A 150-amp mega fuse will not blow for a 30-amp short on your 10 AWG radio wire &mdash; your wire will melt and potentially start a fire long before that mega fuse trips. You still need your own correctly-sized inline fuse immediately after your connection point.</p>
+        </div>
+
+        <p>Some BMFB units have an auxiliary stud terminal specifically for accessories. If yours has one, you can connect your positive lead there with a ring terminal, then install your inline fuse within a few inches. If there is no auxiliary stud, you may need to add an aftermarket fuse distribution block that clamps alongside the BMFB, or access the battery terminal directly if mechanically possible. Consult your vehicle's service manual for the specific layout.</p>
+
+        <h3 id="ibs-sensor">Intelligent Battery Sensors (IBS)</h3>
+
+        <p>This is the single biggest change that affects mobile radio installations in modern vehicles. Most vehicles from roughly 2017 onward (GM, Ford, Stellantis, and nearly all European makes since ~2012) have an <strong>Intelligent Battery Sensor</strong> clamped to or integrated into the negative battery terminal. It measures current flow, voltage, and temperature, and reports to the Body Control Module (BCM).</p>
+
+        <p>The BCM uses this data to manage the charging system, control start-stop operation, and shed electrical loads if the battery gets low. Here is the problem: if you connect your radio's negative lead directly to the battery negative post &mdash; <em>above</em> the IBS &mdash; the sensor cannot see that current. As far as the car's computer is concerned, current is leaving through the positive terminal but not coming back. This mismatch can cause:</p>
+
+        <ul>
+          <li>Diagnostic trouble codes (DTCs) &mdash; battery sensor rationality errors</li>
+          <li>Erratic charging &mdash; alternator overcharges or undercharges because SOC calculations are wrong</li>
+          <li>Start-stop system disabling itself</li>
+          <li>Premature load shedding &mdash; the BCM shuts off accessories because it thinks the battery is dying</li>
+          <li>Check engine or battery warning lights</li>
+        </ul>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>On IBS-equipped vehicles, do not connect the negative lead directly to the battery negative post.</strong> This bypasses the current sensor and confuses the vehicle's battery management system. BMW and Mercedes are notoriously sensitive to this. GM trucks are more tolerant but will still log codes.</p>
+        </div>
+
+        <p><strong>The updated recommendation for the negative lead on IBS-equipped vehicles:</strong> Connect to a <strong>factory ground stud</strong> on the engine block or inner fender, near the battery. These are robust, low-impedance ground points that are part of the vehicle's main ground path. All current flowing through chassis ground passes through the IBS on its way back to the battery, so the sensor can properly account for your radio's current draw.</p>
+
+        <p>This is a departure from the original K0BG advice, but it is necessary on modern vehicles. The key nuance: a factory ground stud on the engine block within a few feet of the battery is a <em>very different thing</em> from a random body bolt in the trunk. The impedance difference between a short run to a factory engine block stud and a direct battery terminal connection is negligible at DC. The noise problems K0BG warned about came from using thin chassis sheet metal as a return path over long distances &mdash; that is still bad advice. A factory ground stud is not.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>How to tell if your vehicle has an IBS: look at the negative battery terminal. If there is a small electronic module with a wiring connector clamped between the cable end and the battery post, that is the IBS. If the cable bolts directly to the post with no electronics in between, you don't have one and the classic "both leads to the battery" advice still applies.</p>
+        </div>
+
+        <h3 id="smart-alternators">Smart Alternators and Variable Voltage</h3>
+
+        <p>Modern vehicles do not maintain a constant 13.8-volt charging voltage. The ECM commands the alternator field current based on battery state of charge, engine load, and fuel economy targets. GM calls this Load Response Control (LRC). Ford calls it Smart Charging. The practical result:</p>
+
+        <ul>
+          <li><strong>During deceleration/braking:</strong> Up to 15.0&ndash;15.5V (regenerative charging to recapture energy)</li>
+          <li><strong>Normal driving:</strong> 13.2&ndash;14.4V (varies with battery SOC)</li>
+          <li><strong>Steady cruise, battery full:</strong> Can drop to 12.8&ndash;13.0V (alternator partially decouples to save fuel)</li>
+          <li><strong>After a start-stop restart:</strong> Brief burst to 14.8V+ to replenish quickly</li>
+        </ul>
+
+        <p>Most modern transceivers (Icom IC-7300, Yaesu FT-891, Kenwood TS-480, etc.) are designed for 13.8V &plusmn;15% and will handle this range without issue, though output power may dip slightly at the low end. The bigger concern is <strong>motorized screwdriver antennas</strong> &mdash; motor speed varies with voltage, which affects tune times and can confuse turn-counting controllers that assume consistent motor speed. SWR-seeking controllers are less affected.</p>
+
+        <h3 id="start-stop">Start-Stop Systems</h3>
+
+        <p>Many modern vehicles shut the engine off at stoplights to save fuel. When the engine is off, there is no alternator output &mdash; everything runs on the battery alone. If you are transmitting 100 watts during an engine-off period, you are pulling 22 amps straight from the battery with nothing to replenish it.</p>
+
+        <p>Worse, when the engine restarts, the starter motor draws 150&ndash;300 amps. This causes a brief but severe voltage dip (down to 9&ndash;10V) that will reset most transceivers, produce a loud pop in the audio, and may trip internal protection circuits.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p><strong>Disable start-stop during HF operation.</strong> Most vehicles have a button to disable it per drive cycle. Aftermarket modules (like Autostop Eliminator) can default it to off permanently. For VHF/UHF FM at lower power levels the issue is less severe, but the restart voltage transient is still a concern.</p>
+        </div>
+
+        <h3 id="48v-systems">48V Mild Hybrid Systems</h3>
+
+        <p>Some vehicles (Ram 1500 eTorque, various Mercedes/Audi/BMW models) use a 48-volt mild hybrid system alongside the conventional 12V system. The two are electrically isolated by a DC-DC converter. All ham radio equipment connects to the 12V system only. The 48V wiring is typically identified by <strong>blue cables</strong> (as opposed to orange for full high-voltage hybrid systems). Leave it alone entirely. The 12V side of these vehicles follows the same IBS and smart alternator guidance above.</p>
+
         <h2 id="putting-it-together">Putting It All Together</h2>
 
         <p>A proper mobile power installation is not complicated. It's just deliberate. Here's the sequence:</p>
@@ -223,7 +296,7 @@
           <li>Select wire gauge based on current and run length.</li>
           <li>Install an appropriately-sized fuse holder as close to the battery as possible's positive terminal.</li>
           <li>Route both positive and negative leads through the firewall (using a grommet) and along the vehicle interior, away from ECU, ABS, airbag, and fuel line routing.</li>
-          <li>Terminate both leads at the battery &mdash; positive to the positive terminal, negative to the negative terminal. Not the body. Not the frame. The battery terminal.</li>
+          <li>Terminate the positive lead at the battery terminal (or BMFB auxiliary stud if the terminal is inaccessible). For the negative lead: on vehicles <strong>without</strong> an IBS, connect to the battery negative terminal. On vehicles <strong>with</strong> an IBS, connect to a factory ground stud on the engine block near the battery. See <a href="#ibs-sensor">IBS section</a> above.</li>
           <li>At the radio end, terminate with Anderson Powerpole connectors.</li>
           <li>Secure the cable run with cable ties every 12 to 18 inches.</li>
           <li>Test under load: key the transmitter and measure voltage at the radio. You should see no more than 0.5V drop from the battery terminal voltage.</li>
@@ -233,7 +306,7 @@
 
         <h2 id="summary">Summary</h2>
 
-        <p>The wiring in a mobile installation is the foundation that everything else depends on. A perfect antenna on a perfectly bonded vehicle will still sound terrible if the power wiring couples engine noise into the receiver. Dedicated leads to the battery, correct wire gauge, proper fusing, quality connectors, and careful routing &mdash; these aren't optional refinements. They're the baseline. Start here, get it right, and the rest of the installation has a fighting chance.</p>
+        <p>The wiring in a mobile installation is the foundation that everything else depends on. A perfect antenna on a perfectly bonded vehicle will still sound terrible if the power wiring couples engine noise into the receiver. Dedicated leads, correct wire gauge, proper fusing, quality connectors, careful routing, and &mdash; on modern vehicles &mdash; respecting the IBS and battery management system: these aren't optional refinements. They're the baseline. Start here, get it right, and the rest of the installation has a fighting chance.</p>
 
       </div>
 
