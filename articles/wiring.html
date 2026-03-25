@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
     <div class="sidebar-logo">
       <a href="../index.html">
         <div class="logo-primary">K0BG</div>
@@ -67,10 +68,10 @@
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
   <div class="topbar">
-    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <div class="search-wrapper">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
       <span class="search-icon">&#128269;</span>
       <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
       <div class="search-results" id="search-results"></div>
@@ -151,7 +152,7 @@
         <p>Size the fuse appropriately. For a single 100W transceiver on 10 AWG wire, a 30-amp fuse is typical. Don't use a 50-amp fuse "just in case" &mdash; oversized fuses defeat the purpose of having one. The fuse must blow before the wire reaches its current-carrying limit.</p>
 
         <figure class="image-placeholder">
-          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
           <span class="placeholder-label">Fuse holder installed near battery terminal</span>
           <p>Maxi fuse holder mounted as close to the battery positive terminal as possible, with weather-resistant housing.</p>
           <span class="placeholder-source">Seeking CC-licensed photo — see images/SOURCES.md</span>
@@ -171,7 +172,7 @@
         <p>One color convention note: the ARES/RACES standard uses red and black housings for positive and negative DC power connections, and you should follow that convention for your radio's power leads. Reserve red and black exclusively for DC power. For motor leads, control wiring, or actuator connections, use a different color pair&mdash;yellow and blue, for example&mdash;so that motor leads are visually distinct from power wiring and cannot be accidentally cross-connected.</p>
 
         <figure class="image-placeholder">
-          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
           <span class="placeholder-label">Anderson Powerpole PP45 connections</span>
           <p>Properly crimped PP45 Powerpole connectors on 10 AWG wire. Red/black housings for DC power leads.</p>
           <span class="placeholder-source">Seeking CC-licensed photo — see images/SOURCES.md</span>

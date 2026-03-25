@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
     <div class="sidebar-logo">
       <a href="../index.html">
         <div class="logo-primary">K0BG</div>
@@ -67,10 +68,10 @@
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
   <div class="topbar">
-    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <div class="search-wrapper">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
       <span class="search-icon">&#128269;</span>
       <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
       <div class="search-results" id="search-results"></div>
@@ -144,7 +145,7 @@
         <p>With 6 turns, you will get approximately 2.2 kilohms of impedance at 10 MHz. That is adequate for operation on 80 through 10 meters. Wind 7 turns of RG-8X and the impedance climbs to approximately 2.7 kilohms, which may be sufficient for 160-meter operation&mdash;though 160 meters with a poor mount may demand more aggressive measures.</p>
 
         <figure class="image-placeholder">
-          <span class="placeholder-icon">📷</span>
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
           <span class="placeholder-label">Coax wound through mix 31 split bead</span>
           <p>6-7 turns of RG-8X coax wound through a 3/4-inch ID mix 31 ferrite split bead, installed at the antenna feedpoint outside the vehicle.</p>
           <span class="placeholder-source">Photo requested from W1AST (stationproject.blog)</span>

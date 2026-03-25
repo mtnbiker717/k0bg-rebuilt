@@ -11,10 +11,11 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
 
   <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
     <div class="sidebar-logo">
       <a href="index.html">
         <div class="logo-primary">K0BG</div>
@@ -68,10 +69,10 @@
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
   <div class="topbar">
-    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <div class="search-wrapper">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
       <span class="search-icon">&#128269;</span>
       <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
       <div class="search-results" id="search-results"></div>

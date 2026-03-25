@@ -4,7 +4,7 @@
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
   --text: #0f172a;
-  --text-muted: #64748b;
+  --text-muted: #566479;
   --border: #e2e8f0;
   --accent: #2563eb;
   --accent-amber: #d97706;
@@ -43,6 +43,37 @@ body {
 }
 
 img { max-width: 100%; height: auto; }
+
+/* ===== Accessibility ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 6px 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent-amber);
+  outline-offset: 2px;
+}
+
+/* Override for inputs that have their own focus style */
+.search-wrapper input:focus-visible {
+  outline: none;
+}
 
 /* ===== Sidebar ===== */
 .sidebar {
@@ -304,7 +335,7 @@ html.dark .topbar.scrolled {
 .search-wrapper input:focus {
   width: 300px;
   border-color: var(--accent-amber);
-  box-shadow: 0 0 0 3px rgba(217,119,6,0.12);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.4);
   background: var(--bg);
 }
 
@@ -636,7 +667,7 @@ html.dark .callout.warning { background: rgba(220,38,38,0.1); }
   background: #f0fdf4;
   border-left-color: #16a34a;
 }
-.callout.tip .callout-title { color: #16a34a; }
+.callout.tip .callout-title { color: #15803d; }
 html.dark .callout.tip { background: rgba(22,163,74,0.1); }
 
 .callout.key-concept {

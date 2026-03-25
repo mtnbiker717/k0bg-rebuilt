@@ -28,6 +28,7 @@
   function closeSidebar() {
     if (sidebar) sidebar.classList.remove('open');
     if (overlay) overlay.classList.remove('active');
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
@@ -39,6 +40,7 @@
       } else {
         if (sidebar) sidebar.classList.add('open');
         if (overlay) overlay.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
       }
     });
@@ -99,9 +101,14 @@
       delete navCollapsed[key];
     }
 
+    // Set initial aria-expanded state
+    label.setAttribute('aria-expanded', group.classList.contains('collapsed') ? 'false' : 'true');
+
     label.addEventListener('click', function() {
       group.classList.toggle('collapsed');
-      if (group.classList.contains('collapsed')) {
+      var isCollapsed = group.classList.contains('collapsed');
+      label.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+      if (isCollapsed) {
         navCollapsed[key] = true;
       } else {
         delete navCollapsed[key];
