@@ -59,7 +59,7 @@
 
   // Close sidebar on resize to desktop
   window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && sidebar && sidebar.classList.contains('open')) {
+    if (window.innerWidth > 1023 && sidebar && sidebar.classList.contains('open')) {
       closeSidebar();
     }
   });
@@ -67,7 +67,7 @@
   // Close sidebar on nav link click (mobile)
   document.querySelectorAll('.sidebar-nav a').forEach(function(link) {
     link.addEventListener('click', function() {
-      if (window.innerWidth <= 768) closeSidebar();
+      if (window.innerWidth <= 1023) closeSidebar();
     });
   });
 
@@ -134,6 +134,7 @@
     if (headings.length === 0) {
       tocContainer.style.display = 'none';
     } else {
+      // Build inline TOC
       var ol = document.createElement('ol');
       headings.forEach(function(heading, index) {
         var id = heading.id || 'section-' + (index + 1);
@@ -147,14 +148,57 @@
       });
       tocContainer.appendChild(ol);
 
-      // Scroll-spy for TOC
+      // Build right-rail TOC (JS-generated, no HTML changes needed)
+      var rail = document.createElement('aside');
+      rail.className = 'toc-rail';
+      var railTitle = document.createElement('div');
+      railTitle.className = 'toc-rail-title';
+      railTitle.textContent = 'On This Page';
+      rail.appendChild(railTitle);
+      var railOl = document.createElement('ol');
+      headings.forEach(function(heading) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.textContent = heading.textContent;
+        li.appendChild(a);
+        railOl.appendChild(li);
+      });
+      rail.appendChild(railOl);
+      // Position rail after main content
+      var mainContent = document.querySelector('.main-content');
+      if (mainContent) mainContent.appendChild(rail);
+
+      // Position the rail dynamically based on content area
+      function positionRail() {
+        var container = document.querySelector('.article-container');
+        if (!container || window.innerWidth < 1400) return;
+        var rect = container.getBoundingClientRect();
+        var rightEdge = rect.right + window.scrollX;
+        rail.style.left = (rightEdge + 32) + 'px';
+      }
+      positionRail();
+      window.addEventListener('resize', positionRail);
+
+      // Scroll-spy for both inline and rail TOC
       if ('IntersectionObserver' in window) {
-        var tocLinks = ol.querySelectorAll('li');
+        var inlineLinks = ol.querySelectorAll('li');
+        var railLinks = railOl.querySelectorAll('li');
         var observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               var targetId = entry.target.id;
-              tocLinks.forEach(function(li) {
+              // Update inline TOC
+              inlineLinks.forEach(function(li) {
+                var link = li.querySelector('a');
+                if (link && link.getAttribute('href') === '#' + targetId) {
+                  li.classList.add('active');
+                } else {
+                  li.classList.remove('active');
+                }
+              });
+              // Update rail TOC
+              railLinks.forEach(function(li) {
                 var link = li.querySelector('a');
                 if (link && link.getAttribute('href') === '#' + targetId) {
                   li.classList.add('active');
