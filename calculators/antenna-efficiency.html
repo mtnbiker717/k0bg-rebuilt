@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Antenna Efficiency Estimator — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Calculate where your 100 watts actually goes — radiated power, coil loss, and ground loss — for any HF mobile antenna configuration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <header class="article-header">
+        <h1>Mobile Antenna Efficiency Estimator</h1>
+        <div class="article-meta">
+          <time datetime="2026-04-20">Updated April 20, 2026</time>
+        </div>
+      </header>
+
+      <p style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; color: var(--text);">
+        Every watt your transmitter puts out gets divided three ways before it leaves the vehicle: radiation, coil loss, and ground loss. This calculator makes that split visible. Enter your antenna parameters and see exactly where your 100 watts go.
+      </p>
+
+      <div class="calc-grid">
+
+        <!-- LEFT: Inputs -->
+        <div class="calc-panel">
+          <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text);">Antenna Parameters</h2>
+
+          <!-- Band select -->
+          <div style="margin-bottom: 1.5rem;">
+            <label for="band-select" style="display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text);">Band</label>
+            <select id="band-select" class="calc-select">
+              <option value="160m">160m (1.85 MHz)</option>
+              <option value="80m">80m (3.75 MHz)</option>
+              <option value="40m" selected>40m (7.15 MHz)</option>
+              <option value="30m">30m (10.125 MHz)</option>
+              <option value="20m">20m (14.175 MHz)</option>
+              <option value="17m">17m (18.118 MHz)</option>
+              <option value="15m">15m (21.225 MHz)</option>
+              <option value="12m">12m (24.94 MHz)</option>
+              <option value="10m">10m (28.3 MHz)</option>
+            </select>
+          </div>
+
+          <!-- Whip height slider -->
+          <div class="slider-row" style="margin-bottom: 1.5rem;">
+            <div class="slider-label">
+              <span>Whip Height</span>
+              <span class="slider-value"><span id="height-val">8</span> <span class="slider-unit">ft</span></span>
+            </div>
+            <input type="range" id="height-slider" min="2" max="12" step="0.5" value="8"
+              style="width:100%; accent-color: var(--accent); margin-bottom: 0.4rem;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+              Typical 40m whip: 7–8 ft
+            </div>
+          </div>
+
+          <!-- Coil Q slider -->
+          <div class="slider-row" style="margin-bottom: 1.5rem;">
+            <div class="slider-label">
+              <span>Loading Coil Q</span>
+              <span class="slider-value"><span id="coilq-val">150</span></span>
+            </div>
+            <input type="range" id="coilq-slider" min="50" max="500" step="10" value="150"
+              style="width:100%; accent-color: var(--accent); margin-bottom: 0.4rem;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5;">
+              50–100: Poor &nbsp;|&nbsp; 150–250: Typical &nbsp;|&nbsp; 300+: Good screwdriver
+            </div>
+          </div>
+
+          <!-- Ground loss slider -->
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Ground Loss</span>
+              <span class="slider-value"><span id="ground-val">10</span> <span class="slider-unit">Ω</span></span>
+            </div>
+            <input type="range" id="ground-slider" min="2" max="25" step="1" value="10"
+              style="width:100%; accent-color: var(--accent); margin-bottom: 0.4rem;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5;">
+              2–5Ω: Well bonded &nbsp;|&nbsp; 5–12Ω: Average &nbsp;|&nbsp; 12–25Ω: Poor
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Power flow diagram -->
+        <div class="calc-panel">
+          <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text);">Power Distribution (100W input)</h2>
+          <div class="calc-diagram" id="power-bar" style="overflow-x: auto; padding: 0.5rem 0;">
+            <!-- SVG injected by JS -->
+          </div>
+          <div id="dipole-equiv" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center; font-style: italic;">
+          </div>
+        </div>
+
+      </div><!-- /.calc-grid -->
+
+      <!-- Result cards -->
+      <div class="result-cards" style="margin-top: 1.5rem;" id="result-cards">
+        <div class="result-card" id="card-efficiency">
+          <div class="result-number" id="val-efficiency">—</div>
+          <div class="result-label">Efficiency</div>
+          <div class="result-detail">Fraction of power radiated</div>
+        </div>
+        <div class="result-card" id="card-radiated">
+          <div class="result-number" id="val-radiated">—</div>
+          <div class="result-label">Power Radiated</div>
+          <div class="result-detail">Out of 100 W input</div>
+        </div>
+        <div class="result-card" id="card-rr">
+          <div class="result-number" id="val-rr">—</div>
+          <div class="result-label">Radiation Resistance</div>
+          <div class="result-detail">R<sub>r</sub> (Ω)</div>
+        </div>
+        <div class="result-card" id="card-rcoil">
+          <div class="result-number" id="val-rcoil">—</div>
+          <div class="result-label">Coil Loss Resistance</div>
+          <div class="result-detail">R<sub>coil</sub> = X<sub>coil</sub> / Q</div>
+        </div>
+        <div class="result-card" id="card-rground">
+          <div class="result-number" id="val-rground">—</div>
+          <div class="result-label">Ground Loss</div>
+          <div class="result-detail">R<sub>ground</sub> (Ω)</div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict" id="verdict" style="margin-top: 1.5rem;"></div>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <script src="../js/main.js"></script>
+  <script>
+  (function() {
+    const BANDS = {
+      '160m': 1.85, '80m': 3.75, '40m': 7.15, '30m': 10.125,
+      '20m': 14.175, '17m': 18.118, '15m': 21.225, '12m': 24.94, '10m': 28.3
+    };
+
+    function calcEfficiency(band, heightFt, coilQ, groundOhm) {
+      const fMHz = BANDS[band];
+      const lambdaFt = 984 / fMHz;
+      const h = heightFt;
+      const lambda = lambdaFt;
+
+      const F_loading = 0.33;
+      const Rr = 40 * Math.PI * Math.PI * Math.pow(h / lambda, 2) * F_loading;
+
+      const Xcoil = Math.max(1, 150 * (lambda / h - 1));
+      const R_coil = Xcoil / coilQ;
+      const R_ground = groundOhm;
+      const R_total = Rr + R_coil + R_ground;
+
+      const eta = Rr / R_total;
+
+      const P_radiated = eta * 100;
+      const P_coil = (R_coil / R_total) * 100;
+      const P_ground = (R_ground / R_total) * 100;
+      const P_dipole_equiv = P_radiated * 0.4;
+
+      return { Rr, R_coil, R_ground, R_total, eta, P_radiated, P_coil, P_ground, P_dipole_equiv, Xcoil };
+    }
+
+    function buildPowerBarSVG(P_rad, P_coil, P_gnd) {
+      const w = 440, barH = 44, barY = 8;
+      const h = barH + 60;
+      const total = P_rad + P_coil + P_gnd;
+      const w_rad  = (P_rad  / total) * w;
+      const w_coil = (P_coil / total) * w;
+      const w_gnd  = (P_gnd  / total) * w;
+      const x_coil = w_rad;
+      const x_gnd  = w_rad + w_coil;
+
+      const textRad  = w_rad  > 52 ? `<text x="${w_rad / 2}"         y="${barY + barH / 2 + 5}" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="600">${P_rad.toFixed(1)}W</text>` : '';
+      const textCoil = w_coil > 52 ? `<text x="${x_coil + w_coil/2}" y="${barY + barH / 2 + 5}" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="600">${P_coil.toFixed(1)}W</text>` : '';
+      const textGnd  = w_gnd  > 52 ? `<text x="${x_gnd  + w_gnd /2}" y="${barY + barH / 2 + 5}" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="600">${P_gnd.toFixed(1)}W</text>` : '';
+
+      return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${w}px;display:block;">
+  <rect x="0"        y="${barY}" width="${w_rad}"  height="${barH}" rx="4" ry="4" fill="#16a34a"/>
+  <rect x="${x_coil}" y="${barY}" width="${w_coil}" height="${barH}" fill="#d97706"/>
+  <rect x="${x_gnd}"  y="${barY}" width="${w_gnd}"  height="${barH}" rx="4" ry="4" fill="#dc2626"/>
+  ${textRad}${textCoil}${textGnd}
+  <text x="4"         y="${barY + barH + 18}" font-size="11" fill="#16a34a" font-family="sans-serif" font-weight="600">&#9632; Radiated</text>
+  <text x="${w/3}"    y="${barY + barH + 18}" font-size="11" fill="#d97706" font-family="sans-serif" font-weight="600">&#9632; Coil Loss</text>
+  <text x="${2*w/3}"  y="${barY + barH + 18}" font-size="11" fill="#dc2626" font-family="sans-serif" font-weight="600">&#9632; Ground Loss</text>
+  <text x="4"         y="${barY + barH + 36}" font-size="10" fill="#6b7280" font-family="sans-serif">${P_rad.toFixed(1)} W radiated</text>
+  <text x="${w/3}"    y="${barY + barH + 36}" font-size="10" fill="#6b7280" font-family="sans-serif">${P_coil.toFixed(1)} W lost</text>
+  <text x="${2*w/3}"  y="${barY + barH + 36}" font-size="10" fill="#6b7280" font-family="sans-serif">${P_gnd.toFixed(1)} W lost</text>
+</svg>`;
+    }
+
+    function cardClass(eta) {
+      if (eta >= 0.20) return 'good';
+      if (eta >= 0.05) return 'warn';
+      return 'bad';
+    }
+
+    function update() {
+      const band   = document.getElementById('band-select').value;
+      const height = parseFloat(document.getElementById('height-slider').value);
+      const coilQ  = parseFloat(document.getElementById('coilq-slider').value);
+      const ground = parseFloat(document.getElementById('ground-slider').value);
+
+      // Update display values
+      document.getElementById('height-val').textContent = height % 1 === 0 ? height : height.toFixed(1);
+      document.getElementById('coilq-val').textContent  = Math.round(coilQ);
+      document.getElementById('ground-val').textContent = Math.round(ground);
+
+      const r = calcEfficiency(band, height, coilQ, ground);
+
+      // Power bar SVG
+      document.getElementById('power-bar').innerHTML = buildPowerBarSVG(r.P_radiated, r.P_coil, r.P_ground);
+
+      // Dipole equivalent note
+      document.getElementById('dipole-equiv').textContent =
+        `Your 100 W is equivalent to approximately ${r.P_dipole_equiv.toFixed(1)} W into a half-wave dipole`;
+
+      // Result cards
+      const cls = cardClass(r.eta);
+
+      function setCard(cardId, valId, value, cssClass) {
+        const card = document.getElementById(cardId);
+        card.className = 'result-card' + (cssClass ? ' ' + cssClass : '');
+        document.getElementById(valId).textContent = value;
+      }
+
+      setCard('card-efficiency', 'val-efficiency', (r.eta * 100).toFixed(1) + '%', cls);
+      setCard('card-radiated',   'val-radiated',   r.P_radiated.toFixed(1) + ' W', cls);
+      setCard('card-rr',         'val-rr',          r.Rr.toFixed(2) + ' \u03A9');
+      setCard('card-rcoil',      'val-rcoil',       r.R_coil.toFixed(2) + ' \u03A9');
+      setCard('card-rground',    'val-rground',     r.R_ground.toFixed(0) + ' \u03A9');
+
+      // Verdict
+      const verdictEl = document.getElementById('verdict');
+      if (r.eta >= 0.20) {
+        verdictEl.className = 'verdict good';
+        verdictEl.textContent = '\u2705 Good efficiency \u2014 well-installed system. Bonding and coil quality are paying off.';
+      } else if (r.eta >= 0.05) {
+        verdictEl.className = 'verdict warn';
+        verdictEl.textContent = '\u26A0\uFE0F Marginal efficiency \u2014 typical for mobile HF but improvable. Focus on ground loss first.';
+      } else {
+        verdictEl.className = 'verdict bad';
+        verdictEl.textContent = '\u274C Poor efficiency \u2014 most power lost to coil or ground. Improve bonding, use a higher-Q coil, or move to a higher band.';
+      }
+    }
+
+    // Wire events
+    ['band-select', 'height-slider', 'coilq-slider', 'ground-slider'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', update);
+    });
+
+    // Initial render
+    update();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonding Strap Impedance Calculator — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Calculate and visualize RF impedance vs. frequency for round wire vs. flat copper braid bonding straps. See why flat braid beats round wire for mobile HF grounding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .calc-header-text { flex: 1; min-width: 0; }
+    .article-date {
+      font-size: 0.8125rem;
+      font-family: var(--font-sans);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .calc-description {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      max-width: 680px;
+    }
+    /* Conductor type radio buttons */
+    .conductor-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .conductor-option {
+      position: relative;
+    }
+    .conductor-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .conductor-option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.875rem 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: center;
+      background: var(--bg);
+    }
+    .conductor-option input[type="radio"]:checked + label {
+      border-color: var(--accent-amber);
+      background: var(--accent-amber-light);
+    }
+    .conductor-option label:hover {
+      border-color: var(--accent-amber);
+    }
+    .conductor-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .conductor-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      font-family: var(--font-sans);
+    }
+    .conductor-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      line-height: 1.4;
+    }
+    .slider-row {
+      margin-bottom: 1.25rem;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.375rem;
+      font-size: 0.875rem;
+      font-family: var(--font-sans);
+      color: var(--text-muted);
+    }
+    .slider-value {
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text);
+      font-size: 0.9375rem;
+    }
+    .slider-unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 0.25rem;
+    }
+    .length-warning {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #dc2626;
+      margin-top: 0.3rem;
+      display: none;
+      font-family: var(--font-sans);
+    }
+    .length-warning.visible { display: block; }
+
+    /* Cross-section diagram */
+    .cross-section-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .cross-section-panel {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem;
+      text-align: center;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+    .cross-section-panel.active {
+      border-color: var(--accent-amber);
+    }
+    .cross-section-panel.dimmed {
+      opacity: 0.45;
+    }
+    .cross-section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.375rem;
+      font-family: var(--font-sans);
+    }
+    .cross-section-z {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      margin-top: 0.375rem;
+    }
+
+    /* Comparison bar */
+    .compare-section {
+      margin: 1.5rem 0;
+    }
+    .compare-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.875rem;
+      font-family: var(--font-sans);
+    }
+    .compare-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.625rem;
+    }
+    .compare-row-label {
+      width: 110px;
+      font-size: 0.8125rem;
+      font-family: var(--font-sans);
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .compare-bar-track {
+      flex: 1;
+      height: 18px;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .compare-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 0.5rem;
+    }
+    .compare-bar-fill.braid { background: var(--accent-amber); }
+    .compare-bar-fill.wire  { background: #94a3b8; }
+    .compare-bar-value {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .compare-bar-value-outside {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text);
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+    .diagram-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-sans);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html" aria-current="page">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <div class="calc-header">
+        <div class="calc-header-text">
+          <div class="article-date">RF Grounding Tool</div>
+          <h1>Bonding Strap Impedance Calculator</h1>
+          <p class="calc-description">
+            Flat copper braid exploits the skin effect to minimize RF impedance — its wide, thin geometry maximizes the surface area where HF current actually flows. Round wire of the same DC resistance is dramatically worse at HF frequencies, because inductive reactance dominates and the skin depth leaves most of the conductor unused.
+          </p>
+        </div>
+        <button class="print-btn" onclick="window.print()">&#128438; Print</button>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Left: Inputs -->
+        <div class="calc-panel">
+          <h3>Conductor &amp; Dimensions</h3>
+
+          <!-- Conductor type -->
+          <div class="conductor-choice" role="radiogroup" aria-label="Conductor type">
+            <div class="conductor-option">
+              <input type="radio" name="conductor" id="cond-wire" value="wire">
+              <label for="cond-wire">
+                <span class="conductor-icon">&#128308;</span>
+                <span class="conductor-name">Round Wire</span>
+                <span class="conductor-desc">Current flows through center at DC, skin at HF</span>
+              </label>
+            </div>
+            <div class="conductor-option">
+              <input type="radio" name="conductor" id="cond-braid" value="braid" checked>
+              <label for="cond-braid">
+                <span class="conductor-icon">&#128209;</span>
+                <span class="conductor-name">Flat Copper Braid</span>
+                <span class="conductor-desc">Large surface area — much lower RF impedance</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Width / diameter -->
+          <div class="slider-row">
+            <div class="slider-label">
+              <span id="dim-label">Braid width</span>
+              <span><span class="slider-value" id="val-dim">0.75</span><span class="slider-unit">&Prime;</span></span>
+            </div>
+            <input type="range" id="sl-dim" min="0.1" max="2.0" step="0.05" value="0.75" aria-label="Width or diameter in inches">
+          </div>
+
+          <!-- Length -->
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Length</span>
+              <span><span class="slider-value" id="val-length">6</span><span class="slider-unit">&Prime;</span></span>
+            </div>
+            <input type="range" id="sl-length" min="1" max="24" step="1" value="6" aria-label="Length in inches">
+            <div class="length-warning" id="length-warning">&#9888; K0BG max: 10 inches</div>
+          </div>
+
+          <!-- Frequency -->
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Frequency</span>
+              <span><span class="slider-value" id="val-freq">14</span><span class="slider-unit">MHz</span></span>
+            </div>
+            <input type="range" id="sl-freq" min="1" max="30" step="1" value="14" aria-label="Frequency in MHz">
+          </div>
+        </div>
+
+        <!-- Right: Cross-section diagrams -->
+        <div class="calc-diagram">
+          <div class="diagram-title">Cross-Section — Skin Effect at Frequency</div>
+          <div class="cross-section-wrap">
+            <div class="cross-section-panel dimmed" id="panel-wire">
+              <div class="cross-section-label">Round Wire</div>
+              <div id="svg-wire"></div>
+              <div class="cross-section-z" id="z-wire">—</div>
+            </div>
+            <div class="cross-section-panel active" id="panel-braid">
+              <div class="cross-section-label">Flat Braid</div>
+              <div id="svg-braid"></div>
+              <div class="cross-section-z" id="z-braid">—</div>
+            </div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-sans);text-align:center;margin-top:0.75rem;line-height:1.5;">
+            Dark fill = where current flows at selected frequency.<br>
+            Light fill = conductor cross-section unused at HF.
+          </div>
+        </div>
+      </div>
+
+      <!-- Result cards -->
+      <div class="result-cards">
+        <div class="result-card" id="card-z">
+          <span class="result-number" id="num-z">—</span>
+          <span class="result-label">RF Impedance</span>
+          <span class="result-detail" id="detail-z">selected conductor</span>
+        </div>
+        <div class="result-card" id="card-rdc">
+          <span class="result-number" id="num-rdc">—</span>
+          <span class="result-label">DC Resistance</span>
+          <span class="result-detail">m&Omega;</span>
+        </div>
+        <div class="result-card" id="card-xl">
+          <span class="result-number" id="num-xl">—</span>
+          <span class="result-label">Inductive Reactance</span>
+          <span class="result-detail">m&Omega; at frequency</span>
+        </div>
+        <div class="result-card" id="card-improvement">
+          <span class="result-number" id="num-improvement">—</span>
+          <span class="result-label">Braid vs. Wire</span>
+          <span class="result-detail">improvement factor</span>
+        </div>
+      </div>
+
+      <!-- Comparison bar -->
+      <div class="compare-section">
+        <div class="compare-title">RF Impedance Comparison at Selected Frequency</div>
+        <div class="compare-row">
+          <div class="compare-row-label">Flat braid</div>
+          <div class="compare-bar-track">
+            <div class="compare-bar-fill braid" id="bar-braid" style="width:0%">
+              <span class="compare-bar-value" id="bar-braid-label"></span>
+            </div>
+          </div>
+          <span class="compare-bar-value-outside" id="bar-braid-outside"></span>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">Round wire</div>
+          <div class="compare-bar-track">
+            <div class="compare-bar-fill wire" id="bar-wire" style="width:0%">
+              <span class="compare-bar-value" id="bar-wire-label"></span>
+            </div>
+          </div>
+          <span class="compare-bar-value-outside" id="bar-wire-outside"></span>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict" id="verdict-box">—</div>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with a NanoVNA or other test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <script src="../js/main.js"></script>
+  <script>
+  (function() {
+
+    const RHO_COPPER = 1.724e-8; // Ω·m
+    const MU_0 = 4 * Math.PI * 1e-7;
+
+    // ── Physics ──────────────────────────────────────────────────────────────
+    function skinDepth(fHz) {
+      return Math.sqrt(RHO_COPPER / (Math.PI * fHz * MU_0));
+    }
+
+    function calcRoundWire(fHz, diamIn, lengthIn) {
+      const d = diamIn * 0.0254;
+      const L = lengthIn * 0.0254;
+      const delta = skinDepth(fHz);
+
+      const A_dc = Math.PI * (d / 2) * (d / 2);
+      const R_dc = RHO_COPPER * L / A_dc;
+
+      // RF resistance: skin ring
+      const A_rf = Math.PI * d * Math.min(delta, d / 2);
+      const R_rf = RHO_COPPER * L / A_rf;
+
+      // Wire inductance (Neumann formula approximation)
+      const L_h = (MU_0 * L / (2 * Math.PI)) * (Math.log(2 * L / d) - 0.75);
+      const X_L = 2 * Math.PI * fHz * Math.max(0, L_h);
+
+      const Z = Math.sqrt(R_rf * R_rf + X_L * X_L);
+      return { R_dc, R_rf, X_L, Z, delta };
+    }
+
+    function calcFlatBraid(fHz, widthIn, lengthIn) {
+      const w = widthIn * 0.0254;
+      const L = lengthIn * 0.0254;
+      const delta = skinDepth(fHz);
+      const t = 0.0005; // 0.5mm typical braid thickness
+
+      const A_dc = w * t;
+      const R_dc = RHO_COPPER * L / A_dc;
+
+      // RF: both surfaces (top + bottom)
+      const effectiveDepth = Math.min(delta, t / 2);
+      const A_rf = 2 * w * effectiveDepth;
+      const R_rf = RHO_COPPER * L / A_rf;
+
+      // Flat strap inductance (Grover approximation)
+      const L_h = (MU_0 * L / Math.PI) * (Math.log(2 * L / w) - 0.5 + w / (2 * L));
+      const X_L = 2 * Math.PI * fHz * Math.max(0, L_h);
+
+      const Z = Math.sqrt(R_rf * R_rf + X_L * X_L);
+      return { R_dc, R_rf, X_L, Z, delta };
+    }
+
+    // ── Format helpers ───────────────────────────────────────────────────────
+    function fmtOhms(ohms) {
+      if (ohms < 1) {
+        return (ohms * 1000).toFixed(1) + ' m\u03A9';
+      }
+      return ohms.toFixed(3) + ' \u03A9';
+    }
+
+    function fmtOhmsShort(ohms) {
+      if (ohms < 1) {
+        return (ohms * 1000).toFixed(1) + 'm\u03A9';
+      }
+      return ohms.toFixed(3) + '\u03A9';
+    }
+
+    function fmtOhmsMilli(ohms) {
+      return (ohms * 1000).toFixed(2);
+    }
+
+    function cardClass(zOhms) {
+      const zmOhm = zOhms * 1000;
+      if (zmOhm < 50)  return 'result-card good';
+      if (zmOhm < 200) return 'result-card warn';
+      return 'result-card bad';
+    }
+
+    // ── SVG cross-sections ───────────────────────────────────────────────────
+    function buildWireSVG(fHz, diamIn) {
+      const svgW = 110, svgH = 110;
+      const cx = svgW / 2, cy = svgH / 2;
+      const dispR = 36; // display radius px
+
+      const r_m = (diamIn / 2) * 0.0254;
+      const delta = skinDepth(fHz);
+      const skinFrac = Math.min(1.0, delta / r_m);
+      // innerR is the dead core radius in px
+      const innerR = dispR * Math.max(0, 1 - skinFrac);
+      const outerBand = dispR - innerR;
+
+      // Gradient: inner dead zone light, outer band dark
+      const stopPct = Math.round((innerR / dispR) * 100);
+
+      return `<svg viewBox="0 0 ${svgW} ${svgH}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Round wire cross-section showing skin effect">
+  <defs>
+    <radialGradient id="wg" cx="50%" cy="50%" r="50%">
+      <stop offset="${stopPct}%" stop-color="#b45309" stop-opacity="0.12"/>
+      <stop offset="${stopPct}%" stop-color="#b45309" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.85"/>
+    </radialGradient>
+  </defs>
+  <circle cx="${cx}" cy="${cy}" r="${dispR}" fill="url(#wg)" stroke="#b45309" stroke-width="2"/>
+  <text x="${cx}" y="${svgH - 6}" text-anchor="middle" font-size="9" fill="#6b7280" font-family="sans-serif">\u03B4 = ${(delta * 1000).toFixed(3)} mm</text>
+</svg>`;
+    }
+
+    function buildBraidSVG(fHz, widthIn) {
+      const svgW = 110, svgH = 110;
+      const bw = 70, bh = 14;
+      const bx = (svgW - bw) / 2;
+      const by = (svgH - bh) / 2;
+
+      const t = 0.0005; // 0.5mm
+      const delta = skinDepth(fHz);
+      // What fraction of the half-thickness does skin depth cover?
+      const skinFrac = Math.min(1.0, delta / (t / 2));
+      // Surface band height in px (proportional to skinFrac of bh/2)
+      const bandPx = Math.max(2, Math.round((bh / 2) * skinFrac));
+
+      return `<svg viewBox="0 0 ${svgW} ${svgH}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flat braid cross-section showing skin effect">
+  <!-- Conductor body (mostly dead at HF) -->
+  <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="2" fill="#b45309" fill-opacity="0.12" stroke="#b45309" stroke-width="2"/>
+  <!-- Top surface (active) -->
+  <rect x="${bx}" y="${by}" width="${bw}" height="${bandPx}" rx="2" fill="#b45309" fill-opacity="0.85"/>
+  <!-- Bottom surface (active) -->
+  <rect x="${bx}" y="${by + bh - bandPx}" width="${bw}" height="${bandPx}" rx="2" fill="#b45309" fill-opacity="0.85"/>
+  <text x="${svgW/2}" y="${svgH - 6}" text-anchor="middle" font-size="9" fill="#6b7280" font-family="sans-serif">\u03B4 = ${(delta * 1000).toFixed(3)} mm</text>
+</svg>`;
+    }
+
+    // ── DOM refs ─────────────────────────────────────────────────────────────
+    const condWire  = document.getElementById('cond-wire');
+    const condBraid = document.getElementById('cond-braid');
+    const slDim     = document.getElementById('sl-dim');
+    const slLength  = document.getElementById('sl-length');
+    const slFreq    = document.getElementById('sl-freq');
+    const valDim    = document.getElementById('val-dim');
+    const valLength = document.getElementById('val-length');
+    const valFreq   = document.getElementById('val-freq');
+    const dimLabel  = document.getElementById('dim-label');
+    const lenWarn   = document.getElementById('length-warning');
+
+    const panelWire  = document.getElementById('panel-wire');
+    const panelBraid = document.getElementById('panel-braid');
+    const svgWireEl  = document.getElementById('svg-wire');
+    const svgBraidEl = document.getElementById('svg-braid');
+    const zWireEl    = document.getElementById('z-wire');
+    const zBraidEl   = document.getElementById('z-braid');
+
+    const cardZ       = document.getElementById('card-z');
+    const numZ        = document.getElementById('num-z');
+    const detailZ     = document.getElementById('detail-z');
+    const cardRdc     = document.getElementById('card-rdc');
+    const numRdc      = document.getElementById('num-rdc');
+    const cardXl      = document.getElementById('card-xl');
+    const numXl       = document.getElementById('num-xl');
+    const cardImprove = document.getElementById('card-improvement');
+    const numImprove  = document.getElementById('num-improvement');
+
+    const barBraid        = document.getElementById('bar-braid');
+    const barBraidLabel   = document.getElementById('bar-braid-label');
+    const barBraidOutside = document.getElementById('bar-braid-outside');
+    const barWire         = document.getElementById('bar-wire');
+    const barWireLabel    = document.getElementById('bar-wire-label');
+    const barWireOutside  = document.getElementById('bar-wire-outside');
+
+    const verdictBox = document.getElementById('verdict-box');
+
+    // ── Conductor type change ────────────────────────────────────────────────
+    function onCondChange() {
+      const isBraid = condBraid.checked;
+      dimLabel.textContent = isBraid ? 'Braid width' : 'Wire diameter';
+      // Sensible defaults
+      if (isBraid) {
+        if (parseFloat(slDim.value) < 0.25) slDim.value = 0.75;
+      } else {
+        if (parseFloat(slDim.value) > 0.75) slDim.value = 0.25;
+      }
+      valDim.textContent = parseFloat(slDim.value).toFixed(2);
+      update();
+    }
+
+    condWire.addEventListener('change', onCondChange);
+    condBraid.addEventListener('change', onCondChange);
+
+    // ── Main update ──────────────────────────────────────────────────────────
+    function update() {
+      const isBraid  = condBraid.checked;
+      const dimIn    = parseFloat(slDim.value);
+      const lengthIn = parseFloat(slLength.value);
+      const fMHz     = parseFloat(slFreq.value);
+      const fHz      = fMHz * 1e6;
+
+      valDim.textContent    = dimIn.toFixed(2);
+      valLength.textContent = lengthIn;
+      valFreq.textContent   = fMHz;
+
+      // Length warning
+      if (lengthIn > 10) {
+        lenWarn.classList.add('visible');
+      } else {
+        lenWarn.classList.remove('visible');
+      }
+
+      // Always compute both for comparison
+      // Compute selected conductor at user-chosen dimension
+      const wireRes  = calcRoundWire(fHz, dimIn, lengthIn);
+      const braidRes = calcFlatBraid(fHz, dimIn, lengthIn);
+
+      // Panel highlights
+      if (isBraid) {
+        panelBraid.classList.add('active');
+        panelBraid.classList.remove('dimmed');
+        panelWire.classList.add('dimmed');
+        panelWire.classList.remove('active');
+      } else {
+        panelWire.classList.add('active');
+        panelWire.classList.remove('dimmed');
+        panelBraid.classList.add('dimmed');
+        panelBraid.classList.remove('active');
+      }
+
+      // Cross-section SVGs (always show both)
+      svgWireEl.innerHTML  = buildWireSVG(fHz, dimIn);
+      svgBraidEl.innerHTML = buildBraidSVG(fHz, dimIn);
+      zWireEl.textContent  = fmtOhms(wireRes.Z);
+      zBraidEl.textContent = fmtOhms(braidRes.Z);
+
+      // Result cards — show selected conductor
+      const sel = isBraid ? braidRes : wireRes;
+      numZ.textContent  = fmtOhms(sel.Z).replace('mΩ','').replace('Ω','');
+      detailZ.textContent = fmtOhms(sel.Z).includes('m') ? 'mΩ — ' + (isBraid ? 'flat braid' : 'round wire') : 'Ω — ' + (isBraid ? 'flat braid' : 'round wire');
+      cardZ.className   = cardClass(sel.Z);
+
+      numRdc.textContent  = fmtOhmsMilli(sel.R_dc);
+      cardRdc.className   = cardClass(sel.R_dc);
+
+      numXl.textContent   = fmtOhmsMilli(sel.X_L);
+      cardXl.className    = cardClass(sel.X_L);
+
+      // Improvement: compare braid at selected width vs round wire at ~1/4 the width
+      // (practical equivalence: a 3/4" braid replaces a ~3/16" wire with same DC current capacity)
+      // This shows the inductance advantage of flat geometry at HF.
+      const refWireDia = Math.max(0.05, dimIn / 4);
+      const refWireZ   = calcRoundWire(fHz, refWireDia, lengthIn).Z;
+      const refBraidZ  = calcFlatBraid(fHz, dimIn, lengthIn).Z;
+      const improvement = refWireZ / refBraidZ;
+      numImprove.textContent = improvement.toFixed(1) + '\u00D7';
+      // Braid wins when its inductance advantage outweighs wire's lower log term
+      cardImprove.className  = improvement >= 1.5 ? 'result-card good' : improvement >= 1.0 ? 'result-card warn' : 'result-card bad';
+
+      // Comparison bars — scale so the larger one is 90% wide
+      const maxZ = Math.max(wireRes.Z, braidRes.Z);
+      const braidPct = Math.max(2, (braidRes.Z / maxZ) * 90);
+      const wirePct  = Math.max(2, (wireRes.Z  / maxZ) * 90);
+
+      const braidStr = fmtOhmsShort(braidRes.Z);
+      const wireStr  = fmtOhmsShort(wireRes.Z);
+
+      barBraid.style.width = braidPct + '%';
+      barWire.style.width  = wirePct + '%';
+
+      // Show label inside bar if wide enough, outside if narrow
+      if (braidPct > 20) {
+        barBraidLabel.textContent   = braidStr;
+        barBraidOutside.textContent = '';
+      } else {
+        barBraidLabel.textContent   = '';
+        barBraidOutside.textContent = braidStr;
+      }
+      if (wirePct > 20) {
+        barWireLabel.textContent   = wireStr;
+        barWireOutside.textContent = '';
+      } else {
+        barWireLabel.textContent   = '';
+        barWireOutside.textContent = wireStr;
+      }
+
+      // Verdict
+      const zMOhm = sel.Z * 1000;
+      if (lengthIn > 10) {
+        verdictBox.className = 'verdict bad';
+        verdictBox.textContent = '❌ Too long — K0BG specifies 10 inches maximum. Longer straps increase inductance significantly and raise RF impedance at HF frequencies.';
+      } else if (!isBraid && fMHz > 10) {
+        verdictBox.className = 'verdict bad';
+        verdictBox.textContent = '❌ Round wire is inadequate for HF bonding above 10 MHz — use flat copper braid. Inductive reactance makes round wire many times worse than braid at these frequencies.';
+      } else if (isBraid && lengthIn <= 10 && zMOhm < 100) {
+        verdictBox.className = 'verdict good';
+        verdictBox.textContent = '✅ Excellent bonding strap — well within K0BG specifications. Flat braid, short run, and low RF impedance are all ideal.';
+      } else {
+        verdictBox.className = 'verdict warn';
+        verdictBox.textContent = '⚠️ Adequate but not optimal — flat braid or a shorter run will improve performance. Aim for under 10 inches of flat copper braid for best results across all HF bands.';
+      }
+    }
+
+    // ── Event listeners ──────────────────────────────────────────────────────
+    slDim.addEventListener('input', () => { valDim.textContent = parseFloat(slDim.value).toFixed(2); update(); });
+    slLength.addEventListener('input', update);
+    slFreq.addEventListener('input', update);
+
+    // Initial render
+    update();
+
+  })();
+  </script>
+</body>
+</html>

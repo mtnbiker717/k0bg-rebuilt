@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shunt Matching Coil Calculator — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Calculate the shunt matching coil inductance and turns needed to match a mobile HF antenna presenting less than 50 ohms at resonance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .calc-header-text { flex: 1; min-width: 0; }
+    .article-date {
+      font-size: 0.8125rem;
+      font-family: var(--font-sans);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .calc-description {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      max-width: 680px;
+    }
+    .fixed-input-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      font-family: var(--font-sans);
+      color: var(--text-muted);
+    }
+    .fixed-input-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .band-tag {
+      display: inline-block;
+      background: var(--accent-amber-light);
+      color: var(--accent-amber);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.04em;
+    }
+    .hint-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-family: var(--font-sans);
+      font-style: italic;
+    }
+    .winding-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      margin: 1.5rem 0;
+    }
+    .winding-table th {
+      text-align: left;
+      padding: 0.625rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .winding-table td {
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .winding-table tr:last-child td { border-bottom: none; }
+    .winding-table tr.highlight-row td {
+      background: var(--accent-amber-light);
+      font-weight: 600;
+    }
+    .winding-table tr.highlight-row td:first-child {
+      border-left: 3px solid var(--accent-amber);
+    }
+    .table-section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 1.5rem 0 0.5rem;
+      font-family: var(--font-sans);
+    }
+    .diagram-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      fill: var(--text-muted, #566479);
+    }
+    .diagram-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-sans);
+      text-align: center;
+    }
+    .no-match-notice {
+      padding: 1.5rem;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      text-align: center;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html" aria-current="page">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">&#9662;</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <div class="calc-header">
+        <div class="calc-header-text">
+          <div class="article-date">Antenna Matching Tool</div>
+          <h1>Shunt Matching Coil Calculator</h1>
+          <p class="calc-description">
+            Most mobile HF antennas resonate at 20–30&Omega; rather than the 50&Omega; your transceiver expects. A shunt coil placed in parallel at the antenna feedpoint transforms that lower impedance up to 50&Omega; without lossy resistive components. Enter your measured antenna resistance and operating frequency to find the required inductance and winding details.
+          </p>
+        </div>
+        <button class="print-btn" onclick="window.print()">&#128438; Print</button>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Left: Inputs -->
+        <div class="calc-panel">
+          <h3>Inputs</h3>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Measured input resistance</span>
+              <span><span class="slider-value" id="val-r-ant">25</span><span class="slider-unit">&Omega;</span></span>
+            </div>
+            <input type="range" id="sl-r-ant" min="10" max="45" step="1" value="25" aria-label="Antenna resistance in ohms">
+            <div class="hint-text">Typical mobile HF antenna: 20&ndash;30&Omega;</div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Operating frequency</span>
+              <span>
+                <span class="slider-value" id="val-freq">14.0</span><span class="slider-unit">MHz</span>
+                <span class="band-tag" id="band-tag">20m</span>
+              </span>
+            </div>
+            <input type="range" id="sl-freq" min="1.8" max="30" step="0.1" value="14.0" aria-label="Operating frequency in MHz">
+          </div>
+
+          <div class="fixed-input-row">
+            <span>Target impedance</span>
+            <span class="fixed-input-value">50 &Omega; <span style="font-weight:400;font-family:var(--font-sans);font-size:0.8125rem;">(system impedance)</span></span>
+          </div>
+        </div>
+
+        <!-- Right: Coil diagram -->
+        <div class="calc-diagram">
+          <div class="diagram-title">Shunt Coil — Feedpoint Diagram</div>
+          <div id="coil-svg-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Result cards -->
+      <div class="result-cards" id="result-cards">
+        <div class="result-card" id="card-inductance">
+          <span class="result-number" id="num-inductance">—</span>
+          <span class="result-label">Required Inductance</span>
+          <span class="result-detail">&micro;H</span>
+        </div>
+        <div class="result-card" id="card-reactance">
+          <span class="result-number" id="num-reactance">—</span>
+          <span class="result-label">Reactance at Frequency</span>
+          <span class="result-detail">&Omega;</span>
+        </div>
+        <div class="result-card" id="card-swr">
+          <span class="result-number" id="num-swr">—</span>
+          <span class="result-label">SWR After Matching</span>
+          <span class="result-detail">estimated</span>
+        </div>
+        <div class="result-card" id="card-turns">
+          <span class="result-number" id="num-turns">—</span>
+          <span class="result-label">Recommended Turns</span>
+          <span class="result-detail">on 1&Prime; form</span>
+        </div>
+      </div>
+
+      <!-- Winding table -->
+      <div id="winding-section">
+        <div class="table-section-label">Winding Options by Form Diameter</div>
+        <table class="winding-table" id="winding-table">
+          <thead>
+            <tr>
+              <th>Form diameter</th>
+              <th>Turns (N)</th>
+              <th>Actual inductance</th>
+              <th>Error vs. required</th>
+            </tr>
+          </thead>
+          <tbody id="winding-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict" id="verdict-box">
+        &mdash;
+      </div>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with a NanoVNA or other test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <script src="../js/main.js"></script>
+  <script>
+  (function() {
+
+    // ── Band name lookup ─────────────────────────────────────────────────────
+    function bandName(fMHz) {
+      if (fMHz >= 1.8  && fMHz <= 2.0)    return '160m';
+      if (fMHz >= 3.5  && fMHz <= 4.0)    return '80m';
+      if (fMHz >= 7.0  && fMHz <= 7.3)    return '40m';
+      if (fMHz >= 10.1 && fMHz <= 10.15)  return '30m';
+      if (fMHz >= 14.0 && fMHz <= 14.35)  return '20m';
+      if (fMHz >= 18.068 && fMHz <= 18.168) return '17m';
+      if (fMHz >= 21.0 && fMHz <= 21.45)  return '15m';
+      if (fMHz >= 24.89 && fMHz <= 24.99) return '12m';
+      if (fMHz >= 28.0 && fMHz <= 29.7)   return '10m';
+      return '';
+    }
+
+    // ── Shunt coil math ──────────────────────────────────────────────────────
+    function calcShuntCoil(R_ant, fMHz) {
+      const R_load = 50;
+      if (R_ant >= R_load) return null;
+
+      const X_L = Math.sqrt(R_ant * (R_load - R_ant));
+      const L_uH = (X_L / (2 * Math.PI * fMHz * 1e6)) * 1e6;
+
+      // Residual SWR estimate
+      const SWR_after = 1.0 + (R_load - R_ant) / (R_load + R_ant) * 0.15;
+
+      // Wheeler formula for single-layer coils:
+      // L_uH ≈ (d × N²) / 58   for 1:1 form factor (l ≈ d), d in inches
+      const forms = [
+        { dia: 0.5, label: '1/2"' },
+        { dia: 1.0, label: '1"'   },
+        { dia: 1.5, label: '1.5"' },
+        { dia: 2.0, label: '2"'   },
+      ];
+
+      const windings = forms.map(f => {
+        const N_exact = Math.sqrt(L_uH * 58 / f.dia);
+        const N = Math.max(1, Math.round(N_exact));
+        const L_actual = (f.dia * N * N) / 58;
+        const err = ((L_actual - L_uH) / L_uH * 100).toFixed(1);
+        return { ...f, N, L_actual, err };
+      });
+
+      return { X_L, L_uH, SWR_after, windings };
+    }
+
+    // ── SVG coil diagram ─────────────────────────────────────────────────────
+    function buildCoilSVG(turns, formDiaTurn, L_uH, fMHz) {
+      const w = 300, h = 220;
+      const coilY = 110;
+      const maxW = 220;
+      const coilW = Math.min(maxW, Math.max(40, turns * 14));
+      const coilH = 36;
+      const cx = w / 2;
+      const x0 = cx - coilW / 2;
+
+      // Draw alternating arcs to form inductor symbol
+      let path = '';
+      const segW = coilW / turns;
+      for (let i = 0; i < turns; i++) {
+        const x1 = x0 + i * segW;
+        const x2 = x1 + segW;
+        const xm = (x1 + x2) / 2;
+        // All bumps go upward for a clean inductor symbol
+        path += `M ${x1.toFixed(1)} ${coilY} Q ${xm.toFixed(1)} ${(coilY - coilH).toFixed(1)} ${x2.toFixed(1)} ${coilY} `;
+      }
+
+      // Lead lines
+      const leftX = x0;
+      const rightX = x0 + coilW;
+
+      return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shunt coil diagram showing ${turns} turns">
+  <!-- Coil -->
+  <path d="${path.trim()}" fill="none" stroke="var(--accent-amber,#d97706)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Left lead → ground (shunt) -->
+  <line x1="${leftX}" y1="${coilY}" x2="${leftX}" y2="${coilY + 48}" stroke="var(--text,#0f172a)" stroke-width="1.5"/>
+  <!-- Ground symbol -->
+  <line x1="${leftX - 14}" y1="${coilY + 50}" x2="${leftX + 14}" y2="${coilY + 50}" stroke="var(--text,#0f172a)" stroke-width="2"/>
+  <line x1="${leftX - 9}"  y1="${coilY + 56}" x2="${leftX + 9}"  y2="${coilY + 56}" stroke="var(--text,#0f172a)" stroke-width="2"/>
+  <line x1="${leftX - 4}"  y1="${coilY + 62}" x2="${leftX + 4}"  y2="${coilY + 62}" stroke="var(--text,#0f172a)" stroke-width="2"/>
+
+  <!-- Right lead → feedpoint -->
+  <line x1="${rightX}" y1="${coilY}" x2="${rightX}" y2="${coilY + 48}" stroke="var(--text,#0f172a)" stroke-width="1.5"/>
+  <!-- Feedpoint dot -->
+  <circle cx="${rightX}" cy="${coilY + 50}" r="4" fill="var(--accent,#2563eb)"/>
+
+  <!-- Labels -->
+  <text x="${leftX}" y="${coilY + 80}" text-anchor="middle" font-size="10" fill="var(--text-muted,#566479)" font-family="var(--font-sans,sans-serif)">To coax shield / ground</text>
+  <text x="${rightX}" y="${coilY + 80}" text-anchor="middle" font-size="10" fill="var(--text-muted,#566479)" font-family="var(--font-sans,sans-serif)">Antenna feedpoint</text>
+
+  <!-- Top label: turns and inductance -->
+  <text x="${cx}" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="var(--accent-amber,#d97706)" font-family="var(--font-sans,sans-serif)">${turns} turns — ${L_uH.toFixed(2)} &micro;H</text>
+  <text x="${cx}" y="38" text-anchor="middle" font-size="10" fill="var(--text-muted,#566479)" font-family="var(--font-sans,sans-serif)">${formDiaTurn} form · ${fMHz.toFixed(1)} MHz</text>
+</svg>`;
+    }
+
+    // ── DOM references ───────────────────────────────────────────────────────
+    const slRAnt  = document.getElementById('sl-r-ant');
+    const slFreq  = document.getElementById('sl-freq');
+    const valRAnt = document.getElementById('val-r-ant');
+    const valFreq = document.getElementById('val-freq');
+    const bandTag = document.getElementById('band-tag');
+    const coilWrap = document.getElementById('coil-svg-wrap');
+
+    const numInductance = document.getElementById('num-inductance');
+    const numReactance  = document.getElementById('num-reactance');
+    const numSWR        = document.getElementById('num-swr');
+    const numTurns      = document.getElementById('num-turns');
+
+    const cardInductance = document.getElementById('card-inductance');
+    const cardReactance  = document.getElementById('card-reactance');
+    const cardSWR        = document.getElementById('card-swr');
+    const cardTurns      = document.getElementById('card-turns');
+
+    const windingTbody   = document.getElementById('winding-tbody');
+    const verdictBox     = document.getElementById('verdict-box');
+
+    // ── Update function ──────────────────────────────────────────────────────
+    function update() {
+      const R_ant = parseFloat(slRAnt.value);
+      const fMHz  = parseFloat(slFreq.value);
+
+      valRAnt.textContent = R_ant;
+      valFreq.textContent = fMHz.toFixed(1);
+
+      const band = bandName(fMHz);
+      bandTag.textContent = band;
+      bandTag.style.display = band ? 'inline-block' : 'none';
+
+      const result = calcShuntCoil(R_ant, fMHz);
+
+      if (!result) {
+        // R_ant >= 50 — can't match upward with shunt coil
+        numInductance.textContent = 'N/A';
+        numReactance.textContent  = 'N/A';
+        numSWR.textContent        = 'N/A';
+        numTurns.textContent      = 'N/A';
+        [cardInductance, cardReactance, cardSWR, cardTurns].forEach(c => {
+          c.className = 'result-card bad';
+        });
+        windingTbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--text-muted);padding:1rem;">Resistance ≥ 50&Omega; — shunt coil cannot match upward. Use a series element or re-check antenna tuning.</td></tr>';
+        verdictBox.className = 'verdict bad';
+        verdictBox.textContent = '❌ Resistance at or above 50Ω — shunt coil cannot be used to match upward. Check antenna resonance.';
+        coilWrap.innerHTML = '<div class="no-match-notice">No coil needed — antenna resistance is at or above 50&Omega;</div>';
+        return;
+      }
+
+      const { X_L, L_uH, SWR_after, windings } = result;
+
+      // Inductance card
+      numInductance.textContent = L_uH.toFixed(2);
+      cardInductance.className = L_uH > 0 ? 'result-card good' : 'result-card warn';
+
+      // Reactance card
+      numReactance.textContent = X_L.toFixed(1);
+      cardReactance.className = 'result-card good';
+
+      // SWR card
+      numSWR.textContent = SWR_after.toFixed(2) + ':1';
+      cardSWR.className = SWR_after <= 1.5 ? 'result-card good' : SWR_after <= 2.0 ? 'result-card warn' : 'result-card bad';
+
+      // Turns card — 1" form
+      const oneInchWinding = windings.find(w => w.dia === 1.0);
+      const recTurns = oneInchWinding ? oneInchWinding.N : '—';
+      numTurns.textContent = recTurns;
+      cardTurns.className = 'result-card good';
+
+      // Winding table
+      windingTbody.innerHTML = windings.map(w => {
+        const isHighlight = w.dia === 1.0;
+        const errNum = parseFloat(w.err);
+        const errClass = Math.abs(errNum) < 5 ? 'good' : Math.abs(errNum) < 15 ? 'warn' : 'bad';
+        return `<tr class="${isHighlight ? 'highlight-row' : ''}">
+          <td>${w.label} form${isHighlight ? ' &#9664; recommended' : ''}</td>
+          <td style="font-family:var(--font-mono);font-weight:600;">${w.N} turns</td>
+          <td style="font-family:var(--font-mono);">${w.L_actual.toFixed(3)} &micro;H</td>
+          <td style="color:${Math.abs(errNum) < 5 ? '#16a34a' : Math.abs(errNum) < 15 ? '#d97706' : '#dc2626'};font-family:var(--font-mono);">${errNum > 0 ? '+' : ''}${w.err}%</td>
+        </tr>`;
+      }).join('');
+
+      // Coil SVG
+      const svgTurns = oneInchWinding ? oneInchWinding.N : 5;
+      coilWrap.innerHTML = buildCoilSVG(svgTurns, '1"', L_uH, fMHz);
+
+      // Verdict
+      if (R_ant < 10 || R_ant > 45) {
+        verdictBox.className = 'verdict bad';
+        verdictBox.textContent = '❌ Impedance too far from 50Ω for simple shunt matching — check antenna installation and resonance.';
+      } else if (SWR_after <= 1.5) {
+        verdictBox.className = 'verdict good';
+        verdictBox.textContent = '✅ Excellent match — shunt coil will bring SWR to under 1.5:1. Wind the coil on the recommended form and connect in parallel at the feedpoint.';
+      } else {
+        verdictBox.className = 'verdict warn';
+        verdictBox.textContent = '⚠️ Acceptable match — shunt coil is needed and the result is within typical radio spec. Fine-tune by adjusting turns slightly and checking with a NanoVNA.';
+      }
+    }
+
+    // ── Event listeners ──────────────────────────────────────────────────────
+    slRAnt.addEventListener('input', update);
+    slFreq.addEventListener('input', update);
+
+    // Initial render
+    update();
+
+  })();
+  </script>
+</body>
+</html>

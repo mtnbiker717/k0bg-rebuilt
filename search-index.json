@@ -1242,5 +1242,54 @@
       "insulation",
       "stranding"
     ]
+  },
+  {
+    "title": "Ferrite Choke Designer",
+    "url": "calculators/ferrite-choke.html",
+    "description": "Interactive calculator for designing HF ferrite chokes. Select mix, bead size, and turns — plots impedance from 1–30 MHz across all ham bands.",
+    "headings": ["Ferrite Choke Designer", "Inputs", "Impedance Chart", "Results"],
+    "keywords": ["ferrite", "choke", "mix 31", "mix 43", "mix 61", "mix 73", "impedance", "common mode", "turns", "bead", "RG-8X", "coax", "1 kΩ", "5 kΩ", "G3TXQ", "Fair-Rite", "calculator"]
+  },
+  {
+    "title": "Wire & Fuse Sizing Calculator",
+    "url": "calculators/wire-fuse.html",
+    "description": "Calculate minimum wire gauge, correct fuse rating, and voltage drop for any transceiver or amplifier installation.",
+    "headings": ["Wire & Fuse Sizing", "Current Draw", "Wire Gauge", "Voltage Drop", "Fuse Rating"],
+    "keywords": ["wire", "gauge", "AWG", "fuse", "voltage drop", "ATC", "Maxi", "ANL", "amplifier", "current", "wiring", "calculator", "Anderson Powerpole", "IC-7300", "ALS-500M"]
+  },
+  {
+    "title": "Shunt Matching Coil Calculator",
+    "url": "calculators/shunt-coil.html",
+    "description": "Given your antenna's measured input impedance, calculate the inductance and winding dimensions for a proper shunt matching coil.",
+    "headings": ["Shunt Matching Coil", "Input Impedance", "Required Inductance", "Winding Dimensions"],
+    "keywords": ["shunt coil", "matching", "inductance", "impedance", "LC network", "microhenry", "winding", "turns", "50 ohm", "antenna matching", "calculator", "Wheeler"]
+  },
+  {
+    "title": "Bonding Strap Impedance Calculator",
+    "url": "calculators/bonding-strap.html",
+    "description": "See why flat copper braid beats round wire for RF bonding. Computes RF impedance vs. frequency and visualizes skin effect.",
+    "headings": ["Bonding Strap Impedance", "Conductor Type", "Skin Effect", "RF Impedance", "Frequency"],
+    "keywords": ["bonding strap", "flat braid", "copper", "skin effect", "RF impedance", "inductance", "frequency", "HF", "bonding", "grounding", "calculator"]
+  },
+  {
+    "title": "Antenna Efficiency Estimator",
+    "url": "calculators/antenna-efficiency.html",
+    "description": "The ARRL 3 Rs made interactive. See exactly how much of your 100W is radiated versus lost to coil and ground.",
+    "headings": ["Antenna Efficiency Estimator", "Radiation Resistance", "Coil Loss", "Ground Loss", "Power Distribution"],
+    "keywords": ["efficiency", "radiation resistance", "coil Q", "ground loss", "power", "100 watts", "ARRL", "mobile antenna", "calculator", "short antenna", "loading coil"]
+  },
+  {
+    "title": "Vehicle Bonding Map",
+    "url": "calculators/bonding-map.html",
+    "description": "Click-to-bond your vehicle. Track which ground points are complete and print a paper checklist to take to the garage.",
+    "headings": ["Vehicle Bonding Map", "Hood Hinges", "Door Hinges", "Exhaust Bonding", "Bed to Cab", "Score"],
+    "keywords": ["bonding map", "vehicle", "ground points", "exhaust", "hood hinge", "door hinge", "bed cab", "bonding checklist", "calculator", "pickup truck", "grounding"]
+  },
+  {
+    "title": "Interactive Calculators",
+    "url": "calculators/index.html",
+    "description": "Six interactive tools for mobile HF installation: ferrite choke design, wire sizing, shunt matching, bonding strap impedance, antenna efficiency, and vehicle bonding map.",
+    "headings": ["Interactive Calculators", "Ferrite Choke", "Wire & Fuse", "Shunt Coil", "Bonding Strap", "Antenna Efficiency", "Vehicle Bonding Map"],
+    "keywords": ["calculator", "interactive", "tools", "ferrite choke", "wire gauge", "fuse", "shunt coil", "bonding strap", "antenna efficiency", "bonding map", "HF mobile"]
   }
 ]
