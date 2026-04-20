@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -186,6 +229,13 @@
 
         <p>Note that alternator whine conducted through the power cables is relatively rare in a properly wired installation with direct battery connections. The battery itself acts as a massive filter capacitor. If you are hearing alternator whine, check your bonding before blaming the wiring.</p>
 
+        <p>Modern regulators use both PWM and PPM (pulse position modulation) to control both voltage and current. Although the regulators themselves don't cause alternator whine, they do add to the level of RFI generated under the hood. It is worth knowing that most alternator diodes are not just simple rectifiers &mdash; they are designed to break down and act like a reverse-biased zener diode if the output voltage exceeds approximately 18 volts. This provides first-level protection for on-board electronics should a battery connection be lost (a load-dump transient, or LDT). An LDT is usually caused by a loose battery connection, which is yet another reason to properly maintain your vehicle's battery connections.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; BRUTE-FORCE FILTERS WON'T FIX ALTERNATOR WHINE</div>
+          <p>Brute force filters are often advertised as a cure for alternator whine. They're a patch at best, and if you wire your installation correctly, you won't need one. There is one thing brute force filters will reliably do: increase voltage drop. For no other reason, they should be shunned. The rule of thumb is: if a brute force filter cured a problem, then something else in the installation was (is) amiss.</p>
+        </div>
+
         <h2 id="color-burst">Color Burst Crystal Oscillators</h2>
 
         <p>This one catches VHF operators completely off guard. Older vehicle computers and some instrument clusters contain a color burst crystal oscillator running at 3.579545 MHz. This is the NTSC color subcarrier frequency, used for legacy display compatibility. By itself, it is well below the VHF bands and seems harmless.</p>
@@ -196,6 +246,12 @@
           <div class="callout-title">💡 TIP</div>
           <p>This is primarily an issue with older vehicles. If you are operating a vehicle from the 1990s or early 2000s with an aftermarket VHF radio and hearing a birdie near 146.76 MHz, the color burst oscillator is the likely culprit. Ferrite beads on the wiring to the offending module can help, though identifying which module contains the oscillator may require some detective work with a portable receiver.</p>
         </div>
+
+        <h2 id="pre-purchase-test">Testing Vehicles Before You Buy</h2>
+
+        <p>If possible, before buying any vehicle, take along a portable AM radio. Tune off a station and listen to the background noise level. Then start the vehicle. If the background noise level comes way up, check other similar vehicles on the dealer's lot to see what they do. While subjective, you'll at least have a feel for what you're up against before you sign anything. Some vehicles are just too electrically noisy for comfortable HF operation no matter what you do &mdash; even vehicles that are otherwise identical can have different RFI levels. Getting a quiet one from the lot is better than fighting a noisy one forever.</p>
+
+        <p>There is also a specific distinction worth understanding about ABS sensors: some older Automatic Braking Systems and camshaft position sensors use a reluctance (coil-magnet) type sensor. Their output waveform is non-sinusoidal and peaky, so they tend to generate a buzzing sound that varies with vehicle speed and/or engine RPM. Later units use Hall devices and are virtually RFI free. This is another reason why a late-model vehicle is often preferable &mdash; though as noted above, late models bring their own roster of digital noise sources.</p>
 
         <h2 id="future-concerns">The Trend: More Electronics, More Noise</h2>
 
@@ -300,6 +356,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

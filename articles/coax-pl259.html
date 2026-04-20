@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coax &amp; PL-259s — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Comprehensive guide to coaxial cable selection, PL-259 connector assembly, crimp connectors, weather sealing, and common mode choke construction for mobile amateur radio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Coax &amp; PL-259s</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>With a few exceptions, most coax is well made and will provide years of service if you follow a few basic rules. What you read here is pointed toward the mobile operator, but the same basic information applies to base station use too. There are a few special considerations when coax is used in a mobile installation, and those are covered specifically below.</p>
+
+        <p>The Cablematic coax prep tools listed in the <a href="#preparing-the-coax">Preparing the Coax section</a> may be ordered from DX Engineering. These tools are some of the best money can buy and make proper stripping of coax a simple job. However, they will not strip certain types of coax (see below).</p>
+
+        <p>Unfortunately, the lowly PL-259 connector is never given a second thought. If it were, those $1 hamfest specials wouldn't sell like hotcakes. By the time you finish reading this article, you'll know why good-quality connectors are so important to a long-lasting, trouble-free installation.</p>
+
+        <h2 id="alternatives">Connector Alternatives</h2>
+
+        <p>There are two viable alternatives to PL-259s, albeit somewhat more expensive.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p1_0.jpeg" alt="N connector with silicon rubber seal" loading="lazy">
+          <figcaption>The N connector is waterproof when properly attached (note the silicon rubber seal inside the connector). This makes it ideal for mobile applications. Unfortunately, except for Scorpion, no antenna manufacturer supplies their mobile antennas with an N connector. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p1_1.jpeg" alt="BNC connectors in various configurations" loading="lazy">
+          <figcaption>BNC connectors are available in about a dozen configurations including tees, ells, and bulkheads, in both waterproof and standard styles, for coax from RG-174 to RG-213. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>A few important notes about both alternatives. They're both available in 50&Omega; and 75&Omega; versions, and the two are not interchangeable. The versions for RG8X-sized coax (~0.242" OD) are typically 75&Omega;, though 50&Omega; versions exist. There are special versions for double-shielded coax (RG-223 and RG-214) that are not compatible with single-shielded cable. Verify what you're ordering before you buy.</p>
+
+        <p>Almost all transceivers now come with an SO-239 chassis connector because PL-259s are less expensive and universally available. The PL-259 is the practical choice for most installations &mdash; but you have to do it right.</p>
+
+        <h2 id="coax-selection">Coax Selection</h2>
+
+        <p>Coax comes in many configurations. Center conductors can be solid or stranded. Dielectrics can be solid, foam, or air. Shields can be solid, corrugated, copper braid, silver braid, or aluminum in various configurations. Outer coverings are usually PVC or polyethylene. Nominal impedance runs from 35 to 125 ohms; the standard values are 50 and 75 ohms.</p>
+
+        <p>Amateurs typically lump coax into three categories: RG-8 (~0.405" OD), RG-8X (~0.242" OD), and RG-58 (~0.195" OD). However, these designations are far from standardized &mdash; there is no mil-spec on civilian coax. The ARRL Handbook lists eleven types of RG-8, six types of RG-8X, and seven types of RG-58. Relying on the designation alone is not prudent.</p>
+
+        <h3 id="why-not-rg8">Why Not RG-8 in a Mobile?</h3>
+
+        <p>For mobile use, RG-8 sized coax can be eliminated fairly quickly. It's stiff, making installation difficult in the tight confines of a mobile. Its lower loss characteristics don't mean much either &mdash; the difference in loss between 10 feet of RG-8 and 10 feet of RG-8X (a typical mobile run length) is a fraction of a dB. And RG-8X can easily handle 500 watts even at elevated SWR.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Two things to remember about RG-8X: the minimum bend radius is about 3 inches, so routing it through a trunk-lip mounting bracket is a no-no. And since it is easily crushed, routing it through a door or truck seal is equally destructive. Either mistake will ruin the coax invisibly from the outside.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p1_2.jpeg" alt="Cracked coax dielectric from a cheap Chinese-manufactured cable" loading="lazy">
+          <figcaption>The core of cheap (primarily Chinese-manufactured) RG-8X cracked like popcorn after a few weeks outdoors. When the core cracks, RF arcing can occur. Stick to reputable brands. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h3 id="common-mode-choke-coax">Common Mode Choke from Coax</h3>
+
+        <p>Common mode current is almost a given in a mobile installation, especially with abbreviated mounting schemes (lip, clip, and mag mounts). The usual way to deal with common mode is to wind a choke using a Mix 31 split bead. DX Engineering sells a package of 5 for approximately $30 each.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p1_3.jpeg" alt="Mix 31 split bead with 6 turns of RG-8X wound through it" loading="lazy">
+          <figcaption>A 3/4-inch ID Mix 31 split bead with 6 turns of RG-8X wound through it. Note the minimum 3-inch diameter turns &mdash; this prevents the coax core from migrating. Six turns produces approximately 2.2 k&Omega; at 10 MHz. Seven turns increases this to about 2.7 k&Omega;. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The resulting 6-turn choke exhibits an impedance of about 2.2 k&Omega; at 10 MHz. If you're very careful, 7 turns of RG-8X can be wound through a 3/4-inch ID bead, producing about 2.7 k&Omega;. If you need more impedance (lip, clip, or mag mount), simply snap on a second bead to nearly double the impedance. Common mode chokes belong outside the vehicle &mdash; everything between the choke and the vehicle interior can act as an antenna for vehicle RFI.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Teflon-insulated coax and double-shielded coax provide no real benefits for the average amateur &mdash; to say nothing of the additional cost and connector complexity. The one exception: if ambient temperature exceeds 70&deg;C (158&deg;F), Teflon is the preferred choice. But subjecting your transceiver to temperatures that high is financially inadvisable regardless of the feedline you use.</p>
+        </div>
+
+        <h2 id="the-pl259">The PL-259</h2>
+
+        <p>Without doubt, the single most prevalent problem in amateur radio is caused by the PL-259. They're typically poorly or incorrectly soldered (if at all), and the coax preparation is almost never done properly. Too many amateurs blame station equipment and antennas for problems that are actually caused by a cheaply made, incorrectly installed PL-259.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p1_4.jpeg" alt="Amphenol UHF-182120 PL-259 with two slots instead of four holes" loading="lazy">
+          <figcaption>The RF Connection's proprietary Amphenol PL-259 (part number UHF-182120) is silver-plated including the shell, with two slots instead of four holes. This makes soldering significantly easier. Silver-plated connectors are preferred when you can find them. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h3 id="connector-quality">Connector Quality Matters</h3>
+
+        <p>So-called Teflon-insulated connectors at bargain prices are almost certainly polypropylene, not genuine Teflon. When you try to solder them, the insulator melts. Genuine Teflon-insulated PL-259s with silver-plated shells (Amphenol part number 83-822, Mouser 523-83-822) cost about $5 each in quantity. Few amateurs will pay that much for a PL-259 &mdash; but compared to the cost of troubleshooting a failed connector during Field Day, it's cheap insurance.</p>
+
+        <p>The Amphenol 83-1SP-1050 has an Astroplate body and shell. Astroplate is extremely difficult to solder &mdash; it requires an iron with a lot of latent heat. The 83-1SP-RFX has a Japanned (nickel-based alloy) finish. They're actually worse than the Astroplate version and all but impossible to solder properly. Buying cheap connectors costs more in the long run than good ones ever will.</p>
+
+        <h3 id="reducing-sleeves">Reducing Sleeves</h3>
+
+        <p>Reducing sleeves are required for both RG-58 (0.192" OD) and RG-8X (0.242" OD) coax. For RG-58, the correct Amphenol part number is 83-185 (Mouser 523-83-185). For RG-8X, 83-168-RFX sleeves are available but have a Japanned finish that is very difficult to solder. Two solutions:</p>
+
+        <ul>
+          <li>Buff the reducing sleeve with a wire brush and pre-tin it. Be careful not to apply too much solder or you won't be able to screw it into the PL-259 body.</li>
+          <li>Buy the 83-185 silver-plated sleeves and drill them out to 0.25 inches using a drill press and vice. Take care, as brass tends to snatch badly.</li>
+        </ul>
+
+        <p>PL-259s, SO-239s, and related connectors all fall under the generic classification "UHF connectors" &mdash; a designation that dates back to before WWII when 300 MHz was considered UHF. They were never designed as quick disconnects, but many people use them as such. Repeated on/off cycling causes loss of contact integrity over time. This is true of most RF connectors.</p>
+
+        <h2 id="soldering-tools">Soldering Tools</h2>
+
+        <p>Don't scrimp on a soldering iron. To properly solder PL-259s, you need an iron with a lot of latent heat. The minimum is a 75-watt iron; 100 watts works even better. A soldering gun is not the right tool. Guns have very little thermal mass &mdash; the moment the tip touches a cold connector, the available heat is drawn away. While you're waiting for the material to reach soldering temperature, the coax core is being slowly damaged.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p2_5.jpeg" alt="75-watt to 100-watt soldering iron with appropriate tip for PL-259 work" loading="lazy">
+          <figcaption>A quality soldering iron in the 75 to 100 watt range is essential for PL-259 work. The tip should be small enough to fit in the PL-259 barrel groove. Clamp the iron in a vise and rotate the connector, not the iron. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Proper soldering of PL-259s requires two irons: the 75-100W iron for the shield, and a smaller Weller pencil-type with an 850&deg;F tip for the center conductor. It takes about 2 minutes total with good equipment.</p>
+
+        <h2 id="preparing-the-coax">Preparing the Coax</h2>
+
+        <p>Never cut coax with wire cutters. Doing so distorts the core and center conductor, making installation of the PL-259 body difficult. If you don't have a proper cable cutter, a heavy-duty box cutter with a new blade will work. Lay the coax on a scrap of lumber and tap the box cutter through with a small hammer for a clean, even cut.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p2_6.jpeg" alt="Cablematic UT8000 coax prep tool" loading="lazy">
+          <figcaption>The Cablematic UT8000 coax prep tool for RG-8U and RG-213. The "First Cut" end cuts the outer jacket, shield, and core but leaves the center conductor extending exactly 5/8 inch. The "Second Cut" end removes just the outer jacket to the correct 5/8-inch length. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p2_7.jpeg" alt="Coax correctly prepared showing each cut from the Cablematic tool" loading="lazy">
+          <figcaption>The two cuts made by the Cablematic tool. The center conductor should extend to just shy of the end of the PL-259 after assembly &mdash; not protruding beyond it. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; SOLDER SELECTION</div>
+          <p>Always use good-quality, rosin-core solder. Never use acid-core solder on RF connectors. Kester 60/40 is a reliable choice. Avoid RoHS-compliant (lead-free) solder for coax connections &mdash; it doesn't wet nearly as well as lead-based solder. Buy a small roll of 1/8-inch, 60/40, rosin-core solder. It's too large for circuit board work but exactly right for connector work.</p>
+        </div>
+
+        <p>If you're using a reducing sleeve, pre-tin it carefully. Make sure no wire hairs protrude from the folded-back shield that could cause a short. Put the threaded barrel over the coax first, in the correct direction. Then slide the heat shrink well back before it can shrink prematurely. Carefully slide the PL-259 body over the coax and screw it down over the jacket. A small pair of channel-lock pliers works well for this. Stop as soon as you feel resistance. Once connectors are on both ends, use a DMM to check for shorts between center conductor and shield.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p2_8.jpeg" alt="Reducing sleeve properly positioned before screwing into PL-259 body" loading="lazy">
+          <figcaption>Reducing sleeve correctly positioned with shield folded back before insertion into the PL-259 body. No wire hairs should be visible outside the shield fold. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="soldering">Soldering Step-by-Step</h2>
+
+        <p>Do not pre-tin the coax shield before screwing on the connector. Pre-tinning might seem to speed up the process, but when the solder flows into the hole, most people stop &mdash; leaving the shield only partially soldered to the connector.</p>
+
+        <ol>
+          <li>
+            <strong>Solder the tip (center conductor) first.</strong> With good PL-259s, this takes 10 to 15 seconds. Use enough solder to close the connector tip entirely &mdash; this aids in keeping out moisture. Do not slop solder on the outside of the center pin.
+            <figure>
+              <img src="../images/Coax_and_PL259s_p2_9.jpeg" alt="Soldering the center conductor tip of a PL-259" loading="lazy">
+              <figcaption>Soldering the center conductor. The smaller Weller pencil iron with an 850&deg;F tip is the correct tool here. Close the tip completely with solder. <!-- From PDF page 2 — verify placement --></figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Let the tip cool before soldering the shield.</strong> This is important &mdash; applying heat to the shield while the tip is still hot risks melting the dielectric and causing a short.
+          </li>
+          <li>
+            <strong>Solder the shield.</strong> The flat part of the soldering iron tip should just fit inside the barrel groove of the connector. About 6 to 10 seconds after applying the iron, the barrel will be hot enough to accept solder. Apply solder at the edge of each hole so it flows into the shield. Close all four holes one at a time. Too much solder and it could flow to the tip and cause a short; too little and you won't have a good connection.
+            <figure>
+              <img src="../images/Coax_and_PL259s_p2_10.jpeg" alt="Soldering the shield through the barrel holes of a PL-259" loading="lazy">
+              <figcaption>Soldering the shield through the barrel holes. This operation takes 20 to 30 seconds and requires both hands &mdash; one to apply solder, one to rotate the coax. This is why you clamp the iron in a vise. <!-- From PDF page 2 — verify placement --></figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Recheck for shorts and continuity</strong> after soldering is complete.
+          </li>
+        </ol>
+
+        <h2 id="crimp-connectors">Crimp-On Connectors</h2>
+
+        <p>Some folks scoff at crimp-on connectors because they believe the electrical characteristics are inferior to a properly soldered PL-259. Considering how some people solder PL-259s, that belief is misplaced. If properly installed, you virtually cannot measure the impedance difference between a good crimp-on and a correctly soldered PL-259.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p3_12.jpeg" alt="Silver-plated crimp-on PL-259 connectors" loading="lazy">
+          <figcaption>Silver-plated crimp-on PL-259s from RF Connection. Silver plating prevents rust. Both solder-tip and crimp-tip versions are available &mdash; the crimp-tip versions are not waterproof, so specify accordingly. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>RF Connection sells some of the best crimp-on PL-259s available &mdash; silver-plated so they don't rust, available with a solder tip. Manual crimping tools range from about $50 to $145 depending on quality. Ratchet-type hand crimpers require good hand strength for a proper crimp. If you're not strong in the hands, a hydraulic tool is worth the expense.</p>
+
+        <h2 id="weather-sealing">Weather Sealing</h2>
+
+        <p>Seemingly everyone uses vinyl electrical tape and/or coax seal on outdoor connections. The problem: no matter how well you cover the connection, moisture can still seep in. Vinyl tape removal becomes a sticky mess regardless of quality, and the adhesives on most vinyl tapes tend to corrode silver-plated connectors.</p>
+
+        <figure>
+          <img src="../images/Coax_and_PL259s_p3_13.jpeg" alt="Rescue Tape self-vulcanizing sealing tape" loading="lazy">
+          <figcaption>Rescue Tape comes in several colors, making frequency marking of coax easy. It seals better against moisture than any other type of tape. If it has a drawback, it isn't very scuff-resistant &mdash; protect it from abrasion. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The best weatherproofing approach: properly solder the connector, close all the holes completely with solder, then seal the coax entry into the connector with polyolefin, dual-walled, adhesive heat shrink. PL-259 connectors that are properly installed this way are quite weather tight &mdash; not immersion-proof, but resistant to road spray. Rescue Tape over the assembly adds another layer of moisture protection. Avoid: friction tape, mylar tape, masking tape, duct tape, and packaging tape. None of them work for this application.</p>
+        </div>
+
+        <h2 id="odds-and-ends">Odds &amp; Ends</h2>
+
+        <p>Salvaging PL-259s is a losing battle. The time and frustration aren't worth it. Scrimping on coax and PL-259s is a prescription for trouble, and it always happens at the most inopportune times &mdash; like Field Day.</p>
+
+        <p>There are several styles of screw-on-to-the-coax-cover PL-259s. They are never appropriate. Never use them.</p>
+
+        <p>Different runs of the same brand and type of coax may have different characteristic impedances. The nominal is 50 ohms, but the original designation for RG-8 was actually 52 ohms, and some brands measure closer to 52 ohms than 50. This isn't a concern for most applications, but it matters if you're using coax for phasing lines &mdash; especially at VHF. In that case, measure the actual impedance before cutting to length.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <h3 id="weatherproof-connectors">Weatherproof Connector Options</h3>
+
+        <p>Since Alan originally wrote this material, the availability of weatherproof PL-259 alternatives has improved substantially. N-type connectors are now available from a wider range of antenna manufacturers, and some mobile antenna makers have begun supplying N connectors as standard. If your antenna and transceiver both accommodate N connectors, they are the better choice for a mobile installation &mdash; properly installed, they are genuinely waterproof in a way that no PL-259 can claim.</p>
+
+        <h3 id="low-loss-coax">Low-Loss Coax for Short Runs</h3>
+
+        <p>For typical mobile feedline runs of 15 feet or less, the cable loss differences between RG-8X, RG-58, and LMR-240 (an RG-8X-equivalent with superior loss figures) are in the tenths of a dB &mdash; not operationally significant for HF. If you're running VHF or UHF, the loss picture changes: LMR-240 or equivalent is genuinely worth the upgrade at those frequencies, particularly if your run exceeds 10 feet.</p>
+
+        <h3 id="direct-bury-coax">Routing Through Vehicles</h3>
+
+        <p>The current generation of vehicles uses a lot of very tight passages and grommets for routing cables. If you're routing coax through a firewall or body grommet, RG-8X's minimum bend radius and crush sensitivity become very real constraints. Consider LMR-240 (roughly the same OD but with a more flexible construction) or drop to RG-58 for the portion of the run that must pass through a tight space &mdash; accepting the slightly higher loss of RG-58 in exchange for ease of routing and durability.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="how-to-wind-choke.html">How to Wind a Choke</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="tricks.html">Tricks of the Trade</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

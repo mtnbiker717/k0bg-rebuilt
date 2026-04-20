@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -115,9 +158,19 @@
 
         <p>The level of common mode current is directly related to ground plane losses. A mobile antenna mounted on a vehicle is working against an imperfect ground plane&mdash;the vehicle body. Current that should be flowing symmetrically through the ground plane finds paths of unequal impedance, and some of that current ends up on the outside of the coax shield. The worse your ground plane, the worse your common mode problem.</p>
 
+        <div class="callout callout-key">
+          <div class="callout-title">&#128273; GROUND LOSS VALUES: WHAT THE STANDARDS SAY VS. REALITY</div>
+          <p>Standard text sources state that mobile HF ground plane losses average between 2 and 10 ohms (10 through 80 meters). The truth is, the average is closer to <strong>5 to 20 ohms</strong> respectively &mdash; and may be higher. Further, ground loss is not a linear function, and it may actually be higher on 20 meters than on 40 meters. Ground losses cannot be measured directly, even though they are part of the input impedance of the antenna. Fix the ground plane first, measure the effect, and then address the common mode current that remains.</p>
+        </div>
+
         <p>This is one of the many reasons why antenna mounting matters so much. A lip mount or clip mount on the edge of a trunk lid, with its minimal ground plane contact, will exhibit significantly more common mode current than a properly installed through-hole mount on a large, well-bonded surface. Antennas mounted through sheet metal via ball mounts exhibit slightly less common mode current than alternatives like lip mounts or mag mounts, but make no mistake&mdash;a choke is still required regardless of your mounting method.</p>
 
         <p>Poor antenna mounting exacerbates common mode current in ways that are not always obvious. If the antenna base does not make excellent electrical contact with the vehicle body, the impedance mismatch at the feedpoint drives more current onto the outside of the shield. If your mount is on a trunk lid or hatch that is not bonded to the main body, you have effectively created a floating ground plane section that is practically begging for common mode problems.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; GROUND STRAP ON THE ANTENNA MOUNT IS NOT A FIX</div>
+          <p>Attaching a ground strap to the mounting bracket of a mobile antenna is not a substitute or workaround for an incorrectly mounted antenna. Nor will it magically reduce the level of ground loss or the level of RFI. If a ground strap appears to correct an RFI, SWR, or other problem, it means something else in the installation is amiss. Fix it &mdash; don't patch it.</p>
+        </div>
 
         <h2 id="measuring">Measuring Common Mode Current</h2>
 
@@ -252,6 +305,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

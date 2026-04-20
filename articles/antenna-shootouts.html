@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Shootouts — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="What antenna shootouts actually measure, the variables that invalidate most results, winning and losing strategies, and a better measurement approach using SNR rather than field strength.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Shootouts</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="introduction">Introduction</h2>
+
+        <p>In the April 1960 issue of QST was a short blurb on page 57 about the second annual California Mobilecade and Field Trials, to be held in San Luis Obispo. These were the first antenna shootouts of record.</p>
+
+        <p>The rules make very interesting reading. One standout: the receiving antenna was to be located 4,900 feet away, with additional stations 10 to 100 miles away used to verify the closer-in measurements. Keep this fact in mind &mdash; it will matter when evaluating modern shootout methodology. Further, the rules required entrants to use the same antenna setup they arrived with. The antenna in question must be road-worthy.</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_0.jpeg" alt="QST photo montage from the 1961 California Mobilecade showing 16 antenna contestants" loading="lazy">
+          <figcaption>Photo montage from the July 1961 QST covering the third California Mobilecade and Field Trials results. Almost without exception, every entrant's antenna sported a cap hat &mdash; including one nearly identical to the cap hat design described in the Cap Hat article. The winner, David Evans, WA6JJG (the man being kissed), won with a scant 7.26 watts input. His cap hat is visible in the fourth row, first column, correctly mounted at the very top of the antenna.</figcaption>
+        </figure>
+
+        <h2 id="basics">Basics</h2>
+
+        <p>What really counts more than antenna efficiency alone is the overall performance of the antenna as a system. The antenna's basic design, mounting style and location, and even the way it is wired all affect performance. Unfortunately, very little thought goes into antenna performance at purchase time.</p>
+
+        <p>Mobile HF antennas come with a variety of coil sizes, overall lengths, coil and mast diameters, and different positions for the coil within the antenna. These factors affect how the RF current is distributed over the length of the antenna, which directly determines the radiation resistance (R<sub>r</sub>).</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_1.jpeg" alt="Chart showing optimal coil position versus ground loss for maximum efficiency" loading="lazy">
+          <figcaption>The relationship between coil position and ground loss, from ARRL data. The optimum coil position for maximum efficiency is directly related to the magnitude of ground loss. Since ground loss is the largest factor in the efficiency equation, keeping it as low as possible is paramount &mdash; which means the best mounting location is the one with the most metal mass directly under the antenna.</figcaption>
+        </figure>
+
+        <p>The optimum coil position (for maximum efficiency for any given installation) is directly related to how much ground loss there is, and to a lesser degree the coil's Q factor. Since ground loss is the largest factor in the efficiency equation, keeping it as low as possible is paramount. The best mounting location is the one with the most metal mass directly under the antenna &mdash; what's alongside doesn't count.</p>
+
+        <p>Several critical points: Ground losses aren't easy to calculate and cannot be directly measured, although they are part of the input impedance. Coil Q cannot be measured when the coil is mounted within the antenna. Radiation resistance (R<sub>r</sub>) is unknown with certainty, though we know it follows the square-law rule &mdash; a 9-foot antenna will have twice the R<sub>r</sub> of a 6-foot one, all else being equal.</p>
+
+        <h2 id="the-variables">The Variables</h2>
+
+        <p>Ground loss is the largest contributing factor in the efficiency equation. While bonding helps, mounting position is more important. Low mounting (trailer hitch, for example) forces more return current through the lossy surface under the vehicle rather than through the less-lossy body of the vehicle.</p>
+
+        <p>The second most important factor is coil Q. Large end caps and metal shorting plungers exhibit more distributed capacitance, lowering the self-resonant frequency and increasing Q losses as operating frequency increases. A 3-inch diameter coil, wound with #10 gauge wire, spaced 6 turns per inch, will have the most consistent (highest average) Q across 80 through 10 meters.</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_2.jpeg" alt="Cap hat correctly mounted at the very top of a screwdriver antenna" loading="lazy">
+          <figcaption>The correct cap hat installation: mounted at the very top of the antenna. A cap hat will exhibit the same capacitance effect qualitatively no matter where within the antenna it is mounted. Whether the resulting increase in input impedance is caused by an increase in radiation resistance or by a reduction in coil Q depends entirely on where the cap hat is installed. At the top: increased radiation resistance. Atop the coil: reduced coil Q. Only the first case improves efficiency.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_3.jpeg" alt="Cap hat incorrectly mounted atop the loading coil showing wrong position" loading="lazy">
+          <figcaption>The incorrect cap hat installation: mounted directly atop the loading coil. This increases bandwidth and input impedance by reducing coil Q &mdash; a detriment, not an improvement. This is a consistent loser in any antenna shootout.</figcaption>
+        </figure>
+
+        <p>Cap hats are a mixed bag, especially if they're not mounted correctly. They increase wind loading, requiring sturdy antenna construction &mdash; which is why some users incorrectly mount them close to or atop the coil. The optimum position is always at the very top of the antenna structure.</p>
+
+        <p>The basic design of the cap hat is also important. Straight wires without an enclosing rim are a poor design. Empirical and theoretical analysis both show the most efficient design versus wind loading is the three-loop design.</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_4.jpeg" alt="Radiation pattern chart showing takeoff angle distribution for mobile HF antennas" loading="lazy">
+          <figcaption>The mean angle of radiation (approximately 27 degrees, the point of maximum power) does not vary with the amount of ground loss. However, the power at any given takeoff angle does change, especially at lower angles below 15 degrees. This is another reason to minimize ground losses &mdash; even though the antenna direction doesn't change, the power delivered at the most useful angles does.</figcaption>
+        </figure>
+
+        <p>Mobile antennas are seldom mounted dead center of the roof. Even if they were, the radiation pattern would still be distorted. Mounted on the left rear (as is usual in the USA), the pattern is even more distorted. The 360-degree average difference in signal strength is approximately 3 dB, possibly more on van and SUV type vehicles. Notably, the greatest field strength isn't always toward the greater mass of the vehicle, particularly on vans and SUVs.</p>
+
+        <h3 id="measurement-methodology">Measurement Methodology Variables</h3>
+
+        <p>There are variables we can't control that must be acknowledged. The methodology used to determine field strength is the first. Usually, a small receiving loop is attached to a digital voltmeter. Where it is in relation to the antenna under test, how far away, and how high above the ground all affect the detected RF voltage level.</p>
+
+        <p>Ideally, the vehicle should be oriented so the strongest lobe is toward the receiving antenna. While assumed to be toward the most metal mass, that isn't always the case. The distance from the antenna under test should be at least 5 wavelengths (approximately 1,200 feet) on 20 meters &mdash; well into the far field &mdash; which is seldom the case at most shootout venues. The receiving loop's height above ground should be at least 1/4 wavelength (approximately 60 feet on 20 meters). If it isn't, nearby objects and measurement personnel will affect the received strength.</p>
+
+        <p>How the test signal is generated matters too. The test transmitter should be self-contained and on-board the vehicle. Transmitters with coax cables running to an off-vehicle source are suspect, as the coax acts like a single radial highly affected by its surroundings.</p>
+
+        <p>As a standard rule, participants must use a road-worthy antenna &mdash; the one they drove to the testing site with (13.5 feet or less above ground), without any additional on-site attachments such as radial wires or trailer-hitch-mounted platforms.</p>
+
+        <h2 id="winning-strategies">Winning Strategies</h2>
+
+        <p>The hints below are born out of the winning entrants of a number of antenna shootouts, and are not necessarily personal recommendations.</p>
+
+        <ol>
+          <li>Mount your antenna with as much metal mass directly under the antenna as possible. This is why pickup trucks with the antenna mounted in the center of the bed are consistent winners.</li>
+          <li>Forget huge coils, especially ones with large metal end caps. The optimum coil size is approximately 3 inches, wound with at least #12 wire.</li>
+          <li>Use a large, properly mounted cap hat, as large as shootout rules allow. Forget about birdcage designs that increase shunt capacitance &mdash; they are consistent losers.</li>
+          <li>Bonding is important, and you almost can't do too much. However, running ground straps hither and yon to lower ground losses will not replace proper mounting.</li>
+          <li>Know which direction to orient your vehicle to maximize the signal strength at the receiving site. That is typically toward the greatest mass, but not always.</li>
+          <li>Properly match your antenna to minimize coax cable losses. Every fraction of a dB counts.</li>
+          <li>When the measurement is being carried out, either stay in your vehicle with the doors closed, or stay away from it as far as practical. Your body will affect the measurement.</li>
+        </ol>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p1_5.jpeg" alt="Pickup truck with antenna centered in the bed showing optimal mounting position" loading="lazy">
+          <figcaption>A pickup truck with the antenna centered in the bed &mdash; the consistent winning configuration in antenna shootouts. The mass of metal in the bed directly under the antenna minimizes ground losses. The cab provides additional ground plane forward. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>No winning strategy would be complete without what not to do:</p>
+
+        <ul>
+          <li>Clip-mounted antennas will always be at the bottom of the listings. Always.</li>
+          <li>Any antenna that doesn't require matching (SWR less than 1.6:1 at resonance) will be at the bottom of the listings. Short, stubby ones for example.</li>
+          <li>The larger the end caps, the lower the standing.</li>
+          <li>Coils larger than 3.5 inches in diameter perform poorly, especially on 40 and 20 meter test frequencies.</li>
+          <li>Antennas that use shorting bars or flying leads have lower coil Qs, hence lower score standings.</li>
+          <li>If you lose, don't blame the shootout personnel for your loss.</li>
+        </ul>
+
+        <h2 id="a-better-strategy">A Better Strategy</h2>
+
+        <p>From a personal standpoint &mdash; antenna shootouts leave a lot to be desired. While they test the transmit signal strength of an installation, there are too many variables left untested and in doubt. Not least among these are changes in local ambient conditions that highly affect overall system losses.</p>
+
+        <p>There is a better way, and that is measuring the Signal-to-Noise Ratio (SNR). Included then would be a specific installation's RFI suppression, receiver sensitivity, coax losses, mounting losses, and more. The point is, it doesn't make much difference if the other station can hear you, if you can't hear them.</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p2_6.jpeg" alt="Helper Instruments Sinadder device for SNR measurement" loading="lazy">
+          <figcaption>A Sinadder, as made by Helper Instruments and others. This distortion analyzer feeds a 1 kHz-modulated RF signal to the transceiver, then uses a notch filter to remove the 1 kHz signal. What remains is extraneous noise &mdash; which is what the meter measures. Helper is out of business, but used units are readily available online at $20 to $200 depending on model and condition.</figcaption>
+        </figure>
+
+        <p>One way to measure SNR comparatively requires a Sinadder (distortion analyzer). Although meant for commercial FM transceivers (SINAD = Signal To Noise Ratio + Distortion), it is also usable for SSB. A steady signal source is needed: a transceiver running very low power (approximately 1 watt) into a dummy load, an antenna analyzer, a service monitor, or WWV/CHU Canada. Connect the Sinadder input to the audio output of the transceiver. Turn off the AGC, back off the RF gain control. Turn on the Sinadder and bring up the RF gain until the meter just comes off full scale. Then adjust the VFO to beat with the signal source until the Sinadder shows the lowest reading &mdash; this occurs when the receiving heterodyne is right at 1 kHz. Depending on the instrumentation, accuracy can be within a few tenths of a dB.</p>
+
+        <figure>
+          <img src="../images/Antenna_Shootouts_p2_7.jpeg" alt="SNR measurement setup with Sinadder connected to transceiver audio output" loading="lazy">
+          <figcaption>The SNR measurement setup. The Sinadder connects to the transceiver's audio output. A stable signal source (dummy-load transceiver, antenna analyzer, or service monitor) provides the reference. This method detects changes in SNR of 0.5 dB or less &mdash; far more sensitive than any S-meter or field strength measurement approach used in typical shootouts.</figcaption>
+        </figure>
+
+        <p>For those comparing mobile installations using this method &mdash; exhaust bonding in place or not; noise blanker on or off; ferrite chokes in place or not &mdash; several scenarios will bring transmit antenna tests into question. This method will detect changes in SNR of 0.5 dB or less. For example, simply placing your hand on the vehicle can change the reading significantly. Walking between the signal source and the receiving antenna will do the same. Physically touching the antenna may change the SNR by 15 dB or more. Even local ambient conditions &mdash; temperature, humidity, people moving around, extraneous RFI sources, even cell phones in some cases &mdash; all affect the readings.</p>
+
+        <p>Antennas follow the law of reciprocity &mdash; any gain or loss they exhibit will be equal on transmit and receive. However, antenna performance is not reciprocal in the real-world sense, due to the enormous number of variables present. The more variables present, the less accurate the measurement. Think about these variables the next time you're at a shootout or reading a comparison report online.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Online antenna comparison videos have largely supplanted formal organized shootouts as the primary way operators compare antennas. These are even less rigorous than the already-problematic formal shootouts, and most fail on nearly every criterion described in this article: the receiving antenna is far too close and far too low, the vehicle orientation is arbitrary, the signal source may be off-board via coax, and uncontrolled variables like nearby structures and people are accepted without comment.</p>
+
+        <p>View these videos with the following checklist in mind:</p>
+        <ul>
+          <li>Is the receiving antenna at least 1,200 feet away (on 20 meters)? Almost certainly not.</li>
+          <li>Is the receiving antenna at least 60 feet above ground? Almost certainly not.</li>
+          <li>Is the signal source self-contained on-board the test vehicle? Not always.</li>
+          <li>Is the vehicle orientation documented and optimized toward the receiving antenna? Rarely.</li>
+          <li>Are the antennas being compared mounted identically (same location, same vehicle)? Sometimes, but often not.</li>
+          <li>Are all antennas properly matched? Not if the presenter is comparing SWR rather than measured radiated power.</li>
+        </ul>
+
+        <p>A comparison that answers "yes" to all six of these questions is worth watching carefully. A comparison that answers "no" to any of them produces data that cannot be meaningfully interpreted. This does not mean the comparison is useless &mdash; it may still illustrate qualitative differences &mdash; but treat the numbers as suggestive rather than definitive.</p>
+
+        <p>The SNR method using a Sinadder (or a modern equivalent such as a calibrated service monitor) remains the most information-rich way to compare mobile installations, and it has the significant advantage of measuring receive performance rather than just transmit. In a mobile HF station, your ability to hear the other station matters just as much as your ability to be heard.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-efficiency.html">Antenna Efficiency</a>
+          <a class="related-card" href="antenna-cap-hat.html">Antenna Cap Hat</a>
+          <a class="related-card" href="antenna-myths.html">Antenna Myths</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-mounts.html">Antenna Mounts</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

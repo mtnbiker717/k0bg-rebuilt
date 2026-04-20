@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -90,8 +133,25 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ Electrical Safety Notice</div>
+          <p>Vehicle electrical work involves risk of fire, shock, and equipment damage. Incorrect fusing or wiring can cause thermal runaway in wiring harnesses. Never work on vehicle wiring near fuel lines or in enclosed spaces without adequate ventilation. Verify all specifications against your specific vehicle's service manual. If you are not confident in your electrical skills, consult a qualified 12V installer or automotive electrician.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
+        <ul>
+          <li><a href="#the-cardinal-rule">The Cardinal Rule</a></li>
+          <li><a href="#wire-gauge">Wire Gauge</a>
+            <ul><li><a href="#voltage-drop-formula">Calculating Voltage Drop</a></li></ul>
+          </li>
+          <li><a href="#fusing">Fusing</a></li>
+          <li><a href="#connectors">Connectors: Anderson Powerpoles</a></li>
+          <li><a href="#cable-routing">Cable Routing</a></li>
+          <li><a href="#twisting-myth">The Twisted-Pair Myth</a></li>
+          <li><a href="#aluminum-vehicles">Aluminum-Bodied Vehicles</a></li>
+          <li><a href="#modern-vehicles">Modern Vehicle Considerations</a></li>
+          <li><a href="#putting-it-together">Putting It All Together</a></li>
+        </ul>
       </div>
 
       <div class="article-body">
@@ -132,6 +192,18 @@
 
         <p>Undersized wire doesn't just waste power as heat &mdash; though it does that too. It causes voltage drop under load. Your transceiver is designed to operate at 13.8 volts. At 22 amps through undersized wire over a long run, you can easily lose a volt or more. The radio's power output drops, the finals work harder, and in extreme cases the radio's protection circuits start cycling. I have seen installations where the transceiver was barely putting out 60 watts because the wiring couldn't deliver adequate voltage under load. The owner thought his radio was broken. It wasn't. His wiring was.</p>
 
+        <h3 id="voltage-drop-formula">Calculating Voltage Drop</h3>
+
+        <p>There's a straightforward formula for calculating actual voltage drop before you pull any wire. Use it. Guessing costs money and frustration.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Voltage drop formula: <strong>(R<sub>w</sub> &times; 2L &times; 0.001) + 2k) &times; A = V<sub>d</sub></strong></p>
+          <p>Where: R<sub>w</sub> = resistance per 1,000 feet from ARRL Handbook wire table; L = one-way cable length in feet; k = connector resistance (typically 0.001&Omega; each); A = current in amps; V<sub>d</sub> = voltage drop in volts.</p>
+          <p>ARRL Handbook resistance values (ohms per 1,000 feet): #12 = 1.588&Omega;, #10 = 0.9987&Omega;, #8 = 0.6281&Omega;, #6 = 0.3952&Omega;, #4 = 0.2485&Omega;, #2 = 0.1563&Omega;</p>
+          <p>For reference: factory vehicle power cabling typically drops about 0.6V at 22 amps. That is the baseline you're competing with &mdash; your dedicated cable should not add significantly to it. A total drop (factory cable plus your run) of more than 1.0V at transmit current is too much.</p>
+        </div>
+
         <h2 id="fusing">Fusing</h2>
 
         <p>The positive lead must be fused, and the fuse must be located as close to the battery as physically possible. Not at the radio end. Not in the middle. At the battery. The purpose of the fuse is to protect the wire, not the radio. If the wire shorts to the vehicle body anywhere along its run, the fuse blows before the wire melts and starts a fire. If the fuse is at the radio end, the entire length of wire between the battery and the fuse is unprotected.</p>
@@ -144,12 +216,29 @@
         <p>Fuse types in common use for mobile installations:</p>
 
         <ul>
-          <li><strong>ATC/ATO blade fuses</strong> &mdash; The standard automotive blade fuse. Available up to 40 amps. Widely available, inexpensive, and reliable. Inline fuse holders for these are easy to find. This is the go-to choice for most 100W transceiver installations.</li>
+          <li><strong>ATC blade fuses</strong> &mdash; The correct choice for radio power cable inline fuse holders. The ATC fuse element is completely sealed in plastic, making it moisture-resistant. Available up to 40 amps.</li>
+          <li><strong>ATO blade fuses</strong> &mdash; These look identical to ATC fuses and are what you'll grab at any auto parts store if you're not paying attention. The ATO element is open &mdash; not sealed &mdash; and is susceptible to moisture and contamination. Inline fuse holders in the power cable run are not waterproof. <strong>Use ATC, not ATO, for your radio power fusing.</strong></li>
           <li><strong>Maxi fuses</strong> &mdash; Larger blade-style fuses rated up to 80 amps. Use these for amplifier installations or multi-radio setups. Maxi fuse holders are available at any auto parts store.</li>
+          <li><strong>J-Case fuses</strong> &mdash; A high-current blade fuse format increasingly found in modern vehicle fuse blocks, rated 20&ndash;120 amps. These are <strong>not interchangeable</strong> with Maxi fuses despite similar size. Using the wrong format in a vehicle fuse block can result in a fuse that appears to seat but makes poor contact. Check your service manual before substituting. J-Case fuses also have an extended I&sup2;T characteristic, meaning they take longer to open under a given overload &mdash; another reason not to use them for amateur radio applications.</li>
           <li><strong>5AG (cartridge) fuses</strong> &mdash; The old round glass or ceramic tube fuses, available up to about 50 amps. These are getting hard to find, and the holders are becoming scarce. If you have a working setup with 5AG fuses there's no reason to change, but for a new installation, blade fuses are the better choice.</li>
         </ul>
 
         <p>Size the fuse appropriately. For a single 100W transceiver on 10 AWG wire, a 30-amp fuse is typical. Don't use a 50-amp fuse "just in case" &mdash; oversized fuses defeat the purpose of having one. The fuse must blow before the wire reaches its current-carrying limit.</p>
+
+        <div class="callout callout-key">
+          <div class="callout-title">&#128273; FUSE VOLTAGE DROP VALUES</div>
+          <p>Online voltage drop calculators do not account for fuse and fuse holder resistance. At rated load, a 30-amp ATC fuse has a voltage drop of <strong>95 mV (0.095 volts)</strong>. A 60-amp Maxi fuse has a voltage drop of <strong>77 mV (0.077 volts)</strong> at rated load. Most power cables have two fuses (positive and negative leads), so double these values for your total calculation. If you don't know the exact resistance of a fuse and its holder, use a conservative value of 0.002 ohms per fuse as an approximation. Anderson Power Pole connections add approximately 0.002 volts per connection at rated load.</p>
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; CIRCUIT BREAKERS ARE NOT A SUBSTITUTE</div>
+          <p>If you use circuit breakers instead of fuses, understand this: circuit breakers exhibit a much longer I&sup2;T than any fuse except specially designed slow-blow fuses. Worse, most circuit breakers will fail <em>closed</em> on dead shorts if the current exceeds about 2,000 amps. A standard SLI battery in good condition can easily supply 3,000 amps to a dead short &mdash; an AGM battery as much as 4,000 amps. This includes so-called marine and aircraft circuit breakers. If you use circuit breakers as switches, fine &mdash; but the main wiring protection device should always be a properly-sized fuse.</p>
+        </div>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p><strong>Fuses are I&sup2;T devices, not on/off switches.</strong> A 30-amp fuse will carry 40 amps for about 8 minutes before blowing. The same fuse will blow in roughly 3 seconds at 100 amps. This time-delay characteristic is intentional &mdash; it allows for normal startup surges without nuisance trips. It also means your wire can be damaged by a sustained moderate overcurrent well before the fuse actually opens. Don't interpret a fuse that hasn't blown as evidence that everything is fine. If your wire is getting warm under normal operating loads, the fuse is the wrong size, the wire is the wrong gauge, or both.</p>
+        </div>
 
         <figure class="image-placeholder">
           <span class="placeholder-icon" aria-hidden="true">📷</span>
@@ -197,6 +286,28 @@
         </div>
 
         <p>The best routing path in most vehicles is along the rocker panel or door sill area, under the carpet and trim. This path typically avoids the major electronic modules and provides good physical protection for the cable. Use grommets where cables pass through the firewall, and secure the cable every 12 to 18 inches with cable ties or adhesive-backed mounts so it doesn't dangle, vibrate, or chafe.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>When drilling a new hole through the firewall, a step drill bit cuts clean holes in sheet metal without walking or tearing. For a professional result, a <strong>Rotacut</strong> (a specialized rotary punch tool) creates a perfectly clean, round hole in sheet metal without drilling &mdash; no sharp edges or flanges to clean up afterward. In any case, always check both sides of the firewall before drilling &mdash; fuel lines, brake lines, and wiring harnesses often run directly against the firewall on the engine side where they can't be seen from inside the vehicle. Brake lines are commonly attached to the engine side of the firewall directly below the brake pedal. Once the hole is drilled, install a <strong>3/4-inch ID grommet</strong> (available at any well-stocked hardware store). To make pulling the wire easier, apply a small amount of wire lubricant (Ideal #77 or equivalent) to the cable's outer surface. Feed the wire from the passenger compartment to the under-hood fuse blocks first, then to its final destination &mdash; in almost all cases the amount of wire needed from the firewall outward is much less than that needed behind it.</p>
+          <p>Most modern vehicles have a fresh air inlet plenum just behind the hood, sometimes containing the windshield wiper assembly and cabin air filter. For this reason, the upper area of the firewall should be avoided. Choose a spot outside any area where the wire might be stepped on or pinched &mdash; the closer to the left kick panel (on left-hand drive vehicles) the better.</p>
+          <p>At connections and terminations, <strong>never use twist-on wire nuts</strong> (the plastic caps used in residential electrical work). They are not designed for vibration, and they will loosen and fall off in a vehicle. Use proper crimp terminals, or solder-and-heatshrink at every connection.</p>
+        </div>
+
+        <h2 id="insulation-stranding">Insulation, Stranding, and Wire Types</h2>
+
+        <p>Not all wire is created equal, and choosing the wrong type for a mobile installation is a mistake that will eventually announce itself as a failure.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; NEVER USE SOLID WIRE IN A VEHICLE</div>
+          <p>Solid wire (single-strand) should never be used in a mobile installation. This includes CAT5 cable, which is sometimes used as a cheaper alternative to factory-supplied modular cables. All solid conductor wire will work-harden under vibration &mdash; which is always present in a mobile &mdash; and it should be obvious what will happen when it fails. Twist-on wire-nuts should also never be used as splices. They are designed for solid wire only, and their use on stranded wire is a vehicle fire in the making. Think thermolysis.</p>
+        </div>
+
+        <p>Insulation temperature ratings matter in a vehicle environment. The insulation temperature rating should be at least <strong>90&deg;C (195&deg;F) in the passenger compartment</strong> and <strong>105&deg;C (220&deg;F) in the engine compartment</strong>. All exposed wire should be covered with protective split loom regardless of the quality or type of wire used.</p>
+
+        <p>On strand count: construction grade THHN and THWN wire has an outer nylon jacket making it very abrasion resistant, but it is typically 7 or 19 strand and rather stiff. Automotive wire is usually 49 strand, much easier to work with, and will generally stay where you put it. High strand count "super-flex" wire like that sold at mobile sound stores is almost too flexible. Avoid after-market sound system wire insulated with plain polyethylene &mdash; it is moisture resistant but has poor heat and flame resistance. Do not use it for under-hood wiring.</p>
+
+        <p>One more note on super-flex wire including high strand count welding cable: you must use crimp-type connectors to properly terminate it. Soldering these with an iron requires a very large iron, and even then the solder wicks badly, creating more problems than it solves. This is not a concern with 49-strand automotive wire if you know how to solder.</p>
 
         <h2 id="twisting-myth">The Twisted-Pair Myth</h2>
 
@@ -324,6 +435,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

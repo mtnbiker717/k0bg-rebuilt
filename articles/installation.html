@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -89,6 +132,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ Installation Safety Notice</div>
+          <p>Improper radio installation can interfere with vehicle safety systems including ABS, electronic power steering, airbag deployment, and ADAS sensors. RFI ingress into vehicle control systems can cause unpredictable behavior while driving. Always verify your installation does not affect safety-critical systems before driving. If safety systems malfunction after installation, stop transmitting immediately and diagnose the cause before resuming operation.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -100,6 +147,11 @@
         <p>Let me say this plainly: the performance of your mobile HF station is <em>directly</em> dependent on the time, effort, and expense you're willing to invest. There are no shortcuts. There are no magic bullets. There is no miracle product at the hamfest flea market that will turn a sloppy installation into a good one. If you want it to work well, you have to do it right, and doing it right takes work.</p>
 
         <p>Very few amateurs go shopping for a vehicle with antenna mounting in mind. Most of us buy a car or truck for practical reasons — commuting, hauling the family, towing a boat — and then try to figure out how to bolt radio equipment onto it after the fact. This is understandable. It is also the beginning of most problems.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p><strong>Notify your insurance company before you start.</strong> Check your auto insurance policy for requirements around permanently installed aftermarket equipment. Some insurers require disclosure; others do not. If your equipment is damaged in an accident or stolen, and you have not disclosed it, the insurer may decline coverage on the radio gear. The premium impact of disclosure is typically negligible &mdash; far less than the replacement cost of an HF transceiver. Make the call before you drill the first hole.</p>
+        </div>
 
         <h2 id="vehicle-challenges">Vehicle Selection and Its Consequences</h2>
 
@@ -144,6 +196,11 @@
 
         <p>SRS wiring is typically enclosed in yellow conduit or connectors to distinguish it from other vehicle wiring. Learn to recognize it. Stay away from it. If your planned cable routing requires passing near SRS wiring, find another route.</p>
 
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>Seat-mounted side airbags have their own internal capacitor power supply.</strong> Disconnecting the vehicle battery does NOT prevent a seat airbag from deploying. The capacitor inside the airbag module maintains enough energy to fire the inflator for up to several minutes after battery disconnection &mdash; and some modules retain charge longer. Before working near seat-mounted airbags or routing wiring through the seat area, consult the factory service manual for the specific discharge time for your vehicle. The manual will also identify which seating positions have airbag inflators and where they are located in the seat assembly.</p>
+        </div>
+
         <h2 id="transceiver-mounting">Transceiver Mounting — Where and How</h2>
 
         <p>Choosing a location for your transceiver involves balancing several competing requirements: accessibility for operating, adequate ventilation, structural support for mounting, and safety in the event of a collision.</p>
@@ -161,6 +218,11 @@
           <p>Mobile transceiver secured using the manufacturer's mounting bracket with proper ventilation clearance. No cubby holes, no storage compartments.</p>
           <span class="placeholder-source">Photo requested from lonneys-notebook.blogspot.com</span>
         </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>Trunk temperatures in summer can reach 180&deg;F or more</strong> in direct sunlight on a dark-colored vehicle. Most amateur transceivers are specified to operate to 140&deg;F (60&deg;C). A transceiver body installed in the trunk can be subjected to temperatures above its specifications before you ever turn the key. This matters even if the radio appears to survive: high temperatures accelerate electrolytic capacitor aging and degrade every semiconductor junction in the unit. If your transceiver body must be in the trunk, mount it against the rear seat bulkhead where temperatures are lower &mdash; not against the spare tire well where they are highest.</p>
+        </div>
 
         <p>On the subject of heat management: do <em>not</em> install an auxiliary fan blowing on the transceiver heat sink. This sounds counterintuitive, but there is a good reason. The engineers who designed your radio calculated the heat dissipation requirements and designed the heat sink accordingly. An external fan blowing ambient air — which in a vehicle interior can easily be 130 degrees Fahrenheit or more in summer — across the heat sink does nothing useful. Worse, it can blow dust and debris into the radio. The transceiver has its own internal fan if it needs one. Trust the design.</p>
 
@@ -182,6 +244,11 @@
         <p>However, these boxes often sit on rubber or plastic pads that electrically isolate them from the truck bed. If you mount an antenna on an isolated box, that box is not part of the vehicle ground plane. You must bond the box to the bed — metal to metal, with proper hardware, paint removed at the contact points. See the <a href="bonding.html">Bonding</a> article for details.</p>
 
         <p>Additionally, do not mount the antenna in the center of the box lid. Mount it at the rear edge or a corner, as close to the truck bed metal as possible. Remember the fundamental rule: it is the metal <em>under</em> the antenna that matters. The aluminum lid of a toolbox is not a ground plane. The steel truck bed, properly bonded to the box, is.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; NEVER MOUNT TRANSCEIVERS INSIDE A BED BOX</div>
+          <p>There is one mounting location you do not want to use for radio equipment: inside a bed-mounted storage box, no matter what it is made of. The reason is moisture condensation. Storage boxes are not vented &mdash; they're made to be weatherproof. In most areas with large variations in moisture and temperature, condensation builds up inside the boxes with predictable results. Store cables, spare fuses, or tools in there. Not radios.</p>
+        </div>
 
         <h2 id="cable-routing">Cable Routing</h2>
 
@@ -288,6 +355,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

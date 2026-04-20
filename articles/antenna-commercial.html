@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Antennas — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Evaluating commercial HF mobile antennas: screwdrivers, short stubby antennas, spirally wound designs, monoband antennas, and what to look for and avoid when buying.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Commercial Antennas</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="aluminum-body-vehicles">Ford F-Series and Other Aluminum-Body Vehicles</h2>
+
+        <p>Ford's F-series aluminum-body pickup trucks require special installation practices with respect to galvanic corrosion. Ford has published a bulletin explaining what must be done to prevent galvanic corrosion; the results of failing to follow Ford's guidelines are predictable and not covered under warranty. If in doubt, contact your local Ford dealer for details. Antenna mounting hardware should be aluminum, not steel, and properly mounted as recommended by Ford. Bonding is not required because Ford has already done that for you.</p>
+
+        <p>The same basic rules apply when mounting antennas on any aluminum-body vehicle, though each manufacturer's recommendations may differ. When in doubt, contact your dealer's service staff and/or the manufacturer's customer service staff. It should be noted that most antenna manufacturers use steel in their mounting brackets and/or attachment fittings. In some cases, this eliminates using that brand and/or model entirely, or at minimum requires a major change in the mounting hardware and/or location.</p>
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Mobile antennas appear to be a very simple chunk of hardware, when in fact they are a very complex resonant circuit. They come in every imaginable configuration, and almost all of them will allow you to make contacts &mdash; even DX ones &mdash; if there is sufficient SNR on both ends of the contact. However, their efficiency, overall length, quality, design, sturdiness, ease of mounting, and selling price all vary. Choosing any one or more of these specific attributes is no guarantee you're getting any other one included.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p1_0.jpeg" alt="Array of different HF mobile antenna designs showing variety of configurations" loading="lazy">
+          <figcaption>The variety of commercially available HF mobile antennas. All of them will let you make some contacts. The differences in efficiency, quality, and mounting requirements are enormous. Don't let DX contact claims substitute for actual technical evaluation.</figcaption>
+        </figure>
+
+        <p>The most important attribute is overall <a href="antenna-efficiency.html">antenna efficiency</a>. All decent HF mobile antennas require some sort of impedance matching to obtain a responsible SWR. When they don't, it just means the resistive losses are high &mdash; read that as low efficiency. Overall length is also important in obtaining good efficiency. Radiation resistance (R<sub>r</sub>) is a square function of electrical length: a 9-foot long antenna will have twice the R<sub>r</sub> of a 6-foot antenna, and twice the efficiency, all else being equal.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Do not get suckered into believing that large diameter coils (&gt;3.5 inches) are better than smaller ones &mdash; they're not. Stay away from antennas which have large metal end caps and/or plungers, as they have sub-par efficiency levels. Adding insult, non-permanent mounting (lip, clip, and magnet mounts) adds to the abundance of ground losses, which are already too high in every HF mobile installation.</p>
+        </div>
+
+        <p>Two important points bear repeating: Loading coils are considered lumped constants. They are there to cancel the capacitive reactance all short verticals exhibit. They do not add to the electrical length of the antenna, and they do not radiate &mdash; contrary to anecdotal belief. And the use of an antenna tuner, built-in or external, to match an HF mobile antenna does nothing more than add loss to an already lossy antenna installation. It does not make the antenna resonant. It does not reduce line losses. It does not reduce the SWR at the antenna. It doesn't make the antenna more efficient.</p>
+
+        <h2 id="esoteric-flaws">Esoteric Flaws</h2>
+
+        <p>Screwdriver antennas dominate the remote-controlled market, and for good reason &mdash; there is a lot to be said about changing frequency while under way. However, besides the end cap problem, there are lesser-known issues that need to be mentioned.</p>
+
+        <p>At least one model has a weather-sealed coil assembly. In some weather conditions, water condenses inside the coil and mast, collects in the mast, and eventually reaches the motor assembly. The manufacturer denies the problem exists and blames it on power washing.</p>
+
+        <p>Some models have relatively short masts (approximately 2 feet). In some installations this places the coil very close to body sheet metal. Accessory masts are available that raise the coil 1 to 2 feet. Even without a lower mast extension, some screwdriver designs place the motor as much as 20 inches above the base of the antenna. Either mounting scheme drastically raises the RF level imposed on the motor leads. Avoid antennas designed this way.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The resonant frequency of a screwdriver antenna is adjusted by changing the length of coil above a contact assembly mounted at the top end of the mast. The unused portion of the coil, stored inside the mast, is typically not grounded. Regardless, the unused portion still has circulating currents flowing through it. Replacing a 6-foot whip with a 3-foot one to enable operation on 10 and 6 meters can cause the coil to self-destruct. For those bands, use a separate antenna.</p>
+        </div>
+
+        <p>Too many antenna manufacturers overrate the power handling capabilities of their various models. For example, the Comet UHV-6 is rated at 120 watts SSB. Its manual clearly states the antenna was designed to be lip mounted. If you were to correctly mount one by drilling a hole, a 100-watt transceiver can easily destroy the antenna. This illustrates the trap: the rating assumes the lossy mounting that reduces the power actually reaching the antenna.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p1_1.jpeg" alt="Comet UHV-6 short stubby antenna showing its compact dimensions" loading="lazy">
+          <figcaption>The Comet UHV-6. Rated at 120 watts SSB when lip mounted. Properly mount it and drive it with a 100-watt transceiver, and you'll destroy the antenna. The power rating assumes lossy mounting conditions.</figcaption>
+        </figure>
+
+        <p>Several screwdriver antenna designs incorporate a slip clutch or gap in the all-thread drive screw assembly to avoid motor damage at end of travel. This negates the use of any automatic antenna controller, whether a turns-counter unit or one that measures stall current. Only manual control is possible &mdash; a major drawback in a mobile scenario.</p>
+
+        <h2 id="short-stubby-antennas">Short, Stubby Antennas</h2>
+
+        <p>Short, stubby, remotely controlled HF mobile antennas have become popular. Their popularity is partly due to their diminutive size (less than 7 feet overall), light weight, apparent ease of mounting, and presumably their spousal approval rating. They're not necessarily less expensive than their stable mates, nor are they anywhere near as efficient.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p1_2.png" alt="Yaesu ATAS-120 short stubby screwdriver antenna" loading="lazy">
+          <figcaption>The Yaesu ATAS-120. The least efficient, remotely controllable, HF mobile antenna money can buy. Its SWR detection has only two levels (over 2:1, and under 2:1), and there is no choke in the control lead &mdash; making common mode current a given problem. Excessive common mode can destroy the internal control circuit board, which is not available as a replacement part.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p1_3.jpeg" alt="K400 trunk lip mount with short stubby antenna showing typical non-permanent installation" loading="lazy">
+          <figcaption>The typical short, stubby antenna installation: a K400 trunk lip mount. All the losses of a non-permanent mount added to the already poor efficiency of a short antenna. Owners typically resort to these because the antenna's light weight allows it. This is the efficiency spiral in action.</figcaption>
+        </figure>
+
+        <p>No matter the brand, all short, stubby antennas have an excessive level of RF flowing on their control leads and coax cables (common mode currents). Choking off common mode current is especially important if you're using an automatic controller. The requisite chokes need to be mounted outside the vehicle and as close to the base of the antenna as possible &mdash; very difficult to accomplish with a clip mount.</p>
+
+        <p>None of the current batch of short, stubby antennas requires impedance matching because their inherent resistive losses bring their input impedance close to 50 ohms. This means the antennas are not DC grounded, and therefore tend to be noisier than their larger counterparts, especially in rain and dusty conditions.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>A short, stubby antenna that shows 1:1 SWR without any matching network is not efficient &mdash; it is lossy. The resistive losses in the antenna are so high that they bring the input impedance to near 50 ohms by themselves. The loss mechanism that produces the "flat" SWR is the same one that makes the antenna inefficient. When an antenna doesn't require matching, you need a better antenna and/or mounting scheme.</p>
+        </div>
+
+        <h2 id="motor-notes">A Few Notes on Motors</h2>
+
+        <p>All remotely controlled mobile antennas require some sort of motor to resonate the coil assembly &mdash; by definition, a DC-powered, reversible gear motor. Early screwdriver antenna designs utilized a stripped-down Black &amp; Decker rechargeable screwdriver assembly &mdash; hence the name. Most manufacturers have since adapted a Pittman gear-motor. It is a wise choice, as Pittman makes rugged, well-designed gear motors. Unfortunately, some cheaper models rely on questionable gear motors.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p2_4.png" alt="Pittman gear motor assembly used in quality screwdriver antennas" loading="lazy">
+          <figcaption>A Pittman gear motor &mdash; the standard of quality for screwdriver antenna drives. Nominal current draw of about 200 mA on run and 850 to 1,000 mA on stall. Compare this to an adapted drill motor at 2.5 amps run and 8 amps on stall &mdash; far beyond what most automatic antenna controllers can handle.</figcaption>
+        </figure>
+
+        <p>Some gear motors are designed to operate only in one direction due to torque demands. When operated in their unnatural direction, torque is lessened and rotational speed is greatly reduced. It isn't uncommon for 80-through-10 versus 10-through-80 transition times to vary by a factor of 2 or more. If you QSY frequently, this matters.</p>
+
+        <p>At least two antenna manufacturers use a stepper motor design, allowing precise repositioning of the resonant point and decreasing transition time. However, the only controllers available to drive stepper motors are proprietary and expensive, often costing twice as much as the antenna itself.</p>
+
+        <p>Under no circumstances should power for any remotely tuned antenna be drawn from the transceiver's accessory port(s).</p>
+
+        <h2 id="standard-sized-antennas">Standard-Sized Antennas</h2>
+
+        <p>There really isn't a "standard-sized" HF mobile antenna. On average, they're about 9 to 11 feet in overall length including the whip, with some extending to 13 feet. All remotely tuned antennas contain a gear motor which turns a threaded rod (typically 1/4x20 all-thread) in and out of a nut or threaded boss attached to the bottom of the coil, moving the coil in and out of the mast. Contacts at the top of the mast slide on the outside of the coil, adjusting the resonant point.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p2_5.jpeg" alt="Scorpion 680 screwdriver antenna showing large 3-inch coil and machined construction" loading="lazy">
+          <figcaption>The Scorpion 680. Machining and build quality that has to be seen to be believed. 3-inch coils wound with #10 wire at 6 TPI give it one of the highest average Qs of any commercially available HF mobile antenna. The liberal use of Delrin and Lexan minimizes distributed capacitance losses near the coil.</figcaption>
+        </figure>
+
+        <p>Don Johnson, W6AAQ (SK), is credited by many as the father of the screwdriver antenna. He certainly popularized it &mdash; and perhaps that's all that counts. Contrary to popular belief, he never patented or copyrighted his design. There are about 75 different manufacturers of screwdriver antennas. Some are copies, some improve on the basic idea, some are marketed better, some try to be something they're not, and some aren't worth the effort.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p2_6.jpeg" alt="Tarheel screwdriver antenna showing overall construction and mount" loading="lazy">
+          <figcaption>The Tarheel screwdriver antenna &mdash; one of the better brands on the market. Quality construction, good weather sealing, and available in multiple models for different installation requirements.</figcaption>
+        </figure>
+
+        <p>Most commercial antennas use beryllium copper as a contact material. It wears very well and provides a secure connection when properly implemented. Some manufacturers claim this is dangerous, citing the sloughing off of beryllium particles during normal operation. The facts are, the amount of beryllium sloughed off is almost nil, and so is the danger. The real reason they don't use beryllium finger stock is cost.</p>
+
+        <p>Weather sealing is a requisite attribute. Sooner or later, dirt and moisture take their toll. If you operate on the lower bands (80 or 160 meters), the coil is extended nearly its full length, lessening the antenna's mechanical strength and exacerbating the weather sealing problem. Some of the cheaper models have very little coil support when fully exposed &mdash; hit a low-hanging limb and the antenna is toast, especially on models with small diameter coils (&lt;2 inches).</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p2_7.jpeg" alt="Scorpion 680 coil detail showing 3-inch diameter, 6 TPI, number 10 wire construction" loading="lazy">
+          <figcaption>Scorpion 680 coil detail. 3-inch OD, #10 silver-plated wire, 6 TPI &mdash; the optimal construction parameters that produce the highest consistent Q across 80 through 10 meters. This is the reference standard against which all other screwdriver coils should be measured.</figcaption>
+        </figure>
+
+        <p>On 160 meter coverage: the inductance required to resonate a 160-meter, 8-foot-long mobile antenna is nearly 5 times greater than that required for an 8-foot 80-meter antenna. On average, this more than doubles coil losses, brings input impedance close to (or over) 50 ohms, adds complexity to proper matching, and reduces efficiency to sub-1%. If you own an 80 through 10 meter model and want 160 meter coverage, Scorpion offers an add-on 160 meter coil for their 680 model, adaptable to any screwdriver with appropriate caveats.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p2_8.jpeg" alt="Scorpion add-on 160 meter coil showing extended coil length" loading="lazy">
+          <figcaption>The Scorpion add-on 160 meter coil. Adding 160 meter coverage to an existing 80 through 10 meter screwdriver is more practical than buying a new antenna designed for the band from the start. Note that the input impedance on 160 meters will be significantly different from 80 meters, requiring adjustments to any shunt matching network.</figcaption>
+        </figure>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>One item to keep in mind when buying any HF mobile antenna is the warranty. Read it very carefully, even if it takes reading between the lines. Also read the installation instructions &mdash; most can be downloaded before purchase. After reading some of them, you just might want to rethink your purchase.</p>
+        </div>
+
+        <h2 id="spirally-wound-antennas">Spirally Wound Antennas</h2>
+
+        <p>All spirally-wound antennas are low in efficiency, as their coil Qs hover around 50 or less. A few of the 80-meter models have Qs less than 10. If you want a really lossy antenna, use one of the stubby 3-foot-long versions. Their only attributes are light weight, low wind loading (on some models), and low cost (approximately $30 USD, less the mount). Efficiencies range from 0.3% to 20% on 80 through 10 meters, and they typically don't need matching because the system losses bring the input impedance to near 50 ohms.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p3_9.jpeg" alt="Spirally wound HF mobile antenna on a fiberglass mast" loading="lazy">
+          <figcaption>A typical spirally wound antenna. The distributed inductance of the winding provides loading, but at very poor Q. The whip slides inside the hollow mast, making accurate tuning nearly impossible without an antenna analyzer. After a few months of use, the fiberglass weathers badly and becomes brittle.</figcaption>
+        </figure>
+
+        <p>Almost all spirally wound antenna masts are hollow, which allows the whip to slide inside the mast and affect the inductance of the loading coil &mdash; making them nearly impossible to tune on 80 meters without an antenna analyzer. The proximity of the tail of the whip to the coil further reduces their already poor Q. Most are made with inferior fiberglass that weathers badly, becoming stiff and brittle after just a few months.</p>
+
+        <h2 id="monoband-antennas">Monoband Antennas</h2>
+
+        <p>Hustler, made by New-Tronics Antenna Corporation, is one of the oldest suppliers of mobile HF antennas in the world. You can even make them multiband by using their "spider" mount (part number VP-1) to hold additional coils.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p3_10.jpeg" alt="Hustler RM-75 meter monoband coil on mast" loading="lazy">
+          <figcaption>The Hustler standard RM-75 meter coil. The standard coils are better performers than the "super coils" &mdash; the large metal end caps on the super coil versions lower their Q below that of the standard ones. Don't spend extra money on the larger coils hoping for more efficiency.</figcaption>
+        </figure>
+
+        <p>Hustler promotes their super coils as the ultimate. They're not. The large metal end caps on the super coil make them lossier than the standard ones. Don't spend your money on the larger coils hoping for more efficiency &mdash; besides the extra wind loading, their power handling capability isn't any better than the smaller ones, advertising hype notwithstanding.</p>
+
+        <p>Hustler antennas have additional drawbacks. One is moisture ingress &mdash; water tends to get under the vinyl heat-shrink tubing covering the coil assemblies, detuning the antenna and possibly causing arcing between coil turns. Removing the vinyl sleeve (sometimes suggested) is not a good idea as it allows road grime to build up on the coil windings, causing worse problems. If water ingress happens: remove the whip assembly and place the coil in an oven at about 120&deg;F for 20 minutes. Don't use higher temperature &mdash; you'll melt the heat-shrink.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p3_11.jpeg" alt="Hustler coil with vinyl heat-shrink removed showing bare coil winding" loading="lazy">
+          <figcaption>A Hustler coil with moisture damage. The vinyl heat-shrink traps moisture once it enters. The only cure for water ingress is low-temperature oven drying. Removing the sleeve is not a good solution &mdash; it allows grime accumulation which causes other problems.</figcaption>
+        </figure>
+
+        <p>Hustler masts have another problem: the 3/8x24 studs are pressed into the aluminum. They eventually become loose and in some cases fail altogether. You often see examples of their fold-over ones with a braided copper jumper across the hinge assembly to maintain a good connection. Unless you specifically need a fold-over, you're better off with their solid mast. In either case, use a base spring to minimize stress. If you notice any looseness, replace or tighten the part before it comes off while you're driving down the freeway. Lastly, Hustler coils are secured to the mast by a pressed-in 3/8x24 stud with just five threads. If the coil unscrews, or the mast fails, or the ferrule fails, the coil will fly off &mdash; over tightening isn't the answer as it hastens the connection's failure mode.</p>
+
+        <h2 id="notes-on-whips">Notes on Whips</h2>
+
+        <p>Whips (called stingers by the CB crowd) come in all lengths and sizes. If there is an average, it is 72 inches (6 feet). Standard CB whips are 102 inches long (8.5 feet). Almost without exception, they're made from bare 17-7 stainless steel wire, 0.200 inches in diameter, topped with a brass tip that is too small to be called a corona ball. The wire is hammer straightened and taper ground to 0.100 inches starting at about 60 inches from the base.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p3_12.jpeg" alt="Whip detail showing taper grind and brass corona tip" loading="lazy">
+          <figcaption>Standard 17-7 stainless steel whip detail. The taper grind beginning at about 60 inches from the base reduces wind loading while maintaining adequate conductivity. The brass tip is too small to function effectively as a corona ball at HF power levels.</figcaption>
+        </figure>
+
+        <p>Some smaller-length whips (less than 48 inches), notably from Larsen, are copper plated and covered with powder-coated black paint. On the upper bands, the assumed advantages are more cosmetic than real. On the lower bands (40 and below), a case can be made for copper-plated whips, but the field strength difference is minimal, perhaps 1 dB. The cost of copper plating a 17-7 stainless steel whip is about $50.</p>
+
+        <p>A standard CB whip has a resonance point of about 27.5 MHz. With a standard ballmount and spring (overall approximately 110 inches), the resonant point will be very close to 25.5 MHz. You cannot use one on 10 meters without trimming its length, and it is not quite long enough for 12 meters at 24.95 MHz. You can add a small shunt coil (approximately 0.5 &micro;H) which will lower the resonant point and raise the input impedance on 12 meters just enough for most solid-state transceivers.</p>
+
+        <h2 id="odds-ends">Odds and Ends</h2>
+
+        <p>Antenna weight can be a major purchasing factor, which is why most full-sized remotely controlled antennas end up being mounted on a trailer hitch mount. Spending hard-earned cash on a quality antenna and then mounting it poorly is counter-productive. It is the mass directly under the antenna &mdash; not what's alongside &mdash; that counts.</p>
+
+        <figure>
+          <img src="../images/Antenna_Commercial_p3_13.jpeg" alt="Heavy screwdriver antenna mounted in trailer hitch receiver showing poor ground plane position" loading="lazy">
+          <figcaption>A heavy screwdriver antenna mounted in a trailer hitch receiver &mdash; the least desirable location for any HF mobile antenna. The extra weight of quality antennas often drives installers to this mounting choice. The efficiency penalty is real and significant.</figcaption>
+        </figure>
+
+        <p>The most important point is your personal level of satisfaction. The old proverb "one man's treasure is another man's trash" says it all. If your HF mobile setup is a treasure to you, don't let someone tell you it isn't. If it is trash, hopefully some of what you've read here will aid you in your quest for a better mobile station. Whatever you do, don't tell anyone you like it because you were able to work some rare DX. All that proves is your gullibility.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The commercial antenna market has continued to evolve. A few developments worth noting for installations after 2020:</p>
+
+        <p><strong>Antenna controller integration:</strong> Several newer screwdriver models now ship with companion controllers that use GPS frequency data or memory presets to accelerate band changes. These are legitimate improvements in usability. They do not change the underlying efficiency physics. A short, stubby antenna with a smart controller is still a short, stubby antenna.</p>
+
+        <p><strong>SO-239 versus NMO mounts:</strong> The NMO (New Motorola) mount standard has continued to gain ground in mobile installations, particularly for VHF/UHF and some HF applications. NMO provides a more reliable, lower-loss coaxial connection than a wing-nut SO-239 arrangement. If a manufacturer offers both, NMO is preferable.</p>
+
+        <p><strong>Carbon fiber masts:</strong> A few high-end antenna manufacturers have introduced carbon fiber mast sections. Be aware that carbon fiber is conductive &mdash; it is not an insulating material. A carbon fiber antenna mast that is not properly isolated from the coil structure may introduce distributed capacitance and resistive losses. Verify the manufacturer's testing data before assuming a carbon fiber mast is an improvement.</p>
+
+        <p><strong>Aluminum-body truck compatibility:</strong> With the F-150 now into its second generation of aluminum construction, antenna compatibility documentation has improved. If you are purchasing an HF antenna for an aluminum-body truck, verify before purchase that the manufacturer's hardware is compatible with aluminum body panels. Many are not. This is not a minor concern &mdash; galvanic corrosion at a steel-to-aluminum joint in a moist environment can destroy both the mount and the body panel in a single season.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-efficiency.html">Antenna Efficiency</a>
+          <a class="related-card" href="antenna-mounts.html">Antenna Mounts</a>
+          <a class="related-card" href="antenna-cap-hat.html">Antenna Cap Hat</a>
+          <a class="related-card" href="coil-adjustment.html">Coil Adjustment</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

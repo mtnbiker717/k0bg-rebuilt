@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Mounts — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Complete guide to HF mobile antenna mounting options: mag mounts, ballmounts, bed and clip mounts, foldover mounts, post mounts, trailer hitch mounts, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Mounts</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>A decent quality &mdash; read that as efficient &mdash; HF mobile antenna is not an inexpensive commodity, and may cost upwards of $1,200 (although lesser quality ones are about half this amount). Assuming you spent this much for yours, why would you mount it in an inefficient manner? Yet this is the case 90% of the time. It pays to remember that <a href="antenna-efficiency.html">antenna efficiency</a> is a balancing act between the various system losses. Even one ohm of additional resistive loss anywhere in the system can make a significant difference in the signal-to-noise ratio on both ends of the contact. Thus the antenna should be attached in such a way to maximize what little ground plane a vehicle represents. The key phrase is: <strong>it is the metal mass directly under the antenna, not what's alongside, that counts.</strong></p>
+
+        <p>Another often-overlooked requirement is which side of the vehicle the antenna should be mounted on. Here in America, we drive on the right and steer from the left, so we should choose the left side. This can be very important especially when you live in an area with low bridges and overhanging trees, as there is more clearance toward the center of the street. It is also easier to see the antenna in the rear view mirror, and it is less likely to be twanged when you're parallel parked. If you've chosen front mounting &mdash; as many folks who pull trailers do &mdash; mount it to the right into your peripheral vision to avoid distraction.</p>
+
+        <p>Minivans, SUVs, RVs, Jeeps, station wagons, crossovers, and plastic-skinned vehicles present a special case. Except for front mounting, the body of these vehicles shadows a large portion of the antenna. This causes tuning problems and reduces efficiency, which is already poor at best. If shadowing cannot be avoided, make sure the coil is as far away from sheet metal as possible to minimize coil losses.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Pickup truck owners should mount the antenna close to one end of the mounting area rather than dead center. Mounted dead center, you have to get into the bed to remove the whip or cap hat before entering a garage. Mounting near one edge solves this without any performance penalty.</p>
+        </div>
+
+        <p>Maximizing what little ground plane a vehicle offers is a worthwhile endeavor. <a href="bonding.html">Bonding</a> is part of the solution. Shadowing is also important, and so is mounting height. As we raise an HF antenna from low on the bumper toward the roof, the resonance frequency decreases. Part of this decrease is due to a decrease in ground losses; however, capacitive coupling between the antenna and the surface under the vehicle causes most of the effect. The change in resonance is typically between 1% and 3%. These factors will also cause a decrease in the input impedance, which is a good thing even though the unmatched SWR might increase.</p>
+
+        <p>There is a drawback to increased height. From a safety and practical standpoint, the maximum height is from 11 to 16 feet depending on your area. In the desert southwest, there is little trouble with the antenna tip extending to 16 feet. In the New England area, 11 or 12 feet is about the limit. The only rule of thumb is: mount it as high as your terrain and antenna length will allow, up to the point of striking low-hanging wires, branches, bridges, and parking garages.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>More and more new vehicles are equipped with side curtain SRS air bag devices. Some are mounted along the edges of the headliner, including the rear seat area. The wiring to these devices may be routed through any one or more of the roof pillars. Extra care is required when installing antennas on vehicles so equipped. If you are the least bit apprehensive about your installation, seek professional help from your dealer or a qualified installer.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p1_0.jpeg" alt="Overview of antenna mount types and locations on a vehicle" loading="lazy">
+          <figcaption>Various antenna mounting positions on a typical vehicle. The metal mass directly under the antenna &mdash; not alongside it &mdash; determines ground plane effectiveness. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="foreword-on-mounting">Foreword on Mounting</h2>
+
+        <p>The type of mount you use is dictated by several conditions. The main one centers around one's feelings about drilling holes in a vehicle's body. While there are ways around the issue, they often require fabricating special brackets &mdash; apparently a lost art. This fact is why so many newcomers to the hobby opt for short, stubby antennas to avoid the issue. However, short, stubby antennas have their own set of problems, not the least of which is poor efficiency and excessive common mode current.</p>
+
+        <p>The size, weight, and length of the antenna &mdash; and to a lesser degree aesthetics and spousal approval &mdash; are also issues which need to be considered. Heavy antennas like the Scorpion 680 require additional thought and preparation if their extra efficiency is to be exploited. Overall length is important too, especially if your area is highly forested. If it is, cap hats are a viable alternative to length, but only if you're willing to opt for a well-mounted, heavy, and sturdy antenna.</p>
+
+        <p>Let's face a fact of life: mobile antennas aren't what most folks would call pretty. Some, in fact, are just plain ugly. Your spouse may not like what he or she sees, but remember this &mdash; form follows function. If you opt for an antenna that looks pretty and doesn't require drilling holes, you're going to be less than satisfied in the long run.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>If you've read the <a href="antenna-efficiency.html">Antenna Efficiency</a> article, you know why minimizing ground loss is so important. But if you think a ground strap to the nearest hard point on your vehicle will negate poor mounting, you're wrong. A ground strap is not a substitute for proper mounting location.</p>
+        </div>
+
+        <h2 id="mag-mounts">Mag Mounts</h2>
+
+        <p>There are many reasons to permanently install any mobile antenna. Aside from maximizing performance by minimizing ground and shunt capacitance losses, there is the safety issue should the antenna come unstuck. Further, some insurance companies will not cover antennas which are not permanently installed. These facts preclude the use of mag mounted antennas.</p>
+
+        <p>When mag mounts are demonstrated in retail outlets, they're stuck to a thick chunk of metal. Since the sticking force is reliant on the thickness of the material, the actual force will be much less when sitting atop your vehicle. It doesn't make much difference how many magnets they have or how big they are &mdash; they will become flying missiles in the event of a crash.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p1_1.jpeg" alt="Typical magnetic mount antenna base" loading="lazy">
+          <figcaption>A typical mag mount. The holding force is far less on a vehicle's thin sheet metal than on the thick steel used in demonstrations. These are flying missiles in any significant collision.</figcaption>
+        </figure>
+
+        <p>There are two more problems users should be aware of. First, they collect road debris &mdash; mainly metallic brake dust &mdash; which eventually gets between the magnet and the sheet metal. Secondly, the base cover, usually rubberized plastic, has an affinity for clear coat vehicle finishes. It is a given that the surface under the mag mount will become both scratched and/or discolored over time. In some cases, in less than a week.</p>
+
+        <p>Posters to several online forums suggest removing mag mounts periodically to wipe off collected debris. This really doesn't help much. The particles are almost colloidal in size &mdash; they actually penetrate the pores of the mag mount material and the paint under it. Moisture mixes with these minute-sized particles and other pollutants, forming a mild acid (typically sulfuric). It is the acid that discolors the paint, not necessarily the rusting particles of brake dust. If you think yours is clean, here's a simple test: pull the magnet across a piece of plate glass and see what happens.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>The bottom line on mag mounts: if you have resorted to one, you haven't thought long enough about other, safer, more efficient mounting methods. No amount of cleaning, repositioning, or bonding will make a mag mount an acceptable permanent antenna solution.</p>
+        </div>
+
+        <h2 id="ballmounts">Ballmounts</h2>
+
+        <p>Nowadays, most ballmounts aren't worth the effort. The most commonly sold type consists of two stamped stainless steel half spheres, separated by a rolled steel ferrule, with a cheap plastic insulator and thin backing plate. Note the teeth at the bottom of the ball &mdash; they're supposed to keep it from rotating. They don't. If you tighten the cross bolt enough to hold the antenna upright, the ferrule will unroll and your antenna will flop over. If your antenna weighs more than 2 pounds, forget about this type of mount.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p1_2.jpeg" alt="Low-quality stamped steel ballmount showing ferrule design" loading="lazy">
+          <figcaption>The typical stamped steel ballmount sold by numerous manufacturers under different brand names. The rolled ferrule will unroll under load. These are not suitable for any antenna weighing more than 2 pounds.</figcaption>
+        </figure>
+
+        <p>There is one all-brass ballmount available made by Breedlove Machine Shop. They come with and without a quick disconnect. The ball itself is pinned to prevent rotation, making for a very secure fit. One version includes an SO-239 built as part of the center stud attachment bolt, making the coax connection very secure. Breedlove also makes a ballmount with an SO-239 connector fed with a short piece of RG-58U, ideal for import antennas which use this type of mounting.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_3.jpeg" alt="Breedlove all-brass ballmount with quick disconnect" loading="lazy">
+          <figcaption>The Breedlove all-brass ballmount with quick disconnect. The pinned ball prevents rotation. This is what a proper ballmount looks like.</figcaption>
+        </figure>
+
+        <h2 id="bed-clamp-clip-lip-trunk-mounts">Bed, Clamp, Clip, Lip, Seam, and Trunk Mounts</h2>
+
+        <p>There are several things to keep in mind when using any non-permanent mount, no matter how they attach. First, the mount is no better than the vehicle sub-structure it is clamped to. A typical example is a roof rack &mdash; most are not DC grounded to the body of the vehicle, and even when they are, they still represent a poor ground plane even at UHF.</p>
+
+        <p>Seam mounts (often called L-brackets or gap-mounts) are almost a thing of the past due in part to minimal seam clearances on modern vehicles. They may still be used in some cases (hood area), but some provision must be made to allow clearance for the coax cable &mdash; a difficult task.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_4.jpeg" alt="K400 clamp mount showing body damage to trunk lid" loading="lazy">
+          <figcaption>Body damage caused by a K400-style clamp mount. A drilled hole can be easily plugged and go unnoticed; this type of damage cannot be ignored. There is no way to repair this inexpensively.</figcaption>
+        </figure>
+
+        <p>Clamp mounts like the K400 might save you from drilling a visible hole in sheet metal, but they can still cause body damage. Since the return path for the coax relies on the integrity of the hinges and the mounting set screws, they also increase ground losses. Adding insult, most clip mounts come equipped with a preinstalled RG-174U coax assembly, usually 10 feet long. At 30 MHz, the loss averages about 0.5 dB, increasing to about 1 dB at 150 MHz, and almost 4 dB at 450 MHz. Add in some ground loss and some impedance mismatch, and the total loss attributed to a clip mount can easily double these figures.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>There is another problem with hatches and rear doors. Most hatches have defroster grid wires, a center high-mounted stop lamp (CMHSL), and sometimes even wipers. Since these hatches offer a poor ground return for RF current, a goodly portion of that current ends up being induced into the vehicle's wiring. This causes all manner of RFI problems, and because the wiring is difficult to access, it is nearly impossible to use ferrite material to overcome the problem. Motor lead and coax chokes must be mounted outside the vehicle to minimize RFI. Due to the way clip mounts are designed, choking the coax is nearly impossible.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_5.png" alt="Screwdriver antenna clamp mount with C-clamp style bracket" loading="lazy">
+          <figcaption>A typical C-clamp style screwdriver mount. The supplied insulator is not robust. In inclement weather these mounting schemes can arc over. Coat the assembly with high-voltage lacquer, not car polish.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_6.jpeg" alt="Breedlove bed-edge clamp mount with SO239 connector" loading="lazy">
+          <figcaption>The Breedlove bed-edge clamp mount with SO-239 connector. Small enough to slip under most bed covers. A significant improvement over generic C-clamp designs.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_7.jpeg" alt="Broken screwdriver antenna mast from fatigue failure" loading="lazy">
+          <figcaption>A screwdriver antenna mast failed by metal fatigue from off-road use with a U-bracket mount. If your driving style includes off-road work, slide a close-fit aluminum tube inside the mast near the top of the bracket to reinforce it.</figcaption>
+        </figure>
+
+        <h2 id="foldover-mounts">Foldover Mounts</h2>
+
+        <p>Foldover mounts have been with us for some time, although they're not a fit for all installations. In some cases, a quick disconnect is a better choice. Breedlove has introduced a Scorpion super-duty foldover mount capable of supporting antennas as large as 20 pounds. It's machined out of 2.5-inch square aluminum and accepts a 3/4x10 mounting stud. While designed specifically for the Scorpion, it is adaptable to antennas which use the standard 3/4x24 thread style via a slip-in adapter.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_8.jpeg" alt="Breedlove Scorpion super-duty foldover mount" loading="lazy">
+          <figcaption>The Breedlove Scorpion super-duty foldover mount. Machined from 2.5-inch square aluminum, rated for antennas up to 20 pounds. This is what a capable foldover mount looks like.</figcaption>
+        </figure>
+
+        <h2 id="quick-disconnects">Quick Disconnects</h2>
+
+        <p>Hustler, Breedlove Machine Shop, and others sell whip quick disconnect (QD) units. The Breedlove screw-on ones are preferable because they're more secure and make better electrical contact. The bayoneted ones supplied by Hustler tend to become loose over time, especially when used at the bottom of the antenna. If you're using a QD and having intermittent receive issues, the QD is the first place to look.</p>
+
+        <p>Some are plated brass, and some are stainless steel. The few made of pot metal aren't worth the effort. Breedlove also makes a combination foldover/quick disconnect that is clever in design &mdash; it screws together firmly with less flex than a traditional foldover.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p2_9.png" alt="Breedlove combination foldover and quick disconnect unit" loading="lazy">
+          <figcaption>The Breedlove combination foldover/quick disconnect. The screw-together design is far more secure than bayoneted spring-loaded QDs, which inevitably loosen with use.</figcaption>
+        </figure>
+
+        <h2 id="home-brew-mounts">Home Brew Mounts</h2>
+
+        <p>When you cannot find what you need or want, one way out is to home brew your own. Mounts made from Delrin plastic are an excellent choice. Delrin in its natural color is RF transparent up to the SHF region. The black, fiberglass-reinforced material is good to about 1 GHz. The main drawback is cost &mdash; current prices for 1-inch material run about $100 per square foot, though remnants purchased from plastics suppliers can reduce this significantly.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_13.jpeg" alt="Home brew Delrin antenna mounts using existing bed rail holes" loading="lazy">
+          <figcaption>Home brew mounts machined from Delrin plastic, drilled to mate with existing holes in the bed rail normally used for tie-down cleats. No new holes required in the bed.</figcaption>
+        </figure>
+
+        <p>Delrin can be sawed, drilled, tapped, planed, and sanded with standard hand tools. It is very slick &mdash; almost as slick as Teflon &mdash; so clamp your work carefully when drilling. For holes larger than 3/8 inch, use a Forstner or spade bit. Go slow to avoid melting the material.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_14.jpeg" alt="Delrin mount for M-Squared 6 meter squalo using cargo cleat holes" loading="lazy">
+          <figcaption>A Delrin mount for an M-Squared 6-meter squalo, using existing threaded holes normally used for cargo cleats. The bolts are 1.25 mm; exposed threads should be no longer than 1/2 inch. A T50 Torx bit is required to remove existing cleat bolts.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_15.jpeg" alt="Custom Scorpion 680 bed-floor mount by W4XTL" loading="lazy">
+          <figcaption>A custom mount for a Scorpion 680 designed by Bennie Bolin, W4XTL, now available from Breedlove. Designed for installation in a pickup bed floor, with plates bolting underneath reminiscent of a 5th-wheel mount. Extremely sturdy.</figcaption>
+        </figure>
+
+        <h2 id="pocket-mounts">Pocket Mounts</h2>
+
+        <p>Breedlove Machine Shop makes a variety of stake pocket mounts. One designed for the Border Patrol will slip under most bed covers and is adaptable to most antenna mounting styles, allowing the coax to feed through the bottom of the stake pocket. Visit their website for more information.</p>
+
+        <p>There are others who make stake pocket mounts, but most utilize a rubber block squeezed by a mounting bolt and rely solely on friction to hold them in place. Do not trust a friction-based stake pocket mount to hold anything more than a small VHF antenna.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_16.jpeg" alt="GeoTool stake pocket mount in multiple configurations" loading="lazy">
+          <figcaption>GeoTool stake pocket mounts are well made and available in a variety of configurations. Far superior to rubber-block friction mounts for HF antenna applications.</figcaption>
+        </figure>
+
+        <h2 id="post-mounts">Post Mounts</h2>
+
+        <p>Post mounts are handy for mounting antennas on flat surfaces like a truck bed or side rail. However, extending them to place the antenna higher is counter-productive, as doing so greatly increases ground losses.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>The consensus of opinion is that raising the antenna to the top of a tall post will increase efficiency by unshadowing the mast and coil. This premise is incorrect. The post raises the antenna above its ground plane, hence increasing losses, not decreasing them. The ground plane must be directly under the antenna. Extending a post moves the antenna away from it.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_17.jpeg" alt="Tarheel post mount extended high above truck bed" loading="lazy">
+          <figcaption>An antenna mounted atop an extended post. Note the absence of motor lead choke and coax choke. Due to the mounting style and the short stubby antenna used, common mode current is a given. If RF can get out via common mode, RF noise can get in the same way.</figcaption>
+        </figure>
+
+        <h2 id="springs-and-guys">Springs and Guys</h2>
+
+        <p>When using a body-mounted ballmount, springs are virtually a prerequisite. The spring helps prevent damage from low-hanging branches and the ever-present antenna twangers who cannot resist playing with your equipment. Most amateurs don't use springs at the base of their antenna because they believe it causes SWR to vary while underway. If this is the case, chances are the antenna is mounted too low and/or too close to the body.</p>
+
+        <p>Although guying has some safety benefits and allows the use of a lighter spring, guying is not a substitute for proper mounting. If you have to resort to guying to keep your antenna in place, you haven't properly installed your antenna. Fishing line stretches too much; Phillystrand is a better option. Attach the guy below the coil where the voltage is less. Regardless of the material used, moisture can collect on or in it &mdash; transmitting when it's wet will net you a burned guy, high SWR, or both.</p>
+
+        <h2 id="trailer-hitch-mounts">Trailer Hitch Mounts</h2>
+
+        <p>If you plan on using a trailer hitch as an antenna mount, have a second hitch ball receiver welded on the left end of the hitch. Then a short chunk of square tubing may be used as the actual mount, and it is easy to remove when necessary.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_18.png" alt="Tarheel trailer hitch receiver mount" loading="lazy">
+          <figcaption>The Tarheel trailer hitch receiver mount. Sturdily made and will hold just about any mobile antenna. The mount slips into the receiver and is secured by a bolt. This particular model features a foldover hinge.</figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>In terms of efficiency, trailer hitch mounting is the least desirable location. Contrary to popular opinion, running a ground strap to the frame will not negate this fact. If you doubt this, read the <a href="antenna-efficiency.html">Antenna Efficiency</a> article. Due to the extra ground losses involved, you must use extraordinary decoupling (large impedance chokes) to keep RF off the control and coax leads.</p>
+        </div>
+
+        <h2 id="whips-and-masts">Whips and Masts</h2>
+
+        <p>Whips, sometimes called stingers, are the flexible part of a mobile antenna extending from the top of the coil. They vary in length from 24 inches to about 72 inches. Folks who need a longer whip typically use an 8-foot CB whip and cut it down if needed &mdash; just don't forget to add a corona ball.</p>
+
+        <p>Some amateurs use bronze welding rods for whips and to build cap hats. Bronze works well, but it is easier to kink than stainless steel. 17-7 stainless steel is available in several sizes from Speedy Metals.</p>
+
+        <p>There are a few things to avoid with masts. First, don't use a quick disconnect at the base &mdash; the base is the point of maximum stress, and sooner or later even the best QD will fail. Those with foldovers should be avoided at all costs; it doesn't take long before the foldover becomes loose with predictable results. Hustler masts have an additional problem: the 3/8x24 studs are pressed into the aluminum, and they eventually become loose and in some cases fail altogether. Always use a base spring to minimize stress on the mast. If you notice any looseness on this or any other mobile antenna, replace or tighten the part before it comes off while you're driving down the freeway.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_19.jpeg" alt="Antenna mast and whip assembly with spring base" loading="lazy">
+          <figcaption>A mast and whip assembly with a base spring. The spring is virtually a prerequisite for body-mounted antennas &mdash; it absorbs stress from low branches and protects the mounting hardware. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p3_20.jpeg" alt="Home brew mast construction detail" loading="lazy">
+          <figcaption>Home brew mast construction detail. Building your own mast requires some effort, but for those on a budget the results are worth it. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="odds-and-ends">Odds and Ends</h2>
+
+        <p>The 3/8x24 studs attaching the various parts of our antennas together are a recurring problem area. Several companies supply stainless steel ones which aren't much stronger than mild steel ones. A better solution: use 3/8x24 grade 8 or 9 bolts, cut their heads off with a Dremel cutoff tool, and polish the threads using a small grinding wheel. Ace Hardware and most Caterpillar dealers sell these high-grade bolts. You can almost guarantee your quarter panel will be ripped off before such a stud fails.</p>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p4_21.jpeg" alt="Grade 8 stud modification and antenna hardware detail" loading="lazy">
+          <figcaption>Hardware detail for securing antenna mast sections. Grade 8 or 9 bolts with heads removed outperform commercial stainless steel studs in every respect. <!-- From PDF page 4 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Mounts_p4_22.jpeg" alt="Antenna mounting installation detail showing coax routing" loading="lazy">
+          <figcaption>Installation detail showing coax routing into a bed area. Existing grommets and flow-through vents should be used wherever possible to avoid drilling additional holes. <!-- From PDF page 4 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="modern-vehicle-considerations">Modern Vehicle Considerations</h2>
+
+        <p>Everything above was written with traditional steel-bodied vehicles in mind. Post-2015 vehicles present new complications that every installer must address before selecting a mount type.</p>
+
+        <p><strong>Aluminum-body vehicles</strong> (Ford F-150 2015 and later, among others) require hardware that is either aluminum or properly isolated from the aluminum body panels. Ford has published guidelines on preventing galvanic corrosion &mdash; read and follow them. Most antenna mounting hardware uses steel in its brackets and attachment fittings; in some cases, this makes a particular brand or model of antenna unusable on an aluminum-body truck without significant hardware modification. When in doubt, contact your dealer's service staff before you drill anything.</p>
+
+        <p><strong>Adhesive-bonded panels</strong> on modern aluminum vehicles must not be drilled through. Use factory bolt locations. Your vehicle's service manual identifies every factory ground point and bolt hole &mdash; on aluminum-body trucks these are specifically engineered to handle galvanic and oxide concerns. Use them.</p>
+
+        <p><strong>Composite and non-conductive panels</strong> (carbon fiber, fiberglass, SMC) are simply not part of your ground plane. Mounting on or near these panels reduces your effective ground plane without any compensating benefit. Adjust your expectations and mounting location accordingly.</p>
+
+        <p><strong>Electric and hybrid vehicles</strong> retain all the same mounting location logic as their ICE counterparts. Roof mounting is still the best, trailer hitch mounting is still the worst. The absence of an exhaust system removes one major noise source, but the motor inverter introduces broadband hash that makes good bonding and choking even more important, not less. Under no circumstances should any mounting hardware or bonding strap contact any orange-jacketed high-voltage cable or HV component.</p>
+
+        <p><strong>Modern body-on-frame trucks</strong> with composite or fiberglass beds (GMC CarbonPro, for example) present a situation where the bed &mdash; normally one of the best mounting locations for pickup trucks &mdash; is RF-invisible. Move the antenna to the left rear of the cab instead, and accept that the effective ground plane ends at the rear of the cab.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-efficiency.html">Antenna Efficiency</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

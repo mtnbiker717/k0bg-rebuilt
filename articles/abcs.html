@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -180,6 +223,20 @@
 
         <p>All remotely-tuned (motorized) antennas require an adequately-sized motor lead choke &mdash; <strong>no exceptions</strong>. Without it, RF from your transmitter travels down the motor leads, into the controller, and into the vehicle wiring. The result is RFI, erratic controller behavior, and potentially damaged electronics.</p>
 
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; ANTENNA SELECTION — WHAT TO AVOID</div>
+          <ul>
+            <li><strong>Don't even think about buying a Yaesu ATAS.</strong> It is the lossiest, most trouble-prone, remotely-tuned antenna money can buy.</li>
+            <li>Don't buy an antenna with a coil larger than 3.5 inches in diameter.</li>
+            <li>Don't buy an antenna with a coil smaller than 1.75 inches in diameter.</li>
+            <li>Don't buy an antenna with large metal end caps.</li>
+            <li>Don't buy an antenna which requires an external tuner, or is advertised as "automatic tuning." Antennas advertised as having automatic band switching and/or requiring an external tuner to make them work are nothing short of a scam.</li>
+            <li>Any antenna mounted on clip, lip, and mag mounts will be lossier than permanently (through-hole) mounted ones &mdash; and will require an extra-high impedance common mode coax choke, bar none.</li>
+            <li>Avoid models which use a Polyfuse or interrupted thread drive screw to protect the motor, as they are incompatible with all automatic antenna controllers.</li>
+          </ul>
+          <p>Using a trailer hitch mount to avoid drilling a hole will reduce your ERP (Effective Radiated Power) by at least 50%. There is no negotiating with physics.</p>
+        </div>
+
         <div class="callout myth">
           <div class="callout-title">&#128293; MYTH BUSTED</div>
           <p>The ability to work any given station with any given antenna is NOT indicative of antenna efficiency. Propagation, the other station's equipment, and sheer luck play enormous roles. The fact that you worked a DX station with your hamstick does not mean the hamstick is efficient. It means conditions were good enough to overcome the antenna's deficiencies. Try that same contact on a marginal day and see what happens.</p>
@@ -202,6 +259,21 @@
         <p><strong>Do not buy without playing with it first.</strong> Visit a dealer, attend a hamfest, borrow one from a club member. You need to operate the controls, see the display in sunlight, and determine whether the ergonomics work for you in a vehicle environment. What works beautifully on a desk may be impossible to operate while driving.</p>
 
         <p>Remotable transceivers (where the control head separates from the body) are strongly preferred for mobile use. They give you far more flexibility in mounting locations and keep the heavy, heat-generating main body out of your limited cockpit space.</p>
+
+        <div class="callout callout-key">
+          <div class="callout-title">&#128273; TRANSCEIVER CHECKLIST</div>
+          <p>Before you buy any mobile transceiver, run through this list:</p>
+          <ul>
+            <li>Don't put any faith in on-line reviews.</li>
+            <li>Don't consider any transceiver older than 10 years, unless you know repair parts are available and you can do the job yourself.</li>
+            <li>Don't buy any transceiver you can't play with first. This eliminates auction sites as a source.</li>
+            <li>Don't buy any transceiver that has been modified in any way, shape, or form.</li>
+            <li>Be very leery of bundled deals, particularly transceiver/antenna combinations.</li>
+            <li>Built-in auto-couplers are not a basic requirement for any mobile transceiver.</li>
+            <li>Buy a transceiver which is remotable &mdash; the reasons should be obvious.</li>
+          </ul>
+          <p>Transceivers with IF-based DSP (Icom IC-7000, IC-7100, IC-7300, and Yaesu FT-991) are preferred over AF-based DSP units for mobile operation. IF-based DSPs have adjustable bandwidths and generally do not require additional IF filters for adequate selectivity. In a mobile scenario, selectivity is much more important than sensitivity.</p>
+        </div>
 
         <h2>The Bottom Line</h2>
 
@@ -274,6 +346,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

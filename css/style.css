@@ -187,12 +187,82 @@ html.dark .sidebar-logo {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  max-height: 500px;
-  transition: max-height 0.25s ease;
+  max-height: 900px;
+  transition: max-height 0.3s ease;
 }
 
 .nav-group.collapsed ul {
   max-height: 0;
+}
+
+/* ===== Collapsible Nav Sub-groups ===== */
+.nav-subgroup-li {
+  display: block;
+  width: 100%;
+}
+
+.nav-subgroup-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.4375rem 1.25rem 0.4375rem 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+  transition: color 0.12s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-subgroup-toggle:hover {
+  color: var(--text);
+  background-color: var(--bg-tertiary);
+}
+
+.nav-subgroup-chevron {
+  font-size: 0.5rem;
+  transition: transform 0.2s ease;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.nav-subgroup.open .nav-subgroup-chevron {
+  transform: rotate(90deg);
+}
+
+.nav-subgroup-items {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+
+.nav-subgroup.open .nav-subgroup-items {
+  max-height: 600px;
+}
+
+.nav-subgroup-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-subgroup-items ul li a {
+  padding-left: 3rem;
+}
+
+html.dark .nav-subgroup-toggle {
+  color: #94a3b8;
+}
+
+html.dark .nav-subgroup-toggle:hover {
+  color: #f1f5f9;
+  background-color: rgba(255,255,255,0.06);
 }
 
 .nav-group ul li {
@@ -936,6 +1006,37 @@ html.dark .flow-step .step-number {
   font-size: 0.75rem;
   color: var(--text-muted);
   text-align: center;
+}
+
+/* ===== Site Disclaimer ===== */
+.site-disclaimer {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 6px 6px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-family: var(--font-sans);
+}
+
+.site-disclaimer strong {
+  color: var(--text);
+}
+
+/* Hero disclaimer line */
+.hero-disclaimer {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: -0.75rem;
+  margin-bottom: 2rem;
+}
+
+.hero-disclaimer a {
+  color: var(--text-muted);
+  text-decoration: underline;
 }
 
 /* ===== Image Placeholders ===== */

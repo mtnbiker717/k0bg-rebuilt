@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Electronics — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Modern vehicle digital electronics and amateur radio: OBD-II, B-CAN data bus systems, EMC compliance, RFI ingress and egress, battery monitoring systems, and what not to do with ferrite chokes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Digital Electronics</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="things-you-need-to-know">Things You Need to Know</h2>
+
+        <p>Several aftermarket companies offer devices that plug into the OBD-II port. They record operating data from the port and either store it for later download or upload it to a smartphone and/or the Internet. In some cases, data can also be downloaded to the OBD-II system. While appearing innocuous, these devices can interfere with the operation of the engine, stability control, ABS, traction control, and other systems &mdash; to say nothing of their RFI potential. Several automobile manufacturers have issued technical bulletins regarding their essentially illegal use. In some cases, warranty coverage could be denied, especially if pollution control systems are compromised. If you're contemplating using one of these devices, check with your dealer first.</p>
+
+        <p>Starting with the 2016 model year, several automobile manufacturers began uploading vehicle data via built-in networking systems. GM's prognostics system transmits engine parameters via OnStar. Ford transmits similar data through their Sync 3 system and any connected smartphone. Technically, even cockpit audio &mdash; which is now being recorded in several GM models &mdash; could be relayed back to GM. What they do, or plan to do, with such data remains to be seen.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Modern vehicles often have their electric power steering, braking and stability controls, and transmissions under engine computer control. It is possible to unlock doors, track stolen vehicles, and disable them remotely. More concerning: it's also possible for these systems to be hacked. Forewarned is forearmed.</p>
+        </div>
+
+        <h2 id="basics">Basics: Amateur Radio and Warranty Claims</h2>
+
+        <p>Due to today's litigation climate, it's not uncommon for automobile dealership personnel to tell potential buyers that installing two-way radio equipment will void their vehicle warranty. Nothing could be further from the truth. The common thread seems to be claimed damage from high-level RF generated by amateur radio. This is a blatant misrepresentation of the facts.</p>
+
+        <p>Manufacturers go to great lengths to test all of their electronics, both those they make and those they purchase. The included charts from Ford Motor Company represent minimum testing levels &mdash; the various on-board devices must pass muster when subjected to the listed RF levels.</p>
+
+        <figure>
+          <img src="../images/Digital_Electronics_p1_0.jpeg" alt="Ford EMC Level 1 Requirements chart showing RF immunity test levels" loading="lazy">
+          <figcaption>Ford Motor Company EMC Level 1 Requirements chart. These are minimum RF immunity levels. The real truth behind the data: you'd almost have to connect your coax directly to the devices to damage them from radiated energy. The latest version extends testing to 3,100 MHz to cover new cellular bands. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Digital_Electronics_p1_1.jpeg" alt="Ford EMC Level 2 Requirements chart with country-specific variations" loading="lazy">
+          <figcaption>Ford Motor Company EMC Level 2 Requirements, with variations based on country. The probability of damaging on-board electronics from radiated energy from amateur equipment is virtually nil. You can, however, interfere with their operation by causing false signals to be presented to them. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>You can interfere with vehicle electronics, but not easily damage them. The most likely offenders are improper wiring, poor antenna mounting, common mode issues, and inadequate motor lead choking. Follow these four rules, and interference problems become rare:</p>
+
+        <ol>
+          <li><strong>Power connections directly to the battery and/or jump points, fused as close to the connection as possible.</strong> Do not use cigar lighter or power-point receptacles as power sources for any radio communication equipment. They're a fire hazard &mdash; the wiring is too small for the load, regardless of what the fuse is rated.</li>
+          <li><strong>Antennas for two-way radios should be mounted on the roof or rear area of the vehicle.</strong> Magnetic-base antennas can affect compass accuracy and cause erratic navigation system operation.</li>
+          <li><strong>The antenna cable should be high-quality, fully shielded coaxial cable, kept as short as practical.</strong> Avoid routing coax parallel to vehicle wiring over long distances. Control common mode current, and the routing largely doesn't matter.</li>
+          <li><strong>Carefully match the antenna and cable to the radio for low SWR.</strong> Mount the antenna to avoid RF current on the feedline shield. Improper mounting and matching is the primary cause of excessive common mode current.</li>
+        </ol>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Ground loops &mdash; caused by mag-mount antennas and using the chassis for DC ground returns &mdash; are the hardest RFI problems to find and cure because they mask themselves as ingress RFI. Just because you've never experienced a problem using a mag-mount antenna doesn't mean you're not having any. It just means you haven't discovered them yet. It's entirely possible to cause error codes to be written to the OBD-II-EOBD memory without any obvious symptom appearing to the driver.</p>
+        </div>
+
+        <h2 id="integrated-wifi">Integrated WiFi Networks</h2>
+
+        <p>Vehicle manufacturers now offer integrated WiFi networks on most models, replete with browser and Internet access via OnStar, Sync, or similar systems. With a home network you normally control what information is uploaded. In the vehicle's case, the manufacturer has the ability to upload virtually every facet of the vehicle's operation without asking permission.</p>
+
+        <p>Eventually, vehicles will communicate with other nearby vehicles in a coordinated effort to avoid crashes. When vehicle WiFi networks are integrated with on-board navigation systems, it becomes possible to pinpoint your location, offer alternative routing, and even send advertisements for businesses you're driving near. Currently there are no federal laws or regulations covering what can be uploaded or downloaded from your vehicle. Anyone with a bit of computer savvy can know exactly where you are, what you're doing, and in some cases, what you're saying.</p>
+
+        <h2 id="automated-controls">Automated Controls</h2>
+
+        <p>All passenger vehicles sold in the US are required to have collision-avoidance systems. These use radar and/or infrared sensors to detect an impending collision in front or along the side. Acting in conjunction with ABS, the vehicle speed sensor, cruise control, and electrically-assisted steering, these systems can literally out-think the driver. The current pinnacle of these technologies is Tesla's Auto-Pilot system.</p>
+
+        <p>The biggest offenders for RFI ingress into these systems are common mode radiation from the coax and improper power wiring. These are the same issues that affect every other aspect of your installation &mdash; which means fixing them properly solves multiple problems simultaneously.</p>
+
+        <h2 id="data-bus-systems">Data Bus Systems</h2>
+
+        <p>Digital electronics have become pervasive in modern vehicles. Current models have as many as 80 digital processors controlling every facet of operation. Most of these processors communicate over data bus systems. The OBD-II, along with the various on-board processors, uses ISO-defined networking to transfer data between them. These are commonly called B-CAN (Body Chassis Area Network), though other acronyms are used. Honda calls theirs MICS (Multiplex Integrated Control System), operating using bit rates of 10.4 kbps, 33.33 kbps, and 500 kbps. Other makes are similar, and all of them produce birdies up and down the amateur spectrum.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>RFI egress from on-board electronics &mdash; interference emanating from the vehicle's own digital systems &mdash; is much more severe than RFI ingress to those same devices. Automobile manufacturers will not address concerns about these spurious signals. Remember: they are exempt under FCC Part 15 rules (Section 15.103, Exempted Devices).</p>
+        </div>
+
+        <p>Some vehicle computer systems use a color burst crystal as an oscillator at 3.579545 MHz. The 41st harmonic is 146.76134 MHz, which falls on or near common 2-meter repeater pairs. Component tolerances can shift this harmonic anywhere from about 146.70 MHz to 146.80 MHz.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; DO NOT CHOKE DATA BUS WIRING</div>
+          <p>There is one very important thing to remember about suppressing the data bus system's digital signatures: you cannot do it by adding ferrite chokes to the data bus wiring. Attempting to do so can disrupt the digital signals that the choke is supposed to be filtering. The only correct course of action is to properly mount your antennas and install common mode chokes on the coax feed and motor lead lines to minimize RF leakage in or out. Do not put ferrite chokes on B-CAN or any other data bus wiring &mdash; you will create problems rather than solve them.</p>
+        </div>
+
+        <p>Most modern vehicles have transient voltage protection built into the various electronic subassemblies. Even the alternator diodes act as load-dump transient suppressors. However, these devices can be compromised by external battery chargers and 24-volt jump-start battery packs. Forewarned is forearmed.</p>
+
+        <h2 id="event-data-recorders">Event Data Recorders</h2>
+
+        <p>Event Data Recorders (EDRs &mdash; facetiously called "black boxes") record specific data for later retrieval. The OBD-II has been mandated on every vehicle sold in the United States since 1996. The latest iterations record all manner of data from the various on-board devices. The latest versions are referred to as OBD-II-EOBD (Extended On-Board Diagnostics), required on all vehicles starting with the 2012 model year.</p>
+
+        <figure>
+          <img src="../images/Digital_Electronics_p1_2.jpeg" alt="OBD-II code reader device" loading="lazy">
+          <figcaption>A modern OBD-II/EOBD code reader. The OBD-II socket is mandated to be beneath the steering column; a sticker must indicate its location if it is not. All US vehicles made after the 2012 model year must support EOBD extended codes. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Heretofore, OBD-II recorded mostly engine functions such as misfires, inoperative devices, or sensor failures. The various codes are stored, may or may not turn on the MIL (Maintenance Indicator Light), and can be retrieved using a code reader. Later versions include engine RPM, speed, cornering G-forces, braking force, steering angle, throttle position, and temperature &mdash; all important when analyzing a crash scenario.</p>
+
+        <p>Although not strictly a data recorder, several late-model vehicles are equipped with a voice recorder module that records the last approximately 30 minutes of cockpit audio. Access is restricted by a password supposedly known only to the manufacturer &mdash; but a few web searches will locate the password algorithm. You can't erase the recording, and neither can anyone else. Legally, a court order is required for police access, but that's cold comfort if you're involved in a vehicle crash.</p>
+
+        <h2 id="data-corruption">Data Corruption</h2>
+
+        <p>Data corruption caused by RFI ingress and/or egress will often have different effects at different frequencies. You might have no RFI problems on 20 meters but significant problems on another band. Not all RFI-related data corruption will cause error codes to be written to the OBD-II-EOBD memory. And RFI can play havoc with individual data sensors connected to the various on-board electronic devices without ever triggering a visible fault.</p>
+
+        <figure>
+          <img src="../images/Digital_Electronics_p1_3.jpeg" alt="Modern vehicle data bus network diagram" loading="lazy">
+          <figcaption>Modern vehicles employ multiple data bus networks with up to 80 separate digital processors. These systems communicate at rates from 10.4 kbps to 500 kbps, and all of them generate birdies across the amateur spectrum. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Federal courts have ruled that the software and/or firmware controlling every facet of vehicle operation is owned by the manufacturers. This opens up significant questions regarding data corruption that might be caused by excessive RFI ingress. However, automobile manufacturers do a very creditable job of hardening their electronics against RFI ingress. Ford Motor Company's Electromagnetic Compatibility documentation is a prime example &mdash; though aimed at OEM suppliers, it's worth reading if you have an ingress problem.</p>
+
+        <h2 id="code-readers">Code Readers</h2>
+
+        <p>One way to know if you have corrupted data, other than waiting for the MIL to illuminate, is to own a code reader. Auto Zone, O'Reilly, Pep Boys, and others sell OBD-II and EOBD readers ranging from $29 to well over $200 depending on capability. They come with books or CD-ROMs listing all error codes. Most can also turn off the MIL and clear the memory.</p>
+
+        <p>Make sure any reader you buy is capable of reading EOBD (extended on-board diagnostic) codes. All US vehicles made after the 2012 model year must have EOBD &mdash; including light and medium-duty trucks and SUVs. Considering that dealers charge an average of $50 just to reset the MIL and read codes, an OBD-II-EOBD reader can pay for itself in one visit.</p>
+
+        <p>Some manufacturers password-encode access to extended data. The password algorithm is often findable online. In some high-end units, extended data cannot be erased at all &mdash; it requires a code sent via the navigation or cellphone interface. And some collected data is sent back to the manufacturer on the same interface, without the driver's knowledge.</p>
+
+        <h2 id="electronic-engine-controllers">Electronic Engine Controllers</h2>
+
+        <p>Late-model vehicles use their Electronic Engine Control (EEC) to monitor the alternator's voltage and current. These readings help control fuel injector timing, mixture, and fuel economy. As a result, at slow engine speeds when the alternator is under a varying heavy load (amplifier use, for example), the engine may hunt &mdash; stumble and misfire. In some cases, this will cause an error code to be sent to the OBD-II, which turns on the MIL.</p>
+
+        <figure>
+          <img src="../images/Digital_Electronics_p2_4.jpeg" alt="Electronic Engine Control system diagram" loading="lazy">
+          <figcaption>Modern EECs monitor alternator load as part of fuel economy management. Imposing the rapidly changing load of SSB operation can cause engine stumbling or erratic transmission shifting as the EEC tries to compensate. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Error codes can actually help you find RFI problems. For example, a code related to the throttle position sensor pointed to an RFI ingress problem that was cured by installing a ferrite bead on the sensor's wiring harness. Just because the MIL isn't on doesn't mean there are no stored error codes &mdash; some may not illuminate the light. Some may not be amateur radio related and could indicate an actual mechanical or electrical problem.</p>
+
+        <p>The OEM alternators on most newer vehicles use a double-wound field coil with 12 diodes. For example, the Honda Ridgeline comes with a 130-amp alternator physically smaller than Honda's old 105-amp 6-diode unit. All Honda vehicles now use this type (except hybrids), as do most other makes and models. The upgrading in amperage is good news for high-power mobile operators.</p>
+
+        <p>Since 1996, all vehicles have factory-equipped fuel vapor purge canisters to reduce hydrocarbon emissions. These systems continue to run until engine oil pressure drops to zero. Some systems &mdash; notably Toyota's &mdash; do their diagnostic testing long after the engine has been shut off, rather than at engine startup. Testing may occur up to five hours after shutdown, once the coolant drops below 95&deg;F. So if you're in your garage and hear something running, it's probably the vacuum purge pump. The data bus is also operating, so you might hear hash from both &mdash; but this is nothing to worry about once you know what it is.</p>
+
+        <h2 id="battery-monitoring-systems">Battery Monitoring Systems</h2>
+
+        <p>Due partly to new fuel economy standards, more vehicles are designed to shut off the engine when it isn't needed &mdash; at a stop light, for example. To make this work safely, special devices monitor battery condition. If the battery isn't up to snuff, or the accessory load is such that the battery might not be able to restart the engine, the engine remains running or restarts as needed.</p>
+
+        <p>Both the voltage and the current draw from the battery are measured. The current measurement incorporates a Hall device located near the battery &mdash; on Ford and Nissan (et al.), the Hall device is part of the negative battery connector. In addition to the BMS, most systems incorporate a voltage booster to maintain voltage to navigation, entertainment, and instrument cluster during engine-off periods.</p>
+
+        <p>Battery Monitoring Systems have been with us since BMW introduced them in 2002. Modern EECs with ELD (Electrical Load Detection) measure any load applied to the electrical system and adjust engine settings to match. Imposing SSB's ever-changing power demands often overtaxes EEC systems, potentially causing engine stumbling or erratic shifting as the EEC tries to compensate for the rapidly changing load.</p>
+
+        <h2 id="rfi-egress">RFI Egress</h2>
+
+        <p>What we'd all like to see is an equal effort directed toward reducing RFI egress from vehicles. Of particular importance are the emissions from hybrid vehicle control electronics. Prius owners can attest that some are so RFI noisy their AM radios are nearly useless in low-signal areas.</p>
+
+        <p>COP (Coil-on-Plug) ignition systems are yet another egress source. While later model units have lower RFI levels than earlier ones, they're far from ideal. As a whole, automobile electronics are a major contributor to the overall background hash we all endure.</p>
+
+        <p>Fuel injection systems are yet another bothersome RFI source. The latest direct-injection systems spray fuel directly into the combustion chamber at very high pressure. This requires more powerful injector solenoids, which means greater EMI from each injection event.</p>
+
+        <p>LED lighting is another source of RFI egress. OEM LED systems are generally fairly clean, but virtually all aftermarket LED units generate excessive RFI &mdash; especially those that use a driver module to power multiple headlight LEDs. Stick with halogens if you're dealing with aftermarket lighting in RFI-sensitive applications.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Automobile manufacturers are exempt from FCC Part 15 rules under Section 15.103 (Exempted Devices). While there are suggestions that exempted devices should meet certain radiation levels, the fact is they are exempt. Until the rules change &mdash; not foreseeable &mdash; we will continue to deal with ever-increasing levels of RFI egress from modern vehicles. Data bus systems are getting more complex and faster, which actually helps somewhat: higher-speed digital signaling requires better electromagnetic containment at the circuit level. But we won't see vehicles designed primarily with amateur radio operators' receive noise floor in mind.</p>
+        </div>
+
+        <h2 id="rfi-ingress">RFI Ingress</h2>
+
+        <p>RFI ingress can be annoying, but it's usually curable. Sometimes a single ferrite bead suffices; sometimes a bonding strap helps; sometimes low-current wiring (like antenna motor control leads) needs to be shielded. One very important caveat: for any given RFI problem, what worked on your last installation might not work on this one. Diagnose each installation on its own merits.</p>
+
+        <p>RFI ingress can cause sensors to send incorrect data back to their respective control devices. Affected systems may include automatic braking, automatic transmission controls, electric power steering, and vehicle stability systems. If you experience anomalies with any of these systems while transmitting, stop transmitting immediately. The next step is to cure the ingress: change the antenna mounting methodology and/or location, correct the power wiring, do additional bonding, add choking impedance to the antenna motor control leads, and improve common mode current suppression on the coax.</p>
+
+        <h2 id="think-ahead">Think Ahead</h2>
+
+        <p>The vehicle style is usually dictated by family size, the number of vehicles owned, and intended use. It's rare for amateur radio installation planning to be part of a vehicle purchase decision. When it is, the first considerations should be the proposed antenna location, the radio mounting location and methodology, and the alternator capacity needed to support the planned accessory load &mdash; keeping safe operation in the forefront throughout.</p>
+
+        <p>Some folks lease vehicles and use that as an excuse not to properly install radios and antennas. Dealers typically don't look for NMO mounts when lease vehicles are returned. They look at overall cleanliness, excess mileage, and obvious dings and scratches &mdash; including those caused by magnetic-base antenna mounts. Mag mounts increase the likelihood of both ingress and egress RFI, and they leave behind paint damage that is very much a lease-return problem.</p>
+
+        <h2 id="modern-considerations">Modern Considerations: 2020 and Beyond</h2>
+
+        <p>The digital electronics landscape in vehicles has continued to evolve rapidly since this material was originally written. Key developments for mobile amateur radio operators:</p>
+
+        <h3 id="ota-updates">Over-the-Air Software Updates</h3>
+
+        <p>Many modern vehicles receive over-the-air (OTA) software updates to engine controllers, transmission control, and even braking systems. After an OTA update, the vehicle's RFI characteristics may change &mdash; birdies that were absent can appear, or RFI that was present can disappear. If your installation was working cleanly and suddenly develops new RFI issues, check whether your vehicle received a software update recently.</p>
+
+        <h3 id="advanced-driver-assistance">Advanced Driver Assistance Systems (ADAS)</h3>
+
+        <p>Current vehicles are packed with radar, lidar, and camera systems for lane keeping, adaptive cruise control, automatic emergency braking, and blind spot monitoring. These systems operate at millimeter-wave radar frequencies (typically 24 GHz and 77 GHz) that are well above the amateur HF bands, but they are sensitive to interference from improperly installed equipment. The same best-practices that prevent HF RFI problems &mdash; correct power wiring, proper antenna mounting, common mode chokes &mdash; also minimize the likelihood of interfering with ADAS sensors.</p>
+
+        <h3 id="ev-data-systems">EV and Hybrid Data Systems</h3>
+
+        <p>Battery Management Systems in EVs and PHEVs are far more sophisticated than the BMS found in conventional vehicles. They monitor individual cell voltages, temperatures, and state of charge in real time. The BMS communicates continuously over the vehicle data bus, generating its own RF signature. In a Prius or similar parallel hybrid, the control electronics for the motor-generator system generate significant broadband hash across the HF bands. See the <a href="hybrid-ev.html">Hybrid &amp; EV article</a> for specific guidance on operating amateur radio in these vehicles.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="hybrid-ev.html">Hybrid &amp; EV</a>
+          <a class="related-card" href="alternators-batteries.html">Alternators &amp; Batteries</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

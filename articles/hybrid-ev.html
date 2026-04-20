@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hybrid &amp; Electric Vehicles — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Amateur radio installation in hybrid and electric vehicles: RF noise from inverter systems, high-voltage hazards, warranty implications, and what you can and cannot do.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Hybrid &amp; Electric Vehicles</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+        <div class="callout warning">
+          <div class="callout-title">⚠ High Voltage Warning</div>
+          <p>Hybrid and electric vehicles contain high-voltage systems (100–800V DC) that are lethal. Orange cables indicate HV traction circuits — never cut, modify, or work near them. Blue cables in 48V mild hybrid systems also present arc-flash hazard. Amateur radio installation in HEV/BEV vehicles must avoid all HV components. If in doubt, consult your dealer or a certified HV technician. HV system contact can cause cardiac arrest and death.</p>
+        </div>
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; CRITICAL SAFETY WARNING</div>
+          <p>Before doing anything inside a hybrid or electric vehicle beyond connecting to the 12-volt accessory bus, read the manufacturer's service manual. High-voltage propulsion system wiring in EVs and HEVs carries 240 to 780 VDC with current capability of up to 3,000 amps. Contact is instantly lethal. Orange-jacketed cables are high voltage. Blue and yellow cables in some models also carry appreciable shock hazard. Leave all of these alone, absolutely and without exception.</p>
+        </div>
+
+        <h2 id="basics">Basics: Vehicle Types</h2>
+
+        <p>Hybrid and all-electric vehicles have grown substantially in popularity and now comprise a meaningful share of new vehicles sold worldwide. There are three main types relevant to amateur radio operators:</p>
+
+        <ul>
+          <li><strong>Hybrid Electric Vehicles (HEV)</strong> &mdash; Incorporate an internal combustion engine (ICE), an electric propulsion motor, a battery pack, and an integrated electronic drive system including a generator. Propulsion battery size ranges from 5 to 35 kWh. Recharging is primarily done by the generator and, to a lesser degree, by regenerative braking.</li>
+          <li><strong>Plug-In Hybrid Vehicles (PHEV)</strong> &mdash; Similar to HEV but with a much larger propulsion battery (&ge;50 kWh). Can also be recharged from the electrical grid.</li>
+          <li><strong>All-Electric Vehicles (EV)</strong> &mdash; Run on battery power alone. Battery sizes are typically 120 kWh or larger. Must be recharged from the grid, though all use regenerative braking to extend range.</li>
+        </ul>
+
+        <p>Approximately 93% of these vehicles use Li-ion battery technology, though LiFePO4 (lithium iron phosphate) is also used. Battery interconnections are series/parallel arrangements designed to provide the voltage and current required. Voltages range from about 240 VDC to 780 VDC, with current capabilities as high as 3,000 amps.</p>
+
+        <figure>
+          <img src="../images/Hybrid_Automobiles_p1_0.jpeg" alt="Hybrid drive system diagram showing ICE, electric motor, battery pack, and power electronics" loading="lazy">
+          <figcaption>Typical hybrid drive system overview. The original K0BG page for this topic was primarily diagrams illustrating the propulsion system architecture. The key element for amateur radio operators is the power electronics &mdash; the inverter and motor controller &mdash; which generate substantial RF hash. <!-- From PDF page 1 — note: original article was diagram-heavy; text has been expanded accordingly --></figcaption>
+        </figure>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Unlike golf carts, EV and HEV propulsion motors run on three-phase AC. Computer-controlled solid-state circuitry drives the motor while generating harmonics well into the VHF range. This makes using amateur radio &mdash; especially HF &mdash; in electric vehicles an extremely challenging proposition. Operating HF in any hybrid or electric vehicle is, at best, a hit-and-miss situation.</p>
+        </div>
+
+        <h2 id="rf-noise">The RF Noise Problem</h2>
+
+        <p>The question of how RF noisy these vehicles are is straightforward: all of them are noisy, and none are what amateurs would call quiet. The level of RF emitted varies considerably from model to model. All EVs use filtering to reduce the level of RFI emitted. However, HEVs, PHEVs, and EVs are exempt from FCC Part 15 rules under Part 15.103(a) &mdash; don't expect FCC help.</p>
+
+        <p>The worst birdie offenders are hybrid drive systems. The birdies from their digital control circuitry virtually wipe out the HF and low VHF spectrum. If you own one, or are thinking about buying one, and intend to operate HF mobile, you're in for a rude awakening. Seemingly every automobile manufacturer makes at least one EV model. A few actually come close to meeting Part 15 limits, with Ford Motor Company historically leading in this regard.</p>
+
+        <p>The noise is qualitatively different from what you hear in a conventional ICE vehicle. An ICE vehicle produces crackle-and-pop RFI from ignition, injectors, and alternator diodes &mdash; noise that varies with engine speed and load. An EV or HEV produces a more uniform, broadband buzzing hash from the motor inverter switching power transistors at high frequency. It doesn't change character with vehicle speed the way ignition RFI does, and it tends to be harder to localize. Ferrite suppression on the 12-volt accessory bus becomes even more important in this environment.</p>
+
+        <!-- Placeholder: original page was primarily diagrams of hybrid system architecture -->
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">&#128247;</span>
+          <span class="placeholder-label">Inverter switching waveform &mdash; source of broadband HF hash</span>
+          <p>The original K0BG page included diagrams of the hybrid propulsion system architecture that were not recoverable from the PDF. The key concept: the inverter converts DC battery voltage to three-phase AC by switching power transistors at high frequency, generating harmonics well into the VHF range.</p>
+          <span class="placeholder-source">Diagram from original K0BG site &mdash; not recovered</span>
+        </figure>
+
+        <h2 id="concerns">Concerns and Caveats</h2>
+
+        <p>Warranties on some EVs specifically prohibit the installation of amateur radio gear, though not always in those exact words. Verify warranty terms before proceeding with any installation. Beyond warranty issues, there are significant safety considerations.</p>
+
+        <h3 id="accessory-power">Accessing 12-Volt Power</h3>
+
+        <p>EVs and HEVs include a conventional 12-volt accessory bus, sourced from a DC-DC converter drawing from the high-voltage propulsion battery. This 12-volt bus is the correct and only appropriate power source for amateur radio equipment. Do not use accessory sockets for power &mdash; the feed wire is typically 14 to 16 AWG with low current capability. Do not use USB ports as power sources. The fact that a fuse is rated at 15 amps is no indication that you can safely draw that level of current from accessory wiring.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Do not attach any amateur radio wiring, bonding straps, or antenna connections to any high-voltage component or any cable with orange jacketing. Orange cables in EVs and hybrids carry hundreds of volts DC. Blue and yellow cables in some recent models also carry appreciable shock hazard. The high-voltage battery, motor, inverter, and charging system are isolated from the vehicle chassis by design &mdash; and that isolation is there to keep you alive. Interfering with HV isolation can kill you. Leave it alone.</p>
+        </div>
+
+        <h3 id="antenna-mounting">Antenna Mounting in EVs</h3>
+
+        <p>Proper installation of antennas in EVs requires permanent installations. No magnetic-base mounts. Magnetic-base antennas are plagued with common mode problems that essentially turn the feedline into part of the antenna. If enough RF is radiated, the drive-by-wire circuitry could be affected negatively &mdash; including automatic pilot systems, collision-avoidance, and braking subsystems. The possible dangerous results should be obvious.</p>
+
+        <p>The standard body-panel bonding requirements described in the <a href="bonding.html">Bonding article</a> still apply to the 12-volt chassis. Doors, hood, trunk or liftgate, and any other bolted-on metal panels still need bonding as described there. The absence of an exhaust system (on pure EVs) removes the single highest-impact bonding target that an ICE vehicle presents, which is the one piece of good news.</p>
+
+        <h3 id="nfpa-guidance">Emergency Responder Context</h3>
+
+        <p>The National Fire Protection Association (NFPA) has documented the unique hazards presented by EV and HEV high-voltage systems. While their concern is with emergency responders, the same information is directly relevant to anyone working around these vehicles:</p>
+
+        <blockquote>
+          <p>Electric propulsion systems introduce new and possibly unanticipated hazards to emergency responders, although these do not include anything that members of the fire service would consider particularly challenging. EVs and HEVs utilize high voltage power used for propulsion in conjunction with their low voltage electrical systems used for accessory lighting. The cabling for these high voltage systems were voluntarily colored bright orange for easy and consistent identification. In certain recent models cabling has appeared that, although it does not carry high voltage, still presents an appreciable and dangerous shock hazard, and these are identified using blue and yellow to color-code cables.</p>
+        </blockquote>
+
+        <p>If a vehicle's high-voltage system presents hazards to trained fire service personnel, it certainly merits caution from an amateur radio operator installing equipment.</p>
+
+        <h2 id="modern-considerations">Modern Considerations: The Evolving EV Landscape</h2>
+
+        <p>The EV market has changed dramatically since Alan originally wrote on this topic. Some observations specific to today's situation:</p>
+
+        <h3 id="rfi-improvements">RFI Improvements in Recent EVs</h3>
+
+        <p>As EVs have gone mainstream, manufacturers have invested more engineering resources in RF emissions control. Some current production EVs &mdash; particularly from manufacturers with strong electromagnetic compatibility programs &mdash; are quieter on HF than comparable hybrid vehicles from a decade ago. The situation is improving, but "improving" does not mean "solved." Individual vehicle testing remains the only way to know what you're actually dealing with. Test on a quiet band before committing to an installation.</p>
+
+        <h3 id="bidirectional-charging">Bidirectional Charging and V2H/V2G</h3>
+
+        <p>Several current EV models support bidirectional charging &mdash; using the vehicle battery to power household circuits (Vehicle-to-Home, V2H) or feed power back to the grid (Vehicle-to-Grid, V2G). While operating in bidirectional mode, the vehicle's inverter runs continuously, maximizing RF hash output. If you're operating amateur radio while the vehicle is in V2H or V2G mode, expect the worst possible noise environment from that vehicle.</p>
+
+        <h3 id="bonding-considerations">Bonding Considerations in EVs</h3>
+
+        <p>The bonding principles in the <a href="bonding.html">Bonding article</a> apply to the EV chassis in the same way they apply to any vehicle. The high-voltage system is isolated from the chassis by design &mdash; do not attempt to bond to it or through it. Bond only to the conventional 12-volt chassis ground structure: sheet metal panels, doors, hood, trunk. If you see any orange-jacketed cables near a potential bonding point, move to a different bonding location.</p>
+
+        <h3 id="phev-compromise">The PHEV Compromise</h3>
+
+        <p>Plug-in hybrids that also have a gasoline engine represent a compromise position. When running in EV mode, they generate the same inverter hash as a pure EV. When running in ICE mode, the combustion engine suppresses the relative impact of the electric drive noise because of its own ignition-based hash contributions &mdash; but both are present simultaneously. Of the EV/hybrid categories, PHEVs that spend most of their time in ICE mode on longer drives tend to be the most tractable for HF mobile operation, though none of them will be as clean as a well-installed conventional ICE vehicle.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="digital-electronics.html">Digital Electronics</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="alternators-batteries.html">Alternators &amp; Batteries</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

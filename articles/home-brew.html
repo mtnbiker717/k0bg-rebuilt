@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Brew Things — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="DIY projects for mobile amateur radio: relay boxes, loading coils, masts, brackets, amplifier bypass circuits, debouncer circuits, antenna switches, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Home Brew Things</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Starting with the dawn of amateur radio, it was the rule (not the exception) to build your own gear, including transmitters, receivers, antennas, amplifiers, and even test gear. As the popularity of radio grew, manufacturers filled part of the need by supplying receiving gear. Yet, for the most part, antennas and transmitting gear were still home-brewed. It wasn't until the early 1950s that manufacturers started to fill the modern needs of us amateurs. Transceivers, as we know them today, didn't make an appearance until the late 50s. By 1965, no less than 10 companies were answering the call.</p>
+
+        <p>Unfortunately, along with these changes, retailers specializing in the requisite home-brewing parts have nearly vanished. Radio Shack is a prime example &mdash; once a major supplier of electronic parts, it isn't much more than a cellphone sales office nowadays. Nonetheless, home brewing is not dead; it has just evolved.</p>
+
+        <p>While a few can sit down, design, and build the gear they need, most have to settle for easier projects. What we'll tackle here does require some mechanical and electrical ability, and at least some measure of hand tools. You don't need a drill press, but it would help to have one. You'll need a soldering iron (leave the gun at the door), screwdrivers, needle-nose pliers, cutters, and the ubiquitous DVM (digital voltmeter). Of course, if you don't own any of these things, it might behoove you to remain an appliance operator &mdash; but that's not the essence of amateur radio.</p>
+
+        <p>Antennas, on the other hand, require a bit more engineering prowess and machine tools not normally owned by your average amateur. This is especially true when it comes to loading coils. There are some simple workarounds for those who wish to get their feet wet, and you'll find those below.</p>
+
+        <h2 id="suppliers">Suppliers</h2>
+
+        <p>Home brewers have several reliable suppliers worth knowing:</p>
+        <ul>
+          <li><strong>Aaron's General Store</strong> &mdash; Large stock of both inch and metric bolts, nuts, washers, and fasteners, including security fasteners.</li>
+          <li><strong>Circuit Specialties</strong> &mdash; Home brew parts, test equipment, soldering stations, and power supplies.</li>
+          <li><strong>Commerce Metals / Speedy Metals / Metals Depot</strong> &mdash; Aluminum and stainless steel rods, tubes, bars, plate, and sheet stock.</li>
+          <li><strong>Micro Fasteners</strong> &mdash; Set screws and fasteners in unusual sizes.</li>
+          <li><strong>All Electronics / All Spectrum Electronics</strong> &mdash; New, used, pulls, and overstock of electronic parts, connectors, LEDs, and fans.</li>
+          <li><strong>Mouser, Newark, and Digikey</strong> &mdash; First-line retailers of all things electronic. If you can't find a part here, you can't find it.</li>
+        </ul>
+
+        <h2 id="basic-antennas">Basic Antennas</h2>
+
+        <p>Over the years, I've built dozens of different antennas. Most used commercial parts (modified and raw), some used home brew parts, and a few defied description. If I have any regrets, it is that I didn't take pictures of them all.</p>
+
+        <p>The basic HF mobile antenna scenario really isn't complicated. You need some sort of mount, a mast, a coil, a whip, and (hopefully) some sort of matching device. The problem nowadays is you just can't find the individual parts. During the late 70s, I worked for CW Electronics in Denver. We sold just about every kind of amateur radio gear you could name, including the individual parts to repair them. One of the requisite parts for any mobile antenna (save for 10 meters) was a loading coil. At the time, the largest manufacturer was B&amp;W (Barker &amp; Williamson), whose trade name for their coils was Airdux. A piece of the 2004T was enough coil to build two 20 meter coils, and cost less than $8. A quick check of their web site today shows the current price at $65 each. Their 4804TL now sells for $500 each. It is no wonder that companies like Texas Bug Catcher opted to wind their own.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Whatever avenue you take, you need to bone up on antenna design. The first place to start is the ARRL Handbook. If you want to see the ultimate in home-brew antennas, look up VE6AB (Jerry Clement) in the photo galleries &mdash; a first-class machinist who has had articles in QST. He represents what's possible when you combine engineering knowledge with machine-shop skills.</p>
+        </div>
+
+        <h2 id="home-brewing-a-coil">Home-Brewing a Loading Coil</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p1_0.jpeg" alt="Home-brew loading coil on custom insulator form" loading="lazy">
+          <figcaption>A home-brew loading coil built by David Stall, AE5DS, using a custom elongated HV insulator from Breedlove Machine Shop. The screws are threaded into end bosses bored for 3/8&times;24, making them compatible with standard antenna hardware. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p1_1.jpeg" alt="Completed home-brew loading coil with nylon rope spacer" loading="lazy">
+          <figcaption>The completed coil. Wire is #14 AWG, with nylon rope used as a spacer to keep turns evenly spaced. Vinyl electrical tape (or better, Rescue Tape) seals out moisture. Note: keep coil turns away from the end bosses to minimize Q losses. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>David Stall, AE5DS, asked Breedlove Machine Shop to make him an elongated version of their 1.5-inch diameter HV insulator made for use with an auto-coupler. The screws are threaded into the end bosses, which are bored for 3/8&times;24, making them compatible with existing antenna hardware.</p>
+
+        <p>The wire used was #14 AWG, but it looks much bigger because David used some nylon rope as a spacer to keep the coil turns evenly spaced. As long as moisture doesn't get in, that's a good way to keep the turns evenly spaced. The tape is vinyl electrical tape, but Rescue Tape might be a better solution as it seals out moisture better.</p>
+
+        <p>One thing to remember if you duplicate this method is to keep the coil turns away from the end bosses to minimize Q losses. An online coil calculator can be used to approximate the required turns needed before ordering the requisite length form. All in all, it is a novel idea, one that is easily duplicated, and the completed antenna is certainly full of DIY pride.</p>
+
+        <h2 id="masts">Masts</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p1_2.jpeg" alt="DX Engineering ready-made mast sections" loading="lazy">
+          <figcaption>DX Engineering sells ready-made masts in several different lengths at reasonable prices. Texas Bug Catcher masts are available from Main Trading Company but are pricier. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>I can't tell you how many different masts I have used over the years. I've used fiberglass ones with copper wire buried inside of them, steel, aluminum, copper water pipe, stainless steel, chrome-moly, and even wood. Lengths varied from a foot or so to one 10 feet long. DX Engineering sells ready-made masts in several different lengths, and they're reasonably inexpensive.</p>
+
+        <p>You can homebrew your mast too. Mike Brueggemann, K5LXP, has the answer on his web site. For less than $10 you can buy enough material to build two masts using his method. While copper pipe works well, DIY steel tubing will work too. The 1/2-inch diameter material will accept a 3/8&times;24 bolt if you cut off the head. The bolt can be brazed in, along with a nut to tighten it down. A coat of paint is all that's needed.</p>
+
+        <h2 id="brackets">Brackets</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p2_3.jpeg" alt="Home-brew ball mount made from TecaMax polymer" loading="lazy">
+          <figcaption>A home-brew ball mount made from TecaMax (self-reinforcing polyphenylene). Building this required a drill press, a large machine vise, a 3-inch Forstner bit, and a lot of patience. This type of material has excellent dielectric properties past 1 GHz. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Homebrewing a ball mount is out of the question for most amateurs. The mount shown required a drill press, a large machine vise, a 3-inch Forstner bit (almost $50), and a lot of patience. It is made out of self-reinforcing polyphenylene, better known as TecaMax. It snatches easily &mdash; hence the machine vise &mdash; and it will melt if it gets too hot, so slow drilling is a requirement. It took 15 minutes to drill through a one-inch piece of material.</p>
+
+        <p>The dielectric strength of TecaMax goes beyond 1 GHz, as do Delrin and Nylon. All of them can be worked with normal woodworking tools and drill well except for the snatching mentioned above. For holes over 3/8 inch, use a Forstner or spade bit and go slow. If you thread it, use a bit one number smaller than recommended and back out often. Don't use fine thread sizes. Treat it like soft aluminum.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>One often-recommended method to check the dielectric strength of an unknown plastic is to place a sample in the microwave and turn it on for a few seconds. That may indeed work, but you have to be very careful. Some forms of PVC will explode into flames after just a couple of seconds. Know your materials before testing.</p>
+        </div>
+
+        <h2 id="intermission">The Electrical Projects: Intermission</h2>
+
+        <p>What follows are a few simple electrical projects anyone can build. You'll need a decent soldering iron (no guns please), a few simple hand tools, and a little patience. Most can be built dead-bug style, or by using perfboard. More industrious folks might resort to building their own circuit boards, but that's just butter on the bread in these cases.</p>
+
+        <p>There are two places you don't want to scrimp: the mounting box, and the switches. The aluminum boxes shown in the following sections are made by Hammond and are sold by Digikey and Mouser. They come in a variety of sizes and finishes. Their cover screws are a standard 8&times;24 and can be replaced with slightly longer screws to attach mounting brackets.</p>
+
+        <p>Digikey and Mouser also sell miniature Switchcraft switches. While big ugly rocker switches from your local auto parts store will work, neatness counts. Make sure you understand switch nomenclature. The term (on)off(on) means the switch is center-off, with momentary-on positions in a DPDT configuration. Read catalog descriptions carefully; it is easy to order the wrong configuration.</p>
+
+        <h2 id="manual-override">Manual Override for Antenna Controllers</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p2_4.jpeg" alt="Manual override relay circuit board" loading="lazy">
+          <figcaption>The manual override circuit. It requires two 12-volt relays and a center-off, spring-loaded DPDT switch. The complete circuit fits in a box no bigger than 2 inches square. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Most automatic antenna tuners incorporate dynamic braking to minimize over-travel by shorting out the motor leads. Because the motor leads are grounded by the controller, it is impossible to parallel a manual control directly. There is a way around the problem, but you have to be willing to slap a few parts together.</p>
+
+        <p>The circuit requires two 12-volt relays and a center-off, spring-loaded SPDT switch. It is straightforward in both wiring and simplicity. The relays can be almost anything, as the current is seldom over 1 amp. It can be easily built into a box no bigger than 2 inches square.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>There is one caveat worth considering: most controllers remember where they were after the last tune. If you manually move the antenna, and then attempt to use automatic control, there is a chance the controller will move the antenna in the wrong direction. You can either let the controller run and it will eventually find the right spot, or keep track of manual movements and tell the controller your new position (if it supports that feature).</p>
+        </div>
+
+        <h2 id="amplifier-bypass">Amplifier Bypass Circuit</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p2_5.jpeg" alt="Amplifier bypass circuit schematic" loading="lazy">
+          <figcaption>The amplifier bypass circuit. Two parallel diodes act as an OR gate. If either motor lead has positive 12 volts applied, the relay operates, bypassing the amplifier's PTT line during the tuning process. The capacitor creates a delay in the relay release to allow for jogging during tuning. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>The DC motor in all remotely tuned antennas operates the same basic way: it reverses the polarity of the power fed to the antenna, causing it to turn in one direction or the other. During the tuning process, the SWR remains high until resonance is achieved. This is why low power is used during the tuning process. If an amplifier is being used, it must be turned off or bypassed during tuning. Most manual and automatic controllers don't have an amplifier bypass &mdash; if yours doesn't, this simple circuit will do it for you.</p>
+
+        <p>The two parallel diodes act as an OR gate. If either motor lead has positive 12 volts applied to it, the relay will operate. If the amplifier's PTT line is connected to the normally closed contacts of the SPDT relay, it will be bypassed during the tuning process. The capacitor causes a delay in the relay's release to allow for some jogging during the tuning process.</p>
+
+        <p>Just about any 12-volt SPDT relay will work, even a small reed relay. A 2N3904 is a good choice for the switching transistor, and 1N4004 for the diodes. The capacitor's value determines the relay's dropout delay. A 100 &micro;F (approximately 25 VDC) will give about a 3 to 5 second delay.</p>
+
+        <p>This circuit is about as simple as you can make it. The actual time delay relies on the base-to-emitter leakage value, which varies with the transistor used. If the delay is too long, a 100 k&Omega; resistor across the capacitor will solve the problem. A larger capacitor will increase the delay (don't go larger than 1,000 &micro;F). A smaller resistor (if needed) will shorten the delay (don't go lower than 20 k&Omega;).</p>
+
+        <h2 id="rocker-switch">The Simple Rocker Switch Controller</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p3_9.png" alt="Simple rocker switch antenna controller schematic" loading="lazy">
+          <figcaption>Schematic of a simple rocker-switch manual antenna controller. The LED can be any color or size; the transistor can be almost any NPN at least equal to a 2N2222. The resistor labeled "See Text" needs to be selected for your antenna. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>Manual controllers often sell for $70 or more, and basically they're not much more than a DPDT switch. The circuitry isn't patented; there's nothing special or exotic about it; and you can easily duplicate the effort. How much you spend depends on how fancy you want it to be.</p>
+
+        <p>Manual controls have a few drawbacks. You have to keep an eye on your SWR readout as you adjust the antenna, and the operation is distracting while you're under way. In some cases, an external SWR bridge or wattmeter is required. This is true of the Icom IC-706 if you trick it into thinking an AH-4 is connected (10-watt carrier), as it takes about 30 watts before the built-in SWR meter will operate.</p>
+
+        <p>The simple rocker switch shown (the &ldquo;i-Box&rdquo; which used to be made by High Sierra) consists of a DPDT rocker switch configured as (on)off(on). Pushing the switch causes the antenna to move up or down. Inside are a few more components which tell the Icom IC-706 to transmit a 10-watt carrier.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Power for the unit and the antenna comes from the Icom's tuner or accessory port. Icom specs clearly state the maximum current draw is one amp, which is easily exceeded if the antenna stalls at one end. If the supply is shorted, a circuit trace will often fail before the internal fuse blows. Using a RigRunner or similar power block to power the antenna is the correct solution, but does require rewiring the controller. Using the 706 version on an Icom IC-7000 can stress an open-collector output inside the main CPU and can cause it to fail.</p>
+        </div>
+
+        <p>For most remote antennas drawing up to 500 milliamps of run current, a 0.72-ohm, 2-watt resistor is close enough for the current-sensing element. If you have trouble finding one, use three 2-ohm, 1-watt resistors in parallel. All of the components can be mounted dead-bug style in an aluminum case. If you're resourceful, you can build the complete control for less than $15.</p>
+
+        <h2 id="debouncer">Debouncer Circuit</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p3_10.jpeg" alt="Reed switch debouncer circuit" loading="lazy">
+          <figcaption>The debouncer circuit. The capacitor size varies depending on the controller, but usually 0.5 &micro;F or 1.0 &micro;F is large enough. Too large and the count will be missed altogether. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>Proper RF choking of the control leads is an often-overlooked requirement. Sometimes, even if you do a good job of building the choke, you still get miscounts on controllers which use a reed switch. The reason is that most antenna reed switches only switch states (off to on, and back off) for only a fraction of a second &mdash; typically less than 100 milliseconds. Even though the logic is fast enough to catch the pulse, capacitance in the wiring and a little residual RF can cause a miscount.</p>
+
+        <p>The debouncer circuit shown elongates and debounces the pulse. The size of the capacitor varies depending on the controller, but usually 0.5 &micro;F or 1.0 &micro;F is large enough. You don't want one too big or the count will be missed altogether. Just about any small, 12-volt, low-power relay with a coil current of less than 200 milliamps will work. The diode can be just about any 1-amp power diode &mdash; 1N4008 for example.</p>
+
+        <h2 id="antenna-switch">Antenna Switch</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p3_11.jpeg" alt="Inside the home-brew antenna switch" loading="lazy">
+          <figcaption>Inside the home-brew antenna switch. The DPDT relay is removed from its plastic enclosure and screwed directly into the bottom of the Hammond cast aluminum box. Poles are wired in parallel and connected to the SO-239 connectors with short pieces of #14 copper wire to keep insertion losses low. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p3_12.jpeg" alt="Front-mounted control panel for antenna switch" loading="lazy">
+          <figcaption>The front-mounted control panel for the antenna switch. Power is fed to the switch from here, and the indicator LED shows which antenna is selected. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>Modern mobile transceivers are often referred to as DC to daylight radios, because they usually cover 160 meters through 70 centimeters. Being as small as they are, there isn't a whole lot of room for antenna connectors. Often, only two connections are provided: one for 160 through 6 meters, and the other for VHF/UHF. If you use separate antennas for VHF and UHF, diplexers are available to split the one port into two. However, if you use a separate antenna for the HF bands and another for 6 meters, you need an antenna switch.</p>
+
+        <p>Commercial 12-volt powered remote antenna switches like the MFJ-4712 ($80) will need modification for mobile use. The solution is to make one. If you're frugal, it'll cost you about $20.</p>
+
+        <p>The box is a Hammond cast aluminum one, about 3&times;4&times;2 inches. The relay is a DPDT, removed from its plastic enclosure and screwed into the bottom of the box. The poles are wired in parallel and connected to the output SO-239 connectors with short pieces of #14 copper wire. All of this is done to keep insertion losses low. Even then, the throughput SWR rises slightly (1.2:1 at 54 MHz). A diode and small capacitor are attached across the coil terminals to eliminate back-EMF when the switch is turned off &mdash; connection polarity is important. Overly long leads cause insertion losses to go up and increase SWR on the higher bands.</p>
+
+        <h2 id="amplifier-remote-control">Amplifier Remote Control</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p3_13.jpeg" alt="SG500 amplifier remote control box" loading="lazy">
+          <figcaption>The SG500 amplifier remote control box. The front switch controls the amplifier; the violet LED indicates power on. The rear DPDT switch controls video input and the remote antenna switch. A lot of function packed into a small Hammond box. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>The front-mounted switch is the amplifier control switch. The violet LED indicates power on &mdash; if it goes out and the switch is on, it means you've over-driven the amplifier.</p>
+
+        <p>The rear switch is a DPDT (On-Off-On). When the switch is forward, all systems are off. When the switch is in the center position, it activates the video from the Icom IC-7000 and applies it to the TVandNav2Go video converter. When it is moved to the rear position, it also activates the remote antenna switch.</p>
+
+        <p>The interconnecting cable is a 12-conductor #20 with shield. While overkill, it allows room for future additions. There are Molex connectors on both ends for ease of installation. Powering the radio, amplifier, and the ancillary devices from the same power and grounding source eliminates ground loop problems.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Power for the remote control is taken from a four-pin header plug on the SG500. Pin four of that header plug is supply voltage. Although that pin is protected by an internal 5-amp fuse, if you short the pin to ground, a circuit trace will fail before the fuse opens. Extra care is needed to make sure this pin is not shorted to ground during installation. The repair is both tedious and time-consuming, and expensive if the factory does the work.</p>
+        </div>
+
+        <h2 id="other-things">Other Things: The Rebundled Controller Box</h2>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p4_17.jpeg" alt="Rebundled antenna controller in Hammond box" loading="lazy">
+          <figcaption>A reboxed automatic antenna controller, hour meter, indicator LEDs, and all interconnecting cables in a large Hammond cast aluminum box. Bolted to the amplifier via existing 8&times;24 tapped holes. The complete assembly can be removed in less than a minute. <!-- From PDF page 4 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Home_Brew_Things_p4_18.jpeg" alt="Complete trunk installation showing controller assembly" loading="lazy">
+          <figcaption>The complete trunk installation. Behind and below the controller box is the IC-7000 main chassis, bolted to the SG500's fan assembly. Eight connectors and two bracket knots are all that's needed to remove the entire assembly for service. <!-- From PDF page 4 — verify placement --></figcaption>
+        </figure>
+
+        <p>Every now and then, every piece of amateur gear has to be worked on, or you experiment a lot. The box shown contains a reboxed automatic antenna controller, hour meter, indicator LEDs, and all of the interconnecting cables. The Molex at the top of the photo is the cable to the front-mounted control box. The smaller Molex goes to the antenna motor, and the other Molex carries the power and control wires from the IC-7000's Tuner port. There is also a cable going to the remote port on the SGC SG500 amplifier, which includes a fuse holder (just a pair of 1/4 spade lug connectors with an ATC 3-amp fuse).</p>
+
+        <p>The box is held down to the amplifier via existing 8&times;24 tapped holes which hold the cover on. Behind the amplifier is the main body of the IC-7000, bolted to the SG500's optional cooling fan assembly. The complete package is held to the trunk floor by two brackets. Remove the bracket hold-down knob nuts, 8 connectors (two coax, three Molex, Icom remote cable, and two 120-amp PowerPoles), and the whole assembly can be removed and set on the work bench in less than a minute.</p>
+
+        <p>Before you start tearing your stuff apart to rebox it, you need to know a few things. First, the warranty is gone. You'll need schematics (not always easy to find), a DVM, more than a simple electronics background, and the necessary hand and power tools. Cost is also an object. The box, its innards, the various connectors, Zener diodes (meter protection), capacitors, and hardware come to about $350. If it doesn't do anything else of benefit, it is convenient when service is required.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The home brew tradition in amateur radio is alive and well, but the landscape has shifted. PCB design software (KiCad is the leading free option) and low-cost board fabrication services (several Chinese services produce prototype quantities for a few dollars) mean that even a moderately skilled hobbyist can now produce proper printed circuit boards. The &ldquo;dead bug&rdquo; construction Alan mentions is still entirely valid for one-off projects, but for anything you plan to replicate or use long-term, a proper PCB is worth the effort.</p>
+
+        <p>3D printing has opened up enclosure options that didn't exist when this content was written. Custom enclosures that fit specific mounting locations, with exact cutouts for connectors and controls, can be designed in a few hours and printed for a few dollars in material. PETG is a better choice than PLA for automotive applications &mdash; it handles heat much better and doesn't embrittle in cold climates.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The Hammond aluminum boxes Alan recommends are still the right choice for RF-carrying circuits. 3D printed enclosures have no shielding. For amplifier bypass circuits, antenna switches, and other circuits that handle RF or are near RF, stick with aluminum. For control boxes that carry only DC signals, 3D printing is perfectly appropriate.</p>
+        </div>
+
+        <p>The fundamental philosophy here &mdash; build what you need, use quality materials, make it serviceable, and document what you built &mdash; is as valid now as it was when Alan first wrote it. The tools and materials have changed; the discipline hasn't.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="amplifiers.html">Amplifiers</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="tricks.html">Tricks of the Trade</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

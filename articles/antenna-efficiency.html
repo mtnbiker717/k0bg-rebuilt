@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Efficiency — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Understanding HF mobile antenna efficiency: ground losses, radiation resistance, coil Q, calculating efficiency, and bandwidth. Why most mobile antennas are far less efficient than operators assume.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Efficiency</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Antenna efficiency is an elusive quantity that is difficult to quantify. We can calculate it closely enough if we know three things: the ground losses, the radiation resistance, and the coil Q. Unfortunately, we don't know any of these values with any certainty, although we can use an antenna analyzer to measure their total series value &mdash; the input impedance in other words. Since these values are in series with one another, changing one has an effect on the others.</p>
+
+        <p>A good example of this complexity is the addition of a cap hat. A cap hat adds capacitance to that portion of the antenna above the loading coil. No matter where it is placed along that length, it adds the same amount of capacitance. This will cause the input impedance to increase. However, the change in input impedance may be due to an increase in radiation resistance, or to additional resistive (Q) losses in the coil, depending on where along the length the cap hat is installed.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Accurately calculating efficiency cannot be done with simple test tools or anecdotal formulas commonly found on the internet. However, we can get a lot closer if we know a few basic facts about the input impedance (total losses). There are other losses combined with the input impedance &mdash; stray capacitance and conductor losses are the main ones. Since they're usually small compared to the other losses, we can ignore them for this analysis.</p>
+        </div>
+
+        <h2 id="ground-losses">Ground Losses</h2>
+
+        <p>Ground losses (R<sub>g</sub>) dominate the efficiency equation, and keeping them low is a worthy exercise. The most important consideration toward that goal is proper antenna mounting. It is the metal mass directly under the antenna, not what's alongside, that counts. A ground strap to the nearest hard point is not a substitute for proper mounting &mdash; in fact, excessive and/or incorrect grounding can cause ground loops to occur, often masquerading as RFI.</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_0.jpeg" alt="Diagram comparing correct and incorrect antenna mounting styles relative to ground plane" loading="lazy">
+          <figcaption>The correct mounting style places the antenna above a mass of metal. The incorrect style places the antenna beside or beyond the ground plane. This difference directly determines ground loss magnitude.</figcaption>
+        </figure>
+
+        <p>The average recognized figure for ground loss varies from 10 to 2 ohms (80 through 10 meters). It may be considerably higher than this value, but never lower. Lack of proper bonding, incorrect or missing control line chokes, poor mounting techniques, poor mounting locations, and incorrectly terminated coax feeds all play a part. And since ground losses are proportional to the square of the field intensity, if you double the field intensity, the power losses increase by four times. This is the main reason ground losses should be kept as low as possible, especially when using physically short mobile antennas.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>RF current must return to its source. When we mount an antenna low, more of the return current is forced to flow through the lossy surface under the vehicle rather than the body of the vehicle. Wherever the coax connects to the antenna is where the ground plane must begin. If there isn't a mass of metal directly under this point, then ground plane losses increase.</p>
+        </div>
+
+        <p>Excessive ground loss also increases the level of RF flowing over the outside of the coax (common mode currents), and over whatever control lines are present. This is an exceptionally critical point if you're using or planning to use a computerized antenna controller.</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_1.jpeg" alt="Chart showing mean takeoff angle versus ground losses" loading="lazy">
+          <figcaption>The mean takeoff angle (approximately 27 degrees) isn't affected by ground losses. However, the amount of power radiated at any given angle does change, especially at lower angles below 15 degrees. This is yet another reason to minimize ground losses.</figcaption>
+        </figure>
+
+        <p>Lastly, there are cases where ground losses take a back seat to coil losses. Short, stubby antennas are an example. It is not uncommon for the coil losses in these antennas to be 2 or 3 times the ground loss. This magnitude of coil loss is also why short, stubby antennas don't need matching.</p>
+
+        <h2 id="radiation-resistance">Radiation Resistance</h2>
+
+        <p>The only good loss is imaginary, and that's radiation resistance (R<sub>r</sub>). It is imaginary in that it doesn't exist as a physical part of an antenna in the same sense as a loading coil, whip, or mast. It is, however, real with respect to mathematical calculations.</p>
+
+        <p>In simple terms, R<sub>r</sub> is a function of the effective electrical length (not the physical length), and how the current flows over that length. Thus, the longer the antenna's electrical length, the higher the R<sub>r</sub> will be. The rate of change is a square law function: a 9-foot antenna will have about twice the R<sub>r</sub> of a 6-foot antenna, and a 12-foot one will have four times the R<sub>r</sub> of a 6-foot one. R<sub>r</sub> may be as low as 0.2 ohms (80 meters) to about 36 ohms (full 1/4 wave on 10 meters).</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_2.jpeg" alt="ARRL table of efficiency versus coil Q and frequency" loading="lazy">
+          <figcaption>ARRL data illustrating the effects of coil Q on antenna efficiency at various frequencies. Note the efficiency levels. The difference between a Q of 50 and a Q of 300 is dramatic. These figures are for base-loaded antennas and do not include ground losses.</figcaption>
+        </figure>
+
+        <p>Another way to increase the radiation resistance of an antenna is to use a cap hat. Properly designed and implemented, cap hats increase the effective electrical length and raise the current node. It is possible to increase R<sub>r</sub> by a factor of 4, particularly on the lower bands. The key words are: properly designed and implemented. Done incorrectly, they will have the opposite effect.</p>
+
+        <p>For any given electrical length of an antenna, the radiation resistance it exhibits is the sum of the total power radiated by the antenna, divided by the square of the net current causing the radiation. It is a factor of the effective electrical length, so we must lengthen the antenna (electrically and/or physically) to increase it. The maximum practical physical length is about 11 to 14 feet (suburban versus rural). If you live east of the Appalachians, perhaps just 8 feet.</p>
+
+        <h2 id="coil-losses">Coil Losses</h2>
+
+        <p>Coil loss (R<sub>c</sub>) is one of the most misunderstood aspects of mobile antennas. Part of the misunderstanding deals with the term Q, which stands for Quality. It is determined by dividing the inductive reactance in ohms by the resistive losses in the coil in ohms at the operating frequency. Under laboratory conditions, it is possible to obtain coil Qs in the 800 to 1,000 range. However, in the real world of mobile loading coils, it is difficult to obtain Qs over 250 when mounted as part of an antenna. Even this takes good construction practices.</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_3.jpeg" alt="Optimal loading coil construction: 3 inch OD, 6 TPI, #10 silver plated wire" loading="lazy">
+          <figcaption>An example of optimal coil construction: approximately 3 inches OD, 6 turns per inch, using #10 silver-plated wire. This design consistently provides the highest assembled Q across 80 through 10 meters.</figcaption>
+        </figure>
+
+        <p>With the possible exception of 10, 12, and sometimes 15 meters, all HF mobile antennas incorporate a loading coil. Although it adds physical length to the antenna, it does not increase the electrical length except in very special cases (long, skinny, linear loading is an example). An antenna loading coil is a lumped constant. Online sources which state that a loading coil replaces a given physical length of an antenna are in error.</p>
+
+        <p>The reason we need a loading coil is this: the input impedance of any antenna shorter than a 1/4 wavelength will exhibit capacitive reactance (-j). To cancel out this negative reactance, we incorporate a loading coil with equal but opposite reactance (+j). The shorter the antenna in terms of wavelength, the larger the coil's reactance must be &mdash; along with a corresponding increase in coil losses.</p>
+
+        <p>Excessive distributed coil capacitance also reduces coil Q. Good examples are large end caps and/or metal shorting plungers, and antenna mounting locations that place the coil too close to bodywork (shunt capacitance). The worst case is mounting a cap hat directly atop the coil rather than at the very top of the antenna where it belongs.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Large diameter coils (&gt;3.5" OD) do not have higher Q ratings &mdash; the opposite is true. Large coils have more distributed capacitance than smaller ones, and a lower self-resonance point, making them very lossy at higher frequencies. The optimal coil size and construction: approximately 3 inches OD, 6 TPI, using #10 silver-plated wire.</p>
+        </div>
+
+        <p>You cannot measure a coil's Q once it's assembled within the antenna. So it isn't uncommon for antenna manufacturers to publish their static (bench) Q measurements and apply them to the assembled antenna. With this in mind: if a manufacturer claims their assembled coil Q is over 300, be very leery.</p>
+
+        <h2 id="calculating-efficiency">Calculating Efficiency</h2>
+
+        <p>There is no easy, cut-and-dried measure of antenna efficiency. Bandwidth, number of DX contacts worked, coil type, antenna type, mounting type, antenna shootouts, make, brand, matching method, cap hat &mdash; none of these measure efficiency. Even modeling can give you a false impression. So the question remains: how do you know if it is efficient?</p>
+
+        <p>Efficiency can be calculated &mdash; not exactly, but close enough &mdash; if we know the three R values: R<sub>r</sub>, R<sub>c</sub>, and R<sub>g</sub>. Add these factors together to get R<sub>t</sub> (R<sub>r</sub> + R<sub>c</sub> + R<sub>g</sub> = R<sub>t</sub>), then divide R<sub>r</sub> by R<sub>t</sub>. For an average 8-foot antenna mounted on an average vehicle, and using estimated ground losses, the efficiency ranges between 0.2% on 80 meters to maybe 80% on 10 meters. These figures are based on data from Chapter 16 of the ARRL Antenna Handbook. In dB, the formula is 10 log (R<sub>r</sub>/R<sub>t</sub>).</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_4.jpeg" alt="Antenna analyzer connected close to antenna base for impedance measurement" loading="lazy">
+          <figcaption>For accurate efficiency estimation using the Belrose method, the antenna analyzer frequency must be adjusted until the reactive component is zero (X=0), not for the lowest SWR. The measurement must be taken as close to the antenna as possible, not at the transceiver end of the feed line.</figcaption>
+        </figure>
+
+        <p>In the Technical Correspondence section of the September 2006 issue of QST (page 57), Dr. Jack Belrose, VE2CV, explains how to use an antenna analyzer and EZNEC to calculate the efficiency of a mobile antenna. The basic premise is to compare the measured input impedance of your mobile antenna against the modeled impedance given by EZNEC, adjusting the coil Q (resistive loss) until the two impedances equal, then reading the program's calculated radiation efficiency.</p>
+
+        <p>Two things to remember when using this method: First, the analyzer's frequency must be adjusted until the reactive component is zero (X=0), not for the lowest SWR. Then, and only then, will the resistive value be correct within tolerances. The measurement needs to be made without any matching devices attached, and must be taken as close to the antenna as possible.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Depending on the program used (NEC, EZNEC Pro, etc.), the spread of calculated efficiencies may be as much as &plusmn;10%. If in doubt, always choose the worst-case scenario &mdash; the best case usually assumes facts not in evidence. And just because your efficiency is great on 20 meters is no indication what it will be on other bands. The higher bands may actually have greater loss due to capacitive coupling.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_5.jpeg" alt="EZNEC antenna modeling software output showing radiation pattern" loading="lazy">
+          <figcaption>EZNEC modeling output. These programs are marvelous tools, but the results are dependent on the data provided. Leaving out the feed line when doing an analysis will skew the results. Assuming and quoting the results verbatim without a thorough understanding of how antennas behave often leads users astray. These are tools, not panaceas.</figcaption>
+        </figure>
+
+        <h2 id="bandwidth-notes">Bandwidth Notes</h2>
+
+        <p>There is another Q factor to contend with: the Q of the antenna as a system. The Q of a short HF mobile antenna is directly related to the coil's Q, the coil's distributed capacitance, the capacitance of that part of the antenna above the coil, any capacitance shunting the coil, where in the antenna the coil is located, shunt capacitive losses, the overall effective length of the antenna, the ground losses, and the other resistive losses including radiation resistance. These are the same losses we deal with in maximizing efficiency. In short, while we strive to increase efficiency, we also increase the antenna system's Q, which tends to reduce effective bandwidth.</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p1_6.jpeg" alt="Graph of antenna bandwidth versus frequency showing narrow bandwidth on lower bands" loading="lazy">
+          <figcaption>Antenna bandwidth versus frequency. The bandwidth of a 20-meter antenna of reasonable quality is about 150 kHz. The bandwidth of a similar quality antenna on 80 meters may be just 10 to 15 kHz. Narrow bandwidth does not mean high efficiency.</figcaption>
+        </figure>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Some amateurs incorrectly assume that inexpensive, low-Q antennas are superior to higher-priced ones because they don't have to retune as often. A few misguided manufacturers tout extended bandwidth as an advantage. Both premises are false. Wider bandwidth in a mobile HF antenna usually means lower efficiency, not better performance. An antenna with a large, properly mounted cap hat will have wider bandwidth and higher efficiency &mdash; that is the exception that proves the rule.</p>
+        </div>
+
+        <p>Besides using a tuner, another way to extend bandwidth is to use a shorted coax stub across the antenna terminals. Selecting the correct length will not only match the antenna's input impedance to the feed line, its reactance is exactly opposite the antenna's reactance with any given change in frequency, typically expanding the 2:1 bandwidth by 30% to 50%. This works well for a single-band antenna (a different stub is required for each band), but is not a good solution for a remotely tuned antenna.</p>
+
+        <figure>
+          <img src="../images/Antenna_Efficiency_p2_7.jpeg" alt="Shorted coax stub connected across antenna terminals for bandwidth extension" loading="lazy">
+          <figcaption>A shorted coax stub across the antenna terminals for bandwidth extension and impedance matching. This is a legitimate monoband technique. It is not a substitute for proper antenna design, and it does not apply to remotely tuned multi-band antennas.</figcaption>
+        </figure>
+
+        <p>Lastly, there is a formula circulating the Internet which states that antenna Q equals 360 times the frequency in MHz, divided by the 2:1 VSWR bandwidth in kHz. While this formula might give you a comparison between antenna A and antenna B (all else being equal), the actual Q of the antenna system requires a textbook full of formulas and a lot more information than just the 2:1 bandwidth. This formula is no more specific than the number of DX contacts a specific antenna garnered.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The fundamental physics of antenna efficiency has not changed. What has changed is the variety of vehicles and environments in which mobile operators work.</p>
+
+        <p><strong>Short, stubby antennas</strong> have proliferated dramatically in the market. They are physically convenient, but their efficiency on the lower bands is abysmal. On 80 meters, a typical short stubby antenna is not 1% efficient &mdash; it is 0.3% or less. Clip-mount it, and you can halve that. These are not numbers that should be dismissed as "good enough" once you understand the math. A 1-watt ERP from 100 watts input is already poor; 0.15 watts ERP is genuinely difficult to justify except for the most casual operation.</p>
+
+        <p><strong>Modern aluminum-body vehicles</strong> and <strong>composite-panel trucks</strong> present new ground plane challenges that directly affect efficiency. A smaller effective ground plane means higher ground losses. No amount of bonding compensates for the absence of metal under the antenna. Factor this into your expectations from the start.</p>
+
+        <p><strong>Electric and hybrid vehicles</strong> eliminate exhaust system noise but introduce inverter hash. The efficiency mathematics are unchanged, but the noise environment is different. If anything, maximizing efficiency is more important in EVs because the receiver noise floor may be higher (from inverter switching), and every dB of radiated power matters more.</p>
+
+        <p><strong>Antenna modeling software</strong> (EZNEC and its successors) has improved, but the fundamental limitation remains: accurately modeling a vehicle's superstructure requires over 200 segments, and modeling ground losses accurately over variable road surfaces remains an unsolved problem. Use these tools as a guide, not as a guarantee.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-mounts.html">Antenna Mounts</a>
+          <a class="related-card" href="antenna-myths.html">Antenna Myths</a>
+          <a class="related-card" href="antenna-cap-hat.html">Antenna Cap Hat</a>
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portable Operation — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Stationary mobile and portable amateur radio operation — power sources, battery management, antenna choices, pedestrian mobile, and special considerations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Portable Operation</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>The premise of this site has always been based on mobile-in-motion, but a select number of amateurs include stationary mobile as part of their operating. While most who do might just use their existing HF mobile antenna, there are better alternatives. Further, there are special requirements with respect to power, and even safety considerations, which make stationary mobile (portable operation) a special case.</p>
+
+        <p>Other than the antenna, the most important aspect is the power &mdash; especially when it comes from batteries. Such operation requires ancillary devices to protect, isolate, and charge secondary batteries. These devices are ubiquitous in motor homes and some RVs and trailers. While partly covered in the Alternator &amp; Batteries article, they're included here too.</p>
+
+        <p>There is a hidden aspect to portable operation: minimizing ground losses when using ground-mounted vertical antennas. There are a few things you can do to help, but you're never going to duplicate base-station performance.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>I've never operated stationary mobile or portable, by any name. Yes, I've pulled over on a side street when I just had to have that DX contact, but that doesn't really count. I have operated the ARRL Field Day more times than I wish to admit. The situation really isn't any different from what's being discussed here. The hardware perhaps is, and maybe the creature comforts, but the intrinsic and logistic requirements are identical.</p>
+        </div>
+
+        <h2 id="power-source">The Power Source</h2>
+
+        <p>If you use a generator for power, you have to use standard precautions about gasoline filling and storage, exhaust fumes, and voltage stability. Most RVers know those rules and follow them carefully. It shouldn't be necessary to cover those here in any detail.</p>
+
+        <p>The following is sort of redundant for most RVers, as they already have what's commonly described as a house battery. They can be charged by a generator, solar panels, the RV's engine, or a towing vehicle such as a pickup truck. However, there is one aspect which needs further explanation: using the towing vehicle's electrical system to charge house batteries.</p>
+
+        <p>Modern, late-model vehicles monitor the output voltage and current from the alternator. The prime reason is pollution control, but there are others. Suddenly applying the load from a discharged set of house batteries to the vehicle's electrical system can cause an error code to be written to the engine's CPU, causing the MIL (Maintenance Indicator Light) to illuminate &mdash; the use of a battery isolator notwithstanding. There are a couple of foolproof ways around the issue.</p>
+
+        <p>Most vehicles designed to be used as towing vehicles have special trailer towing packages available. Besides a trailer hitch, electrical connections are available to power the running lights, brake lights, and in almost every case, a house battery charging circuit. For example, the Honda Ridgeline's hookup provides a monitored, relay-switched, 20-amp charging circuit. Some brands supply as much as 40 amps but use a special high-current connector. It pays to investigate these options when shopping for a towing vehicle.</p>
+
+        <figure>
+          <img src="../images/Portable_Operation_p1_1.jpeg" alt="Battery isolator for towing vehicle" loading="lazy">
+          <figcaption>A quality battery isolator is essential when using a towing vehicle to charge house batteries. Simple diode isolators have significant forward voltage drop and can cause problems with some alternator charging circuits. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Lots of folks just use a simple battery isolator and never have any problems (at least ones they know about). Simple diode isolators have a number of drawbacks, not the least of which is their forward voltage drop. They can also play havoc with the charging circuitry in some alternators. This leads some folks to use isolation relays, and they too have their drawbacks. There is one brand of isolator which combines the attributes of both: the one made by Hellroaring. It uses both diodes and FET switches in its design. It is also remotely controllable, which allows all batteries (two or three) to be combined if necessary. It is competitively priced and available directly from the factory. If you have to use an isolator, this is the one to use.</p>
+
+        <p>West Mountain Radio introduced the ISOpwr Auxiliary Battery Isolator, which offers a few advantages over its competitors. It connects the vehicle's battery system to an auxiliary battery whenever the vehicle's engine is running. When the engine is not running, the auxiliary battery is disconnected from the vehicle's battery, so equipment powered from the auxiliary battery never drains the vehicle's battery.</p>
+
+        <figure>
+          <img src="../images/Portable_Operation_p1_2.jpeg" alt="Perfect Switch FET-based isolator unit" loading="lazy">
+          <figcaption>A Perfect Switch FET-based isolator. One major advantage: no contacts that could fuse together in a dead-short scenario. Overcurrent causes disconnection and requires a reset. As fail-safe as you can get. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Perfect Switch makes both isolators and switches for high-current applications, both employing FET technology. One very good advantage is there are no contacts which could fuse together in a dead-short scenario. Drawing current over their rating will cause them to disconnect and require a reset &mdash; about as fail-safe as you can get.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>The use of any battery isolator, no matter how sophisticated, is no guarantee that it will circumvent problems with on-board BMS (Battery Monitoring Systems). This is especially true of vehicles which use a VQM (Voltage Quality Module) or similar system to maintain a high level SOC (State of Charge). If in doubt, check with your dealer's service manager before connecting any battery charging or isolation equipment.</p>
+        </div>
+
+        <h2 id="house-battery">The House Battery</h2>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>All lead-acid batteries generate hydrogen gas during normal operation, and this becomes excessive during overcharge conditions. Hydrogen gas is very explosive, and even a minor spark can ignite it. Any resulting explosion isn't a pretty sight, as the electrolyte is sulfuric acid. Since the gas is vented to the outside, flooded batteries shouldn't be used in enclosed areas like the trunk of a vehicle. AGM batteries outgas too, but the hydrogen gas is absorbed by the glass mat. However, overcharging can cause more gas to form than the mat can absorb. Therefore manufacturer's maximum charge rates shouldn't be exceeded.</p>
+        </div>
+
+        <p>Since most house batteries are mounted in enclosed spaces, the battery of choice is an AGM (Absorbent Glass Mat) type. Unlike a flooded battery, an AGM can be mounted in any position, even upside down. This said, any auxiliary battery should be installed in a battery box and properly restrained. Doing so also prevents accidental shorting of the exposed connections. The rule of thumb for battery restraints is 6Gs lateral and 4Gs vertical. The last thing you want is a 60-pound battery flinging acid all over the insides of your vehicle.</p>
+
+        <p>A typical lead-acid battery has an internal resistance at full charge of about 0.003 ohms, although some types are slightly higher and some slightly lower. Under direct-short conditions, the maximum current can exceed 3,000 amps, and a decent-quality AGM can approach 4,000 amps. Doing so can cause some batteries to self-destruct, hurling sulfuric acid far and wide. Keep plastic post caps on until you actually make the connections. When removing or installing them, the negative lead should be removed first and installed last.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>If you think proper fusing isn't required because you use a circuit breaker, think again. There isn't a low-voltage circuit breaker made that can handle much over 2,500 amps without welding their contacts closed on a break. Fusing is especially critical when the house battery is multiple batteries in parallel, as the available fault current multiplies accordingly.</p>
+        </div>
+
+        <h2 id="other-batteries">Other Batteries</h2>
+
+        <figure>
+          <img src="../images/Portable_Operation_p1_4.jpeg" alt="Buddipole 4S4P A123 battery pack" loading="lazy">
+          <figcaption>The Buddipole 4S4P A123 battery pack, with a 13.2V resting voltage. This typically doesn't require a battery booster, though a low-voltage monitor is still recommended. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>There are a variety of other battery technologies to choose from, and most are covered in detail on the Battery University website. For example, Buddipole sells a variety of battery packs designed for portable operation, like their 4S4P A123 model. What is unique about this specific model is its 13.2V resting voltage. Unfortunately, the selling price (approximately $300) reflects its uniqueness.</p>
+
+        <p>The reason the Buddipole pack is worth mentioning is because it typically doesn't require a battery booster to be used (although a low-voltage monitor is suggested). A lead-acid (flooded or AGM) battery has a resting voltage of 12.2V. Depending on the Ah rating and the current draw applied, a lead-acid battery may drop in voltage far enough to cause some transceivers to shut themselves off &mdash; hence the need for a battery booster.</p>
+
+        <p>Whatever battery technology you choose, proper care, maintenance, wiring, fusing, charging, and safe handling are important items of consideration.</p>
+
+        <h2 id="battery-boosters">Battery Boosters</h2>
+
+        <figure>
+          <img src="../images/Portable_Operation_p2_6.jpeg" alt="Battery booster units for portable operation" loading="lazy">
+          <figcaption>Battery booster units (also called voltage regulators or DC-DC converters) maintain steady output voltage even as input voltage drops. Essential for maintaining full power output and preventing transceiver shutdown during portable operation. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>It is important to maintain the battery voltage at or very near your transceiver's designated input voltage. This is why most portable operators opt for a Battery Booster. Known by at least a dozen names, these devices act like switching power supplies: although the input voltage drops, the output remains steady. Most include a low-voltage cutoff, but some don't, which can lead to problems.</p>
+
+        <p>As stated above, any nominal 12-volt lead-acid battery is considered discharged when the voltage drops to 10.5 volts under load. In any case, battery voltage should be monitored. Martel Electronics makes a low-current two-wire voltmeter that's a good choice for monitoring battery voltage. It draws just 2 milliamps, so it can be left connected indefinitely. Those voltmeters which have become ubiquitous in most GM vehicles aren't accurate enough for this job, much less portable operation. It pays to have something better, especially if portable operation is your mainstay.</p>
+
+        <h2 id="power-inverters">Power Inverters</h2>
+
+        <figure>
+          <img src="../images/Portable_Operation_p2_7.jpeg" alt="Modified sine wave and pure sine wave inverters" loading="lazy">
+          <figcaption>Power inverters come in two major types: Modified Sine Wave (MSW) and Pure Sine Wave (PSW). MSW inverters are cheaper but prone to generating RFI and can cause problems with switching power supplies. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>There are two major types of power inverters: Modified Sine Wave (MSW) and Pure Sine Wave (PSW). MSW inverters are prone to generating RFI. While less expensive than PSW units, their extra cost is easy to justify when weighed against the cost of filtering out the RFI &mdash; a nearly impossible task.</p>
+
+        <p>One problem you might encounter when using MSW units is powering devices that use switching power supplies. The staggered ramp-up of the output voltage causes them to operate erratically. It doesn't happen all the time, but often enough to be of concern.</p>
+
+        <p>Efficiency rating changes with the load. At light load levels, efficiency is somewhat lower than at mid-loading, and typically goes back down near full loading. Therefore, you should select one which matches your load requirements. There are models available which operate in reverse: when connected to the mains, they recharge the connected batteries. Except for large RVs, these are rarely seen, as they're very expensive.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>There is another potential problem exacerbated by power inverters: ground loops. RV manufacturers don't make the chassis of their coaches &mdash; bus, truck, and van manufacturers do that for them. Little if any thought goes into how things are grounded throughout most RVs. Correcting built-in ground loop problems can be a very exasperating undertaking, especially when the coach and/or chassis manufacturer won't cooperate. Few coach builders have published wiring schematics, and when they do they're often incorrect.</p>
+        </div>
+
+        <h2 id="antenna-choices">Antenna Choices</h2>
+
+        <figure>
+          <img src="../images/Portable_Operation_p2_8.jpeg" alt="Trailer hitch receiver antenna mount" loading="lazy">
+          <figcaption>An antenna mount designed to use the trailer hitch receiver &mdash; an ideal portable mount solution. Sturdy enough to support a fairly large mast, which could support a dipole or serve as the antenna itself when properly insulated. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Any antenna is better than none, some will argue &mdash; but it is very frustrating when you can't make reliable contacts. Your average HF mobile antenna is at a disadvantage compared to even a simple dipole, no matter how it is mounted. That fact doesn't mean you can't use one, but there are better choices.</p>
+
+        <p>One way to improve an HF mobile antenna's performance is to reduce the inherent ground losses, but you have to jump through a few hoops. For example, a lot of RVers mount their antennas in the RV's ladder. To be honest, this is probably the worst place, as the ladder is a very poor ground plane. As a result, ingress and egress common mode currents cause havoc with both receive and transmit functions. Some apply radials to the bottom of the ladder assuming that will improve the situation. It doesn't, and in fact can cause the common mode problem to increase. Where the radials need to be placed is at the base of the antenna. Quite obviously, in this case, it is a logistics nightmare.</p>
+
+        <p>For anyone contemplating installing radials to improve their existing or future antenna, read the articles on radials published by Rudy Severns, N6LF. Take note of the differences between the requisite lengths between ground and elevated installations.</p>
+
+        <figure>
+          <img src="../images/Portable_Operation_p2_10.jpeg" alt="Buddipole portable antenna system" loading="lazy">
+          <figcaption>The Buddipole Deluxe portable antenna system. Individual parts can be purchased, or the complete package is available. Dozens of antenna combinations are possible from the kit &mdash; dipoles, verticals, and variations. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Buddipole makes very unique portable antenna systems. Although individual parts can be purchased, the complete BuddyPole Deluxe package sells for $400. There are literally dozens of antenna combinations which can be made up from the kit, from dipoles to verticals. These antennas are not meant for permanent installations. Rather, they're for backpackers, Field Day activities, emergency communications, or whenever an easy-to-erect temporary antenna is needed. The elements themselves have a piece of shock cord throughout their length &mdash; it takes just a moment to extend them, and their tip is adjustable to aid in matching to the frequency in use.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>There isn't anything special about a 43-foot vertical, all the current rage notwithstanding. Even a 30-foot insulated mast, with an auto-coupler mounted at the base and a few radials, will work much better than most HF mobile antenna installations. The key factors are height, proper radials placed at the base, and a quality auto-coupler &mdash; not the specific length of the radiator.</p>
+        </div>
+
+        <h2 id="pedestrian-mobile">Pedestrian Mobile</h2>
+
+        <figure>
+          <img src="../images/Portable_Operation_p3_14.jpeg" alt="Pedestrian mobile operator with backpack radio" loading="lazy">
+          <figcaption>Pedestrian mobile operation. The nearly invisible trailing green wire in the original photo serves as a ground radial. The challenges of operating with little metal mass surrounding you require careful attention to detail, but it is doable. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>Backpackers represent one class of portable operation, but there is another often referred to as Ped Mobile. Whether actually walking as the name implies, it isn't too far of a stretch to include pedal mobile &mdash; bicycle mobile in other words. The Buddipole is often deployed in either case, as their light weight and easy-to-deploy nature makes them a favorite.</p>
+
+        <p>The lack of a large power source (alternator, generator, etc.) typically dictates QRP power levels, but with an adequate battery system, even 100 watts PEP is doable. The preferred mode by most ped mobile operators is CW for very obvious reasons. At least one bicycle mobile operator I know uses a modified bicycle generator to charge up the battery.</p>
+
+        <p>We all know that even a fairly large vehicle represents an inadequate ground plane well into the VHF region. Imagine then the problems faced by ped mobile operators, with little metal mass surrounding them. Yet, with some attention to detail, a viable ped mobile station can be a reality. While you won't set the world on fire signal-wise, it is nonetheless amazing what can be done if one has the patience. Ken Muggli, K&Oslash;HL, put some very rare North Dakota counties on the air while walking away over 122 pounds of excess weight. Congratulations to him.</p>
+
+        <h2 id="other-things">Other Things</h2>
+
+        <p>There are a few things you can do when portable that are dangerous when in motion, not the least of which is CW. So of course is any digital mode, including slow-scan TV. Remember, some of these modes are full-duty cycle and require a more substantial power source than just batteries alone.</p>
+
+        <p>There are a lot of other considerations, and most of them parallel your average mobile installation. Wiring, safety, and above all, neatness counts. And don't forget to notify your insurance company that you have amateur radio gear installed in your RV. For more information on insurance requirements, see the <a href="insurance.html">Amateur Mobile Insurance</a> article.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The portable operation landscape has evolved significantly since this content was first written. Lithium iron phosphate (LiFePO4) batteries have become the dominant choice for portable operation, offering roughly three times the usable capacity of AGM in the same weight, excellent cycle life (2,000+ cycles to 80% capacity), and flat discharge curves that maintain voltage well throughout the discharge cycle. They also require a compatible charger &mdash; a standard lead-acid charger will not charge them properly and may damage them.</p>
+
+        <p>Solar charging has become practical and affordable for portable operation. Even a modest 100-watt panel with an MPPT charge controller can sustain extended portable operation on sunny days. The key is proper sizing: calculate your total daily amp-hour consumption, factor in your typical sun hours, and size the panel array accordingly. Overcast conditions can reduce output by 70-80%.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>When operating portable from a vehicle at a fixed location, park so the antenna is as far from power lines and other sources of conducted noise as practical. The ambient noise floor at a quiet rural location can be dramatically lower than at a typical suburban site, which makes weaker signals copyable that would otherwise be buried in the noise.</p>
+        </div>
+
+        <p>The POTA (Parks on the Air) program has dramatically increased interest in portable operation and has generated a wealth of practical experience from operators in the field. The community's accumulated knowledge on efficient portable setups &mdash; lightweight radios, compact antennas, battery management &mdash; is worth tapping before investing in equipment.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="otr-rv.html">OTR &amp; RV</a>
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="insurance.html">Amateur Mobile Insurance</a>
+          <a class="related-card" href="safety.html">Safety</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

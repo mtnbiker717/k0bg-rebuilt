@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controlling Static — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Understanding and controlling the many forms of static in mobile amateur radio installations: atmospheric static, rain static, dust static, corona loss, and static drains.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Controlling Static</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Every single mobile operator is plagued with static. There are several kinds, some of which we can control and some we can't. Knowing the difference is 90% of the cure.</p>
+
+        <p>Atmospheric static is the background noise you hear when listening to a clear frequency. It is caused by all manner of natural and man-made electrical discharges &mdash; even the stream of electrons from the sun and solar system contribute. It can be soft or so loud as to block all but the strongest signals. Short-term changes aren't evident in atmospheric static &mdash; in fact, you can use band noise as a signal source for comparing antennas, provided you have a QRM-free band to work with.</p>
+
+        <p>Electrical discharges are inherently high-frequency events by virtue of their fast rise times. Their frequency bandwidth can extend well into the UHF region. Noise blankers are nearly worthless against atmospheric static. DSP and audio filters can reduce the perceived level, but little else can be done about it.</p>
+
+        <h3 id="rain-static">Rain Static</h3>
+
+        <figure>
+          <img src="../images/Controlling_Static_p1_0.jpeg" alt="Rain and moisture clouds generating electrostatic potential" loading="lazy">
+          <figcaption>Rain static is caused by a difference in electrical potential between the earth and moisture-bearing clouds. It doesn't require actual rain &mdash; virga (falling moisture that evaporates before reaching the ground) is a common culprit. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Nature also generates so-called rain static, and it doesn't have to be raining for it to occur. It's caused by a difference in potential between the earth and moisture-bearing clouds. It usually starts as a small hiss building in crescendo until a discharge occurs. The discharge is usually a lightning strike, although you might not see or hear it.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Some people believe rain static is caused by moisture molecules physically hitting antenna elements. This is a false assumption. Rain static is an electrostatic phenomenon, not a mechanical one. It is more prevalent when humidity is high and/or when there is a nearby rain or snow storm, and it's especially bothersome when virga is present. There isn't much you can do to control rain static, although DC grounding the antenna element does help somewhat. Since it's a precursor to rain and possibly lightning, the right response is to QRT and pay attention to your driving.</p>
+        </div>
+
+        <h3 id="dc-grounding-the-antenna">DC Grounding the Antenna</h3>
+
+        <p>As mentioned above, DC grounding the antenna does help control static. However, the more important reason to DC ground an antenna is safety. First, if the antenna were to contact a high-voltage overhead line, proper DC grounding will shunt the energy to the vehicle body rather than through your transceiver. The second reason is lightning protection &mdash; admittedly rare, but not impossible.</p>
+
+        <p>Detection of incoming signals follows a square-law function: signal strength changes by twice the number of dB that the signal itself changes. In plain terms, even a small reduction in static level makes a bigger difference in receivability than you'd expect from the numbers alone.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The best way to DC ground an HF mobile antenna is through a shunt coil. The shunt coil, along with a small amount of capacitance borrowed from the antenna (tuned slightly above operating frequency), forms a highpass LC network. This transforms the low input impedance (~25 ohms) to the feedline impedance (50 ohms), and provides a DC path to ground. Two benefits for the price of one component. See the <a href="antenna-matching.html">Antenna Matching article</a> for details.</p>
+        </div>
+
+        <p>Some forms of RFI sound very much like background static, and distinguishing between the two is difficult. The best first line of defense is to perform the standard noise abatement work &mdash; especially bonding the hood and exhaust system. See the <a href="bonding.html">Bonding article</a> for the complete procedure.</p>
+
+        <h2 id="other-static-problems">Other Static Problems</h2>
+
+        <p>Dust and other atmospheric pollutants can become charged when they rub against one another. They collect on the surface of the vehicle and antennas. Driving along dusty roads can cause dust static, especially when the humidity is low. Dust static is a steady buzz that never goes away until you stop &mdash; whereupon there's usually a pop and then silence. Once underway again, it starts back up. The perceived loudness generally increases with speed.</p>
+
+        <figure>
+          <img src="../images/Controlling_Static_p1_1.jpeg" alt="Graphite compounds and conductive tire technology" loading="lazy">
+          <figcaption>Modern tires contain conductive rubber compounds and coatings. Early vehicles used graphite inside tires and spring contacts in front axle grease cups to shunt static to ground. Metallic disc brakes further help, but neither eliminates the problem. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>When vehicle AM radios first appeared, manufacturers were hard-pressed to solve the dust static problem. Their solution was special springs inside front axle grease cups to electrically connect axles and brake drums, plus graphite inside the tires. It worked, to a point. Today, conductive rubber compounds and metallic disc brakes provide a better solution &mdash; but you can still experience the problem.</p>
+
+        <h3 id="apparent-static">Apparent Static from Motor Leads and Common Mode</h3>
+
+        <p>There is one form of apparent static that deserves special mention. Improperly choked motor leads, or the absence of a proper common mode coax choke, allow these cables to act as part of the antenna. Since the motor leads and coax cable are routed inside the vehicle, whatever digital signal is generated by the vehicle's electronics can be heard on the receiver.</p>
+
+        <p>Some of the sensors attached to these digital devices &mdash; particularly ABS speedometer sensors &mdash; are speed-dependent, and are often indistinguishable from the rhythmic pattern of rolling static and ignition RFI. Thus controlling static, apparent or otherwise, is never a single band-aid cure. See the articles on <a href="common-mode.html">Common Mode Currents</a> and <a href="antenna-controllers.html">Antenna Controllers</a> for the correct choking procedures.</p>
+
+        <h3 id="brake-dust">Brake Dust and Mag Mounts</h3>
+
+        <figure>
+          <img src="../images/Controlling_Static_p1_2.jpeg" alt="Brake dust contamination under a magnetic mount antenna" loading="lazy">
+          <figcaption>Metallic brake dust clings to magnetic antenna mounts. The oxidation of these trapped particles causes mooning (scratch swirls) in the painted surface under mag mounts. On a leased vehicle, that damage comes out of your pocket. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Most newer vehicles are being factory-equipped with ceramic brake pads. They last longer, provide better stopping power when hot or wet, and contain no asbestos. However, ceramic pads have metallic particles embedded to aid in reducing static buildup. As brake pads wear, minute amounts of metal are scrubbed off both the pads and the disks. These metallic particles cling to antenna mag mounts like glue. The oxidation of these trapped particles causes mooning &mdash; crescent-shaped scratch swirls &mdash; in the painted surface under mag mounts. Removing that kind of damage requires a repaint.</p>
+
+        <h2 id="corona-loss">Corona Loss</h2>
+
+        <figure>
+          <img src="../images/Controlling_Static_p1_3.jpeg" alt="Nighttime photo of corona discharge from a mobile antenna running 400 watts on 160 meters" loading="lazy">
+          <figcaption>Corona discharge from a mobile antenna running 400 watts on 160 meters, photographed at night by Ron, NI7J. Spectacular at high power. Even at lower power levels, corona loss affects receive performance if not controlled. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Corona loss during transmission can be quite spectacular at high power. It also affects receive capability if no precautions are taken. The primary solution is a corona ball.</p>
+
+        <p>Corona balls are the small round things on the tips of most mobile antennas. The problem is, most commercial corona balls (typically 1/2-inch diameter) are too small to be effective, especially at high power. Worse, they often have sharp points &mdash; protruding set screws &mdash; which negate their purpose.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Make your own corona ball. Naugatuck Manufacturing sells 1-inch aluminum balls pre-drilled and tapped for a 10x32 set screw. Drill a hole for the whip about 15&deg; from the pre-drilled hole. A 1-inch aluminum ball is a good compromise between weight and size, but only if you use a standard (or shortened) 102-inch whip &mdash; the lighter whips supplied with some commercial VHF antennas are not strong enough to properly support a 1-inch ball. If you use a properly-mounted cap hat at the very tip of the whip, there's no reason to use a corona ball at all.</p>
+        </div>
+
+        <p>Corona loss during receive is a bit of a misnomer. What's actually happening is static electricity building up on the antenna and vehicle, then arcing into the atmosphere from the very tip of the antenna. Without a corona ball or cap hat, what you hear is a series of snaps and pops indistinguishable from other types of static discharge.</p>
+
+        <figure>
+          <img src="../images/Controlling_Static_p1_4.jpeg" alt="Corona ball installed on mobile antenna tip" loading="lazy">
+          <figcaption>A properly sized corona ball installed at the antenna tip. Commercial corona balls are often too small to be effective. A 1-inch aluminum ball is the correct size for typical high-power HF mobile use. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="static-drains">Static Drains</h2>
+
+        <figure>
+          <img src="../images/Controlling_Static_p2_5.jpeg" alt="Home-built static drain from vinyl-covered stainless steel aircraft cable" loading="lazy">
+          <figcaption>A static drain made from 5/32-inch vinyl-covered stainless steel aircraft cable, attached to the transport tie-down with a heavy-duty crimped and soldered lug. The outer covering is stripped and the individual wires splayed at the tip. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Bleeding off static before it becomes a problem is exactly what a static drain does. Build one from a 5/32-inch piece of vinyl-covered stainless steel aircraft cable (available from Ace Hardware). Attach it to the transport tie-down using a heavy-duty lug that is both crimped and soldered. Remove about 1 inch of vinyl covering from the outer end and splay the individual wires outward.</p>
+
+        <p>The point is to position the drain as the last thing in the slipstream. The sharp wire ends aid the flow of electrons dissipating into the slipstream &mdash; exactly like the static drains found on every flying aircraft. The result is a series of pops and snaps that are easily handled by a noise blanker, rather than the steady roar that blocks out all signals. Done right, a static drain converts an overwhelming problem into a manageable one.</p>
+
+        <figure>
+          <img src="../images/Controlling_Static_p2_6.jpeg" alt="Static drain installed on vehicle antenna mount" loading="lazy">
+          <figcaption>Static drain installed and properly positioned in the slipstream. The frayed wires dissipate the static charge continuously into the air rather than allowing it to build up and discharge as a loud burst. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="odds-and-ends">Odds &amp; Ends</h2>
+
+        <p>Controlling static isn't a one-trick-solves-all scenario. Just like bonding to control RFI, it takes time and effort to cover all of the bases. This is one area of mobile operation where a short-stop doesn't catch the ball.</p>
+
+        <p>Work through the list systematically: bond the hood and exhaust first (this solves the most problems), DC ground the antenna through a shunt coil, install a properly wound common mode choke on the coax feedline, install a corona ball or cap hat at the antenna tip, and add a static drain if dust static remains problematic. None of these steps is optional if you want a quiet receiver on the move.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Modern vehicles introduce some new wrinkles in the static control picture.</p>
+
+        <h3 id="electric-power-steering">Electric Power Steering and Other Digital Noise Sources</h3>
+
+        <p>Where older vehicles used hydraulic power steering, modern vehicles use electrically-assisted steering systems controlled by digital electronics. These systems generate their own form of noise &mdash; similar to the "apparent static" from ABS sensors discussed above &mdash; that can bleed into the receiver through improperly choked cables. The solution remains the same: proper common mode chokes on all control and coax cables, installed outside the vehicle.</p>
+
+        <h3 id="tire-technology">Modern Tire Technology</h3>
+
+        <p>Run-flat tires and other specialty tires may use different rubber compounds than standard tires, which can affect their static-dissipating properties. If you notice increased dust static after fitting run-flat tires, this is a plausible cause. The static drain described above is the practical remedy.</p>
+
+        <h3 id="cfrp-body-panels">Carbon Fiber Body Panels</h3>
+
+        <p>Carbon fiber reinforced polymer (CFRP) body panels are electrically conductive, but their conductivity is anisotropic &mdash; it varies depending on direction relative to the fiber weave. Carbon fiber panels do not bond effectively to the vehicle's RF ground plane using conventional copper braid straps. If your vehicle has carbon fiber panels adjacent to the antenna mount, plan on additional static control measures rather than relying on the panel for ground plane continuity.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

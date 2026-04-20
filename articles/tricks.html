@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -111,11 +154,16 @@
 
         <h3 id="copper-foil">Copper Foil Tape</h3>
 
-        <p><strong>3M 1181 copper foil tape</strong> is excellent for shielding purposes&mdash;wrapping cable bundles, lining enclosures, that sort of thing. But do not confuse shielding with bonding. Copper foil tape does not have the cross-sectional area or the mechanical integrity for structural bonding connections. Use it for what it's good at, not for what it can't do.</p>
+        <p><strong>3M 1181 copper foil tape</strong> is excellent for shielding purposes&mdash;wrapping cable bundles, lining enclosures, that sort of thing. The adhesive is conductive and the tape solders easily. <strong>3M 1182</strong> has adhesive on both sides for special applications, and there is also an aluminum version (<strong>3M 1170</strong>). All come in various widths; 3/4-inch and 1-inch are the most common. Note that the edges of 1181 are very sharp &mdash; use care when applying. After placement, burnish the edges with a toothbrush or similar tool to ensure a good electrical connection. But do not confuse shielding with bonding. Copper foil tape does not have the cross-sectional area or the mechanical integrity for structural bonding connections. Use it for what it's good at, not for what it can't do.</p>
 
         <div class="callout key-concept">
           <div class="callout-title">🔑 KEY CONCEPT</div>
           <p>Shielding and bonding are related but not interchangeable. Shielding blocks RF coupling. Bonding provides a low-impedance path. Copper foil tape shields. Braid bonds. Use the right material for the right job.</p>
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Do Not Sand to Bare Metal</div>
+          <p>Sanding paint down to bare metal to assure a good electrical connection is <strong>not advisable</strong>. Doing so defeats the rust-preventing, self-healing property of the underlying zinc coating. The correct approach is to use a <strong>star washer</strong> (preferably I/O style with teeth on both inside and outside) between the body and any attachment device. Zinc is self-healing: once you tighten the connection, the zinc will seal it from the elements. Do not paint over or apply any material over the connection after tightening &mdash; doing so seals in moisture and prevents the zinc from doing its job.</p>
         </div>
 
         <h2 id="coaxial-connections">Coaxial Connections and Weatherproofing</h2>
@@ -131,6 +179,15 @@
           <p>For extra protection, apply a thin layer of insulating varnish or potting compound over weatherproofed connections. This is especially worthwhile on antenna base connections that see constant vibration and road spray.</p>
         </div>
 
+        <h2 id="insulating-varnish">Insulating Varnish</h2>
+
+        <p>There are times when you need to protect a soldered or crimped connection but cannot use heat-shrink tubing. For those situations, spray-on insulating varnish is the answer.</p>
+
+        <div class="callout callout-tip">
+          <div class="callout-title">PRODUCT: Sprayon Insulating Varnish</div>
+          <p><strong>Sprayon</strong> (a Sherwin-Williams brand) makes a clear insulating varnish in a 12 oz. spray can (also available in red and green). Key specifications: dielectric strength of approximately <strong>2,200 volts per mil</strong>, RF transparent to approximately <strong>1 GHz</strong>, rated to over <strong>100&deg;C</strong> (suitable for underhood use). Its finished surface is far more durable than red glyptal and does not peel or age. Retail price is approximately $10. If applied properly, it will not harm most plastics &mdash; but test on a hidden area first, and mask carefully. Remember: it is an insulator, so keep it away from contacts and connection points that need to make electrical contact. Stay away from spray-on coax seal &mdash; it creates gooey, difficult-to-remove messes.</p>
+        </div>
+
         <h2 id="fasteners">Fasteners</h2>
 
         <h3 id="star-washers">Star Washers</h3>
@@ -140,6 +197,12 @@
         <h3 id="self-drilling-screws">Self-Drilling Screws</h3>
 
         <p>For mounting brackets and grounding plates to vehicle body panels, <strong>stainless steel 14 x 3/4 hex-head self-drilling screws</strong> are the right choice. The hex head gives you a positive drive that won't strip, the self-drilling tip eliminates the need for a pilot hole in sheet metal, and stainless steel won't corrode. Phillips-head screws are inferior for this application&mdash;they strip too easily when driving into steel.</p>
+
+        <h3 id="grade8-stud">Grade 8 Bolt as an Antenna Stud</h3>
+
+        <p>When you need a 3/8 &times; 24 threaded stud for an antenna mount and cannot find a proper stainless stud locally, a <strong>Grade 8 hex-head bolt</strong> is an excellent substitute. Grade 8 hardware has a tensile strength of 150,000 psi. The generic black hex bolts at the hardware store typically run 20,000 psi or less. That difference matters when your stud is holding a 6-foot whip against 70 mph wind loading and road vibration. Cut off the bolt head, thread the shank into your mount, and use a jam nut to lock it in place.</p>
+
+        <p>Use only Grade 8 or stainless hardware for antenna studs. Galvanized or zinc-plated hardware store bolts will fail mechanically and corrode at the antenna connection. The antenna losses and the risk of losing your antenna at highway speed are not worth the dollar you save.</p>
 
         <h3 id="lugs">Lugs</h3>
 
@@ -304,6 +367,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

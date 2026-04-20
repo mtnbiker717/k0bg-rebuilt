@@ -22,31 +22,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="articles/abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="articles/safety.html">Safety</a></li>
+          <li><a href="articles/installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="articles/bonding.html">Bonding</a></li>
           <li><a href="articles/wiring.html">Wiring</a></li>
+          <li><a href="articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="articles/common-mode.html">Common Mode Currents</a></li>
           <li><a href="articles/rfi.html">RFI Problems</a></li>
+          <li><a href="articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="articles/installation.html">Installation Notes</a></li>
+          <li><a href="articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="articles/antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="articles/antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="articles/antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="articles/coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="articles/antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="articles/antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="articles/coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="articles/auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="articles/antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -54,12 +81,28 @@
         <ul>
           <li><a href="articles/amplifiers.html">Amplifiers</a></li>
           <li><a href="articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="articles/insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="articles/home-brew.html">Home Brew</a></li>
+          <li><a href="articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="articles/what-i-use.html">What I Use</a></li>
           <li><a href="articles/tricks.html">Tricks of the Trade</a></li>
           <li><a href="articles/glossary.html">Glossary</a></li>
         </ul>
@@ -85,6 +128,11 @@
       <p class="subtitle">
         The encyclopedic reference for mobile HF and VHF installation.
         Based on the original work of <span class="callsign">Alan Applegate, K0BG</span> — preserved and expanded for the amateur radio community.
+      </p>
+      <p class="hero-disclaimer">
+        Reconstructed from publicly available sources for educational purposes.
+        Not affiliated with Alan Applegate (K0BG).
+        <a href="articles/safety.html">Read safety notice &rarr;</a>
       </p>
     </div>
 
@@ -151,27 +199,69 @@
           <h3>Safety</h3>
           <p>Airbag hazards, RF exposure, electrical safety, and keeping your installation out of harm's way.</p>
         </a>
+        <a class="card" href="articles/installation.html">
+          <h3>Installation Notes</h3>
+          <p>Mounting options, drilling holes, trim panel removal, airbags, and the tools you actually need.</p>
+        </a>
       </div>
     </div>
 
     <div class="section-grid">
-      <h2>Electrical Fundamentals</h2>
+      <h2>Electrical System</h2>
       <div class="card-grid">
         <a class="card" href="articles/bonding.html">
           <h3>Bonding</h3>
-          <p>Why your vehicle isn't RF-contiguous and how to fix it with proper grounding straps.</p>
+          <p>Why your vehicle isn't RF-contiguous and how to fix it. The foundation of every mobile installation.</p>
         </a>
         <a class="card" href="articles/wiring.html">
           <h3>Wiring</h3>
-          <p>Dedicated power leads, correct gauge, fusing, Anderson Powerpoles, and the cardinal rule.</p>
+          <p>Dedicated power leads, correct gauge selection, fusing, Anderson Powerpoles, and the cardinal rule.</p>
         </a>
+        <a class="card" href="articles/alternators-batteries.html">
+          <h3>Alternators &amp; Batteries</h3>
+          <p>How alternators work, why they whine, battery types and capacity, and auxiliary power systems.</p>
+        </a>
+        <a class="card" href="articles/grounds.html">
+          <h3>RF &amp; DC Grounds</h3>
+          <p>The difference between RF and DC grounding, ground planes, and why location matters.</p>
+        </a>
+        <a class="card" href="articles/cables-interfacing.html">
+          <h3>Cables &amp; Interfacing</h3>
+          <p>Modular connectors, mic/data interfacing, control cables, and preventing ground loops.</p>
+        </a>
+        <a class="card" href="articles/coax-pl259.html">
+          <h3>Coax &amp; PL-259</h3>
+          <p>Coax selection, PL-259 assembly step-by-step, and proper weatherproofing for mobile use.</p>
+        </a>
+        <a class="card" href="articles/hybrid-ev.html">
+          <h3>Hybrid &amp; EV Vehicles</h3>
+          <p>HV system hazards, motor inverter noise, and what changes when there's no exhaust to bond.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>RFI &amp; Noise</h2>
+      <div class="card-grid">
         <a class="card" href="articles/common-mode.html">
           <h3>Common Mode Currents</h3>
-          <p>The hidden signal killer. How common mode works, why it matters, and how to choke it.</p>
+          <p>The hidden signal killer. How common mode works, why it matters, and how to choke it properly.</p>
         </a>
         <a class="card" href="articles/rfi.html">
           <h3>RFI Problems</h3>
-          <p>Identifying, diagnosing, and eliminating every source of radio frequency interference in your vehicle.</p>
+          <p>Identifying, diagnosing, and eliminating every source of interference in your vehicle.</p>
+        </a>
+        <a class="card" href="articles/digital-electronics.html">
+          <h3>Digital Electronics</h3>
+          <p>OBD-II, B-CAN data buses, Ford EMC compliance, and why you can't ferrite-choke a data bus.</p>
+        </a>
+        <a class="card" href="articles/controlling-static.html">
+          <h3>Controlling Static</h3>
+          <p>Corona discharge, slip-stream static, and how to suppress high-voltage RF buildup on antennas.</p>
+        </a>
+        <a class="card" href="articles/how-to-wind-choke.html">
+          <h3>How To Wind A Choke</h3>
+          <p>Step-by-step procedure for winding split-bead common mode chokes for mobile feedlines.</p>
         </a>
       </div>
     </div>
@@ -179,13 +269,25 @@
     <div class="section-grid">
       <h2>Antenna System</h2>
       <div class="card-grid">
-        <a class="card" href="articles/installation.html">
-          <h3>Installation Notes</h3>
-          <p>Mounting options, drilling holes, trim panel removal, and working around airbags.</p>
+        <a class="card" href="articles/antenna-efficiency.html">
+          <h3>Antenna Efficiency</h3>
+          <p>Ground loss, radiation resistance, coil loss, and why efficiency isn't the same as low SWR.</p>
+        </a>
+        <a class="card" href="articles/antenna-mounts.html">
+          <h3>Antenna Mounts</h3>
+          <p>Ballmounts, hitch mounts, bed mounts, stake pockets, and what actually works for HF.</p>
+        </a>
+        <a class="card" href="articles/antenna-commercial.html">
+          <h3>Commercial Antennas</h3>
+          <p>Screwdriver antennas compared: Scorpion, Tarheel, Hi-Q, Hustler, and what to look for.</p>
+        </a>
+        <a class="card" href="articles/antenna-cap-hat.html">
+          <h3>Cap Hats</h3>
+          <p>Capacitance hats, what they do, how to size them, and whether they're worth the trouble.</p>
         </a>
         <a class="card" href="articles/antenna-problems.html">
           <h3>Antenna Problems</h3>
-          <p>Motor lead chokes, grounding myths, coax selection, and screwdriver antenna pitfalls.</p>
+          <p>Motor lead chokes, grounding myths, coax selection, and screwdriver antenna troubleshooting.</p>
         </a>
         <a class="card" href="articles/antenna-matching.html">
           <h3>Antenna Matching</h3>
@@ -193,7 +295,11 @@
         </a>
         <a class="card" href="articles/coil-adjustment.html">
           <h3>Coil Adjustment</h3>
-          <p>Setting up screwdriver and resonator antennas for optimal performance across bands.</p>
+          <p>Setting up screwdriver and resonator antennas. The 40Ω target and why it isn't 50.</p>
+        </a>
+        <a class="card" href="articles/auto-couplers.html">
+          <h3>Auto-Couplers</h3>
+          <p>Remote auto-tuners for mobile use — when they work, when they don't, and arc-over dangers.</p>
         </a>
         <a class="card" href="articles/antenna-controllers.html">
           <h3>Antenna Controllers</h3>
@@ -207,15 +313,45 @@
       <div class="card-grid">
         <a class="card" href="articles/amplifiers.html">
           <h3>Amplifiers</h3>
-          <p>When to add power, what to avoid, and why your antenna matters more than your amp.</p>
+          <p>When to add power, what to avoid, wire sizing, FCC compliance, and why antenna wins first.</p>
         </a>
         <a class="card" href="articles/vhf-options.html">
           <h3>VHF/UHF Options</h3>
-          <p>FM mobile installation, NMO mounts, multiband antennas, and aluminum-body vehicles.</p>
+          <p>FM mobile installation, NMO mounts, multiband antennas, and aluminum-body vehicle notes.</p>
         </a>
+        <a class="card" href="articles/miniature-radios.html">
+          <h3>Miniature Radios</h3>
+          <p>Compact HF transceivers compared: Icom, Yaesu, Kenwood, Elecraft — pros, cons, and caveats.</p>
+        </a>
+        <a class="card" href="articles/audio-filtering.html">
+          <h3>Audio &amp; Speakers</h3>
+          <p>External speakers, DSP filtering, impedance matching, and getting readable audio while mobile.</p>
+        </a>
+        <a class="card" href="articles/transmit-audio.html">
+          <h3>Transmit Audio</h3>
+          <p>Mic technique, ALC operation, speech processing, and achieving good SSB audio on the road.</p>
+        </a>
+        <a class="card" href="articles/signal-noise-ratio.html">
+          <h3>Signal to Noise Ratio</h3>
+          <p>Receiver sensitivity, SNR, and how your bonding and choke work translates to real-world copy.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-grid">
+      <h2>Special Installs</h2>
+      <div class="card-grid">
         <a class="card" href="articles/otr-rv.html">
           <h3>OTR &amp; RV</h3>
-          <p>Special challenges for big rigs and recreational vehicles — long runs, poor ground planes, and more.</p>
+          <p>Fiberglass bodies, long cable runs, big alternators, and non-metal vehicles — what changes.</p>
+        </a>
+        <a class="card" href="articles/portable-operation.html">
+          <h3>Portable Operation</h3>
+          <p>Pedestrian mobile, bike mobile, pack setups, and operating away from the vehicle.</p>
+        </a>
+        <a class="card" href="articles/insurance.html">
+          <h3>Mobile Insurance</h3>
+          <p>Insuring your mobile installation — what's covered, what isn't, and what to ask your agent.</p>
         </a>
       </div>
     </div>
@@ -223,13 +359,33 @@
     <div class="section-grid">
       <h2>Reference</h2>
       <div class="card-grid">
+        <a class="card" href="articles/antenna-myths.html">
+          <h3>Antenna Myths</h3>
+          <p>EZNEC models, radiation patterns, and why half the advice on forums is demonstrably wrong.</p>
+        </a>
+        <a class="card" href="articles/antenna-shootouts.html">
+          <h3>Antenna Shootouts</h3>
+          <p>Historical comparative tests of mobile HF antennas — methodology, results, and what they mean.</p>
+        </a>
+        <a class="card" href="articles/home-brew.html">
+          <h3>Home Brew</h3>
+          <p>DIY relay boxes, choke baluns, battery boxes, and control cable projects worth building yourself.</p>
+        </a>
+        <a class="card" href="articles/neat-gadgets.html">
+          <h3>Neat Gadgets</h3>
+          <p>Tools, analyzers, meters, and accessories that make mobile installation easier and more accurate.</p>
+        </a>
+        <a class="card" href="articles/what-i-use.html">
+          <h3>What I Use</h3>
+          <p>Alan's personal installation: Ridgeline, Scorpion 680, cap hat, SGC SG500, and the whole setup.</p>
+        </a>
         <a class="card" href="articles/tricks.html">
           <h3>Tricks of the Trade</h3>
-          <p>Practical tips on tools, fasteners, connectors, shielding, and materials.</p>
+          <p>Practical tips on tools, fasteners, connectors, shielding, and materials that work.</p>
         </a>
         <a class="card" href="articles/glossary.html">
           <h3>Glossary</h3>
-          <p>Definitions of every technical term used on this site.</p>
+          <p>Definitions of every technical term used on this site — expanded with 20 new entries.</p>
         </a>
       </div>
     </div>
@@ -237,6 +393,9 @@
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
       <p>This site is not affiliated with or endorsed by the K0BG estate. Content has been reconstructed and expanded from publicly available sources.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
 
   </main>

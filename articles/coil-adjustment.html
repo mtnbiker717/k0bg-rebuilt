@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -89,6 +132,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ RF Exposure Notice</div>
+          <p>Transmitting during antenna adjustment exposes the operator and nearby persons to RF electromagnetic fields. Always perform tuning procedures with the antenna pointed away from occupied areas. Review FCC OET Bulletin 65 and Supplement B for RF exposure evaluation requirements applicable to your station.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -131,6 +178,48 @@
           <div class="callout-title">🔥 MYTH BUSTED</div>
           <p>Lowest SWR does not mean your antenna is resonant. On the lower bands especially, the point of lowest SWR and the point of zero reactance can be tens of kilohertz apart. Use an analyzer that reads reactance, not your transceiver's SWR bridge.</p>
         </div>
+
+        <h2 id="shunt-coil-adjustment">Shunt Matching Coil Adjustment Procedure</h2>
+
+        <p>This is the procedure that makes everything else work. If you follow it carefully, you will achieve an SWR of 1.6:1 or better at any resonant point the antenna can reach from 80 through 10 meters. If you skip steps or cut corners, you will spend months chasing problems that trace back to a poorly adjusted matching coil. Do it right the first time.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Prerequisites Before Starting</div>
+          <p>The motor lead choke and all control wiring <strong>must be removed</strong> from the antenna before making any measurements. An improperly wound or installed choke affects the input impedance readings. After the coil adjustment is complete, reattach the choke and control wires. If reconnecting them changes the input impedance &mdash; even slightly &mdash; the choke is inadequate and must be rewound. See the <a href="antenna-controllers.html">Antenna Controllers</a> article for proper choke construction.</p>
+        </div>
+
+        <div class="callout callout-key">
+          <div class="callout-title">KEY SPECS: The Shunt Coil</div>
+          <p>Start with a coil of approximately <strong>1 &mu;H</strong> (the actual value will vary between 0.5 and 1.5 &mu;H depending on your antenna and mounting). Construction: <strong>0.75 to 1.25 inches inside diameter</strong>, <strong>7 to 9 turns</strong>, wound with <strong>#14 or #12 Thermaleze (enameled) wire</strong>. Keep the finished coil's form factor (length to diameter) close to 1:1. Long, skinny coils do not work well in this application. The coil must be in open air &mdash; do not enclose it in a box or mounting bracket, and keep it as clear of surrounding metal as possible.</p>
+        </div>
+
+        <h3 id="adjustment-steps">The Step-by-Step Procedure</h3>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Use Reactance (X), Not SWR</div>
+          <p>Throughout this entire procedure, you are adjusting for the lowest <strong>X value (reactance)</strong> on your analyzer &mdash; NOT the lowest SWR. If you are adjusting for lowest SWR you have already made a mistake. The SWR readout must be ignored until the coil is properly adjusted. You need an antenna analyzer with a separate X and R readout (such as the MFJ-259B or any NanoVNA). An SWR-only meter is completely useless for this adjustment.</p>
+        </div>
+
+        <ol>
+          <li>
+            <p><strong>Step 1 — 80 meters:</strong> Move the antenna to the 80-meter band. Actual frequency within the band is unimportant. Disconnect the control leads and choke. Adjust the analyzer frequency until X = 0 (or as close to zero as you can get). Read the <strong>R value</strong> (not SWR). If R is less than <strong>40 ohms</strong>, stretch the coil slightly (about 1/4 inch at a time). Readjust the analyzer to X = 0 again. If R dropped, squeeze the coil slightly and try again. Repeat until R reads approximately 40 ohms at X = 0. This process may take several tries. <strong>Complete the 80-meter adjustment before moving on.</strong></p>
+          </li>
+          <li>
+            <p><strong>Step 2 — 40 meters:</strong> Move the antenna to the 40-meter band. Disconnect the control leads and choke. Adjust the analyzer frequency until X = 0. Read the R value. In most cases it will be close to what you measured on 80 meters. If it is not, you may need to compromise between the two bands, which requires multiple measurements on both. If you cannot stretch the coil far enough to find a match, remove a turn or two. If you cannot collapse it enough, add a turn or two. The required number of turns for a 1-inch diameter coil will typically be between 7 and 9, with an overall length between 1 and 2 inches.</p>
+          </li>
+          <li>
+            <p><strong>Step 3 — 20 meters:</strong> Move the antenna to 20 meters. Disconnect the control leads and choke. Adjust for X = 0. Read R. It will usually be closer to 50 ohms than on 80 or 40, and may be slightly above 50 ohms. You can check additional bands if desired, but they will generally track close to the 20-meter reading.</p>
+          </li>
+        </ol>
+
+        <div class="callout callout-key">
+          <div class="callout-title">WHY 40 OHMS, NOT 50?</div>
+          <p>The target R value of <strong>40 ohms</strong> on 80 and 40 meters is a deliberate compromise. If you aim for 50 ohms on the low bands, you will find that 17 and 15 meters read over 80 ohms (&gt;1.7:1 SWR) in most installations. The reason is the changing reactance of the shunt coil (including its distributed capacitance) as frequency increases. Distributed capacitance also explains why small, closely-spaced coils mounted inside an antenna bracket do not work well in this application.</p>
+        </div>
+
+        <p>If you cannot reach a workable compromise between 80 and 40 meters, or if the 20-meter R reading is far from 50 ohms at X = 0, the most likely cause is an inadequate ground plane under the antenna (the number one cause) or excessive shunt capacitance between the antenna coil and the vehicle body. Fix the mounting before proceeding.</p>
+
+        <p>Once the coil is adjusted and you discover the SWR at the transceiver end of the coax is still high (&ge;1.6:1), the first place to look is the coax cable and connectors. Install a dummy load on one end and use the analyzer on the other &mdash; it should read virtually 1:1 with no reactance.</p>
 
         <h2 id="setting-resonant-points">Setting Resonant Points Band by Band</h2>
 
@@ -279,6 +368,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

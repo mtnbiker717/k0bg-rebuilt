@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmit Audio — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="SSB transmit audio for mobile amateur radio. Microphone technique, ALC operation, IMD, speech compression, dynamic range, and why less processing means better audio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Transmit Audio</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>The whole intent of this article is to maximize the readability of your transmissions, and hopefully aid you in maintaining contacts once you make them. However, nothing you do on your end will compensate for a lousy setup on the far end. It is also important to remember that no amount of speech processing, regardless of how it's done, will improve upon your natural speech pathology. If it could, we'd all be wearing Darth Vader helmets.</p>
+
+        <p>Every single type of modulation &mdash; AM, FM (both phase and true FM), SSB, etc. &mdash; has a specific set of operating parameters. Some of those parameters are set in stone, and some are dynamic. We're only dealing with SSB here, and for good reason: transceivers which transmit SSB have easily adjustable microphone gain controls, and often speech processing settings as well. It is the misuse of these controls, and the misuse of measuring techniques, that we're going to discuss.</p>
+
+        <p>FM transceivers usually don't have external microphone gains, and never have speech compression in the usual sense. They do have pre-emphasis, but that's a whole other subject.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>While reading this article, it will become very evident that correct microphone gain adjustment is the most important factor in achieving good readability on the other end of your contact. Unfortunately, most owners' manuals and online articles seldom cover this important attribute, focusing instead on adjustments for the internal and/or external DSP and/or equalizers. While those adjustments are important, excessive microphone gain will effectively negate their viability.</p>
+        </div>
+
+        <h2 id="imd">Brief Discussion of IMD</h2>
+
+        <p>The letters IMD stand for Inter-Modulation Distortion &mdash; more correctly, third-order inter-modulation distortion. It is caused by non-linear behavior of the signal path anywhere from the microphone, through the IF stage(s), the driver stage, to the final output stage of a transceiver. It can be caused by a variety of issues including too much microphone gain, over-compression, incorrectly biased finals, high SWR, and poor voltage stabilization. Read into that last item: incorrect wiring.</p>
+
+        <p>Contrary to popular belief, IMD cannot be heard on a built-in audio monitoring function, or seen on a station monitor, or a simple oscilloscope, until it really gets excessive &mdash; at which point it can be heard a few kHz either side of the bandpass. That is the exact reason it is called splatter. If you'd like a technical explanation of what IMD is, how it's measured, and its effects, the article by Tom Rauch, W8JI, is as good as it gets. When reading the article, pay attention to the necessary hardware needed to accurately measure IMD.</p>
+
+        <p>Designing a mobile solid-state transceiver (nominally 13.8 VDC) to meet the FCC mandated IMD levels is a tough nut to crack. High SWR from inadequately matched antennas, and poor wiring jobs, add to the IMD level.</p>
+
+        <h2 id="dynamic-range">Dynamic Range &amp; Things</h2>
+
+        <figure>
+          <img src="../images/Transmit_Audio_p1_0.jpeg" alt="Electret condenser microphone frequency response chart" loading="lazy">
+          <figcaption>Frequency response of a typical electret condenser microphone &mdash; nearly flat across the audio spectrum. No other commonly used microphone type can come close to this. This flat response is what makes designing the requisite audio stages easier for transceiver manufacturers. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Dynamic range is described as the ratio of the largest to the smallest intensity of sound (speech) that can be reliably reproduced &mdash; in this case, by a human voice. The measurement method uses a frequency-weighted scale; for human voice that's dB(C). However, it isn't a finite level we need to be concerned with &mdash; we do have microphone gains on our SSB transceivers. What we are concerned with is the ratio of the largest to the smallest intensity of speech.</p>
+
+        <p>To a lesser degree, we also need to be concerned with frequency dynamics. The bandwidth in most transceivers capable of SSB transmission is limited to about 2,400 Hz (approximately 300 to 2,700 Hz). What's more, the gain response across the range is not perfectly linear. If this wasn't enough to deal with, every individual has a different speech pattern.</p>
+
+        <p>Measuring all of the dynamics of speech is a discipline all by itself. Over the years, specialists in speech pathology and neurolinguistics have developed all manner of devices to qualify and quantify what speech is, how to measure it, and how to produce it with clarity through any given bandwidth. One rather unfortunate aspect: a lot of amateurs think they know more about the subject than the scientists do. That fact has proliferated the widespread use of speech processors, equalizers, and other wide-bandwidth devices &mdash; to the detriment of us all.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Far too many amateurs don't understand the relationship between peak versus average power in an SSB signal. Due to human voice dynamics, the measuring technique, microphone and compression gain levels, and DSP settings, it is not uncommon to see a peak-to-average ratio anywhere between 6:1 and 3:1. This causes people to assume their transceiver isn't putting out rated power because their wattmeter only reads 15 to 35 watts. So they crank up the microphone gain, kick in the speech processing, and end up over-driving the various stages of their transceivers and/or power amplifiers. The net result is distorted transmit audio due mainly to excessive IMD. Whatever your wattmeter reads while transmitting a dead carrier (CW) into a 50-ohm dummy load will be very close to the peak power in SSB mode. If that same meter reads 15 to 35 watts while transmitting SSB, you're probably very close to where you should be.</p>
+        </div>
+
+        <p>While slightly off the subject: there is one modification which should never be done, and that's boosting the power output. The finals of modern transceivers are selected to provide a given power level while staying within their linear response region. When the drive and bias levels are adjusted to increase output power, they force the finals to operate outside their linear response region. The result is highly increased IMD levels, at the expense of 1 dB or less of power increase. Most mobile operators would do better by properly mounting their antennas.</p>
+
+        <h2 id="microphone">The Microphone</h2>
+
+        <p>Modern solid-state transceivers almost universally use a low-impedance (nominally 500-ohm) microphone. The elements are usually electret condenser types, but may be dynamic. Some do have preamps built in, but unlike a power microphone, their gain and impedance matching is fixed. Gain and DSP adjustments aside, the way you use your microphone can have a major effect on your audio quality.</p>
+
+        <p>One of the best articles on microphone use was written by Steve Katz, WB2WIK/6. It points out several common user faults including the Broderick Crawford Syndrome &mdash; talking too far away from the microphone. Remember, the output level of electret and/or noise-canceling microphones drops off rather quickly as the distance between your lips and the microphone increases. Therefore, you should speak directly and closely into the microphone &mdash; not across it as is often suggested. In some cases, two inches is too far. This is especially important when using noise-canceling microphones, which the majority of mobile transceivers come equipped with.</p>
+
+        <p>The frequency response of a typical electret condenser microphone is almost flat across the audio spectrum. No other commonly used microphone type can come close. This flat response is what makes designing the requisite audio stages easier for transceiver manufacturers. If they have a drawback, it is improper use. Speak directly into the microphone, not across it, and you won't need to replace the microphone or perform any mods to get good audio reports. All you have to do is use a moderate amount of microphone gain.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Watch the ALC indication. While there is a lot of variation between transceivers (make and models), any ALC indication means the internal electronics are reducing the drive level to the finals to keep them within their linear response curve. If yours is constantly showing, the microphone gain is too high. Having to set the microphone gain higher than about 10% to 15% is an indication you're not using your microphone correctly. My personal IC-7000 with its companion HM-151 hand microphone runs with the microphone gain at 5% &mdash; yet my output is a full 100 watts PEP on SSB, with the average hovering around 35%, exactly where it should be.</p>
+        </div>
+
+        <p>If you use an amplifier, any microphone gain adjustment based on the ALC readout should be made with the amplifier turned off and the power output setting at its maximum. Once the microphone gain is properly set, the power output control should be dialed back to that required by the amplifier. This is almost never full power out, and may be as little as 25 watts PEP.</p>
+
+        <h2 id="microphone-mods">Microphone Mods</h2>
+
+        <p>Noise-canceling microphones come in a variety of configurations. How they work varies with the make, but the short answer is this: there are two ports for the microphone element. One is short and direct, and the other long and indirect. A wave front closer to the main port will arrive sooner than the same wave at the second port, so the waves do not cancel each other. A distant wave (several inches to several feet away) arrives at both ports at about the same time, which reduces the level of background sounds &mdash; but only if the microphone is used correctly. That is to say, you have to close-talk the microphone and keep the gain as low as practical.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>There are some misdirected folks modifying stock microphones (primarily the Icom HM-151) with the supposition of improved audio quality and output level. They do this by defeating the noise-canceling feature. If you've been paying attention, you know what the ramifications are in a mobile environment. The modification makes the microphone more sensitive to background sounds &mdash; exactly what you don't want when driving. There is no cheap-and-dirty way to measure peak-to-average speech levels. It takes a decent storage scope with an RF detector module, astute knowledge of how to interpret the resulting readout, and a handful of other laboratory-grade hardware. You certainly can't do it with your ear alone, as some mod-pundits would have you believe.</p>
+        </div>
+
+        <h2 id="speech-compression">Speech Compression &amp; Clipping</h2>
+
+        <figure>
+          <img src="../images/Transmit_Audio_p2_2.jpeg" alt="TenTec Model 228 speech clipper" loading="lazy">
+          <figcaption>The TenTec Model 228 speech clipper &mdash; the only speech clipper currently manufactured in the US at the time this was written. Clippers work differently than compressors: audio is heterodyned to the low RF region, peaks are clipped and filtered, then heterodyned back to audio. Properly adjusted, this can increase average audio level by as much as 12 dB. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>The use of speech processing (also called speech compression or speech clipping) has become the major bane of amateur radio, especially mobile operation. It allows every little nuance of engine noise, AC fans, the kids in the back seat, and that squeak in the left quarter panel to be plainly heard. It is important to remember: the average vehicle traveling at 60 mph is at least 25 dB louder than the average living room, and some are over 40 dB louder. Adding insult, most amateurs who use speech processing do not know how to properly set their microphone and/or processing controls, resulting in some really lousy-sounding, on-air signals.</p>
+
+        <p>It should be noted that any form of speech processing does increase the average power level. This fact does cause the signal to appear louder on the receiving end. However, if used excessively, it also removes most of the nuances our brain uses to comprehend what's being said. And no matter what the advertising hype says to the contrary, that means decreased readability.</p>
+
+        <p>Speech compression in its simplest form is nothing more than an automatic level control. The softer nuances of speech are amplified more than the louder ones. In some cases, a different (narrower) bandpass filter is used and/or different DSP settings, all in an effort to minimize IMD. However, over-zealous use (incorrect gain and compression levels) will defeat any provision to prevent excessive IMD. This includes, but is not limited to, Controlled Envelope systems.</p>
+
+        <p>The TenTec Model 228 is the only speech clipper manufactured in the US (at the time of writing). Clippers work differently than speech compressors. Like its predecessors, the audio is heterodyned to the low RF region (450 kHz) and through one or more passband filters. The peaks are then clipped, which increases the average audio level of the speech. Any distortion products (IMD) generated are filtered out as they fall outside the bandpass. The RF is then heterodyned back down to audio frequencies. Properly designed and adjusted, speech clipping can increase average audio level by as much as 12 dB. However, there are drawbacks.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Speech processing, however it is done, not only increases the average output power, it also increases the average current draw. Depending on the configuration, it could in fact double the current draw. This can easily tax the heartiest of electrical systems, especially when running high power. As the voltage sags, the IMD goes up, and readability decreases even more. Here is the very best advice you'll ever get with respect to using speech processing and/or excessive microphone gain: don't.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The fundamentals Alan describes here have not changed. The physics of SSB modulation, the ALC loop, the relationship between microphone gain and IMD &mdash; none of that has changed because transceivers became software-defined. What has changed is that it is now somewhat easier to set up properly, because better transceivers give you more feedback about what they're doing.</p>
+
+        <p>Modern SDR-based transceivers often include a built-in spectrum display that shows the transmitted signal in real time. This is genuinely useful for identifying splatter, but it requires understanding what you're looking at. A clean SSB signal should show a narrow occupied bandwidth with no significant energy outside the passband. If you see sidelobes or hash beyond the expected bandwidth, you're generating IMD and splatter.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The most useful thing you can do to check your transmit audio is have a local amateur monitor your signal with their own receiver and report back honestly. Listen to audio recordings of your own signal (modern transceivers can record transmissions to a USB drive or SD card). What you hear on your own transceiver's monitor output is not what you sound like on the air. External feedback, honestly given, is the only reliable check.</p>
+        </div>
+
+        <p>Noise-canceling headset microphones have improved dramatically. Headsets from companies like Heil, David Clark, and others that use proper noise-canceling elements and boom positioning are an excellent upgrade from the stock hand microphone, particularly for mobile use where background noise is a constant problem. A properly fitted boom microphone, positioned correctly (one inch from the corner of the mouth), with moderate microphone gain, will outperform any amount of compression on the stock hand microphone.</p>
+
+        <p>The mobile RF environment is inherently noisier than a home station. Alan's bottom line &mdash; close-talk a noise-canceling microphone, keep the gain low, avoid compression &mdash; remains the correct approach. Every watt of average power you push with compression is a watt that makes the noise worse for everyone within your signal's footprint.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="audio-filtering.html">Audio Filtering &amp; Speakers</a>
+          <a class="related-card" href="signal-noise-ratio.html">Signal to Noise Ratio</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="wiring.html">Wiring</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

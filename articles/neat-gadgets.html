@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neat Gadgets — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Tools, accessories, and gadgets Alan Applegate K0BG recommends for mobile amateur radio: antenna analyzers, VNAs, RF meters, auto-off devices, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Neat Gadgets</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Anything anyone does to increase safety and/or reduce distraction is a good step in the right direction. And so is using the correct tool for the job at hand. This is especially important when matching antennas, when we need to know more than an SWR bridge will tell us. Just as important are the typical tools of the trade, and they're covered here.</p>
+
+        <p>None of the following should be construed as endorsements or paid advertising. They're only here because they are proven tools for doing the job correctly, the first time.</p>
+
+        <h2 id="rf-meter">RF Current Meter</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_0.jpeg" alt="MFJ-854 RF current meter" loading="lazy">
+          <figcaption>The MFJ-854 RF current meter &mdash; an ideal tool for checking the presence of common mode current flow on coaxial feed lines. It measures RF current as low as 1 mA and handles up to 3 amps maximum. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The MFJ-854 is an inexpensive device for measuring RF imposed on conductors. It is mentioned here because it is an ideal tool for checking the presence of common mode current flow on coaxial feed lines &mdash; a malady which affects every HF mobile. It uses a 9-volt battery with an automatic off timer to assure long battery life. It can measure RF current as low as 1 mA and can handle up to 3 amps maximum.</p>
+
+        <p>While very easy to use, it has one drawback: the ferrite core attached to the top of the 854 is very difficult to open. Thankfully, MFJ provides a small tool to aid in opening the core so the conductor can be inserted. Even then, it takes due diligence and strong fingers. The hole through the ferrite core is large enough to accept RG-8 size coax (0.405&Prime;). Follow the directions: set the meter on the high scale first, and work down as necessary.</p>
+
+        <h2 id="antenna-analyzers">Antenna Analyzers</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_1.jpeg" alt="MFJ-259B antenna analyzer" loading="lazy">
+          <figcaption>The MFJ-259B antenna analyzer. Using one gives you the complex impedance of any antenna (X and R) up to 650 ohms or so, plus SWR. It has become as ubiquitous as the directional wattmeter in amateur radio circles. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>MFJ has been supplying inexpensive antenna analyzers to the amateur radio marketplace for many years. Their MFJ-259B ($250 USD street price) has become as ubiquitous as the directional wattmeter. Using one gives you the complex impedance of any antenna (X and R) up to 650 ohms or so, plus SWR. It does have one drawback: it does not display the actual Z (&plusmn;j), so you have to figure that out yourself &mdash; though it is rather self-evident once you know the X and R values.</p>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_2.jpeg" alt="MFJ-266 antenna analyzer with full Z display" loading="lazy">
+          <figcaption>The MFJ-266 displays all three impedance parameters simultaneously (except for UHF) and includes a built-in interference detector. If you have a local RF source like an FM broadcast station, the MFJ-266 will indicate that fact and its frequency. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>All of these shortcomings have been addressed with the introduction of the MFJ-266, with its street price hovering around $330 USD. The MFJ-266 displays all three parameters simultaneously (except for UHF). In some respects it is easier to use than the 259B, while in others somewhat more complicated. It also doesn't have a provision for using rechargeable batteries like the 259B.</p>
+
+        <p>It has one very unique feature besides its no-nonsense warranty: a built-in interference detector. If you have a local RF source like an FM broadcast station, the MFJ-266 will indicate that fact as well as its frequency. I don't know of any other antenna analyzer that can do that.</p>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_3.jpeg" alt="MFJ-225 graphing antenna analyzer" loading="lazy">
+          <figcaption>The MFJ-225 Graphing Antenna Analyzer. At approximately $400 retail, the data it gathers is easier to interpret, and the fact that it is a two-port device increases its value for a variety of measurements. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The MFJ-225 Graphing Antenna Analyzer retails for approximately $400. The data it gathers is easier to interpret, and the fact that it is a two-port device increases its value for a variety of reasons. Be prepared to order a few adapters, as the output port is an N connector and the input port is an SMA type. From tuning matching coils to finding resonant points, an antenna analyzer is an invaluable tool which should be in every ham shack, right next to the wattmeter and dummy load.</p>
+
+        <h2 id="spectrum-analyzers">Spectrum Analyzers</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_4.jpeg" alt="Rigol DSA815 spectrum analyzer" loading="lazy">
+          <figcaption>The Rigol DSA815 spectrum analyzer. At approximately $1,300 plus shipping, it rivals instruments originally costing thousands of dollars. The question remains: is it the right instrument for your shack? Watch the available videos and decide. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Not many amateurs really need a spectrum analyzer. Those who do typically own surplus HP or Tektronix units originally costing thousands of dollars. However, Rigol, a Beijing-based company with US offices, has invaded our shores with low-cost units rivaling the finest from HP or Tektronix. The DSA815 is their low-cost, entry-level unit selling for about $1,300 plus shipping. The associated videos and PDFs on their site will explain what the DSA815 will do. The question remains: is it an extravagant purchase? Watch the video and you'll know if it is the right instrument for your shack.</p>
+
+        <h2 id="coax-cutter">Coax Prep Kit</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_5.jpeg" alt="Ripley UT-series coax prep tool kit" loading="lazy">
+          <figcaption>The Ripley Tools UT series coax prep kit from DX Engineering. The complete kit (DXE-UT-KIT2-D) covers RG-8, RG-58, and RG-8X sized cables, includes a proper coax cutter, and retails for $190 plus shipping. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>One of the very best coax prep tools is the Ripley Tools UT series, available from DX Engineering. Their complete kit covers RG-8, RG-58, and RG-8X sized cables, and is packaged in a plastic storage box along with a proper coax cutter. The complete kit (DXE-UT-KIT2-D) retails for $190 plus shipping.</p>
+
+        <p>With your soldering iron hot, you can cut, prep, and solder on a PL-259 in less than 2 minutes. Unlike other coax cutters on the market, the DXE cutters don't require you to properly place the prep tool at a specific length from the end of the coax &mdash; all of the measuring is done for you. I'll never be without one, and neither should you.</p>
+
+        <h2 id="power-checkers">Power Checkers</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_6.jpeg" alt="West Mountain Radio PWRcheck power monitor" loading="lazy">
+          <figcaption>The West Mountain Radio PWRcheck. It handles up to 40 amps of load with 13 display modes including voltage, current, wattage, and amp-hours, with programmable alarms and data logging for over 4 months of sample points. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>West Mountain Radio makes the PWRcheck, which properly assesses and monitors your backup battery load. It can handle up to 40 amps of load and has 13 display modes including voltage, current, wattage, and amp-hours, complete with programmable alarms. It uses 40A Powerpole connectors for both source and load, has a backlit LCD, stores up to 174,000 sample points for data logging (over 4 months worth), and includes PC software for real-time monitoring, data download, and charting.</p>
+
+        <p>Their PWRguard contains a 40-amp, high-power FET switch (no relays) which control circuitry activates. If the input voltage drops below 11.5 VDC or goes above 15 VDC, the PWRguard shuts off the output power. Although aimed at the battery-powered crowd, it has applications in the portable and mobile markets too. Both devices are available from PowerWerx and other fine amateur radio dealers.</p>
+
+        <h2 id="fire-extinguishers">Fire Extinguishers</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_7.jpeg" alt="Kidde fire extinguisher for vehicles" loading="lazy">
+          <figcaption>A Kidde universal fire extinguisher rated 3-A:40-B-C. Every mobile operator should have one on board. Class A is for combustibles, Class B for flammable liquids, Class C for electrical fires &mdash; you need a universal one that handles all three. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>One item every mobile operator should have on board is a fire extinguisher. For mobile use, it should be a universal one rated for multiple fire classes. In the case of mobile use, the 21005765 model (rated 3-A:40-B-C) is an appropriate choice. Class A extinguishers are used for combustible materials such as paper, wood, and most plastics. Class B extinguishers are for flammable or combustible liquids such as gasoline and oil. Class C extinguishers are for electrical fires. They're affordable and easy to use.</p>
+
+        <h2 id="minivna">miniVNA Pro Vector Network Analyzer</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p1_8.jpeg" alt="miniVNA Pro vector network analyzer" loading="lazy">
+          <figcaption>The miniVNA Pro. Its key differentiator is Bluetooth connectivity, which allows live data transfer to a host computer without a tethered cable. Frequency range is 0.1 to 200 MHz; Z range is 1 to 1,000 ohms. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Affordable antenna analyzers are invaluable for finding resonance and impedance within their range (typically &lt;650 ohms). What they can't do is give you a picture (a graph) of the reactance over a given frequency span. This is the forte of a VNA (Vector Network Analyzer).</p>
+
+        <p>There are several versions of miniaturized VNAs on the market, but one feature sets the miniVNA Pro apart: Bluetooth connectivity. Heretofore, either the data was stored in the VNA or a tethered cable was required. With Bluetooth, the VNA can transfer live data to its host computer. Its frequency range is from 0.1 to 200 MHz, with a Z range from 1 to 1,000 ohms. Its built-in Li-ion battery is recharged through USB and offers 4 full hours of continuous testing. Since it has two ports, you can even use it for IMD testing. Software covers Windows, macOS, and Linux. Data can be exported in jpg, PDF, and Excel formats. At $650 including the SMA adapter kit, it is a bargain its competitors can't match.</p>
+
+        <h2 id="auto-off">Auto Off</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_9.png" alt="PowerWerx APO3 auto-off device" loading="lazy">
+          <figcaption>The PowerWerx APO3. It monitors battery voltage and turns your radio (or ancillary equipment) off automatically when voltage drops below a set threshold. Handles up to 30 amps and uses Anderson Powerpole connectors. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Unfortunately, not all amateur radios have an auto-off feature, especially VHF/UHF ones. This fact causes a lot of amateurs to bypass proper wiring practices just so the radio can't be left on. Now there is a proper solution.</p>
+
+        <p>The PowerWerx APO3 is more than just a timed (0, 5, 10, 20 minutes) auto-off device. There are four pre-programmed voltage settings (11.8, 12.1, 12.7, 13.05 volts). Properly programmed, the APO3 will turn off your radio or ancillary equipment just by monitoring the battery voltage. It can handle up to 30 amps, making it compatible with almost any radio. It comes equipped with Anderson Powerpole connectors, making wiring simple and quick. At $60 MSRP, it is also affordable.</p>
+
+        <h2 id="amplifier-interfaces">Amplifier Interfaces</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_10.jpeg" alt="Amplifier interface unit" loading="lazy">
+          <figcaption>Amplifier interfaces are a prerequisite for high-power mobile operation. A very simple circuit &mdash; just two resistors and two transistors &mdash; can be built in less than an hour to switch any solid-state mobile amplifier. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Amplifier interfaces are a prerequisite for high-power mobile operation, as none of the late-model miniaturized transceivers will directly switch one. The MFJ-704 is one of many sold to the amateur market, and it will switch just about any amplifier including grid-blocked ones. This is overkill in a mobile installation.</p>
+
+        <p>The fact is, a very simple circuit can be built in less than an hour that will easily switch any solid-state mobile amplifier. The plans are on Bob Wolbert's (K6XX) web site. As you can see from the schematic, it requires just two resistors and two transistors. I built one of these onto the accessory jack plug that came with my 706 &mdash; it is that small and that easy.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The SGC SG500 is the only mobile amplifier which can be safely switched by the Icom IC-706, IC-7000, and the Yaesu FT-857 mobile transceivers without the need for an interface. All others require one. The accessory plug Kenwood supplies for the TS-2000 is identical to the Icom plug (comes unadorned rather than pigtailed) and sells for about $7 from most amateur dealers.</p>
+        </div>
+
+        <h2 id="ft857-meter">LDG FT-857 External Meter</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_11.jpeg" alt="LDG Electronics FT-857 external meter" loading="lazy">
+          <figcaption>The LDG Electronics external meter for the Yaesu FT-857 (also works with the FT-897). On receive it becomes an S-meter, discriminator indicator, or voltage monitor. On transmit, it measures RF power, SWR, modulation, ALC, or voltage. Just $50 retail. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>If you use a Yaesu FT-857 mobile, you know how hard the LCD S-meter is to read. The folks at LDG Electronics have come up with an answer. At just $50 retail, it is an elegant solution to the problem. On receive it becomes an S-meter, discriminator indicator, or voltage monitor. On transmit, it measures RF power, SWR, modulation, ALC, or voltage. The only drawbacks are finding room for the meter and homebrewing a mobile bracket. The programming required to get the meter to indicate all of the functions can be frustrating &mdash; do yourself a favor and follow the installation directions carefully.</p>
+
+        <h2 id="mini-manual">Nifty Mini-Manuals</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_13.jpeg" alt="Nifty Accessories mini-manuals for mobile radios" loading="lazy">
+          <figcaption>Nifty Accessories Mini-Manuals and Mobile Cards for popular mobile radios. All important programming information, clearly defined, easy to read, and in plain English. Prices range from $5 to about $25. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Anyone who owns a menu-driven, miniaturized mobile radio knows how difficult some of them are to program. Adding insult, far too many manuals are written in ambiguous English. Here's the best answer I've found: Nifty Accessories offers a line of Mini-Manuals and Mobile Cards for all of the popular mobile radios, and most handheld as well. They have all of the important programming information clearly defined, easy to read, and in plain English. Prices range from $5 to about $25.</p>
+
+        <h2 id="rescue-tape">Rescue Tape</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_14.jpeg" alt="Rescue Tape self-fusing silicone tape" loading="lazy">
+          <figcaption>Rescue Tape &mdash; self-fusing silicone tape that adheres to any surface, seals out moisture and dirt, and leaves no residue when removed. An ideal product for sealing coax connections and high-voltage connections exposed to the elements. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Rescue Tape is a self-fusing silicone tape. It comes in a rainbow of colors, but that's not what makes it special. It is incredibly strong, it will adhere to any surface, effectively sealing out moisture and dirt. It is an ideal product for sealing all manner of connections exposed to the elements, especially in a mobile installation. It is perfect for sealing coax connections too, and when properly applied, it makes them virtually submergible. You can even use it to seal high-voltage connections like those used in auto-coupler applications.</p>
+
+        <p>It makes a great emergency bandage, and you can even use it to repair a radiator hose leak. The best part is, when you need to remove it, it leaves no residue &mdash; period. Your local Ace Hardware is one source, but it can be ordered online directly from Rescue Tape.</p>
+
+        <h2 id="voltmeters">Two-Wire Voltmeters</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_15.jpeg" alt="Martel QV100 two-wire voltmeter" loading="lazy">
+          <figcaption>The Martel Electronics QV100 series two-wire voltmeter. Physically small at 0.84&times;1.71 inches, draws just 3 mA, and can be left connected indefinitely. Should be shunted with an 18-24 volt Zener diode in mobile applications to protect against transients. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p2_16.jpeg" alt="Datel LED voltmeter" loading="lazy">
+          <figcaption>The Datel LED voltmeter, available in red and blue LEDs, weatherproof, and two-wire. About $60 plus shipping. Datel also sells backlit LCD voltmeters (not weatherproof), AC meters, and ammeters. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>Some things just aren't small enough to fit where you want them to fit. This goes double for voltmeters which are seemingly large and usually ugly. Here are two that aren't.</p>
+
+        <p>Martel Electronics makes the QV100 series of two-wire voltmeters. They're not only small physically (0.84&times;1.71 inches), at about $50 each they're small in cost. Current draw is just 3 mA and they really don't need to be switched. They're unlit, which might be a drawback for some users &mdash; a shielded LED solves the problem. In a mobile application, the meter should be shunted with a Zener diode (18&ndash;24 volts) to protect the meter from transients.</p>
+
+        <p>The Datel LED voltmeters are available in both red and blue LEDs, sell for about $60 plus shipping, and the good part is they're weatherproof. Like the Martel they are two-wire, which simplifies wiring. They also sell backlit LCD voltmeters, but they're not weatherproof. Datel also sells AC meters and ammeters.</p>
+
+        <h2 id="video-display">Video Display for Icom IC-7000</h2>
+
+        <figure>
+          <img src="../images/Neat_Gadgets_p3_19.jpeg" alt="TVandNav2Go video adapter installed in Honda Ridgeline" loading="lazy">
+          <figcaption>The TVandNav2Go video adapter installed in a Honda Ridgeline. It displays the Icom IC-7000's front panel on the factory navigation screen, reducing the distraction of looking down at the radio. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>If you have an Icom IC-7000 and a factory-installed navigation system, here's just the gadget you need. TVandNav2Go makes video adapters for just about every factory-installed navigation system ever made. The best part about the unit is it reduces the distraction we all contend with. The left photo depicts the unit in my Honda Ridgeline.</p>
+
+        <p>The TVandNav2Go is in a metal box about 1&times;3&times;4 inches. The manual is rather lame, but installation is easy enough to figure out. You have to supply switchable DC power to the unit, and a SPST switch or two for controlling it, and select the display sync mode. There's even a second, switchable input for a backup camera or DVD player. But before you decide on the latter, remember there are laws about watching video while in motion.</p>
+
+        <p>If you don't have a Navi, then consider an AudioVox monitor mirror as an option. In this case, you won't need the video adapter, but you will still need to provide power to the mirror.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>I have been asked several times if anyone makes a heads-up video adapter for amateur radio use. Fortunately, there isn't one. Heads-up displays were all the rage at GM a few years ago, and they're still an option on a couple of models. But the truth is, they're distracting to most drivers, especially those who wear bifocals. They're always in your field of vision. Even when turned off, the reflective material plated on the glass is evident. And forget about using one in daylight.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Several of the products mentioned in this article have been updated, discontinued, or superseded. The core recommendations &mdash; measure RF current on your feedline, use a real antenna analyzer rather than guessing, carry a fire extinguisher, keep the radio from draining your battery &mdash; remain as valid as ever.</p>
+
+        <p>NanoVNA has become the dominant budget VNA option since this content was written. At under $100, it covers 10 kHz to 1.5 GHz and provides full S-parameter measurements. It is not in the same calibration class as the miniVNA Pro, but for field use in adjusting mobile antennas, it is a remarkable value. Numerous accessories, PC software, and a large user community make it very practical.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>The Rigol DSA815 spectrum analyzer mentioned here has been followed by later models with better specifications at similar or lower prices. If you're investing in a spectrum analyzer for your shack, check the current lineup &mdash; the value proposition in this category has improved dramatically with Chinese instrumentation. The fundamental recommendation stands: if you're serious about mobile HF, a spectrum analyzer will show you interference sources and IMD products that no other instrument can.</p>
+        </div>
+
+        <p>For the video display gadget with the IC-7000: the IC-7000 itself is now a legacy radio, and TVandNav2Go has evolved its product line to support current factory navigation systems. If you're running an IC-7100 or later Icom, note that Icom chose not to include composite video out on those models &mdash; a decision that continues to frustrate mobile operators who valued that feature on the 7000.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="home-brew.html">Home Brew Things</a>
+          <a class="related-card" href="tricks.html">Tricks of the Trade</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -89,6 +132,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ RF Exposure Notice</div>
+          <p>Transmitting during antenna adjustment exposes the operator and nearby persons to RF electromagnetic fields. Always perform tuning procedures with the antenna pointed away from occupied areas. Review FCC OET Bulletin 65 and Supplement B for RF exposure evaluation requirements applicable to your station.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -177,9 +224,16 @@
 
         <p>For the do-it-yourself crowd, an effective UNUN can be built using an F114-67 ferrite core wound with 9 bifilar turns of #14 enameled copper wire. Cover the finished winding with 3M #27 glass tape for mechanical protection and moisture resistance. The ferrite mix matters &mdash; type 67 is specified because it provides adequate permeability with acceptable loss across the HF spectrum. Do not substitute random ferrite material and expect the same results.</p>
 
+        <h3 id="capacitive-matching">A Warning About Capacitive Matching</h3>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Capacitive Matching</div>
+          <p>Capacitive matching has two critical drawbacks. First, the antenna element is <strong>not DC grounded</strong>, which eliminates the static discharge protection and lightning safety benefits described above. Second, as frequency increases, capacitive reactance decreases — which means you need a different value capacitor for each band, and sometimes within the same band. If you are using an automatic antenna controller, this is a severe operational drawback. If you are currently using capacitive matching, you should give serious thought to replacing it with inductive (shunt coil) matching.</p>
+        </div>
+
         <h3 id="stub-matching">Stub Matching</h3>
 
-        <p>Stub matching uses a length of transmission line as a matching element. While it works, it is the least common method for mobile installations because it requires a specific length of coax that changes with frequency. It is mentioned here for completeness, but for most practical mobile installations, the shunt coil or UNUN will serve you better.</p>
+        <p>A shorted quarter-wave stub not only performs a conjugate match but extends the antenna's bandwidth by 2 or 3 times. The reason is that the reactance curve of a quarter-wave shorted stub versus frequency is <em>opposite</em> that of the antenna, producing a degree of compensation across a wider range. The trade-off is that stub matching is monoband in nature. While stubs can be cascaded in parallel, the mechanical considerations become unwieldy. It is considerably less complicated than using an internal or external auto-coupler with about the same results for single-band operation.</p>
 
         <h2 id="motor-lead-considerations">Motor Lead Considerations</h2>
 
@@ -188,6 +242,15 @@
         <p>The motor control wires running up to the antenna coil are coupled to the RF field. If they are connected while you are trying to adjust your matching network, they will affect the readings. Adjust the match with the motor leads disconnected, then reconnect them.</p>
 
         <p>Here is the diagnostic part: if reconnecting the motor leads changes your matching point, your motor lead choke impedance is too low. The choke on those leads must present enough impedance at RF to effectively decouple them from the antenna system. If reconnecting the leads shifts your match, you need a better choke. See the <a href="antenna-controllers.html">Antenna Controllers</a> article for details on proper choke construction.</p>
+
+        <h2 id="160m-matching">160 Meter Coverage: When the Shunt Coil Is Not Enough</h2>
+
+        <p>Antennas covering 160 meters require special matching consideration. A 160-meter loading coil is approximately five times larger in inductance than an 80-meter loading coil. Because of this, coil losses are substantially higher, and the input impedance at 160 meters may already be close to 50 ohms without any matching network — but this apparent convenience comes at a cost: the coil losses are so high that you don't need matching because the antenna is essentially a dummy load on that band.</p>
+
+        <div class="callout callout-key">
+          <div class="callout-title">KEY FACT: 160 Meter Switched Inductor</div>
+          <p>A 160-through-10-meter remotely controlled antenna will exhibit <strong>more coil loss at any frequency</strong> than an equivalent 80-through-10-meter antenna. For operators needing true 160-meter coverage with adequate efficiency, a <strong>switched shunt inductor</strong> (such as the MFJ-908 or a homebrew equivalent) is required. The switch shorts out a portion of the coil to reduce inductance from approximately 2 &mu;H down to 0.7 &mu;H as you move from 160 to 80 meters. A single fixed-value coil cannot provide an optimal match across both 160 and 80 meters simultaneously.</p>
+        </div>
 
         <h2 id="imd-and-swr">IMD and SWR</h2>
 
@@ -240,6 +303,11 @@
           <p>For a properly installed mobile antenna with correct matching, you do not need an automatic antenna tuner. For a poorly installed one, an auto-tuner is an expensive band-aid. It keeps your radio from folding back power, but it does nothing to fix the efficiency problems, the common-mode current, or the degraded radiation pattern caused by whatever is actually wrong with the installation. Fix the installation. That is the point of this entire article.</p>
         </div>
 
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Auto-Coupler Arc-Over Danger</div>
+          <p>If you use an external or internal auto-coupler with a remotely tuned antenna, the antenna <strong>must</strong> be adjusted to resonance (lowest SWR is close enough) <em>before</em> the auto-coupler is activated. Under the right circumstances, failing to tune the antenna close to the operating frequency first can cause the RF voltage to build high enough to <strong>arc over most base insulators and/or coil turns</strong>. External auto-couplers with greater matching range are particularly dangerous in this respect. Tune the antenna first. Then engage the coupler.</p>
+        </div>
+
       </div>
 
       <div class="related-articles">
@@ -255,6 +323,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

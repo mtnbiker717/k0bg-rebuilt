@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -118,6 +161,11 @@
           <p>Some controllers, including newer versions of the MFJ-1924, auto-park and recalibrate every time they power up. While this ensures accuracy, it adds mechanical wear to the antenna's motor and gear train. Every park cycle runs the motor to the end of its travel, and those cycles add up over time. If you leave your radio on all day and the controller re-parks every time, you are putting unnecessary miles on a mechanism that was not designed for infinite duty cycles.</p>
         </div>
 
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>Cold climates and memory-backed controllers:</strong> Many turn-counting controllers use a small lithium cell or supercapacitor to maintain stored band positions when the vehicle is off. In cold climates, these backup power sources lose capacity rapidly. If you operate in sustained cold weather and find your stored band positions disappearing between operating sessions, the controller's memory backup is failing. Replace the battery or supercapacitor, or adopt the habit of re-parking and re-entering positions each outing. This is not a controller malfunction &mdash; it is a well-understood behavior of small energy storage devices at low temperatures.</p>
+        </div>
+
         <h3 id="sdc-100-issues">SDC-100 Erratic Operation</h3>
 
         <p>The SDC-100 (predecessor to the SDC-102B) is known for erratic behavior that sends operators on wild goose chases through their entire installation. Before you tear apart your wiring or blame RFI, check the stall current setting. The SDC-100 detects the end of antenna travel by sensing when motor current spikes (because the motor has stalled against the mechanical stop). If the stall current threshold is set incorrectly, the controller either overshoots (does not detect the stall) or stops prematurely (false stall detection from normal running current variation). It is a simple adjustment that solves an outsized percentage of SDC-100 complaints.</p>
@@ -161,7 +209,19 @@
           <p>"The antenna came with ferrite beads for the motor leads, so I'm covered." No, you are not. Those beads typically provide a few hundred ohms of impedance at best. That is one to two orders of magnitude below what is needed. You need a proper wound choke on the correct ferrite material, with enough turns to develop the required impedance. The factory beads are better than nothing, but "better than nothing" is a low bar.</p>
         </div>
 
+        <div class="callout callout-key">
+          <div class="callout-title">KEY SPECS: Mix 31 Split Beads</div>
+          <p>Mix 31 split beads are ideal for motor lead chokes. However, it takes <strong>8 turns</strong> through a 3/4-inch ID mix 31 bead to reach 5k&Omega; of impedance. That means you must use the 3/4-inch ID size &mdash; the smaller ID split beads simply do not provide enough winding room to achieve adequate impedance. Mix 31 beads in this size are available from DX Engineering and other dealers; a package of five costs approximately $35. Do not assume you can substitute a different ferrite mix or use fewer turns. You cannot.</p>
+        </div>
+
         <p>Why do short or stubby antennas require more choke impedance? Because shorter antennas have lower radiation resistance, which means the currents in the system are proportionally higher for a given power level. Higher current means more RF on the motor leads, which means you need a higher-impedance choke to keep those currents out of the controller. The math is straightforward, even if the antenna manufacturers prefer to ignore it.</p>
+
+        <h2 id="icom-706-7000-incompatibility">Critical Incompatibility: IC-706 vs. IC-7000/7100/7200</h2>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: IC-706 Devices Will Damage the IC-7000 Series</div>
+          <p>The Icom IC-706 and IC-7000/7100/7200 differ fundamentally in how their tuner ports are configured. Devices that work correctly with the IC-706 may <strong>damage the IC-7000 series beyond repair</strong>. Here is why: many IC-706 devices place a resistor and capacitor between Pin 3 (13.8 VDC) and Pin 2 (TSTART) as a time constant to trigger a tuning carrier. On the IC-7000 series, this configuration stops the cooling fan from running, which guarantees the finals will fail. Additionally, Pin 1 (TKEY) is shared internally with the temperature control circuitry on the IC-7000 and must be left floating. Non-computerized devices used to mimic the AH-4 and trick the IC-706 into transmitting a 10-watt carrier are NOT compatible with the IC-7000 series. This includes suggested circuitry from SGC, at least three older screwdriver controller models, and most small tuner modules. Even if an old IC-706 unit appears to work correctly with a new IC-7000, do not use it.</p>
+        </div>
 
         <h2 id="motor-lead-hazard">Motor Leads Shorted to Mast</h2>
 
@@ -257,6 +317,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

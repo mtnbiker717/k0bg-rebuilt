@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cables &amp; Interfacing — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Remote cables, microphone connections, modular plugs and jacks, and interfacing for mobile amateur radio transceivers. Why CAT5 is not a substitute and how to avoid expensive mistakes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Cables &amp; Interfacing</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Information on power wiring is covered in the <a href="wiring.html">Wiring article</a>, including proper fusing, splicing, shortening, and crimping connectors. Minimizing voltage drop is also covered there. This article focuses on signal cables: microphone cords, remote control cables, and the modular connectors used for interfacing to computers, antenna controllers, and amplifiers.</p>
+
+        <p>Microphone cords tend to be brand-specific. Unfortunately, too many of them look like CAT5 cables, prompting people to use CAT5 as a cheap substitute for the more expensive factory units. Sometimes this works. Sometimes it doesn't. And sometimes it damages the transceiver. Always use the correct, manufacturer-supplied cable.</p>
+
+        <p>All HF mobile transceivers &mdash; and quite a few FM ones too &mdash; have ports designed to connect to the outside world. They're meant to interface transceivers to programming computers, antenna controllers, amplifiers, and even the Internet. No two brands are alike. The ports (sockets) are different between manufacturers, and in many cases between models from the same manufacturer. Use manufacturer-supplied cabling wherever possible.</p>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p1_0.jpeg" alt="Assorted transceiver interface connectors and cables" loading="lazy">
+          <figcaption>The variety of connectors used for transceiver interfacing. Modular jacks and plugs that appear to be standard telephone RJ45 connectors often are not, and substituting standard telephone hardware can destroy expensive equipment. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="remote-cables">Remote Cables</h2>
+
+        <p>While DC cabling doesn't need to be shielded, most other amateur radio cabling is shielded &mdash; for very obvious reasons. Some enterprising amateurs think it's acceptable to use Ethernet CAT5 cable for their interconnections. It isn't.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: CAT5 is NOT a Universal Cable</div>
+          <p>CAT5 is not 8 separate strands &mdash; it is 4 pairs, each pair separately twisted at different pitches. Depending on the use and how it's wired, crosstalk between conductors is almost a given. Ready-made CAT5 cable assemblies come in several wiring configurations, including crossover cables that can short the regulated supply to ground. Using a ready-made CAT5 cable in your mobile might work. Then again, it might not &mdash; and you'll be facing an expensive repair.</p>
+        </div>
+
+        <p>You can buy shielded CAT5 cable, but the vast majority of it uses solid conductors. Solid-conductor cable should never be used in a mobile environment where constant flexing and vibration will fatigue and eventually break the conductors.</p>
+
+        <h3 id="mfj-cables">MFJ Interconnect Cables</h3>
+
+        <p>A similar caution applies to MFJ's interconnect cables, like those supplied with their ALS-500 amplifier remote kit. These are 8-conductor silver satin telephone cables, but the connectors are installed differently from standard telephone cables &mdash; they're straight, not crossed over. This is one of the very few cases where you can shorten them and install a new RJ45 plug with a standard telephone crimp tool, as long as you observe the polarity.</p>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p1_1.jpeg" alt="MFJ ALS-500 remote kit cable showing connector orientation" loading="lazy">
+          <figcaption>MFJ amplifier remote cables use silver satin telephone wire with straight (not crossover) connector wiring. These can be shortened and re-terminated if needed, but polarity must be observed. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: Do Not Lengthen Proprietary Cables</div>
+          <p>Proprietary remote cables should never be lengthened. Doing so is a reliable way to destroy a $50 cable. If a longer cable isn't available, rethink your mounting locations. Unlike power cables, remote cables are subject to common mode problems. Ferrite chokes work very well here when multiple turns are used &mdash; see the <a href="common-mode.html">Common Mode Currents article</a>.</p>
+        </div>
+
+        <h3 id="icom-grounding">Icom IC-7000/IC-706 Grounding Screw</h3>
+
+        <p>There is a very important caveat for IC-7000 and older IC-706 installations. Make sure the grounding screw for the remote cable is installed. It is very small (2 mm x 6 mm) and is depicted on page 16, center drawing, Figure 2 in the IC-7000 Owner's Manual. Leave it out and you're in for major RFI problems. The IC-706 cable is slightly different but the same caveat applies.</p>
+
+        <h2 id="modular-plugs-jacks">Modular Plugs &amp; Jacks</h2>
+
+        <p>A lot of newer transceivers use modular jacks and plugs for microphone and/or remote cables. While they appear to be standard RJ45 telephone connectors, they typically are not. Modular jacks and plugs come in about 50 different configurations: some for round cables, some for oval cable, some for flat cables, and different types for solid and stranded wire. There are keyed and unkeyed versions, ones with external cord grips, and ones for heavy-duty use. Selecting the correct one isn't as simple as it looks.</p>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p1_2.jpeg" alt="Modular plug configurations and crimp tool" loading="lazy">
+          <figcaption>The variety of modular plug configurations available. A crimping tool designed for round cable will not correctly crimp a flat cable, and vice versa. There are about 8 different die sets to accommodate all types. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>MFJ and a couple of other manufacturers use RJ45 telephone-style jacks, plugs, and silver satin 8-conductor telephone wire as interconnect cabling. The problem: they aren't wired like telephone cables. Arbitrarily substituting a telephone cable will result in an expensive repair.</p>
+
+        <p>The crimping tools required for the various types are also different. A tool designed for round cable will not properly crimp a flat cable, and one designed for flat cable can actually cut through a round cable.</p>
+
+        <h3 id="icom-mic-pinout">Icom Microphone Jack Details</h3>
+
+        <p>The pins in Icom's microphone jack are approximately 1/32 inch apart. If you're not precise, you may not be able to properly position and hold the wires during crimping. First attempts often go through several plugs before getting it right.</p>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p1_3.jpeg" alt="Icom microphone jack wiring diagram enlarged" loading="lazy">
+          <figcaption>Icom microphone jack wiring diagram, enlarged approximately 4 times actual size. Note the separate ground connections for microphone and PTT. The pin spacing of approximately 1/32 inch requires careful work. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: Icom IC-7000/7100 Pin Hazards</div>
+          <p>The microphone input on the IC-7000/7100 has an 8V DC regulated supply on pin 1. Shorting this pin to ground will cause the 8V regulator to instantly fail. Shorting pin 1 to other pins can cause both the series resistor and the 8V regulator to overheat and eventually fail. Both are surface-mounted devices requiring special tools to replace. The same regulated supply exists on Yaesu and Kenwood transceivers. The maximum current for the 8V line and the squelch switch sink is 10 milliamps &mdash; it is not intended to power ancillary equipment like TNCs.</p>
+        </div>
+
+        <p>Pin 3 on the IC-706MkIIg is the audio output. On the IC-7000/7100, this pin is used as a microphone "sense" pin that tells the radio an HM-151 stock microphone is attached. Plugging in a Heil headset designed for the IC-706 causes the radio to think it's an HM-151. The required audio input levels are very different, so the transmitted audio will be distorted.</p>
+
+        <p>Pin 2 on the IC-7000/7100 is a multipurpose input. Shorted to ground during receive, it causes the frequency to go up. A 470-ohm resistor in series to ground causes the frequency to go down. In CW mode, a 3.9k ohm resistor to ground is the dit side of the paddle (or straight key), and a 2.2k ohm resistor is the dah side.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Icom makes an adapter to convert the microphone jack from modular to a standard 8-pin microphone jack for use with their SM8 and other desk microphones. If you're interfacing through the microphone port of an IC-7000/7100, note that the radio has two microphone ports, but using both simultaneously can cause data corruption.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p2_4.jpeg" alt="Heil headset adapter for Icom IC-7000" loading="lazy">
+          <figcaption>Heil has a headset designed specifically for the IC-7000/7100. Its higher output requires a lower gain setting on the radio. This is not the same as the Heil adapter for the IC-706. Do not substitute. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="making-your-own">If You Just Have to Make Your Own</h2>
+
+        <p>Making your own modular extension cables is not suggested in the first place, since most are proprietary material and configuration. Pre-made telephone cables and splices aren't the answer either. Ethernet cables come in straight and crossover configurations, and although their splices look like telephone splices, they're not wired the same. This is one area of amateur radio where you shouldn't scrimp &mdash; the potential damage costs far exceed the procurement costs of most cables.</p>
+
+        <p>If you must proceed, DigiKey and Mouser sell the proper modular plugs, listed under Modular Connectors and Jacks. There are about 20 different configurations catalogued, and another 25 or so they don't list.</p>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p2_5.jpeg" alt="EZ-Plug modular connectors with through-holes for wire verification" loading="lazy">
+          <figcaption>Bomar EZ-Plug modular connectors (Mouser 678-300568EZ for stranded round cable) have drilled-through holes in the end of the plug, allowing wires to protrude before crimping so you can verify correct wiring. If you don't own the correct EZ crimping tool, an X-Acto knife can trim the extra wire to avoid shorts. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: Avoid Cheap Crimp Tools</div>
+          <p>Do not use the inexpensive Radio Shack-type crimpers for Ethernet-style connectors. They're designed for flat, stranded telephone cable (silver satin), and they'll tell you it's acceptable for Ethernet cable &mdash; it isn't. These tools will not properly crimp connectors when solid wire is used, and if you squeeze hard enough as the instructions suggest, you risk separating the insulation and causing shorts, to say nothing of breaking the plastic handles. Quality crimping tools from AllenTel range from about $75, which is not inexpensive &mdash; but quality never is.</p>
+        </div>
+
+        <p>Always check connections for continuity and shorts before attaching cables to your hardware. A pair of pre-wired jacks is a useful tool for checking continuity. Ensure the wire is properly restrained by the strain relief. Take your time.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <h3 id="usb-serial-interfaces">USB and Serial Interfaces</h3>
+
+        <p>Modern transceivers increasingly use USB for computer interfacing &mdash; for logging, digital modes, programming, and remote control. USB cables are standardized in a way that RS-232 serial cables never were, which simplifies the physical connection. However, USB cables carrying data between the transceiver and a computer are still subject to common mode current problems when routed inside the vehicle. Ferrite chokes with multiple turns on USB and serial cables are effective and often necessary.</p>
+
+        <h3 id="bluetooth-wireless">Bluetooth and Wireless Interfacing</h3>
+
+        <p>Several transceiver manufacturers now offer Bluetooth microphone adapters and Bluetooth programming interfaces. Bluetooth operates at 2.4 GHz &mdash; well above the HF amateur bands &mdash; so the RF coexistence issue between Bluetooth and HF operation is minimal. The more practical concern is latency: Bluetooth introduces audio latency that makes digital modes and CW operation awkward. For voice operation, Bluetooth microphone connections are generally fine. For anything timing-sensitive, stick with wired connections.</p>
+
+        <h3 id="cat-control">CAT Control and Transceiver Networking</h3>
+
+        <p>Computer-aided transceiver (CAT) control via RS-232 or USB allows logging software, antenna controllers, and digital mode software to query and command the transceiver remotely. In a mobile installation, CAT control cables run from the radio to wherever the logging device or controller is mounted &mdash; often across significant distances inside the vehicle. These cables must be properly routed and choked against common mode just like any other signal cable in the installation.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="coax-pl259.html">Coax &amp; PL-259s</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

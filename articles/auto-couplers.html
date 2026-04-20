@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-Couplers — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Auto-couplers in mobile HF installations: what they can and cannot do, RF voltage hazards, mounting requirements, efficiency limitations, and how to improve auto-coupler/whip performance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Auto-Couplers</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>There seems to be as much confusion about internal couplers as there are external ones. Auto-couplers built into modern transceivers are only good for mismatched loads up to approximately 3:1 SWR. Therefore, they're only suitable for extending the bandwidth of a monoband mobile antenna &mdash; and even this is a questionable practice. Using one in conjunction with a screwdriver antenna isn't recommended, due to the high RF voltage problem described below. Yet many mobile operators choose their transceiver make and model just because it has a built-in auto-coupler.</p>
+
+        <p>The confusion extends to external auto-couplers too. The usual justification is to flatten the SWR to near zero &mdash; which they don't always do. While this does slightly reduce coax losses, there is little thought about the additional losses within the coupler itself. In fact, the losses through the auto-coupler are usually several times more than a 2:1 SWR would cause through coax.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>When auto-couplers are used in a mobile environment driving electrically short antennas, the resulting RF output voltage can exceed 10 kV, even when running just 100 watts PEP. This is a serious concern. Standard ballmounts and nylon washers are not designed to handle this much electromotive stress. They will fail post-haste, especially if moisture is present.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Auto-Couplers_p1_0.jpeg" alt="Old GE Master ballmount insulator showing burned-out groove from RF arc-over" loading="lazy">
+          <figcaption>An old GE Master ballmount insulator with a burned-out groove between the edge of the (removed) ball and one of the mounting bolts &mdash; the result of RF arc-over from the high voltages generated by an auto-coupler driving an electrically short antenna. Standard mounting hardware is not rated for these voltages. Use a purpose-built high-voltage base insulator if you must use an auto-coupler.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Auto-Couplers_p1_1.jpeg" alt="Breedlove high-voltage base insulator suitable for auto-coupler installations" loading="lazy">
+          <figcaption>The Breedlove high-voltage base insulator. This is the type of mounting hardware required when using an auto-coupler. The voltage rating must exceed the peak RF voltage the auto-coupler can produce &mdash; which, at 100 watts PEP into a short antenna, can exceed 10 kV.</figcaption>
+        </figure>
+
+        <p>High RF voltage isn't the only concern. Since we're dealing with high reactances, auto-couplers must be mounted as close to the antenna as possible &mdash; that means inches, not feet. You cannot use coax between the auto-coupler and the antenna. Even a one-foot piece of coax will reduce efficiency by 30%. The reason: coax has about 25 pF of capacitance per foot. The capacitance of a typical HF antenna ranges from 20 pF to about 45 pF depending on its length and frequency. Since the auto-coupled antenna is essentially a base-loaded vertical, placing 25 pF to ground shunts a large portion of the RF to ground. This interaction should not be confused with using shunt reactances to match a low-impedance HF antenna to 50 ohms &mdash; that is a different situation entirely.</p>
+
+        <figure>
+          <img src="../images/Auto-Couplers_p1_2.png" alt="Diagram showing why coax between auto-coupler and antenna shunts RF to ground via distributed capacitance" loading="lazy">
+          <figcaption>Why you cannot use coax between an auto-coupler and the antenna it is driving. The 25 pF per foot of distributed coax capacitance represents a shunt reactance to ground that is comparable to or larger than the antenna's capacitance itself. The result is that a significant fraction of the RF is bypassed to ground before it reaches the antenna.</figcaption>
+        </figure>
+
+        <p>The robustness of the RF ground is also a major consideration. Classic symptoms of poor RF grounding are when the coupler cannot find a match or resets itself during transmissions. One-inch braid may work if the ground lead is short (less than six inches or so). The ground side impedance must be lower than the radiating element side impedance &mdash; this is not optional.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Auto-couplers are decade-switched LC networks with a design limitation: they cannot adequately match loads close to the feed line's impedance (near 50 ohms resistive). If the radiator represents a 1/4-wave vertical at the operating frequency, the auto-coupler may not be able to present a low impedance to the transceiver. The typical symptom is that the coupler appears to tune properly at low power, but once full power is applied it attempts to retune. Knowing the problem exists is half the cure.</p>
+        </div>
+
+        <p>The most popular auto-couplers for driving an unloaded whip are the Icom AH-4, the Yaesu FT-40, the Alinco EDX-2, and various MFJ models. Internally, the switching arrangement is almost identical across these units.</p>
+
+        <figure>
+          <img src="../images/Auto-Couplers_p1_3.jpeg" alt="Icom AH-4 auto-coupler mounted at base of antenna" loading="lazy">
+          <figcaption>The Icom AH-4 auto-coupler. This is the correct installation position &mdash; mounted directly at the base of the antenna, with the shortest possible connection to the antenna itself. The AH-4 is among the most popular external auto-couplers for mobile whip applications. Note the control cable requirement: the AH-4 is not a stand-alone unit and requires a compatible Icom transceiver.</figcaption>
+        </figure>
+
+        <p>It should be noted that the line of auto-couplers manufactured by LDG Electronics are not single-ended &mdash; they are made to match coax-fed loads. While suitable for extending the bandwidth of a monoband antenna, they do not have the matching range of the single-ended couplers mentioned above. A 4:1 balun is available intended to extend the matching range, but the losses through this single-core ratio balun are very high.</p>
+
+        <h2 id="efficiencies">Efficiencies</h2>
+
+        <p>The efficiency of an auto-coupler/whip combination isn't all it could be. They are roughly equivalent to a base-loaded antenna, which already has the worst possible coil position for radiation resistance. However, there are ways to increase their efficiency.</p>
+
+        <p>Obviously, increasing the overall length by using a mast is one option, but height limitations apply. A good alternative is a cap hat, but this raises additional concerns. In order to be effective, the cap hat must be mounted at the very top of the antenna. This is difficult to accomplish when using a whip made from 17-7 stainless steel &mdash; they're too flexible at the heights required. A solid mast is the only answer.</p>
+
+        <figure>
+          <img src="../images/Auto-Couplers_p1_4.jpeg" alt="Auto-coupler installation with aluminum rod mast and three-loop cap hat" loading="lazy">
+          <figcaption>An auto-coupler installation with an aluminum rod mast and a three-loop cap hat. The rod is 5 feet long, 5/8-inch OD. The cap hat brings the electrically equivalent length to nearly 12 feet. This more than doubles the efficiency compared to a simple whip installation. The mounting arrangement must be proportionally stouter to handle the additional wind loading of the cap hat.</figcaption>
+        </figure>
+
+        <p>Aluminum rod is fairly inexpensive and available from Commerce Metals, Speedy Metals, Metals Depot, and similar suppliers. It requires drilling and tapping, but any good metal shop can do that for you. A good rod size to target is 5 feet in length and 5/8-inch OD. Add a 5-foot cap hat (as described in the <a href="antenna-cap-hat.html">Cap Hat article</a>), and the electrically equivalent length will be nearly 12 feet. This more than doubles the overall efficiency of the auto-coupler/whip combination.</p>
+
+        <p>One more consideration: the mounting arrangement. A 5-foot aluminum rod with a cap hat on top represents significant wind loading and bending moment. The mounting solution depends on a lot of variables &mdash; the vehicle and the mounting position are the two largest. These issues, however, should be weighed against more than doubling the overall efficiency.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>If you're using an auto-coupler system and are frustrated by its inability to tune certain bands, the most common causes are: (1) the coupler is mounted too far from the antenna with coax in between; (2) the ground lead is too long or too high in impedance; (3) the antenna is at or near 1/4 wave on the operating frequency, putting the load impedance in the auto-coupler's matching dead zone; or (4) moisture in the mounting hardware is causing arc-over rather than a clean impedance transformation.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Auto-couplers have not fundamentally changed since this material was originally written. The physics is the same. However, some points are worth emphasizing for modern installations:</p>
+
+        <p><strong>Built-in transceiver tuners:</strong> More transceivers now ship with built-in auto-couplers as standard equipment rather than options. The Kenwood TS-480SAT versus TS-480HX example from the original article has been replaced by similar options from Icom, Yaesu, and others. The decision to choose a radio based on its built-in tuner should account for the tuner's actual matching range (typically 3:1 SWR or less) and the reality that using the built-in tuner with a screwdriver antenna is not recommended for the reasons described above.</p>
+
+        <p><strong>Voltage rating of modern mounts:</strong> Manufacturer literature on antenna mounting hardware rarely mentions RF voltage ratings. Most ballmounts, spring bases, and quick disconnects are not designed for the kilovolt-level RF that an auto-coupler driving a short antenna will produce. If you choose an auto-coupler installation, budget for proper high-voltage-rated base insulators. The Breedlove insulator mentioned above is a good choice; verify its voltage rating before purchase.</p>
+
+        <p><strong>Common mode aggravation:</strong> Auto-coupler installations tend to have worse common mode current problems than properly matched screwdriver antenna installations. The reason is the high impedances involved and the typically poor RF ground of auto-coupler installations. Common mode chokes are not optional &mdash; they are mandatory, and the choke impedance required may be considerably higher than for a standard installation. Use Mix 31 ferrite and measure the result; a single choke may not be sufficient.</p>
+
+        <p><strong>Aluminum-body vehicles:</strong> The RF ground requirements for an auto-coupler installation (ground side impedance lower than the radiating element side) are more demanding than for a loaded antenna with a shunt coil match. On an aluminum-body vehicle with non-conductive panels, achieving an adequate RF ground for an auto-coupler installation may not be possible from some locations. Evaluate this carefully before committing to an auto-coupler approach on an aluminum-body truck or vehicle with composite body panels.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-matching.html">Antenna Matching</a>
+          <a class="related-card" href="antenna-cap-hat.html">Antenna Cap Hat</a>
+          <a class="related-card" href="antenna-efficiency.html">Antenna Efficiency</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

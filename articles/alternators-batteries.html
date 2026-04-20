@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternators &amp; Batteries — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Complete guide to alternators, batteries, auxiliary power, and electrical capacity for mobile amateur radio installations. Covers alternator ratings, auxiliary batteries, isolators, and battery monitoring systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Alternators &amp; Batteries</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="alternator-basics">Alternator Basics</h2>
+
+        <p>The first American-made vehicle with a factory-equipped, rectified alternator was the 1960 Chrysler Valiant. The basic model was rated at 30 amps. By 1975, Chrysler's average alternator had grown to 75 amps. Today, it is not uncommon for OEM alternators to exceed 150 amps, and a few are as big as 250 amps. If the maximum amperage isn't listed on the alternator's model tag, your dealer service department is your only recourse.</p>
+
+        <p>Automotive alternators consist of a rotating, claw-pole field &mdash; a rotating electromagnet. Both the north and south poles of the field are energized by a single winding. This rotating magnet (rotor) spins inside an inter-woven tri-filer wound stator coil producing a three-phase AC output. This output is full-wave rectified, producing a near ripple-free flow of current. By adjusting the amount of field current, the output can be maintained at a constant level &mdash; nominally 14 VDC (13.6 to 14.4) &mdash; up to the rated amperage of the unit.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p1_0.jpeg" alt="Alternator stator and rotor diagram showing three-phase winding configuration" loading="lazy">
+          <figcaption>Claw-pole alternator schematic showing the tri-filer wound stator and three-phase rectifier bridge. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>In a load-matched condition, the output power of a claw-pole alternator is proportional to the number of field ampere-turns squared (AT<sup>2</sup>). One way to increase AT<sup>2</sup> is to use two tri-filer windings, as most OEM alternators now do. Instead of 6 diodes, they use 12 &mdash; which also allows the alternator to nearly double its output during idle conditions.</p>
+        </div>
+
+        <p>The diodes used in most late-model vehicle alternators aren't simple silicon types. They're Schottky diodes, which reduce forward voltage drop. Moreover, they're designed to break down and act like reverse-biased zener diodes should the output voltage exceed approximately 18 volts. This provides load-dump transient (LDT) protection for on-board electronics if a battery connection is lost.</p>
+
+        <p>The methodology used to regulate output voltage varies by manufacturer. Some alternator regulators pulse the rotor current similarly to a switching power supply; others use an analog method. The RFI from switching-type regulators sounds like a machine-gun rat-a-tat-tat that may sweep across the bandpass. If you're plagued with that particular noise, the alternator's regulator is where to start looking.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p1_1.jpeg" alt="Large high-output OEM alternator" loading="lazy">
+          <figcaption>A modern high-output OEM alternator. Some current production units exceed 250 amps. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h3 id="engine-idle-shutoff">Engine Idle Shutoff</h3>
+
+        <p>Engine Idle Shutoff (EIS) shuts down the engine during prolonged traffic stops. When traffic moves again, you release the brake, the engine restarts, and away you go. EIS requires more robust batteries, larger-capacity alternators, and a means of assuring the SLI (Starting, Lights, Ignition) battery has enough reserve capacity to restart the engine when required.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p1_2.jpeg" alt="Electrical Load Detector on negative battery lead" loading="lazy">
+          <figcaption>Electrical Load Detector (ELD) using a Hall device, typically located around the negative battery lead. EIS systems rely on ELD readings to decide whether to shut down the engine. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Depending on make and model, Electrical Load Detectors (ELD), Battery Monitoring Systems (BMS), and Voltage Quality Modules (VQM) are all employed and interconnected to the engine control computer. It is getting more complicated to install amateur radio gear &mdash; especially amplifiers and auxiliary batteries &mdash; in a modern vehicle without circumventing or bypassing these devices. The <a href="wiring.html">Wiring article</a> is your first stop before attempting any such installation.</p>
+
+        <h2 id="alternator-ratings">Alternator Ratings</h2>
+
+        <p>High-output alternators aren't primarily for us amateurs. They're intended to defrost windows, power navigation systems, heat seats and mirrors, and drive the rest of the accessories we've grown accustomed to. More and more vehicles use electrically-driven water pumps, power steering motors, and even power brake assist. Vehicle manufacturers know the alternator will only be delivering its full output for short durations, so they cut every corner they can.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>It is not uncommon for a 160 amp alternator to have a continuous duty cycle of less than 90 amps. Under the extra load imposed by high-power mobile applications, the alternator and/or the interconnect wiring may overheat. This is especially true of low-content (minimally accessorized) vehicles.</p>
+        </div>
+
+        <p>If you do a lot of operating while idling, remember that all alternators have an engine speed/temperature derating curve. Air conditioning, cooling fans, headlights, and slow engine speeds all add up to low alternator reserves. When in doubt, err on the side of safety and hang up the mic.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p1_3.jpeg" alt="Alternator derating curve chart showing output vs. engine speed and temperature" loading="lazy">
+          <figcaption>Alternator derating curve from Ford Motor Company. Output falls significantly at low engine speed and high temperature. Your brand will have a different curve. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>If you're contemplating purchasing a new vehicle, consider a heavy-duty electrical system if one is available. The major manufacturers offer heavy-duty systems on mid-to-large vehicles &mdash; sometimes called Police Packages, Taxi Service Packages, or in Ford's case, Modified Wiring Upfit Packages. These packages include a bigger alternator and battery, additional fused power circuits, and on Ford's Upfit package, a pre-drilled and wired 3/4-inch hole in the roof. Though intended for signage, it's perfect for installing an NMO mount.</p>
+
+        <h2 id="measuring-capacity">Measuring Capacity</h2>
+
+        <p>In the old days, most vehicles had ammeters connected between the battery and generator. With modern electronically controlled alternators that always put out exactly the right amount of current, the ammeter loses its effectiveness &mdash; it would almost always show "0."</p>
+
+        <p>A DC voltmeter is far more useful. If the fast-idle voltage (with HVAC and lights turned on) doesn't stay above 13 VDC while you're transmitting, you might not have enough reserve power for your transceiver.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>A quick way to estimate available reserve power: if your vehicle has a rear window defroster, you have about 30 amps of reserve when it isn't in use. That's enough for any of the late-model 100-watt transceivers (FT-857, IC-7000, TS-480, etc.). If you run an amplifier at 500 PEP watts out, peak draw is about 100 amps &mdash; you'll need at least 70 amps of reserve from the alternator alone.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p1_4.jpeg" alt="DC voltmeter mounted in vehicle dash" loading="lazy">
+          <figcaption>A simple DC voltmeter is more useful than a modern ammeter. Monitor voltage under transmit load to verify adequate reserve capacity. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="alternator-whine">Alternator Whine</h2>
+
+        <p>Alternator whine can be caused by a large AC ripple component &mdash; a rare occurrence today, one that typically triggers the MIL (Maintenance Indicator Light). Almost without exception, alternator whine is caused by a ground loop. In most cases the whine is only apparent on the transmitted signal, which is another indicator of a ground loop problem. The most likely culprits: a magnetic-mount antenna or a poor RF ground return (open coax shield connection).</p>
+
+        <p>A related issue is RFI generated by the rectifier diodes themselves. It sounds a lot like ignition and/or injector RFI, making it difficult to diagnose. You almost never see this with late-model stock alternators, but it's common with cheaply rebuilt aftermarket alternators.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Several manufacturers sell power cable filters &mdash; sometimes called brute-force filters &mdash; advertised to cure alternator whine. The truth: they only mask the real problem. A brute-force filter is a sure sign you didn't wire your installation correctly, or you're using a mag-mounted antenna. Worse, they add about 0.5 volts of drop no matter how large they are. Similarly, tightly twisting the radio's power cable with a drill does not fix the problem &mdash; the CAT5 twisted-pair technique works for balanced circuits. Amateur radio power cables are not balanced.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p2_6.jpeg" alt="Oscillograph showing AC ripple spike on alternator output" loading="lazy">
+          <figcaption>Oscillograph showing a spike in the AC component of alternator output &mdash; a rare cause of whine, and one that typically triggers a fault code. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="auxiliary-batteries">Auxiliary Batteries</h2>
+
+        <p>If you run a nominal 100 to 200-watt mobile transceiver, you probably don't need an auxiliary battery. For those running high power, an auxiliary battery is almost a necessity &mdash; unless you want to use $5-per-foot welding cable for the interconnections. The math is straightforward: it's about I<sup>2</sup>R losses and minimizing IMD products. See the <a href="amplifiers.html">Amplifiers</a> and <a href="wiring.html">Wiring</a> articles for more detail.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>All lead-acid batteries generate hydrogen gas during normal operation, and that gas becomes excessive during overcharge. Hydrogen is very explosive &mdash; even a minor spark can ignite it. The electrolyte is sulfuric acid, and an explosion isn't a pretty sight. Flooded batteries must not be used in enclosed spaces like a trunk. Use AGM (Absorbent Glass Mat) instead. AGM batteries can outgas too, but the hydrogen is absorbed by the glass mat unless you overcharge them.</p>
+        </div>
+
+        <p>Any auxiliary battery should be installed in a battery box and properly restrained. The rule of thumb for battery restraints is 6G lateral and 4G vertical. The last thing you want is a 60-pound battery flinging acid around the interior of your vehicle.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p2_7.jpeg" alt="Optima RedTop AGM battery" loading="lazy">
+          <figcaption>An AGM SLI battery such as the Optima RedTop is the correct choice for auxiliary power in a high-power mobile installation. Peak current capability, not long-term reserve capacity, is the key specification here. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p2_8.jpeg" alt="Exide Orbital AGM battery" loading="lazy">
+          <figcaption>The Exide Orbital is another proven AGM choice. Both can be connected in parallel with the vehicle's main battery &mdash; using an isolator in this configuration defeats the purpose of keeping voltage as stiff as possible. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Do not assume circuit breakers are a substitute for fuses. Under a direct short, a typical lead-acid battery with an ESR of 0.003&Omega; will supply over 3,000 amps. That can weld the contacts of a circuit breaker together and cause the battery to self-destruct. Use properly rated fuses, located as close to the battery terminal as possible.</p>
+        </div>
+
+        <p>When connecting or disconnecting batteries, remove the negative lead first and install it last. Keep plastic post caps on until you actually make the connections. And never mix battery chemistry types &mdash; do not interconnect lead-acid and lithium iron phosphate batteries, even with an isolator in the circuit. Every battery chemistry has its own charging parameters.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Batteries designed for marine applications are not the correct choice for mobile amateur radio. Marine batteries are designed to maintain an 80% state of charge after sitting uncharged for 12 months &mdash; they are a form of SLI battery, but typically have less starting amperage and less reserve power than a true SLI. In high-power mobile installations, what you need is peak current capability from an AGM SLI battery, not long-term reserve capacity from a deep-cycle unit.</p>
+        </div>
+
+        <h2 id="farad-capacitors">Farad Capacitors</h2>
+
+        <p>Farad-sized capacitors, sold in the automotive sound marketplace from approximately 1 to 5 Farads, have an almost mythical following. Let's be direct: they are not a voltage-drop fix for an under-powered or inadequately-wired installation. They do not extend battery life or state of charge. The reason is simple &mdash; they're not a power source. They're a power drag.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Farad-sized capacitors have an ESR somewhat higher than a lead-acid battery's, yet they cost nearly as much. Their efficiency hovers around 90%. They're over-voltage, dead-short, and fast-charging intolerant. Abuse one, and it will fail with spectacular results. And for those who believe they'll cure alternator whine: they won't. Fusing the capacitor (which you must do) doubles its effective ESR, further eroding efficiency. The best advice: forget about them entirely.</p>
+        </div>
+
+        <h2 id="battery-isolators">Battery Isolators</h2>
+
+        <p>The only time batteries need to be isolated in a mobile application (other than RVs) is for portable operation. The use of isolators in high-power applications should be discouraged. Simple diode isolators will always have a forward voltage drop of about 1 volt, and they can play havoc with the charging circuitry in some vehicles, triggering the MIL.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p2_9.jpeg" alt="FET-based battery isolator" loading="lazy">
+          <figcaption>A FET-based battery isolator combines low forward voltage drop with remote controllability and no contacts that could fuse under a short-circuit. Still requires proper fusing. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <p>If you must use an isolator, FET-switch based units from Hellroaring or Perfect Switch are the best options. They lower forward voltage drop, are remotely controllable, and have no contacts to fuse together in a dead-short scenario. Drawing current over their rating causes them to disconnect and require a reset &mdash; about as fail-safe as you can get. Proper fusing is still required.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Most automobile manufacturers use some form of Battery Monitoring System (BMS). Suddenly connecting a second battery can cause fault codes to be written to OBD-II memory, which will illuminate the MIL. It can also cause the main battery fuse (typically ~120 amps) to blow. Carry a spare &mdash; and be aware that the battery fuse in most modern vehicles is an OEM proprietary part. Read that as expensive.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p2_10.jpeg" alt="Solenoid relay type battery isolator" loading="lazy">
+          <figcaption>Solenoid relay type battery isolator. Electronic circuitry controls solenoid engagement based on voltage differential between the main and auxiliary battery. A recall affected some units shipped 2009&ndash;2011. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="battery-imbalance">Battery Imbalance</h2>
+
+        <p>Almost no matter what you do, eventually there will be a voltage differential between the main SLI battery and an interconnected second battery. The causes are subtle &mdash; small resistances in the wiring, fuse holders, fuses themselves, and even the connections. You wouldn't think a few milliohms could make a difference. It can.</p>
+
+        <p>All connections should be checked regularly to make sure they're tight, not frayed, corroded, or showing signs of overheating. Here is how to check them properly:</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; CONNECTION CHECKING PROCEDURE</div>
+          <p>Never use an ohmmeter to check connections that are under power. Instead, set your DVM to its lowest voltage setting (auto-range is fine). Measure across connections: between the battery post and the battery clamp, across a fuse holder, or any screwed, bolted, or clamped connection. Any reading over about 0.015 volts is excessive. Any connection should be cleaned and/or re-tightened to reduce the voltage differential to less than 0.01 volts per connection. Yes, it is that important.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p3_11.jpeg" alt="Clamp-on DC ammeter" loading="lazy">
+          <figcaption>A clamp-on DC ammeter in the 40-amp range with 0.02-amp sensitivity is an invaluable tool for high-power mobile installations. In the 400-amp range it can measure starter motor current. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <p>In high-power installations, the initial current draw from the rear battery and the feed from the alternator will be roughly equal. As the surface charge of the rear battery dissipates, the ammeter reading will appear to reverse (negative reading). This is normal &mdash; the battery is now being charged. The rear battery is there to handle peak loads; the real power supply is the alternator itself.</p>
+
+        <h2 id="battery-boosters">Battery Boosters</h2>
+
+        <p>Factory-installed voltage booster systems, used to maintain adequate voltage to on-board lighting and infotainment units, should never be used to power amateur radio gear. Doing so will void all written and implied warranties.</p>
+
+        <p>For those who want to maintain 13.8 volts to the radio as battery voltage sags, battery boosters (also called DC-DC converters or voltage regulators) act like switching power supplies &mdash; the battery voltage may drop, but the output remains steady.</p>
+
+        <figure>
+          <img src="../images/Alternators_and_Batteries_p3_13.jpeg" alt="Battery booster/DC-DC converter unit" loading="lazy">
+          <figcaption>Battery booster (DC-DC converter) maintains a regulated output voltage as battery voltage drops. Most include low-voltage cutoff; ensure yours does before connecting. <!-- From PDF page 3 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Most battery boosters do not have over-voltage cutoff. More importantly, any nominal 12-volt lead-acid battery is considered discharged when its voltage drops to 10.5 volts under its C-rated load. Discharging below this threshold will drastically shorten battery life. Without low-voltage protection built into the booster, the usual end result is a ruined battery. Drawing the battery voltage down past a preset point can also cause the BMS to illuminate the MIL and write a code to the OBD-II.</p>
+        </div>
+
+        <p>Is a battery booster needed? There's no clear-cut answer. For portable operation, they have a definite use. In mobile-in-motion operation with correctly sized wiring and an adequate alternator, their use is questionable. If you run an amplifier, the cost of a 120-amp unit is substantial &mdash; and with adequate wiring and charging circuitry, the need may be moot.</p>
+
+        <h2 id="modern-considerations">Modern Considerations: EVs, Hybrids, and 48-Volt Systems</h2>
+
+        <p>Everything above covers the traditional 12-volt lead-acid world. Modern vehicles are increasingly departing from that baseline in ways that directly affect mobile amateur radio installations.</p>
+
+        <h3 id="48v-mild-hybrid">48-Volt Mild Hybrid Systems</h3>
+
+        <p>Many current production vehicles use a 48-volt mild hybrid system alongside the traditional 12-volt bus. The 48-volt bus powers the starter-generator, electric supercharger, and other high-demand accessories. Your amateur radio transceiver connects to the 12-volt bus as always &mdash; but the 12-volt bus is now supplied by a DC-DC converter stepping down from 48 volts, not directly from the alternator charging the battery.</p>
+
+        <p>This matters for two reasons. First, the DC-DC converter regulates voltage more tightly than a traditional alternator/battery combination, which may actually benefit transceiver performance. Second, the converter itself is a switching device that generates RF hash in its own right. Proper installation technique &mdash; short power leads, direct battery connections, and adequate ferrite suppression &mdash; remains essential.</p>
+
+        <h3 id="lithium-starter-batteries">Lithium Starter Batteries</h3>
+
+        <p>Lithium iron phosphate (LiFePO4) starter batteries are appearing in some production vehicles and are widely available as aftermarket replacements. They are lighter and hold voltage more stably under load than lead-acid types. However, they have a narrower charging voltage range, require a specific charging profile, and cannot be mixed with lead-acid batteries in a parallel configuration. If your vehicle or planned auxiliary battery uses lithium chemistry, the BMS considerations discussed above become even more critical.</p>
+
+        <h3 id="ev-charging-port-power">EV Accessory Power</h3>
+
+        <p>Modern EVs and PHEVs include a conventional 12-volt accessory bus, sourced from a DC-DC converter drawing from the high-voltage propulsion battery. The power available from this 12-volt bus is more than adequate for a transceiver &mdash; but the caveats in the <a href="hybrid-ev.html">Hybrid &amp; EV article</a> about high-voltage isolation, warranty implications, and RF noise from the inverter system all apply before you start planning your installation.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="wiring.html">Wiring</a>
+          <a class="related-card" href="amplifiers.html">Amplifiers</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="hybrid-ev.html">Hybrid &amp; EV</a>
+          <a class="related-card" href="digital-electronics.html">Digital Electronics</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

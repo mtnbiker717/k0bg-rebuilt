@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -105,6 +148,24 @@
         <h2 id="section-a">A</h2>
 
         <dl>
+          <dt id="abp">ABP (Absolute Barometric Pressure)</dt>
+          <dd>Also called a MAP (Manifold Absolute Pressure) sensor. One of several pollution control sensors used by the electronic engine control system. Relevant to mobile installations because RF ingress into the engine control wiring can cause false readings from these sensors, triggering check engine lights or erratic engine behavior.</dd>
+
+          <dt id="agm">AGM (Absorbent Glass Mat)</dt>
+          <dd>A type of sealed lead-acid battery with little or no outgassing. Vibration resistant and typically offers twice the service life of a standard SLI battery. AGM batteries come in SLI, reserve capacity (often mislabeled "deep cycle"), and marine configurations. Sometimes referred to by the Optima brand names RedTop (SLI), YellowTop (reserve capacity), and BlueTop (marine/deep cycle). Exide also makes comparable AGM batteries. If a secondary battery is mounted inside the vehicle, it must be AGM or LiFePO4 to prevent outgassing, which can be explosive.</dd>
+
+          <dt id="ares">ARES</dt>
+          <dd>Amateur Radio Emergency Service. An adjunct of the ARRL whose purpose is to provide secondary response teams to aid communications in emergency situations.</dd>
+
+          <dt id="atcato">ATC/ATO</dt>
+          <dd>International standard automotive blade fuses patented by Littelfuse in 1976. Amperage ratings from 1 to 40. The ATC style is moisture-sealed; the ATO is not. These are the standard blade fuses found in most vehicle fuse blocks. Not recommended as the primary fuse for high-current amateur radio installations &mdash; use Maxi fuses for loads over 30 amps.</dd>
+
+          <dt id="atv">ATV</dt>
+          <dd>Amateur fast-scan television. Due in part to smaller cameras, mobile ATV has become more popular, especially with ARES and other emergency teams.</dd>
+
+          <dt id="auto-coupler">Auto-Coupler</dt>
+          <dd>Often called an antenna tuner. Provides a conjugate impedance match between the antenna and the transceiver (usually 50 ohms). An auto-coupler works by presenting a 50-ohm load to the transceiver regardless of the actual antenna impedance, but does not eliminate reactance at the antenna feedpoint. Note: RF voltages inside an auto-coupler can exceed 10,000 volts at 100 watts when working a highly reactive load. Do not touch during transmission.</dd>
+
           <dt id="adas">ADAS</dt>
           <dd>Advanced Driver Assistance Systems. Umbrella term for radar cruise control, lane-keeping assist, automatic emergency braking, blind-spot monitoring, and similar features. Uses 77 GHz radar, cameras, and ultrasonics. ADAS wiring and sensors must not be disturbed during radio installation. These are safety-critical systems, and tampering with them can disable features designed to prevent collisions.</dd>
 
@@ -115,6 +176,12 @@
         <h2 id="section-b">B</h2>
 
         <dl>
+          <dt id="ballmount">Ballmount</dt>
+          <dd>A type of antenna mount with a built-in adjustable swivel allowing an antenna to be mounted on a surface that is not exactly horizontal or vertical. Popular for trunk lips and hitch receivers. Provides less consistent ground plane contact than a direct through-body mount.</dd>
+
+          <dt id="base-loading">Base Loading</dt>
+          <dd>Refers to placing the loading coil at the base of the antenna rather than in the center. Base-loaded designs are simpler and less expensive but provide approximately half the radiation resistance of a center-loaded design of equal physical size, resulting in lower efficiency. See Center Loading.</dd>
+
           <dt id="bjb">BJB / BMFB</dt>
           <dd>Battery Junction Box / Battery-Mounted Fuse Block. A consolidated fuse and relay center mounted on or adjacent to the battery positive terminal, found on most modern vehicles (Ford, GM, Stellantis, roughly 2015 and newer). Contains mega fuses protecting main vehicle circuits. A BJB does NOT protect your accessory wiring. You still need your own inline fuse on the radio power cable, sized and located per the <a href="wiring.html">Wiring</a> article.</dd>
 
@@ -131,6 +198,15 @@
         <h2 id="section-c">C</h2>
 
         <dl>
+          <dt id="cap-hat">Cap Hat</dt>
+          <dd>A capacitive hat (disk, spokes, or ring) placed at the top of an antenna whip to increase the effective capacitance of the element above the loading coil. This raises the current node and increases radiation efficiency without physically lengthening the antenna. Cap hats are particularly effective for improving performance on the lower HF bands where the antenna is most severely shortened relative to a full-size quarter wave.</dd>
+
+          <dt id="center-loading">Center Loading</dt>
+          <dd>Refers to having the loading coil at approximately the midpoint of the antenna rather than at the base. Center loading provides approximately twice the radiation resistance of base loading but requires about twice the inductive reactance to achieve resonance. The higher radiation resistance means better efficiency and improved matching at the feedpoint. Most quality mobile HF antennas use center or above-center coil placement for this reason.</dd>
+
+          <dt id="corona-ball">Corona Ball</dt>
+          <dd>A round metal ball placed at the top of the antenna whip to minimize static discharge. Acts as a corona suppressor by distributing the electric field over a larger area, reducing the field gradient that causes corona discharge noise. As a general rule, anything smaller than 1/2 inch in diameter is insufficient, especially if the retaining screw enters from the side rather than the top. Static drains work in conjunction with corona balls. Particularly valuable in dry, dusty climates where static buildup is severe.</dd>
+
           <dt id="common-mode">Common Mode</dt>
           <dd>Current flowing on the outside of a coaxial cable shield, or equally (in phase) on both conductors of a balanced line. Common mode current is unwanted in virtually all amateur radio installations. In mobile work, the level of common mode current on the feed line is directly related to the quality of the vehicle's ground plane. High common mode current causes RFI to vehicle electronics, distorted audio reports, and RF burns. See the <a href="common-mode.html">Common Mode Currents</a> article.</dd>
 
@@ -161,6 +237,9 @@
         <h2 id="section-f">F</h2>
 
         <dl>
+          <dt id="ferrite">Ferrite</dt>
+          <dd>A mixture of iron oxides and rare metals used to make baluns, chokes, and UNUNs. Comes in various shapes (toroids, split beads, rods, sleeves), sizes, and permeability values called "mixes." Different mixes are optimized for different frequency ranges. Mix 31 is ideal for HF motor lead chokes and common mode suppression. Mix 43 is useful across a broader frequency range. Do not substitute mixes &mdash; the wrong mix will not provide adequate impedance at the frequencies where you need it.</dd>
+
           <dt id="ft8">FT8 / FT4</dt>
           <dd>Weak-signal digital modes developed by K1JT and implemented in WSJT-X software. FT8 uses 15-second transmit/receive cycles and can decode signals down to -21 dB SNR. Extraordinarily effective for mobile HF where antenna efficiency is poor and signals that would be inaudible on SSB are decoded reliably. Requires a computer, sound card interface, and accurate time synchronization. Operate only while parked.</dd>
 
@@ -259,6 +338,12 @@
         <h2 id="section-p">P</h2>
 
         <dl>
+          <dt id="packet-radio">Packet Radio</dt>
+          <dd>A computer-to-computer communications mode where data is sent in small packets containing addressing and error-correcting codes. The packet protocol standard used in amateur radio is AX.25. Requires a TNC to interface between the radio and computer. Largely superseded by modern digital modes for long-distance communication, but still used for APRS and some emergency communications applications.</dd>
+
+          <dt id="pep">PEP (Peak Envelope Power)</dt>
+          <dd>The average power supplied to the antenna transmission line during one RF cycle at the crest of the modulation envelope. PEP is the standard measure of transmitter output power for SSB and other modes with varying amplitude. Most radio specifications and license class power limits are expressed in PEP. Average power is considerably lower &mdash; on SSB voice, average power is roughly one-quarter of PEP for typical speech patterns.</dd>
+
           <dt id="polyfuse">Polyfuse</dt>
           <dd>A resettable fuse based on a PTC (Positive Temperature Coefficient) thermistor. When overcurrent heats the device, its resistance increases dramatically, effectively opening the circuit. When the device cools, it resets to its low-resistance state. Polyfuses are used in some antenna controllers and transceivers for overcurrent protection. A notable gotcha: in cold weather, motor running current increases (cold lubricants are stiffer), which can cause a polyfuse to trip prematurely. If your antenna motor stops running in winter but works fine in summer, a polyfuse is likely the culprit.</dd>
 
@@ -266,9 +351,25 @@
           <dd>Parks on the Air / Summits on the Air. Organized programs that award credits for making contacts from designated parks or mountain summits. POTA in particular has driven enormous growth in mobile and portable HF activity since roughly 2020. Many POTA activators operate mobile from their vehicles in park parking areas, making proper mobile HF installation directly relevant.</dd>
         </dl>
 
+        <h2 id="section-q">Q</h2>
+
+        <dl>
+          <dt id="qro">QRO</dt>
+          <dd>Refers to high transmit power, generally 100 watts or more. From the Q code meaning "increase transmitter power."</dd>
+
+          <dt id="qrp">QRP</dt>
+          <dd>Refers to low transmit power, generally 5 watts or less. From the Q code meaning "reduce transmitter power." QRP mobile operation is a growing activity, especially paired with compact amplifiers for a "QRP rig plus small amplifier" approach that keeps current draws manageable.</dd>
+
+          <dt id="qsl-misuse">QSL (misuse on phone)</dt>
+          <dd>Q signal universally misused on phone transmissions. QSL properly means "I confirm receipt of your transmission." On phone, "roger" or a simple acknowledgment is correct. Repeated use of "QSL" on phone is a sign of poor operating practice.</dd>
+        </dl>
+
         <h2 id="section-r">R</h2>
 
         <dl>
+          <dt id="rfi">RFI (Radio Frequency Interference)</dt>
+          <dd>In this context, primary sources are ignition and injection systems, electronic engine controls, rolling and rain static, and the brushes of the various electric motors incorporated into vehicles. Amateur radio equipment can both generate and receive RFI. The goal is to eliminate or reduce interference to an acceptable level using proper wiring, bonding, ferrite suppression, and antenna placement. See the <a href="rfi.html">RFI Problems</a> article.</dd>
+
           <dt id="radiation-resistance">Radiation Resistance</dt>
           <dd>The component of an antenna's feed point impedance that represents actual power radiated as electromagnetic waves. Radiation resistance is directly proportional to the square of the antenna's electrical length. A full-size quarter-wave vertical has a radiation resistance of about 36 ohms. A typical mobile HF antenna on 40 meters might have a radiation resistance of only 2 to 5 ohms, meaning that the vast majority of the feed point impedance is loss resistance in the loading coil and ground system. This is why every fraction of an ohm matters in mobile HF, and why proper bonding and the longest possible whip are so important.</dd>
 
@@ -288,6 +389,12 @@
         <h2 id="section-s">S</h2>
 
         <dl>
+          <dt id="remote-tuned">Remote Tuned Antenna</dt>
+          <dd>Includes the Scorpion, all motorized screwdriver antennas, and some base-loaded antennas where the resonant point is adjusted by a remotely controlled motor. Requires properly choked motor leads (placed outside the vehicle at the antenna base), a suitable controller, and correct impedance matching. See the <a href="antenna-controllers.html">Antenna Controllers</a> article.</dd>
+
+          <dt id="reserve-capacity">Reserve Capacity Battery</dt>
+          <dd>A type of battery designed to be discharged at a slower rate than an SLI battery. May be used in an SLI starting application but must be sized larger because its maximum cold cranking amperage is lower than a standard SLI. Sometimes referred to as a YellowTop, a trademark of the Optima battery company. Often mislabeled "deep cycle" &mdash; but like any lead-acid battery, it should not be discharged below 10.5 volts under load.</dd>
+
           <dt id="screwdriver">Screwdriver (antenna)</dt>
           <dd>A continuously-variable HF mobile antenna that uses a DC motor to drive a shorting contact up and down a loading coil, changing the inductance in the circuit and thereby tuning the antenna across multiple bands. The name originates from the earliest designs, which repurposed the motor and gear train from a battery-powered cordless screwdriver. Modern screwdriver antennas use purpose-built motors but the name persists. They are the most versatile type of mobile HF antenna, capable of covering 3.5 to 54 MHz with a single antenna, at the cost of mechanical complexity.</dd>
 
@@ -302,6 +409,9 @@
 
           <dt id="soc">SOC</dt>
           <dd>State of Charge. The remaining usable capacity of a battery expressed as a percentage, where 100% is fully charged and 0% is fully discharged. For SLI lead-acid batteries, useful SOC range is roughly 50% to 100%. For LiFePO4, the usable range is typically 10% to 100%, which is one of their significant advantages for auxiliary power applications.</dd>
+
+          <dt id="split-beads">Split Beads</dt>
+          <dd>Ferrite split beads come in various sizes and ferrite mixes. They are called "split beads" because they are divided along their length, allowing them to be snapped over existing wiring without splicing. Usually enclosed in a snap-on plastic cover. When properly applied in sufficient quantity, they act as chokes to reduce or eliminate RFI ingress and egress. Have little effect on audio-frequency interference (AFI). For HF motor lead chokes, Mix 31 in the 3/4-inch ID size is specified. Do not assume a single bead provides meaningful suppression &mdash; multiple turns are required for adequate impedance.</dd>
 
           <dt id="srs">SRS</dt>
           <dd>Supplemental Restraint System. The vehicle's airbag system, including crash sensors, the airbag control module, wiring harnesses, and the inflator units located in the steering wheel, dashboard, door panels, headliner, and seat bolsters. SRS components are EXTREMELY dangerous to work around. Airbag inflators contain explosive charges that can cause severe injury or death if accidentally triggered. Never run radio wiring near SRS harnesses (typically identified by yellow connectors and conduit). If you must remove interior panels that contain SRS components, disconnect the battery and wait a minimum of 10 minutes for the backup capacitors to discharge before proceeding. Better yet, do not remove those panels at all. See the <a href="safety.html">Safety</a> article.</dd>
@@ -329,6 +439,16 @@
           <dd>Throttle Position Sensor. An electronic sensor in the vehicle's engine management system that reports the position of the throttle plate (or the electronic throttle actuator in drive-by-wire systems) to the engine control module. Relevant to mobile radio installations because TPS signal wiring, if routed near radio power cables, can pick up RFI and cause erratic engine behavior during transmission. Maintain adequate separation between radio wiring and engine management harnesses.</dd>
         </dl>
 
+        <h2 id="section-v">V</h2>
+
+        <dl>
+          <dt id="vox">VOX (Voice Operated Transmit)</dt>
+          <dd>A circuit that automatically keys the transmitter when audio is detected at the microphone input. Commonly used for base station hands-free operation. Its use for mobile operation is strongly discouraged: the high background noise level in a vehicle (wind, road noise, HVAC) will cause the VOX to trigger randomly. The predictable result is broadcasting your driving commentary and road rage to everyone on the repeater.</dd>
+
+          <dt id="whip">Whip</dt>
+          <dd>The antenna section above the loading coil. Also called a stinger. Lengths vary between a few inches and several feet depending on the antenna design and operating band. Longer whips raise the current node higher on the antenna, increasing radiation resistance and efficiency &mdash; especially on the lower HF bands. All else being equal, use the longest whip that is mechanically practical for your situation.</dd>
+        </dl>
+
         <h2 id="section-u">U</h2>
 
         <dl>
@@ -348,6 +468,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

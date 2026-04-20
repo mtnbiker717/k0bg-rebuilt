@@ -117,6 +117,27 @@
     });
   });
 
+  // ===== Collapsible Nav Sub-groups =====
+  document.querySelectorAll('.nav-subgroup-toggle').forEach(function(toggle) {
+    var subgroup = toggle.closest('.nav-subgroup');
+    if (!subgroup) return;
+    var key = 'navsg-' + (toggle.dataset.group || toggle.textContent.trim().replace(/\s+/g,''));
+
+    // Auto-open if contains the active link
+    if (subgroup.querySelector('a.active')) {
+      subgroup.classList.add('open');
+    }
+    // Restore saved state (but active-link state takes priority)
+    if (!subgroup.classList.contains('open') && localStorage.getItem(key) === 'open') {
+      subgroup.classList.add('open');
+    }
+
+    toggle.addEventListener('click', function() {
+      subgroup.classList.toggle('open');
+      try { localStorage.setItem(key, subgroup.classList.contains('open') ? 'open' : 'closed'); } catch(e) {}
+    });
+  });
+
   // ===== Reading Time =====
   var articleBody = document.querySelector('.article-body');
   var dateEl = document.querySelector('.article-date');

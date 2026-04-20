@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -152,6 +195,33 @@
 
         <p>While we're on the subject of imports: the import antennas themselves deserve scrutiny. Many are overpriced for what they deliver, of questionable mechanical sturdiness, and some use SO-239 connectors at the base rather than the NMO bayonet. An SO-239 connection at the antenna base is mechanically inferior to a proper NMO bayonet and introduces an unnecessary impedance discontinuity. It is a cost-cutting measure that benefits the manufacturer, not you.</p>
 
+        <h2 id="glass-mounts">Glass Mounts</h2>
+
+        <p>Glass-mounted antennas &mdash; where a small antenna is mounted to the outside of the window glass with a capacitive coupling element on the inside &mdash; are popular because they require no drilling. They are adequate for certain applications. They have specific limitations that are worth understanding.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>Glass mounts do not work on passivated or coated glass.</strong> Most modern vehicles use glass with UV-blocking and heat-rejecting coatings (sometimes called "solar control" glass, "green glass," or "athermic glass"). These coatings contain a metallic layer that blocks radio signals &mdash; the same coating that helps keep the cabin cool also prevents your antenna from coupling through the glass. Larsen, one of the primary manufacturers of glass-mount systems, does not recommend their use on passivated glass for this reason. If you have coated glass &mdash; and in most modern vehicles, you do &mdash; a glass mount on a side or rear window is unlikely to perform as advertised, and the manufacturer's gain and pattern specifications do not apply. Check what type of glass your vehicle has before purchasing a glass-mount antenna.</p>
+        </div>
+
+        <p>For vehicles with uncoated windows, glass mounts can be useful in situations where drilling is not an option. The coupling loss is typically 2 to 5 dB depending on glass thickness. Combined with the limited ground plane a glass mount provides, performance will be noticeably below that of a properly mounted NMO. For 2-meter FM casual use, the shortfall may be acceptable. For serious operation &mdash; APRS, weak-signal work, digital voice &mdash; use a proper NMO mount.</p>
+
+        <h2 id="trunk-mount-coax">Trunk-Lid Mounts and Coax Quality</h2>
+
+        <p>Trunk-lid and lip mounts are popular for sedans. They avoid roof drilling and can provide acceptable ground plane contact through the vehicle body. The weak point in most trunk-lid installations is the coax used to connect the antenna to the radio: specifically, the pigtail from the mount to the first connector.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>The Diamond K400 trunk-lid mount ships with an RG174 pigtail.</strong> RG174 is a small-diameter, high-loss coax. On 2 meters, the K400's standard pigtail introduces approximately 2 dB of additional loss. On 70 cm, that loss reaches approximately 6 dB &mdash; a factor of four in power. The antenna itself may be excellent. The coax it ships with wastes most of what it offers at UHF. Replace the RG174 pigtail with low-loss coax as close to the mount as possible, or use a short adapter to a better coax before running your main feedline. This advice applies to any trunk-mount antenna that ships with a thin pigtail: always check the coax specification, not just the antenna specification.</p>
+        </div>
+
+        <h2 id="swr-wide-bandwidth-warning">Wide SWR Bandwidth Means Lossy Antenna</h2>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Flat SWR Across the Whole Band Is Bad</div>
+          <p>If your mobile vertical antenna covers all 4 MHz of the 2-meter band (or all of 70 cm) with a consistently low SWR, you need a better antenna and/or installation. This is not a compliment &mdash; wide SWR bandwidth is a direct indicator of high resistive losses in the antenna system. The losses are masking what would otherwise be a narrow SWR bandwidth for an efficient antenna. The cheaply made import antennas are the prime example: their apparent broadband performance is simply because their overall losses are high.</p>
+        </div>
+
         <h2 id="multiband-antennas">Multiband Antennas: Caveat Emptor</h2>
 
         <p>The market is flooded with "multiband wonder antennas" that claim to cover 2 meters, 70 cm, 23 cm, and sometimes 6 meters, all from a single antenna with spectacular gain on every band. The claims range from optimistic to physically impossible.</p>
@@ -175,6 +245,13 @@
         </div>
 
         <p>Contact your vehicle dealer or consult the service manual before installing any antenna mount on an aluminum-bodied vehicle. Some manufacturers have specific guidance &mdash; or specific prohibitions &mdash; regarding drilling into aluminum body panels. Warranty implications may also apply. It's better to ask first than to discover afterward that you've voided your body corrosion warranty.</p>
+
+        <h2 id="vehicle-computer-rfi">Vehicle Computer Harmonic Interference</h2>
+
+        <div class="callout callout-key">
+          <div class="callout-title">KEY FACT: Color Burst Oscillator Harmonic</div>
+          <p>Some vehicle computer systems use a color burst crystal as an oscillator (3.579545 MHz). The <strong>41st harmonic</strong> of this frequency is 146.76134 MHz &mdash; which directly conflicts with the <strong>146.16/76 repeater pair</strong> used in many areas. Component tolerances can shift this harmonic anywhere between approximately 146.70 MHz and 146.80 MHz. If you live in an area using this repeater pair, be aware that automobile manufacturers will not address this issue. See the Digital Electronics article for more details. There is nothing you can do about it from the radio side; it is generated inside the vehicle's CPU and conducted through the wiring.</p>
+        </div>
 
         <h2 id="aprs">APRS Considerations</h2>
 
@@ -280,6 +357,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

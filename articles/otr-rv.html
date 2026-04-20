@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -89,6 +132,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ Notice for OTR &amp; RV Operators</div>
+          <p>Commercial vehicles and RVs may have 24V electrical systems, multiple alternators, and proprietary CAN bus architectures. Never assume 12V — verify system voltage before connecting any equipment. Consult your chassis manufacturer and coach builder before modifying electrical systems. LiFePO4 battery systems with BMS disconnects can create sudden open-circuit conditions during transmission — verify compatibility before installing radio equipment.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -154,6 +201,13 @@
           <p>If you use shielded cable for motor control runs, ground the shield on the <strong>antenna end only</strong>&mdash;that is, the end closest to your antenna installation. Do NOT ground both ends. Grounding both ends of a shield creates a ground loop that will make your RFI problem worse, not better.</p>
         </div>
 
+        <h2 id="battery-voltage-limit">House Battery Discharge Limits</h2>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Do Not Overdischarge Lead-Acid House Batteries</div>
+          <p>RV house batteries are often isolated from the SLI battery system. When using them for radio operation, keep a close eye on voltage. <strong>10.5 volts</strong> is approximately the lowest voltage you can take any lead-acid battery to under load without causing permanent damage. Drawing below this level will significantly shorten battery life. Some smaller RVs have house batteries that are little more than one or two SLI batteries with no generator backup &mdash; in those cases, a decent voltmeter is not optional, it is essential.</p>
+        </div>
+
         <h2 id="common-mode-chokes">Common Mode Chokes: Non-Negotiable</h2>
 
         <p>On any vehicle with non-conducting body surfaces, you must install a common mode choke on the coax feed line to the antenna. This is true whether your antenna is mounted on the roof, on a bumper bracket, or on a trailer hitch mount. The outer surface of the coax braid will carry common mode currents back into the vehicle, and with no conducting body to provide a low-impedance path, those currents will find their way into every wire in the coach.</p>
@@ -178,6 +232,24 @@
         </ul>
 
         <p>For OTR trucks, the mirror brackets and cab roof are common mounting points, but remember that rubber-mounted cabs are electrically isolated from the chassis. You'll need a bonding strap from the cab to the frame.</p>
+
+        <h2 id="fiberglass-vhf-antennas">VHF Antennas on Fiberglass Bodies</h2>
+
+        <p>Mounting VHF or UHF antennas on fiberglass RV bodies requires a different approach than a steel vehicle. Fiberglass tends to stress-fracture around mounting holes over time due to vibration. A proper backing plate should be used, and holes should be drilled and bolted through &mdash; not self-tapping screws.</p>
+
+        <div class="callout callout-tip">
+          <div class="callout-title">TIP: Ground Plane for Fiberglass-Mounted VHF Antennas</div>
+          <p>For VHF/UHF antennas on fiberglass, Larsen makes loaded half-wave antennas (such as the OM150CK series) that do not require a ground plane. Even so, they work significantly better with one. An <strong>18-inch square aluminum plate</strong> bonded beneath the mount provides an adequate ground plane and also minimizes stress cracking in the fiberglass. Install a common mode choke on the feed line to any antenna mounted on a non-conducting surface.</p>
+        </div>
+
+        <h2 id="auto-couplers">Automatic Antenna Couplers and RF Voltage</h2>
+
+        <p>Remote automatic antenna couplers &mdash; mounted at the antenna base and controlled from the transceiver &mdash; are popular in OTR and RV installations because they allow tuning across multiple bands without a motor-driven antenna mechanism. They have a hazard that is rarely mentioned.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p><strong>At 100 watts, RF voltages inside and around an automatic coupler can exceed 10,000 volts.</strong> When an auto-tuner is working into a highly reactive load &mdash; which is common in low-band operation with a short antenna &mdash; the L-network inside develops very high Q, and the voltages across the reactive components reach thousands of volts at even modest power levels. Do not touch the coupler while transmitting. Control cables running from the coupler back to the radio carry this RF energy into the vehicle if they are not properly choked. Automatic couplers must be mounted outside the vehicle at the antenna feedpoint, and their control cables must be choked before entering the vehicle body &mdash; using the same type of properly wound mix 31 choke described in the motor lead choke sections of the <a href="antenna-problems.html">Antenna Problems</a> article.</p>
+        </div>
 
         <h2 id="stationary-operation">Stationary Operation: Forget the Tripod Fantasy</h2>
 
@@ -308,6 +380,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

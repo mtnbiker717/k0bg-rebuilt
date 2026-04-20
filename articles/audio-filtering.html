@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Filtering &amp; Speakers — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Audio filtering, DSP speakers, powered speakers, and plain speakers for mobile amateur radio. Speaker placement for hearing safety and noise reduction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Audio Filtering &amp; Speakers</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="safe-mounting">Safe Speaker Mounting</h2>
+
+        <p>There is a reason this section comes first, and that reason is safety. Mounting speakers anywhere near one's head is fraught with serious issues that almost no one thinks about. For example, one popular mounting location utilizes the headrest support posts, which places them within side airbag reach. Further, headrests are designed to snap off in certain collision events, and speaker mounting interferes with this function.</p>
+
+        <p>Sound pressure levels can be deceiving, especially in a noisy environment like the interior of a vehicle. And, contrary to popular belief, it isn't just the low frequencies which can damage your hearing. The high-frequency hash we all put up with when listening to weak SSB signals is just as annoying and deaf-producing.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>Here's a simple self-test you can carry out on your own. No matter where your speaker is mounted, after about 10 minutes of listening, just turn off the radio. If you suddenly feel like you're in an insulated soundproof booth, chances are your speaker volume setting is too high.</p>
+        </div>
+
+        <p>Here's a suggestion to minimize the hash: place the speaker under the front driver's seat, pointing upward. This tends to increase the bass response while muffling the high-frequency hash. Up under the dashboard pointing into the foot well works almost as well. Either way, you'll end up using less audio gain, which is a good thing in more ways than one.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>The same hearing issues (high-frequency hash primarily) are present when using a vehicle stereo system as a communications speaker. Irrespective of any equalizer controls, both low and high frequency response cannot be tailored narrowly enough for communications use. It is a stopgap solution at best.</p>
+        </div>
+
+        <h2 id="basics">Basics: Passive Audio Filters</h2>
+
+        <figure>
+          <img src="../images/Audio_Filtering_and_Speakers_p1_0.jpeg" alt="Icom SP-20 passive audio filter schematic" loading="lazy">
+          <figcaption>The schematic of the Icom SP-20 passive filter, showing switches to select lowpass, highpass, or both. The passive elements are in series with the speaker &mdash; a deliberate design choice, as shunting directly across single-ended audio amplifiers can cause failure. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Passive audio filters have been around for many years. The Skytec CW-1, made during the 1970s, is a good example. It utilized a ported 2-inch speaker mounted in a tuned cavity made from thin-wall PVC pipe. At the mouth was a little sleeve you could adjust to set the center of the bandpass. If your receiver didn't have a CW filter, this little jewel worked fairly well. It sold for about $20 at the time.</p>
+
+        <p>Discrete-component passive filters for SSB have also been produced over the years by just about every manufacturer of amateur equipment. When these units were first introduced, few radios had built-in bandpass or IF shift features, to say nothing of the DSP systems we have nowadays.</p>
+
+        <p>Unlike the CW filter mentioned above, most of these designs used a combination of inductors and capacitors built into a station speaker. Note an important detail from the SP-20 schematic: the passive elements are in series with the speaker. This is good reason &mdash; shunted elements directly across single-ended audio amplifiers can cause them to fail. Impedance matters here. A typical communications speaker presents 8 ohms to the audio amplifier; a passive filter network changes that impedance, and a poorly designed one can present a very low impedance on certain frequencies, potentially stressing the output transistors.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The biggest drawback to passive filters is their insertion loss: 3 to 5 dB depending on the design. If your mobile transceiver is already lacking in the audio output department, a DSP and/or powered speaker is a better choice. Passive filters trade signal level for selectivity &mdash; useful only if you have signal to spare.</p>
+        </div>
+
+        <h2 id="dsp-speakers">DSP Speakers</h2>
+
+        <figure>
+          <img src="../images/Audio_Filtering_and_Speakers_p1_2.jpeg" alt="DSP-equipped powered speaker" loading="lazy">
+          <figcaption>A DSP-equipped powered speaker. These units do a credible job of removing unwanted background artifacts like pops and static crashes, and typically outperform built-in audio-based DSP units. However, none are as good as a properly designed IF DSP. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Both IF and AF-based Digital Signal Processors (DSP) have become a mainstay of every currently available mobile transceiver. Some are very good at reducing perceived noise, some are so-so, and a few are nearly worthless. This has spawned a variety of companies introducing DSP-equipped, powered speakers.</p>
+
+        <p>All of these devices do a credible job of removing unwanted background artifacts like pops and static crashes. They typically outperform built-in audio-based DSP units. However, none of them are as good as a properly designed IF DSP. The main reason is that most built-in IF units are placed in the AGC loop &mdash; as a result, nearby large signals don't overload them.</p>
+
+        <figure>
+          <img src="../images/Audio_Filtering_and_Speakers_p1_3.jpeg" alt="West Mountain Radio ClearSpeech DSP speaker" loading="lazy">
+          <figcaption>The West Mountain Radio ClearSpeech DSP speaker. Its larger speaker driver provides more bass response than competitors. Whether this is an attribute depends on the listener. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The Hear It unit, marketed by GAP, is a popular DSP speaker with a wide range of DSP settings. It sells for about $200, complete with a headphone jack and fused power cord. West Mountain Radio sells the ClearSpeech, which has a larger speaker than its competitors and more bass response. BHI in England makes the DSPKR with 10 watts of power, which should go a long way in noisy environments. Incidentally, BHI makes most of the private-labeled DSP speakers sold in the US.</p>
+
+        <p>There is no argument about the usefulness of DSP speakers, as long as you don't mind the additional level of complexity. They do require DC power which must be switched on and off, and they must be positioned to allow operation of their controls.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Using the accessory jack to power external DSP speakers isn't a good idea. The limiting factor isn't necessarily the current rating (typically one amp). Rather, it is the voltage drop through the radio &mdash; as much as 2 volts in some cases. This can cause some powered speakers to operate erratically. Run powered speakers from a direct, switched 12-volt source with their own fusing.</p>
+        </div>
+
+        <h2 id="powered-speakers">Non-DSP Powered Speakers</h2>
+
+        <figure>
+          <img src="../images/Audio_Filtering_and_Speakers_p1_5.jpeg" alt="MFJ-382 amplified speaker" loading="lazy">
+          <figcaption>The MFJ-382 amplified speaker. Several companies offer amplified speakers for mobile use. Occasionally, old Motorola HSN1000B amplified speakers turn up at hamfests for as little as $10 &mdash; they're amazing performers if the cone hasn't deteriorated. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The audio output in modern transceivers seldom tops 3 watts, which is barely adequate especially in a noisy mobile environment. Fortunately, several companies make amplified speakers, including the MFJ-382, which sells for under $40. Midland, Cobra, and Shakespeare also offer amplified speakers for about the same price.</p>
+
+        <p>Occasionally, you'll find old Motorola HSN1000B amplified speakers at hamfests for as little as $10. New ones cost about $75. They are amazing performers as long as the speaker cone hasn't deteriorated &mdash; caveat emptor.</p>
+
+        <h2 id="plain-speakers">Plain Old Speakers</h2>
+
+        <p>There is nothing wrong with plain old speakers. However, there are a few things to consider when selecting one.</p>
+
+        <p>First, price means nothing. Some really cheap speakers will outperform ones costing ten times as much. One of the reasons for this is that expensive speakers tend to have a much wider bandwidth (high frequencies especially) than cheaper ones, and they're typically larger in size. While they might sound fuller at home, when you're mobile you need all the definition you can get.</p>
+
+        <p>Conversely, you don't want one too small or you won't have enough bass response, and the highs will be accented, which reduces readability. Because each person's hearing is slightly different, you should attempt to try before you buy. Just don't buy one smaller than 3&times;5 inches. Those tiny 2-inch jobs don't sound very good unless you mount them very close to your ear &mdash; something you absolutely should not do.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Speaker impedance in communications applications is almost universally 8 ohms. Verify the impedance rating of any speaker before connecting it to a transceiver's speaker output. Connecting a 4-ohm speaker to an amplifier designed for 8 ohms doubles the current draw and will destroy the output transistors. Connecting a 16-ohm speaker reduces the output power but won't damage anything.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Digital signal processing technology has advanced considerably since the products mentioned in this article were current. Modern DSP speaker products use more sophisticated algorithms, and some offer adjustable filter profiles optimized for specific modes (CW, SSB, digital). The fundamental advice here remains valid: IF DSP in the transceiver outperforms external AF DSP, and neither is a substitute for proper noise suppression at the source.</p>
+
+        <p>Bluetooth-connected headsets and speakers have become popular, but be aware of latency. Bluetooth audio codecs introduce anywhere from 40 to 300 milliseconds of delay. For half-duplex voice communication this is generally not noticeable, but for CW or digital modes, the latency can be disorienting. Aptx Low Latency codec (aptX LL) reduces this to about 40 ms, which is usually tolerable.</p>
+
+        <p>In-ear monitors (IEMs) with noise isolation are an excellent choice for mobile operation. A well-fitting IEM reduces ambient cabin noise passively (20 to 30 dB attenuation in some cases), which means you can run lower speaker volume to achieve the same subjective loudness &mdash; dramatically reducing the hearing fatigue that comes from long mobile sessions. Use IEMs rated for communications or music; avoid consumer-grade earbuds that boost bass, as the added low-frequency coloration makes SSB voice less intelligible.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="transmit-audio.html">Transmit Audio</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="signal-noise-ratio.html">Signal to Noise Ratio</a>
+          <a class="related-card" href="miniature-radios.html">Miniature Radios</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

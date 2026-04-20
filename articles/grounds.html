@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grounds, RF &amp; DC — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Understanding RF and DC grounds in mobile amateur radio. Ground plane basics, mounting location effects on efficiency, and what a mobile ground plane actually is.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Grounds, RF &amp; DC</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Many amateurs harbor the notion that DC grounding an antenna mount will magically act as, or replace, a ground plane. It will not. DC grounding the mount may establish an RF ground for the antenna's base &mdash; depending on the strap's length and width relative to the frequency of operation &mdash; but it is by no means a replacement for an adequate ground plane under the antenna.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The body of the vehicle and its capacitive coupling to the surface below act as the ground plane &mdash; and it's a lossy one. Typical ground plane losses vary between 2 and 10 ohms across 10 through 80 meters respectively, but in the real world they may reach 20&Omega; on 80 meters. It is also possible to have higher ground losses on 40 meters than on 80 meters. The primary cause is standing waves between the vehicle body and the surface beneath it. Do not confuse this with SWR.</p>
+        </div>
+
+        <p>Ground loss cannot be measured with a common ohmmeter, and it cannot be determined by measuring the input impedance of your antenna. Since ground losses dominate the efficiency equation, decreasing them by just one ohm can produce a significant increase in effective radiated power (ERP).</p>
+
+        <p>Excessive ground losses are directly related to the level of common mode currents. Common mode current causes RFI problems both inbound and outbound, and can drastically reduce the receiver's signal-to-noise ratio. Put another way, excessive ground losses can turn an otherwise efficient antenna system into an also-ran.</p>
+
+        <p>In a mobile scenario, there is one more ground to be concerned with: a proper RF ground return for the coax shield. RF must return to its source. It will do so in the path of least resistance &mdash; ideally within the coax cable itself. Improper mounting (atop long posts, extended brackets, magnet mounts, clamps, and luggage racks) causes an inordinate amount of RF to flow on the outside of the coax (common mode current), or down inadequately-choked motor control leads. Common mode current flow is the main cause of both egress and ingress RFI.</p>
+
+        <h2 id="what-is-a-ground-plane">What Is a Ground Plane?</h2>
+
+        <p>A vertical antenna is nothing more than half of a dipole &mdash; a monopole. Since RF must return to its source, we need something to replace the missing half. What we call that missing half is where confusion begins.</p>
+
+        <p>In a base station installation, we typically have a radial field in various configurations. In a mobile, we don't have that luxury. If we don't have a radial field, what do we have?</p>
+
+        <figure>
+          <img src="../images/Grounds_RF_and_DC_p1_0.jpeg" alt="Diagram showing metal mass directly under a mobile antenna" loading="lazy">
+          <figcaption>The key principle: place as much metal mass directly under the vertical antenna as possible. What's alongside the antenna doesn't count. This is exactly what a radial field does at a base station. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>For one, we have the body of the vehicle. That body does capacitively couple to the surface under the vehicle, but technically it isn't a radial field. It's somewhat like installing a base station vertical using nothing more than a pipe driven into the dirt.</p>
+
+        <p>Here's the crux of the problem: Is the "ground" in question a DC ground, an RF ground, or a Ground Plane? The truth is, it can be any or all of these, which leads far too many operators to confuse one type with another.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Webster defines a plane as a flat and level, horizontal surface. Whether we're talking about a radial field or the body of a vehicle, that description fits. The rule to follow: place as much metal mass directly under the vertical antenna as possible &mdash; and make sure the coax shield connection is congruent with the start of that flat, horizontal surface. This is why the term "Ground Plane" isn't so far-fetched after all, and why running a DC or RF strap to a hard point nearby is not the same thing as providing a ground plane.</p>
+        </div>
+
+        <h2 id="your-average-vehicle">Your Average Vehicle</h2>
+
+        <p>First of all, there isn't an average vehicle. Between two otherwise identical vehicles, there can be a great difference in the amount, type, and severity of RFI. For example, the egressed ignition RFI of one may be S9 while the other is S2. Even minor annoyances like fuel pump and AC fan hash vary greatly from model to model.</p>
+
+        <p>As a rule, unibody vehicles exhibit fewer problems with both ingress and egressed RFI. This is due mainly to the all-welded body construction. However, most still have sound-insulated undercarriages for the suspension, engine, transaxle, and exhaust systems &mdash; and these need to be bonded to maximize RF continuity. The <a href="bonding.html">Bonding article</a> covers that in detail.</p>
+
+        <figure>
+          <img src="../images/Grounds_RF_and_DC_p1_1.jpeg" alt="Truck with poor antenna mounting location illustrating ground plane issues" loading="lazy">
+          <figcaption>A low antenna mounting location forces return current to flow through the lossy surface beneath the vehicle rather than through the vehicle's less lossy superstructure. The difference in efficiency can be dramatic. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Aluminum-bodied vehicles require special techniques during installation of amateur radio gear, especially bonding. Failure to follow manufacturer recommendations can cause galvanic corrosion. Ford Motor Company, for example, has a bulletin outlining the requisite procedures for their aluminum-bodied F-150 series. Under no circumstances should the vehicle body and/or frame be used as the DC power ground return. Returns should always be directly to the battery or jump points. Failure to follow these guidelines can result in corrosion damage that is not covered under warranty.</p>
+        </div>
+
+        <p>Whether you use a monoband antenna or a remotely controlled multi-band one, once properly matched it will have a relatively low SWR. However, when underway, surface conductivity continually changes &mdash; as do ground losses and the resonant frequency of the antenna &mdash; resulting in erratic changes in SWR. This shouldn't cause any issues unless you try to use an auto-coupler to compensate for it.</p>
+
+        <h2 id="mounting-location">Mounting Location Issues</h2>
+
+        <p>The best place to mount an HF mobile antenna is in the center of the roof. This places it as far as possible from the surface the vehicle is sitting on, and as far as possible from the vehicle's vertical surfaces. With respect to system losses, any other position on the vehicle will exhibit more loss. DC or RF ground straps will not negate this.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>The antenna, the vehicle, and the surface the vehicle is sitting on must be viewed as a system. Change one, and you change them all. This is why proper bonding and mounting are of prime importance. The objective is to make all of the vehicle's bolted-on components as RF-contiguous as possible &mdash; it matters little whether they are DC-contiguous.</p>
+        </div>
+
+        <p>Low mounting heights increase ground losses. The reason: a large portion of the return current is forced to flow in the lossy surface under the vehicle rather than through the vehicle's less-lossy superstructure. How much this affects efficiency depends on many factors, especially the quality of the antenna itself &mdash; coil Q, overall length, cap hat use, and so on. The key to maximum efficiency is placing as much metal mass directly under the antenna as possible.</p>
+
+        <figure>
+          <img src="../images/Grounds_RF_and_DC_p2_2.jpeg" alt="Antenna mounted low on a vehicle showing poor ground plane geometry" loading="lazy">
+          <figcaption>Low antenna mounting forces return current through the lossy ground beneath the vehicle. The effective ground plane is severely compromised compared to a center-roof installation. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h3 id="pickup-bed-mounting">Pickup Bed Mounting</h3>
+
+        <p>There's a hotly debated issue about mounting mobile antennas down inside the bed of pickup trucks. Unless the antenna mast is very close to the pickup bed wall (well less than an inch), the reduction in performance is minimal. The capacitance between the bed wall and the antenna mast seldom exceeds 2 or 3 pF. Even on 10 meters, this amount of capacitive loading is almost unmeasurable. Where you can get into trouble is mounting the antenna coil too close to sheet metal &mdash; in that case, the reduction in performance is easily measured, even with an SWR meter. Keep the coil as free and clear of sheet metal as possible.</p>
+
+        <h2 id="odds-and-ends">Odds &amp; Ends</h2>
+
+        <p>Some misguided mobile operators believe that adding a "counterpoise" to their mobile antenna will increase efficiency. This so-called counterpoise &mdash; a misnomer &mdash; is typically a spirally-wound, ham-stick-type antenna. The truth is, it's a waste of resources. The effectiveness is so slight, you couldn't measure it with laboratory-grade equipment. The same can be said of "V" configurations of two identical mobile antennas.</p>
+
+        <div class="callout myth">
+          <div class="callout-title">&#128293; MYTH BUSTED</div>
+          <p>Adding wires across the bed opening of a pickup, or running a ground strap around the frame, are ineffective substitutes for proper antenna mounting. Here is a useful perspective: a Greyhound bus exhibits about the same ground loss as an average passenger vehicle. No amount of straps and wires attached to the outside of that structure will turn it into a low-loss ground plane. The antenna mounting location and height dominate the result.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>The ground-plane physics described above apply equally to any vehicle &mdash; but the materials, construction methods, and onboard electronics of post-2015 vehicles introduce complications worth understanding before you install anything.</p>
+
+        <h3 id="composite-and-aluminum">Composite and Aluminum Panels</h3>
+
+        <p>Carbon fiber, fiberglass, and sheet molding compound (SMC) are not electrical conductors. Panels made from these materials cannot be bonded into your ground plane because they are not part of your ground plane. Period. Pickup trucks with composite beds, carbon-fiber body panels, or fiberglass hoods effectively have a smaller conductive ground plane than their physical footprint suggests. No ground strap can compensate for this.</p>
+
+        <p>Aluminum-body vehicles are still conductive, but require tin-plated copper braid and oxide-inhibiting compound at every bonding connection to avoid galvanic corrosion. See the <a href="bonding.html">Bonding article</a> for the details specific to aluminum construction.</p>
+
+        <h3 id="changing-surface-conductivity">Route-Dependent Ground Losses</h3>
+
+        <p>As the vehicle moves from pavement to gravel to grass to dirt, the capacitive coupling between the vehicle body and the surface below changes continuously. Ground losses on 40 meters over dry desert gravel will be substantially higher than the same vehicle over wet pavement. If your SWR wanders while driving, this is the likely cause &mdash; not an antenna problem. Do not chase it with an auto-coupler; the coupler will hunt continuously and accomplish nothing useful. Design your system to tolerate a reasonable variation in ground impedance and leave it alone.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="bonding.html">Bonding</a>
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+          <a class="related-card" href="antenna-problems.html">Antenna Problems</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

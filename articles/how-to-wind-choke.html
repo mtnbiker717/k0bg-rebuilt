@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Wind a Choke — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Step-by-step procedure for winding a motor lead and reed switch RF choke using Mix 31 ferrite split beads for mobile HF antenna controllers. Correct materials, wire, technique, and turn count.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>How to Wind a Choke</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Remotely controlled HF mobile antennas are the most popular style of mobile antenna, and for good reason: the ability to change operating frequency while underway is an obvious and compelling attribute. No matter the controller type &mdash; TurboTuner-2, MFJ, TargetTuner, or a manual unit &mdash; every controller requires one common component: a motor lead RF choke. If the controller requires a turn counter (reed switch), those leads must also be separately RF choked.</p>
+
+        <p>The reason they need to be choked is straightforward. The motor and reed switch are mounted inside the antenna. Depending on the antenna's design, the applied RF voltage at 100 watts of driving power is typically around 200 volts, but may in fact exceed 1,000 volts. That level of RF will destroy any antenna controller &mdash; even a manual one. Even if it doesn't destroy it outright, erratic operation and RFI issues will abound. The solution is a properly wound RF choke.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT: CHOKE PLACEMENT</div>
+          <p>Everything between the choke and the antenna radiates. This fact dictates that any choke must be installed <strong>outside the vehicle</strong>. If you mount chokes inside the vehicle, you will be plagued with erratic controller operation and RFI problems. No exceptions. See the <a href="common-mode.html">Common Mode Currents article</a> and the <a href="antenna-controllers.html">Antenna Controllers article</a> for context on why this matters.</p>
+        </div>
+
+        <p>As pointed out in the <a href="antenna-controllers.html">Antenna Controllers article</a>, the choke must be properly wound with the correct ferrite material. For motor lead chokes, that material is Mix 31 in the form of a 3/4-inch ID split bead. A correctly wound choke using these materials will produce a mostly resistive impedance of approximately 10 k&Omega; at 10 MHz &mdash; adequate in most cases except for some sloppily installed, short-stubby antennas.</p>
+
+        <h2 id="materials">Materials</h2>
+
+        <p>You need three things, and none of them have acceptable substitutes.</p>
+
+        <h3 id="the-bead">The Bead: Mix 31, 3/4-inch ID Split Bead</h3>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_0.jpeg" alt="Mix 31 3/4-inch ID split bead" loading="lazy">
+          <figcaption>The correct bead: a Mix 31, 3/4-inch ID split bead. DX Engineering sells a kit of five for about $35. Buy the kit &mdash; you'll need additional chokes for common mode current control as well as for the motor and reed switch leads. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: Wrong Bead = Wrong Choke</div>
+          <p>Cheap split beads from Radio Shack, All Electronics, and most surplus sources will not work. Neither will the tiny Mix 43 toroids sometimes supplied by antenna manufacturers. You need Mix 31. Not Mix 43. Not "ferrite." Not "RF choke beads." Mix 31, 3/4-inch ID, split bead. DX Engineering sells them in kits of five.</p>
+        </div>
+
+        <h3 id="the-wire">The Wire: 18x2, 7x32 Strand, Nylon-Insulated Security Wire</h3>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_1.jpeg" alt="Carol Cable E1032S 18x2 security wire" loading="lazy">
+          <figcaption>Carol Cable Division E1032S.18.10 or equivalent: 18x2 conductor, 7x32 strand, nylon insulated, with a conductor diameter including insulation of 0.068 inches, enclosed in a gray or brown vinyl outer sheath with a fiberglass pull string. Commonly called security wire or speaker wire at home improvement stores. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>Do not use solid wire. The recommended wire is Carol Cable Division E1032S.18.10 or equivalent. This is 18x2, 7x32 strand, nylon-insulated wire with a conductor diameter (including insulation) of 0.068 inches, enclosed in a gray or brown vinyl outer sheath with a fiberglass pull string. Home Depot, Lowe's, and others carry this wire.</p>
+
+        <p>The 0.068-inch outside diameter is critical. If the wire is any larger in diameter, you will not be able to get 13 turns through the bead. If you only get 5 to 8 turns, you used the wrong wire. The outside diameter is a hard limit.</p>
+
+        <p>You'll need about 60 inches of wire. It actually takes about 50 inches to wind the choke, but the extra length aids in the winding process. While you're at it, buy enough to run from the controller to the antenna &mdash; the outer sheath is tough and exactly what you need in a mobile installation.</p>
+
+        <h3 id="the-tape">The Tape: 3M #27 Fiberglass Tape, 1/2-inch wide</h3>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_2.jpeg" alt="3M #27 fiberglass tape" loading="lazy">
+          <figcaption>3M #27 fiberglass tape, 1/2-inch wide. Available from Amidon and most Ace Hardware stores. Self-vulcanizing, waterproof, and becomes very difficult to remove once exposed to sunlight. You can use electrical tape in a pinch, but #27 is the correct material. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <p>The tape shown is 3M #27 fiberglass tape, 1/2-inch wide. It is available from Amidon and most Ace Hardware stores. You can use electrical tape in a pinch, but #27 has other useful properties &mdash; it's self-vulcanizing, becomes very difficult to remove after sun exposure, and is waterproof. It's also used for winding baluns and ununs.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; ONE CHOKE PER CABLE</div>
+          <p>If your controller uses a reed switch, those leads must have their own choke &mdash; wound separately, not together with the motor leads. Wind one choke per cable. Winding the motor leads and reed switch leads together in the same choke defeats the purpose of the choke and provides inadequate suppression for either function.</p>
+        </div>
+
+        <h2 id="preparing">Step 1: Preparing the Wire</h2>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_3.jpeg" alt="Removing outer sheath from security wire showing fiberglass pull string" loading="lazy">
+          <figcaption>Removing the outer sheath by cutting back a few inches and pulling the fiberglass pull string. The string strips the outer sheath cleanly from the conductors. Discard the sheath and pull string. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <ol>
+          <li>Remove the outer sheath from the cable by cutting back a few inches of sheath, grabbing the fiberglass pull string, and pulling it to strip the outer sheath from the conductors. Discard the sheath and pull string.</li>
+        </ol>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_4.jpeg" alt="Wire conductors untwisted and laid out parallel" loading="lazy">
+          <figcaption>After removing the outer sheath: the two conductors untwisted and laid out parallel. If you have a vise, clamp the wires on one end and pull them through a shop rag to straighten them. They must be straight and parallel before taping. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <ol start="2">
+          <li>Untwist the conductors and lay them out parallel. Take out any kinks and make them as straight as possible. If you have a vise, clamp the wires on one end and pull them through a shop rag.</li>
+        </ol>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_5.jpeg" alt="Short pieces of #27 tape applied every 12 inches to maintain wire parallelism" loading="lazy">
+          <figcaption>Short pieces of #27 tape applied approximately every 12 inches to maintain parallelism. Also note the tape covering the ends of the wires to aid in threading through the split bead. Parallelism is an absolute requirement &mdash; if the conductors are twisted when wound, impedance will be reduced. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <ol start="3">
+          <li>Cut 5 or 6 pieces of #27 tape, each about 1/2 inch long, and apply them to the straightened wires approximately every 12 inches. This maintains parallelism and prevents the conductors from twisting during winding. Also tape the ends of the wires &mdash; this aids in threading them through the split bead.</li>
+        </ol>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; WHY PARALLELISM MATTERS</div>
+          <p>The wires must be parallel and untwisted throughout the winding process. Any twist in the wire pair inside the choke reduces the achievable impedance. The maximum impedance of approximately 10 k&Omega; at 10 MHz requires 13 untwisted, non-overlapping turns. Twisted or overlapping turns will fall well short of this target.</p>
+        </div>
+
+        <h2 id="winding">Step 2: Winding</h2>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p1_6.jpeg" alt="Starting the choke wind with wire end taped to the split bead" loading="lazy">
+          <figcaption>Beginning the winding: the wire end is taped to the split bead to hold it in place as winding starts. At this point there are two turns on one side and three turns on the other. <!-- From PDF page 1 — verify placement --></figcaption>
+        </figure>
+
+        <ol>
+          <li>Tape the end of the wire to the split bead to hold it in place as you start winding.</li>
+          <li>Thread the wire through the split bead. Work methodically &mdash; each pass through the center of the bead counts as one turn. Keep each turn flat and in order, with no overlaps and no twists.</li>
+        </ol>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p2_7.jpeg" alt="Partially wound choke showing turns progressing around the split bead" loading="lazy">
+          <figcaption>Progress at mid-winding. Check your work frequently: no overlapping turns, no twisted pairs. Continue threading the wire through the split bead until you have three turns on each side of the bead. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <ol start="3">
+          <li>Continue threading the wire through the split bead until you have three turns on each side. This is a total of 13 turns through the completed choke (12 wraps outside the bead, 13 passes through the inside of the bead).</li>
+          <li>When you get back to the starting point, carefully cut the tape holding the starting end and finish winding the last turn (number 13).</li>
+        </ol>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; STOP AND RECOUNT</div>
+          <p>If you didn't get 13 untwisted, non-overlapped turns: start over. Do not try to fix it in place. If you only got 5 to 8 turns, you almost certainly used wire with too large an outside diameter. Remember: the wire outside diameter must be 0.068 inches. Nothing larger will fit 13 turns through a 3/4-inch ID bead.</p>
+        </div>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p2_8.png" alt="Completed 13-turn choke showing all turns flat and untwisted" loading="lazy">
+          <figcaption>Completed winding with 13 turns. All turns are flat, parallel, non-overlapping, and untwisted. This is what a correctly wound choke looks like. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <h2 id="finishing">Step 3: Finishing</h2>
+
+        <figure>
+          <img src="../images/How_To_Wind_A_Choke_p2_9.jpeg" alt="Completed choke with two wraps of #27 tape securing the turns, and TyRap for mechanical stability" loading="lazy">
+          <figcaption>The completed choke with two lengths of #27 tape wound around it to hold the turns in place. A single TyRap secures it mechanically. Do not cover the entire choke with tape &mdash; that just traps moisture. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <ol>
+          <li>Wind two lengths of #27 tape around the choke to keep the wires in place. It is not necessary &mdash; and not advisable &mdash; to cover the entire choke with tape. Covering the whole thing traps moisture and accomplishes nothing else.</li>
+          <li>Secure the choke with a single TyRap to keep it mechanically stable.</li>
+        </ol>
+
+        <h3 id="connectors">Connectors and Weatherproofing</h3>
+
+        <p>Attach a quick-disconnect connector to the leads. Molex connectors work well. Some may scoff at using Molex connectors for connections exposed to the weather, but the truth is otherwise: many rubber-enclosed connectors allow water to seep in, where it stays and corrodes the contacts. Molex connectors get wet too, but they dry out quickly.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP: Power Pole Colors</div>
+          <p>If you use Anderson Power Pole connectors, do not use black and red housings. Using any of the other available colors prevents accidentally connecting power to the reed switch, which is an all-too-common occurrence. The consequences of applying 12 volts to reed switch leads range from a destroyed reed switch to a destroyed controller.</p>
+        </div>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING: No Tape on Connections</div>
+          <p>Do not cover the connection with tape or coax seal. If the connection gets wet, let it get wet &mdash; it will dry out. If you must cover it, use Rescue Tape. It is self-vulcanizing and seals better than any electrical tape. This goes for coax connections too: no electrical tape, no coax seal. Both trap moisture and make the problem worse over time, not better.</p>
+        </div>
+
+        <h2 id="summary">Summary: Non-Negotiable Requirements</h2>
+
+        <p>To reiterate the specifications that must all be met for a correctly functioning choke:</p>
+
+        <ul>
+          <li><strong>Bead:</strong> Mix 31, 3/4-inch ID, split bead &mdash; no substitutes</li>
+          <li><strong>Wire:</strong> 0.068-inch OD stranded wire (18x2, 7x32 strand, nylon insulated) &mdash; solid wire will not work</li>
+          <li><strong>Turns:</strong> 13 turns exactly</li>
+          <li><strong>Parallelism:</strong> Not twisted at any point</li>
+          <li><strong>Overlap:</strong> No turns overlapping</li>
+          <li><strong>Placement:</strong> Outside the vehicle, always</li>
+          <li><strong>Separate chokes:</strong> Motor leads and reed switch leads wound separately</li>
+        </ul>
+
+        <p>Anything less, start over.</p>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <h3 id="coax-chokes">Coax Common Mode Chokes</h3>
+
+        <p>The same Mix 31 split bead is the correct material for winding coaxial common mode chokes. The procedure is different &mdash; you're threading coax through the bead rather than winding paired wire around it &mdash; but the bead material is the same. For coax chokes, 6 to 7 turns of RG-8X through a 3/4-inch ID Mix 31 split bead produces approximately 2.2 to 2.7 k&Omega; at 10 MHz. Two beads in series nearly double the impedance for installations with severe common mode problems (lip mounts, clip mounts, and magnetic-base antennas). See the <a href="coax-pl259.html">Coax &amp; PL-259s article</a> and the <a href="common-mode.html">Common Mode Currents article</a> for details.</p>
+
+        <h3 id="higher-power">Higher-Power Installations</h3>
+
+        <p>At 100 watts driving power, the RF voltage on motor control leads inside the antenna can reach or exceed 1,000 volts. At higher power levels, this voltage increases proportionally. If you're running an amplifier, the motor lead choke becomes even more critical &mdash; inadequate choking impedance at high power is not merely a performance problem. It can be a destructive one. A single correctly wound choke of 10 k&Omega; at 10 MHz provides adequate isolation for 100 watts. At 500 watts, two chokes in series is prudent engineering.</p>
+
+        <h3 id="mix-31-availability">Mix 31 Availability</h3>
+
+        <p>Mix 31 ferrite material remains available from DX Engineering, Amidon, and similar suppliers. The split bead format with 3/4-inch ID is the correct form factor for the motor lead choke procedure described here. Solid (non-split) Mix 31 toroids of the same general dimensions require threading the wire through the toroid differently and produce different turn counts for the same impedance. The split bead format described here is the established, tested approach.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="common-mode.html">Common Mode Currents</a>
+          <a class="related-card" href="antenna-controllers.html">Antenna Controllers</a>
+          <a class="related-card" href="coax-pl259.html">Coax &amp; PL-259s</a>
+          <a class="related-card" href="rfi.html">RFI Problems</a>
+          <a class="related-card" href="installation.html">Installation Notes</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

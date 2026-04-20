@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antenna Cap Hat — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="The definitive guide to capacity hats (cap hats) for HF mobile antennas: history, design principles, correct mounting position, the three-loop design, and efficiency improvements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+        <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="bonding.html">Bonding</a></li>
+          <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="common-mode.html">Common Mode Currents</a></li>
+          <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="antenna-problems.html">Antenna Problems</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="amplifiers.html">Amplifiers</a></li>
+          <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
+          <li><a href="tricks.html">Tricks of the Trade</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Main Content -->
+  <main class="main-content" id="main-content">
+  <div class="topbar">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="search-wrapper" role="search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+    <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1>Antenna Cap Hat</h1>
+        <div class="article-date">Last updated: April 2026</div>
+      </div>
+
+      <div class="article-meta">
+        <span class="author">Based on original work by Alan Applegate, K0BG</span>
+        <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
+      </div>
+
+      <div class="toc" id="toc">
+        <div class="toc-title">In This Article</div>
+      </div>
+
+      <div class="article-body">
+
+        <h2 id="basics">Basics</h2>
+
+        <p>Cap hats are not new innovations, and have been used in one form or another almost since the dawn of radio. The first patent covering them (US Patent #609,154) was issued to Sir Oliver Joseph Lodge, a British physicist, in 1898. His abstract reads in part: "...As charged surfaces... I prefer, for the purpose of combining low resistance with great electrostatic capacity, cones or triangles or other such diverging surfaces with the vertices adjoining and their larger areas spreading out into space..."</p>
+
+        <p>The reason he chose that design was to reduce the Q of the antenna system, thus increasing its bandwidth. Based on his patent comments, he also realized that the input impedance would increase and the overall length at resonance would decrease. This is exactly what cap hats do &mdash; if installed correctly.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_0.jpeg" alt="Historical QST photo montage from the 1961 California Mobilecade showing cap hats on contest antennas" loading="lazy">
+          <figcaption>Photo montage from the July 1961 QST, showing 16 contestants in the third annual California Mobilecade and Field Trials. Note that nearly every antenna sports a cap hat. David Evans, WA6JJG (the man being kissed), won with just 7.26 watts input. His antenna, visible in the fourth row, first column, has a cap hat installed correctly at the very top. This competition established the cap hat's effectiveness definitively.</figcaption>
+        </figure>
+
+        <p>Based on photos appearing in QST, cap hats atop HF mobile antennas date to the early 1930s. Then, in 1954, the ARRL published their first Mobile Manual &mdash; a compilation of mobile articles from QST. Several cap hat examples were included, but unfortunately they were shown incorrectly installed directly atop the coil. The position of the cap hat within the antenna's length is critical, and the early ARRL photos propagated an error that has caused confusion ever since.</p>
+
+        <p>The radiation resistance of a vertical antenna is a function of its electrical length and how the current flows over that length. In a mobile scenario, we can't increase the overall height beyond about 13 feet (about 11 feet of physical length in most locations). We can't significantly reduce the ground losses &mdash; bonding notwithstanding. Thus the only practical way to increase efficiency, besides reducing ohmic losses (coil Q), is to increase the radiation resistance.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_1.jpeg" alt="Diagram comparing base-loaded versus center-loaded antenna showing current node positions" loading="lazy">
+          <figcaption>A base-loaded antenna has the highest current point (node) just above the loading coil. Relocating the loading coil to the approximate center of the antenna raises the current node and doubles the radiation resistance. Center loading increases required reactance and therefore coil losses, but the efficiency gain is still real. A cap hat does even better.</figcaption>
+        </figure>
+
+        <p>A center-loaded antenna doubles radiation resistance compared to a base-loaded one, which doubles efficiency &mdash; but at the cost of additional coil losses because center loading approximately doubles the required reactance for resonance. Moving the coil higher than center increases Q losses faster than it increases radiation resistance. A cap hat solves this problem more elegantly.</p>
+
+        <div class="callout key-concept">
+          <div class="callout-title">&#128273; KEY CONCEPT</div>
+          <p>Generally speaking, the more capacitance above the loading coil, the higher the radiation resistance. However, cap hats increase wind loading and bending moment stresses significantly more than a whip. Just like coil position, there is a physical and practical limit that must be weighed against the increase in efficiency. A cap hat that is too large relative to the wavelength will begin to radiate, reducing efficiency rather than improving it. The three-loop design described below represents a near-optimal balance of all these factors.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_2.jpeg" alt="Chart showing optimal coil position versus ground losses for maximum efficiency" loading="lazy">
+          <figcaption>Optimal coil position versus ground loss, from ARRL data. The point of maximum efficiency varies with ground loss magnitude. With typical mobile ground losses, the optimal coil position is roughly at or below the center of the antenna. A properly mounted cap hat at the top of the antenna raises the current node regardless of coil position, improving the efficiency without the need to move the coil up.</figcaption>
+        </figure>
+
+        <h2 id="design-considerations">Design Considerations</h2>
+
+        <p>Cap hats come in a variety of designs, but some perform better than others. A spoke design &mdash; straight wires radiating from a hub without an enclosing rim &mdash; does not work nearly as well as designs with an enclosing rim. For a given overall diameter, the outer rim nearly doubles the effective capacitance. This has to be weighed against the slightly increased wind loading and a greater chance of the cap hat catching on an errant tree limb.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_3.jpeg" alt="Two cap hat designs side by side: spoke design without rim versus loop design with rim" loading="lazy">
+          <figcaption>Left: spoke design cap hat without an enclosing rim. Right: loop design with a conductive rim. For a given overall diameter, the rim design nearly doubles the effective capacitance. Straight wires without a conductive rim are next to worthless. This fact is not obvious, but it is the difference between a cap hat that works and one that doesn't.</figcaption>
+        </figure>
+
+        <p>There is a practical limit to maximum diameter, and a limit to the length of the mast supporting the cap hat. Too short a mast, and there will be excessive capacitive loading between the cap hat and the body of the vehicle. Too long, and even the sturdiest of antennas will fail due to the excessive bending moment caused by wind loading.</p>
+
+        <p>Weight is another important factor. One commercial design weighs in at just over 6 pounds. The antenna must hold it up weight-wise, and also withstand the bending moment of acceleration, deceleration, and wind loading.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>The position of the cap hat within the antenna's length is absolutely critical. For maximum efficiency, the cap hat must be placed at the very top of the antenna. Cap hats mounted atop the coil will indeed increase bandwidth, but at the expense of drastically reduced efficiency. Nothing should be mounted above the cap hat.</p>
+        </div>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_4.jpeg" alt="Cap hat incorrectly mounted atop the loading coil" loading="lazy">
+          <figcaption>A cap hat incorrectly mounted directly atop the loading coil. This location does increase input impedance and bandwidth, but for the wrong reason &mdash; it is reducing coil Q rather than increasing radiation resistance. The efficiency result is the opposite of what you want. This mistake was illustrated in the 1954 ARRL Mobile Manual and has been propagated ever since.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_5.jpeg" alt="Three-loop cap hat correctly mounted at the very top of a Scorpion 680 antenna" loading="lazy">
+          <figcaption>A three-loop cap hat correctly mounted at the very top of a Scorpion 680 antenna. The mast is 4 feet in length, and the loops are 72 inches long. Effective diameter is approximately 5 feet. This configuration allows tuning from 80 through 17 meters. The stock Scorpion cap hat uses a 3-foot mast with 60-inch wires, adding 15 meters coverage.</figcaption>
+        </figure>
+
+        <p>If all the factors above are considered, the three-loop design offers the best overall performance. In the specific case illustrated, the mast is 4 feet in length and the loops are 72 inches long, giving an effective diameter of approximately 5 feet. Mounted atop a Scorpion 680, the antenna can be tuned from 80 through 17 meters.</p>
+
+        <p>Four loops could be used, but this increases wind loading by 1/3 with only a very small increase in effectiveness. A longer mast isn't viable because it would place the cap hat above the nominal legal limit of 13.6 feet in most states.</p>
+
+        <div class="callout tip">
+          <div class="callout-title">&#128161; TIP</div>
+          <p>There are several commercial designs on the market using globular wire cage designs. Besides the excess wind loading they represent, they place the cap hat too close to the body of the vehicle, and in some cases too close to the loading coil. The resulting stray capacitance loading is detrimental to efficiency. Bandwidth does increase, but at the expense of drastically reduced efficiency &mdash; exactly the wrong trade-off.</p>
+        </div>
+
+        <h3 id="wind-loading">Wind Loading Measurement</h3>
+
+        <p>There is one question that remains: actual wind loading. It is straightforward enough to calculate the loading on the mast (approximately 3 pounds at 60 mph), but the wires are dynamic &mdash; blowing in the wind &mdash; making calculations difficult. Here's how to estimate it closely enough:</p>
+
+        <p>A small whip spring is temporarily installed in place of the quick disconnect. A piece of Spectra 50-pound test fishing line is attached to one of the loops, and the other end brought into the cab through the moon roof. With the help of a passenger, the vehicle is driven at 60 mph and the line let out just to the point of bowing in the wind, with a reference point marked. Back in the driveway, a second piece of Spectra is attached to the hub and to a hand-held scale. Enough pull is exerted to move the first line to its reference point, and the scale is read. The result: just 6 pounds. This non-scientific exercise isn't perfect, but it gives a solid indication of the bending-moment forces applied to the top of the antenna.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_6.jpeg" alt="Wind loading test setup with Spectra fishing line and hand scale measuring cap hat force" loading="lazy">
+          <figcaption>The wind loading measurement setup. A Spectra fishing line from the cap hat through the moon roof, with the vehicle driven at 60 mph to determine the bowing point. A hand scale duplicates the force at the hub. Result: approximately 6 pounds at 60 mph &mdash; well within the capability of a properly mounted, sturdy antenna.</figcaption>
+        </figure>
+
+        <h2 id="conclusions">Conclusions</h2>
+
+        <p>Some folks think cap hats are for the birds. But if you want the best performance &mdash; read that as the highest efficiency &mdash; out of an HF mobile antenna, they are the only way to accomplish the goal while maintaining some modicum of practicality. The increase in efficiency cannot easily be measured without a bench full of expensive equipment, but you can infer it in other ways.</p>
+
+        <p>One of those ways is to count the number of coil turns showing above the contact ring on a screwdriver antenna. Here's how the antenna stacks up with the cap hat versus a standard 102-inch, 17-7 stainless steel whip on a Scorpion 680 with a modified cap hat:</p>
+
+        <ul>
+          <li><strong>80 meters:</strong> With cap hat, approximately 55 turns show above the contact ring. With whip, approximately 80 show.</li>
+          <li><strong>40 meters:</strong> With cap hat, approximately 12 turns show. With whip, approximately 20 show.</li>
+          <li><strong>20 meters:</strong> With cap hat, approximately 3.0 turns show. With whip, approximately 6.75 show.</li>
+        </ul>
+
+        <p>In each case, the measured input impedance increased approximately 30%, indicating an increase in radiation resistance. Fewer turns needed means less coil resistance in the circuit. Both factors contribute to efficiency improvement.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p1_7.jpeg" alt="Scorpion 680 with three-loop cap hat showing full installation detail" loading="lazy">
+          <figcaption>Complete installation of a Scorpion 680 with three-loop cap hat. The top of the antenna remains under 13 feet even when tuned to 80 meters &mdash; in many areas of the country, this is effectively a requirement. This installation can be tuned from 80 through 17 meters with the described cap hat configuration.</figcaption>
+        </figure>
+
+        <p>Another good attribute: the top of the antenna remains under 13 feet even when tuned to 80 meters. In some areas of the country, this is all but a prerequisite.</p>
+
+        <figure>
+          <img src="../images/Antenna_Cap_Hat_p2_8.jpeg" alt="Alternate cap hat design comparison showing spoke design versus three-loop design side by side" loading="lazy">
+          <figcaption>Comparison of a spoke design (left) versus the three-loop design (right). The spoke design's straight wires without a conductive rim provide a fraction of the capacitance per unit of wind loading. Empirical and theoretical analysis both show the three-loop design with a conductive rim is the most efficient design relative to its wind loading penalty. <!-- From PDF page 2 — verify placement --></figcaption>
+        </figure>
+
+        <div class="callout warning">
+          <div class="callout-title">&#9888; WARNING</div>
+          <p>Two absolute rules for cap hat installation: Cap hats must be installed at the very top of the antenna. Nothing should be mounted above the cap hat. Straight wires without an enclosing conductive ring are next to worthless. Violating either of these rules produces a cap hat that increases bandwidth at the expense of efficiency &mdash; the worst possible outcome.</p>
+        </div>
+
+        <h2 id="modern-considerations">Modern Considerations</h2>
+
+        <p>Cap hats have become more widely understood since the original site was written, but some persistent misapplications continue to appear in online communities.</p>
+
+        <p><strong>Cap hats on short, stubby antennas:</strong> Adding a cap hat to a short, stubby spiral-wound antenna improves its performance &mdash; but the starting point is so poor that the improvement may not bring it to the performance level of a properly designed standard antenna without one. The antenna must be otherwise capable and properly mounted for a cap hat to deliver its full benefit. A cap hat is not a remedy for poor antenna design elsewhere in the system.</p>
+
+        <p><strong>Cap hats and height limits:</strong> The three-loop design described above keeps the antenna top under 13 feet on all bands including 80 meters. In forested areas of New England and the Pacific Northwest, where 11 or 12 feet may be the practical limit, a cap hat becomes even more valuable &mdash; it provides the efficiency of a longer antenna while keeping physical height in check. Size the cap hat accordingly; a 4-foot mast and 72-inch loops may need to be reduced to a 3-foot mast with 60-inch loops to meet local height constraints.</p>
+
+        <p><strong>Cap hats and auto-couplers:</strong> The efficiency gains of a cap hat apply just as much to auto-coupler/whip installations as to loaded antennas. The cap hat must still be mounted at the very top of the radiating element, which requires a rigid mast (not a flexible stainless steel whip). See the <a href="auto-couplers.html">Auto-Couplers</a> article for details on this application.</p>
+
+        <p><strong>Commercial cap hat availability:</strong> Scorpion Antennas offers a three-loop cap hat (approximately 60-inch wires on a 3-foot mast) as a standalone accessory for approximately $90. This is a reasonable starting point. The modified version described in this article uses longer wires (72 inches) on a taller mast (4 feet) for increased effectiveness on 80 and 40 meters at the cost of 17-meter coverage at the upper end.</p>
+
+      </div>
+
+      <div class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="antenna-efficiency.html">Antenna Efficiency</a>
+          <a class="related-card" href="antenna-shootouts.html">Antenna Shootouts</a>
+          <a class="related-card" href="antenna-commercial.html">Commercial Antennas</a>
+          <a class="related-card" href="auto-couplers.html">Auto-Couplers</a>
+          <a class="related-card" href="antenna-mounts.html">Antenna Mounts</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
+    </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

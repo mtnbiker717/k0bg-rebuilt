@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -90,6 +133,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ High Current &amp; RF Notice</div>
+          <p>Mobile HF amplifiers draw peak currents of 75–90A or more. Undersized wiring is a fire hazard. RF at legal limit power levels creates significant electromagnetic fields — maintain safe distances from passengers and medical devices. Non-FCC-type-accepted amplifiers are illegal to operate and subject to FCC enforcement action. Verify all amplifier installations comply with Part 97 rules.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -116,6 +163,24 @@
         <p>The ALS-500M uses four MOSFET devices in a push-pull broadband configuration. It requires no tuning, which is convenient, and it draws substantial current from the vehicle's electrical system, which is not. Plan on at least 80 amps on voice peaks. If your wiring isn't up to the task &mdash; and if you haven't read the <a href="wiring.html">Wiring</a> article, it probably isn't &mdash; you're going to have voltage drop problems that will limit the amplifier's output and potentially damage it.</p>
 
         <p>Used amplifiers occasionally surface. The SGC SG-500, the Mirage units, and a handful of others have come and gone over the years. If you find one in working order, the same principles apply. But be cautious about used amplifiers with unknown histories. A mobile amplifier lives a hard life: heat, vibration, voltage transients, and frequently inadequate cooling.</p>
+
+        <h2 id="power-wiring-specs">Power Wiring: The Numbers You Need</h2>
+
+        <div class="callout callout-key">
+          <div class="callout-title">KEY VALUES: Amplifier Power Demands</div>
+          <p>A typical solid-state 500-watt PEP rated amplifier consumes approximately <strong>1,000 watts</strong> of input power. At 13.8 volts with no drop, peak current is approximately <strong>75 amps</strong>. Add the nominal current of the driving transceiver and the combined peak current approaches <strong>90 amps</strong>. The rule of thumb is to limit voltage drop to less than <strong>0.5 volts</strong>. Depending on alternator rating and whether a second battery is used, power wiring to the amplifier may need to be as large as <strong>1/0 AWG</strong>. Average current during SSB voice operation hovers around 40 to 60 amps depending on speech patterns. Do not attempt to add an amplifier if your vehicle's alternator is rated at less than <strong>90 amps</strong>, especially in the snow belt where additional loads are always present.</p>
+        </div>
+
+        <h2 id="drive-level">Drive Level: This Is Where Finals Go to Die</h2>
+
+        <p>Drive level discipline is the single most important operational habit for mobile amplifier users. Most mobile amplifiers require only 50 to 65 watts PEP for full rated output (the ALS-500 falls in this range; some require as little as 25 watts). Overdriving is the fastest way to generate excessive IMD and shorten final transistor life.</p>
+
+        <p>Set drive level using SSB voice &mdash; never CW. Most electrical systems cannot sustain the 90-amp load of continuous CW key-down for more than a few seconds. SSB voice peaks are representative of real operating conditions. Start at 20 watts input and increase incrementally. You are looking for the point where additional drive no longer produces a proportional increase in output. When 30 watts in yields 300 watts out and 40 watts in yields 400 watts out, but 50 watts in yields only 450 watts out, you are entering the non-linear portion of the power curve. That non-linearity is IMD. Back off one step from that point.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Speech Compression With Amplifiers</div>
+          <p>Do not use speech compression or processing while operating mobile with an amplifier. Speech processing increases <em>average</em> output power, which in turn increases average current draw &mdash; and can effectively double it. Most mobile amplifiers use metal-film resistors in the input attenuator circuit. These dissipate excess drive power, but they have limits. Speech compression can overtax these resistors. If one or more fail, excess drive reaches the finals with predictable results: <strong>blown final transistors</strong>. Running compression while mobile also garners negative audio reports due to background noise pickup.</p>
+        </div>
 
         <h2 id="bonding-and-amplifiers">Bonding: Even More Critical Now</h2>
 
@@ -167,6 +232,13 @@
         <p>If your antenna mount is questionable at 100 watts, it is dangerous at amplifier power. A lip mount with a mediocre ground connection will arc at high power. A trunk-lip mount that relies on set screws biting through paint will develop a hot spot that melts the paint, loosens the connection, and makes the problem progressively worse. A mag mount is simply not suitable for amplifier use. Period.</p>
 
         <p>Fix the mount before you add the amplifier. This means a through-body mount with proper grounding, or an NMO mount on a surface with verified bonding to the vehicle structure. There are no shortcuts here.</p>
+
+        <h2 id="nonfcc-amplifiers">Non-Certified Amplifiers: Don't</h2>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">WARNING: Non-FCC-Certified Amplifiers</div>
+          <p>Any amplifier not certified under FCC Part 97 rules must not be used. This includes so-called kit amplifiers, CB "linears," and amplifiers manufactured without proper output filtering. The IMD these devices generate pollutes the amateur bands. The individual amateur is responsible for spectral purity &mdash; not the manufacturer. The FCC has levied fines against amateurs for using these unregistered devices. Ameritron made an ARF-1000 RF harmonic filter (rated 1000 watts PEP / 400 watts CW), but as their own manual states, power output may drop 40% or more with the filter in place &mdash; meaning harmonic content could still exceed Part 97 limits.</p>
+        </div>
 
         <h2 id="swr-meters-and-monitoring">A Note on Permanent SWR Meters</h2>
 
@@ -261,6 +333,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>

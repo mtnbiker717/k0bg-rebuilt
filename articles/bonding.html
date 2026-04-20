@@ -21,31 +21,58 @@
         <div class="logo-secondary">Mobile Amateur Radio</div>
       </a>
     </div>
-    <div class="sidebar-nav">
+        <div class="sidebar-nav">
       <div class="nav-group">
         <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
         <ul>
           <li><a href="abcs.html">ABCs of Mobile HF</a></li>
           <li><a href="safety.html">Safety</a></li>
+          <li><a href="installation.html">Installation Notes</a></li>
         </ul>
       </div>
       <div class="nav-group">
-        <button class="nav-group-label">Electrical Fundamentals <span class="chevron">▾</span></button>
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
         <ul>
           <li><a href="bonding.html">Bonding</a></li>
           <li><a href="wiring.html">Wiring</a></li>
+          <li><a href="alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="common-mode.html">Common Mode Currents</a></li>
           <li><a href="rfi.html">RFI Problems</a></li>
+          <li><a href="digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="controlling-static.html">Controlling Static</a></li>
+          <li><a href="how-to-wind-choke.html">How To Wind A Choke</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
         <ul>
-          <li><a href="installation.html">Installation Notes</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="antenna-cap-hat.html">Cap Hats</a></li>
           <li><a href="antenna-problems.html">Antenna Problems</a></li>
-          <li><a href="antenna-matching.html">Antenna Matching</a></li>
-          <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
-          <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+          <li class="nav-subgroup-li">
+            <div class="nav-subgroup">
+              <button class="nav-subgroup-toggle" data-group="matching-tuning">Matching &amp; Tuning <span class="nav-subgroup-chevron">▶</span></button>
+              <div class="nav-subgroup-items">
+                <ul>
+                  <li><a href="antenna-matching.html">Antenna Matching</a></li>
+                  <li><a href="coil-adjustment.html">Coil Adjustment</a></li>
+                  <li><a href="auto-couplers.html">Auto-Couplers</a></li>
+                  <li><a href="antenna-controllers.html">Antenna Controllers</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="nav-group">
@@ -53,12 +80,28 @@
         <ul>
           <li><a href="amplifiers.html">Amplifiers</a></li>
           <li><a href="vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
           <li><a href="otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="portable-operation.html">Portable Operation</a></li>
+          <li><a href="insurance.html">Mobile Insurance</a></li>
         </ul>
       </div>
       <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
+          <li><a href="antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="home-brew.html">Home Brew</a></li>
+          <li><a href="neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="what-i-use.html">What I Use</a></li>
           <li><a href="tricks.html">Tricks of the Trade</a></li>
           <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -90,6 +133,10 @@
         <span class="preserved">Preserved &amp; expanded for the amateur radio community</span>
       </div>
 
+        <div class="callout warning">
+          <div class="callout-title">⚠ Vehicle Modification Notice</div>
+          <p>Drilling or modifying vehicle bodywork may affect structural integrity, void warranties, and create corrosion points if not properly treated. Check your vehicle service manual before drilling. Avoid drilling near wiring harnesses, fuel lines, airbag components, and structural adhesive joints. In aluminum-body vehicles, use only manufacturer-approved hardware to prevent galvanic corrosion.</p>
+        </div>
       <div class="toc" id="toc">
         <div class="toc-title">In This Article</div>
       </div>
@@ -118,6 +165,18 @@
         <div class="callout warning">
           <div class="callout-title">⚠ WARNING</div>
           <p>The exhaust system gets extremely hot. Bond it at every joint and hanger point, but use hardware rated for the thermal environment. Stainless steel hardware is recommended for exhaust bonding. Route straps so they won't contact the exhaust pipe directly along their length, and leave enough slack to accommodate thermal expansion and the normal movement of rubber isolators.</p>
+        </div>
+
+        <div class="callout callout-key">
+          <div class="callout-title">&#128273; EXHAUST BONDING PROCEDURE</div>
+          <p>Almost without exception, modern exhaust systems are made of good-grade stainless steel. Wire-brush a small area for the lug to bite into and use stainless steel hose clamps to secure the lug. Bond the exhaust system at these points:</p>
+          <ol>
+            <li>Before the catalytic converter</li>
+            <li>After the catalytic converter</li>
+            <li>At least once after the muffler</li>
+            <li>A fourth strap at the tailpipe if it is extra long</li>
+          </ol>
+          <p>The opposite end of each exhaust strap should attach to the underframe or unibody strut work. If the car is undercoated, clean a small area with a Dremel tool and wire wheel &mdash; but don't brush past the zinc layer to bare metal. Don't rely on any factory strap to provide a good RF ground; they're meant solely for DC grounding of tail lights and are inadequate for RF grounding needs.</p>
         </div>
 
         <figure class="image-placeholder">
@@ -167,11 +226,27 @@
 
         <p>Keep every bonding strap as short as physically possible. <strong>Any strap longer than 10 inches is too long.</strong> Inductance increases with length, and at HF frequencies, even a foot-long strap can become a significant impedance. If you can't reach between two points with a 10-inch strap, you need to find a closer bonding point or create an intermediate connection.</p>
 
+        <div class="callout callout-key">
+          <div class="callout-title">&#128273; STRAP SIZING GUIDE</div>
+          <p>A good working set of straps for a typical vehicle installation:</p>
+          <ul>
+            <li><strong>6-inch straps</strong> &mdash; for doors (one per hinge)</li>
+            <li><strong>10-inch straps</strong> &mdash; for both sides of the engine, both hinges of the hood and trunk</li>
+            <li><strong>Three or more straps</strong> &mdash; for the exhaust system (before the catalytic converter, after the catalytic converter, and at least once after the muffler; a fourth strap at the tailpipe if it is extra long)</li>
+          </ul>
+          <p>Lugs: use two sizes &mdash; ones with a 1/4-inch bolt hole (for existing bolts) and ones with a #10 screw hole (for everything else). Wire size depends on braid size: lugs for #12 are adequate for RG8 shield braid; lugs for #4 work best for 1-inch braid material. Always crimp and solder &mdash; crimping alone allows moisture to seep into the connection. If the strap is subject to abrasion, cover it with heat shrink tubing.</p>
+        </div>
+
         <h3 id="connection-technique">Connection Technique</h3>
 
-        <p>At every connection point, you must scrape the paint down to bare metal. A wire brush on a drill works well, as does coarse sandpaper. Don't be dainty about it &mdash; you need clean, bright metal. Then use serrated (star) lock washers under the bolt head and under the nut. These toothed washers bite through any residual coating and ensure metal-to-metal contact that persists over time. A flat washer between the star washer and the braid protects the braid from being cut by the teeth.</p>
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; DO NOT SAND TO BARE METAL</div>
+          <p>Rule one: do not sand the finish down to bare metal before attaching bonding straps. Modern vehicle bodies and frames are dipped in a zinc compound. This zinc compound oxidizes in the presence of air and seals scratches in its surface. If you sand through to bare steel, you have destroyed that protection. Let the star washers do their job of biting through paint layers &mdash; the zinc compound will seal the connection. The use of NoOx and similar compounds really isn't necessary, but they do retard rust and oxidation of the mounting hardware. Do not use these compounds under star washers or between the mount and the vehicle's structure &mdash; let the zinc oxide do its job.</p>
+        </div>
 
-        <p>Once installed, a dab of paint or corrosion inhibitor over the connection point will slow future oxidation without compromising the electrical joint.</p>
+        <p>Use star (serrated) lock washers under bolt heads and under nuts &mdash; not standard lock washers. The preferred type has both internal and external teeth. When properly installed, they bite through finish layers and into the base metal. Self-tapping sheet metal screws in #10 size work well if the material is 12 gauge or less; self-drilling screws work better for thicker material. Don't use screws longer than 1/2 inch &mdash; 3/8 inch is a better choice. Longer screws won't hold better and might run into something you can't see.</p>
+
+        <p>Once installed, a dab of paint or corrosion inhibitor over the connection point will slow future oxidation without compromising the electrical joint. Inspect all bonding connections at least once a year. Five years in a dry climate is enough to produce significant rust on even well-installed hardware.</p>
 
         <h3 id="sourcing-braid">Where to Get Braid</h3>
 
@@ -194,6 +269,11 @@
         <div class="callout warning">
           <div class="callout-title">⚠ WARNING</div>
           <p>Running a ground strap from your antenna mount directly to the vehicle frame is a common but misguided practice. Doing so can actually <em>exacerbate</em> common mode currents and create ground loop problems. The antenna mount's connection to the vehicle body <em>is</em> the ground connection. Adding a strap to the frame creates an alternate RF path that invites trouble.</p>
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">&#9888; TRUNK-LID ANTENNA MOUNTING</div>
+          <p>If you mount an HF antenna on a trunk lid, you will have excessive common mode current &mdash; no matter how well you bond the lid and/or mount. Making matters worse, common mode chokes must be placed <em>outside</em> the vehicle to minimize RFI ingress. This goes for control lead chokes too. This is a fundamental reason to avoid trunk mounting on any band below 2 meters. If you have resorted to a hatch or trunk lip mount, make sure both the hatch and the coax choke are outside the vehicle, and make sure the hatch is very well bonded. Lack of bonding in these areas is the first place to look when you have common mode problems.</p>
         </div>
 
         <p>Here is a rule you should commit to memory: <strong>if adding a ground strap fixed, reduced, or eliminated an RFI problem, then something else in your installation was already wrong.</strong> The strap didn't fix the root cause; it masked a symptom. Maybe the coax shield wasn't properly grounded at the mount. Maybe the antenna mount itself had a poor connection to the body. Maybe there was a common mode current problem on the feedline. Whatever it was, the strap papered over the real deficiency, and it will come back to bite you in other ways.</p>
@@ -298,6 +378,9 @@
 
     <footer class="site-footer">
       <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+      <p><strong>Important Notice:</strong> The information on this site is provided for educational purposes and is reconstructed from publicly available sources. Always verify technical information against current manufacturer documentation, the ARRL Handbook, and applicable FCC regulations before implementing any installation. This site is not affiliated with or endorsed by Alan Applegate (K0BG). When in doubt, consult a licensed professional or Elmer. Amateur radio installation involves electrical work, vehicle modification, and RF exposure — proceed carefully and at your own risk.</p>
+    </div>
     </footer>
     </div>
   </main>
