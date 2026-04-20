@@ -826,6 +826,28 @@
     ]
   },
   {
+    "title": "Amateur Mobile Insurance",
+    "url": "articles/insurance.html",
+    "description": "Amateur radio mobile insurance — what vehicle policies cover, notification requirements, permanent installation rules, distraction laws, and how to protect your equipment.",
+    "headings": [
+      "Basics",
+      "Coverage",
+      "Distraction Reactions",
+      "Modern Considerations"
+    ],
+    "keywords": [
+      "amateur",
+      "mobile",
+      "insurance",
+      "basics",
+      "coverage",
+      "distraction",
+      "reactions",
+      "modern",
+      "considerations"
+    ]
+  },
+  {
     "title": "Miniature Radios",
     "url": "articles/miniature-radios.html",
     "description": "Comprehensive buyer's guide to miniature and mobile HF transceivers. Honest assessments of Icom, Yaesu, Kenwood, Alinco, and Elecraft mobile radios for HF operation.",
@@ -1024,6 +1046,38 @@
       "dangers",
       "final",
       "word"
+    ]
+  },
+  {
+    "title": "Signal to Noise Ratio",
+    "url": "articles/signal-noise-ratio.html",
+    "description": "Signal-to-noise ratio for mobile HF operation. S/N formula, AGC behavior, antenna Q, bonding improvements, and the ARRL IC-7000 measurement table.",
+    "headings": [
+      "Basics",
+      "Real-World Receiver Specifications",
+      "Automatic Gain Control",
+      "Signal Strength",
+      "The Noise",
+      "The Results",
+      "Measuring SNR",
+      "Modern Considerations"
+    ],
+    "keywords": [
+      "signal",
+      "noise",
+      "ratio",
+      "basics",
+      "real-world",
+      "receiver",
+      "specifications",
+      "automatic",
+      "gain",
+      "control",
+      "strength",
+      "results",
+      "measuring",
+      "modern",
+      "considerations"
     ]
   },
   {
