@@ -9,6 +9,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .calc-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .calc-card-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+    .calc-card h3 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.4rem;
+      color: var(--text);
+    }
+    .calc-card p {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0 0 1rem;
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -123,57 +160,97 @@
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
     </div>
 
-    <div class="article-container">
-      <div class="article-header">
+    <div class="calc-container">
+      <header class="article-header">
         <h1>Interactive Calculators</h1>
         <div class="article-date">Browser-based tools — no server required</div>
-      </div>
+      </header>
 
       <p style="font-family: var(--font-serif); font-size: 1.0625rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">
-        These tools put K0BG's installation guidelines into interactive form. Enter your specific components and conditions — results update in real time. All calculations run entirely in your browser.
+        These tools put the math behind K0BG's installation guidelines into interactive form. Plug in your components and conditions — results update in real time. All calculations run in your browser; nothing is sent to a server.
       </p>
 
-      <div class="section-grid">
-        <h2 style="font-family: var(--font-sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">All Tools</h2>
-        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+      <div class="calc-card-grid">
 
-          <a class="card" href="ferrite-choke.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#9881;&#65039;</div>
-            <h3>Ferrite Choke Designer</h3>
-            <p>Find the right mix, bead size, and turns for any HF choke. Plots impedance from 1–30 MHz across all ham bands.</p>
-          </a>
-
-          <a class="card" href="wire-fuse.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#128268;</div>
-            <h3>Wire &amp; Fuse Sizing</h3>
-            <p>Calculate minimum wire gauge, correct fuse rating, and voltage drop for any transceiver or amplifier installation.</p>
-          </a>
-
-          <a class="card" href="shunt-coil.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#127744;</div>
-            <h3>Shunt Matching Coil</h3>
-            <p>Given your antenna's input impedance, calculate the inductance and winding dimensions for a proper shunt matching coil.</p>
-          </a>
-
-          <a class="card" href="bonding-strap.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#128207;</div>
-            <h3>Bonding Strap Impedance</h3>
-            <p>See why flat braid beats round wire for RF. Visualizes skin effect and computes impedance vs. frequency for any strap.</p>
-          </a>
-
-          <a class="card" href="antenna-efficiency.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#128225;</div>
-            <h3>Antenna Efficiency</h3>
-            <p>The ARRL "3 Rs" made interactive. See exactly how much of your 100W is actually being radiated vs. lost to coil and ground.</p>
-          </a>
-
-          <a class="card" href="bonding-map.html">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem; line-height: 1;">&#128506;&#65039;</div>
-            <h3>Vehicle Bonding Map</h3>
-            <p>Click-to-bond your vehicle. Track which ground points are complete and print a checklist to take to the garage.</p>
-          </a>
-
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="4" y="18" width="32" height="4" rx="2" fill="currentColor" opacity="0.2"/>
+            <rect x="4" y="10" width="32" height="4" rx="2" fill="currentColor" opacity="0.4"/>
+            <rect x="4" y="26" width="32" height="4" rx="2" fill="currentColor" opacity="0.6"/>
+            <circle cx="20" cy="12" r="5" fill="currentColor"/>
+            <circle cx="20" cy="20" r="5" fill="currentColor" opacity="0.6"/>
+            <circle cx="20" cy="28" r="5" fill="currentColor" opacity="0.3"/>
+          </svg>
+          <h3>Ferrite Choke Designer</h3>
+          <p>Select mix, bead size, and turns count — plots impedance from 1–30 MHz with band markers and a resistive vs. reactive breakdown.</p>
+          <a href="ferrite-choke.html" class="calc-link">Open calculator &rarr;</a>
         </div>
+
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M6 20 L34 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <rect x="14" y="14" width="12" height="12" rx="2" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="8" cy="20" r="3" fill="currentColor"/>
+            <circle cx="32" cy="20" r="3" fill="currentColor"/>
+          </svg>
+          <h3>Wire &amp; Fuse Sizing</h3>
+          <p>Enter peak current draw and run length — returns minimum AWG, correct fuse rating, and voltage drop with a live wiring diagram.</p>
+          <a href="wire-fuse.html" class="calc-link">Open calculator &rarr;</a>
+        </div>
+
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M12 28 C12 28 16 14 20 14 C24 14 28 28 28 28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <line x1="8" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3>Shunt Matching Coil</h3>
+          <p>Enter your antenna's measured input impedance — calculates the inductance and winding dimensions for a proper shunt coil.</p>
+          <a href="shunt-coil.html" class="calc-link">Open calculator &rarr;</a>
+        </div>
+
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="6" y="16" width="28" height="8" rx="3" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6 20 Q10 16 14 20 Q18 24 22 20 Q26 16 30 20 Q32 22 34 20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <h3>Bonding Strap Impedance</h3>
+          <p>Compare flat braid vs. round wire at any frequency. Visualizes skin effect and computes RF impedance for any strap geometry.</p>
+          <a href="bonding-strap.html" class="calc-link">Open calculator &rarr;</a>
+        </div>
+
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="5" y="28" width="30" height="6" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1"/>
+            <rect x="5" y="28" width="21" height="6" rx="2" fill="currentColor" opacity="0.5"/>
+            <rect x="5" y="20" width="30" height="6" rx="2" fill="currentColor" opacity="0.08" stroke="currentColor" stroke-width="1"/>
+            <rect x="5" y="20" width="9" height="6" rx="2" fill="currentColor" opacity="0.3"/>
+            <text x="20" y="14" text-anchor="middle" font-size="9" font-family="system-ui" fill="currentColor" font-weight="600">100W</text>
+          </svg>
+          <h3>Antenna Efficiency Estimator</h3>
+          <p>The ARRL three-Rs model made interactive. Shows exactly how much of your 100W is radiated vs. lost to coil resistance and ground.</p>
+          <a href="antenna-efficiency.html" class="calc-link">Open calculator &rarr;</a>
+        </div>
+
+        <div class="calc-card">
+          <svg class="calc-card-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="10" y="8" width="20" height="26" rx="3" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="14" r="2.5" fill="#dc2626"/>
+            <circle cx="24" cy="14" r="2.5" fill="#16a34a"/>
+            <circle cx="16" cy="22" r="2.5" fill="#16a34a"/>
+            <circle cx="24" cy="22" r="2.5" fill="#d97706"/>
+            <circle cx="20" cy="30" r="2.5" fill="#dc2626"/>
+          </svg>
+          <h3>Vehicle Bonding Map</h3>
+          <p>Click to bond your vehicle's ground points. Tracks score, prioritizes next steps, and prints a shop checklist.</p>
+          <a href="bonding-map.html" class="calc-link">Open calculator &rarr;</a>
+        </div>
+
+      </div>
+
+      <div class="callout key-concept">
+        <div class="callout-title">&#128208; About the math</div>
+        <p>These calculators use established engineering approximations — the same formulas behind Fair-Rite's published data, the ARRL Antenna Book, and standard NEC tables. Results are accurate enough for installation planning. For critical installations, verify with a NanoVNA or calibrated test equipment.</p>
       </div>
 
       <footer class="site-footer">
