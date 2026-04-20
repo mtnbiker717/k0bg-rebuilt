@@ -95,6 +95,18 @@
         </ul>
       </div>
       <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../calculators/index.html">All Calculators</a></li>
+          <li><a href="../calculators/ferrite-choke.html">&#9881;&#65039; Ferrite Choke</a></li>
+          <li><a href="../calculators/wire-fuse.html">&#128268; Wire &amp; Fuse</a></li>
+          <li><a href="../calculators/shunt-coil.html">&#127744; Shunt Coil</a></li>
+          <li><a href="../calculators/bonding-strap.html">&#128207; Bonding Strap</a></li>
+          <li><a href="../calculators/antenna-efficiency.html">&#128225; Efficiency</a></li>
+          <li><a href="../calculators/bonding-map.html">&#128506;&#65039; Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
         <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
         <ul>
           <li><a href="antenna-myths.html">Antenna Myths</a></li>
@@ -150,7 +162,7 @@
 
         <div class="callout key-concept">
           <div class="callout-title">&#128273; KEY CONCEPT</div>
-          <p>Your target is an SWR below 1.6:1 at resonance. Anything below that and you are close enough. If your unmatched antenna already reads below 1.6:1 at resonance, you do not need a matching device &mdash; but you probably need to examine whether your antenna and mounting are actually working correctly, because a properly mounted HF mobile antenna rarely presents a perfect 50-ohm load without help.</p>
+          <p>Your target is an SWR below 1.6:1 at resonance. Anything below that is acceptable &mdash; proceed. If your unmatched antenna already reads below 1.6:1 at resonance, you do not need a matching device &mdash; but you need to examine your antenna and mounting, because a properly installed HF mobile antenna rarely presents a near-perfect 50-ohm load without help.</p>
         </div>
 
         <h2 id="the-impedance-reality">The Impedance Reality</h2>
@@ -197,6 +209,8 @@
         <h3 id="shunt-coil">Shunt Coil (LC Network) &mdash; The Preferred Method</h3>
 
         <p>The shunt coil is an inductor connected from the antenna feed point to ground, forming an LC matching network with the antenna's inherent capacitance. This is the preferred matching method for most mobile HF installations, and for good reason: it is simple, broadband enough for practical use, provides a DC ground, and introduces minimal loss.</p>
+
+        <p><a href="../calculators/shunt-coil.html" class="calc-link">🌀 Shunt Matching Coil Calculator — enter your measured impedance →</a></p>
 
         <p>The typical value needed is approximately 1 microhenry, though the actual optimum will fall somewhere between 0.5 and 1.5 microhenries depending on your specific antenna and mounting. A practical starting point is 9 turns of #14 Thermaleze wire wound on a 1-inch inside diameter form, with a form factor (length-to-diameter ratio) close to 1:1.</p>
 

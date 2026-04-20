@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wire &amp; Fuse Calculator — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Interactive wire and fuse sizing calculator for mobile HF amateur radio installations. Find the correct AWG wire gauge and fuse rating for your transceiver.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .calc-header-text { flex: 1; }
+    .calc-header-text h1 { margin-bottom: 0.25rem; }
+    .calc-header-text p { color: var(--text-muted); margin: 0; }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .calc-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .calc-diagram {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .calc-panel h3, .calc-diagram h3 {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .slider-row { margin-bottom: 1.25rem; }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+    .slider-label span:first-child {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .slider-value {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .slider-unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .calc-select {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      margin-bottom: 1.25rem;
+    }
+    .calc-select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .select-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .radio-group input[type="radio"] {
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .radio-label-row {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .result-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .result-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      border-left: 4px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .result-card.good { border-left-color: #16a34a; }
+    .result-card.warn { border-left-color: var(--accent-amber); }
+    .result-card.bad  { border-left-color: #dc2626; }
+    .result-number {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .result-card.good .result-number { color: #16a34a; }
+    .result-card.warn .result-number { color: var(--accent-amber); }
+    .result-card.bad  .result-number { color: #dc2626; }
+    .result-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .result-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .verdict {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border: 1px solid transparent;
+    }
+    .verdict.good { background: rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.3); color: #15803d; }
+    .verdict.warn { background: var(--accent-amber-light); border-color: rgba(217,119,6,0.3); color: #92400e; }
+    .verdict.bad  { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.3); color: #991b1b; }
+    html.dark .verdict.good { color: #4ade80; }
+    html.dark .verdict.warn { color: var(--accent-amber); }
+    html.dark .verdict.bad  { color: #f87171; }
+    .svg-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #wiring-svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+    }
+    .diagram-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+    .print-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--text);
+      font-family: var(--font-sans);
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .print-btn:hover { background: var(--bg-tertiary); }
+    @media print {
+      .sidebar, .topbar, .back-to-top, .print-btn { display: none !important; }
+      .main-content { margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html" aria-current="page">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <div class="calc-header">
+        <div class="calc-header-text">
+          <h1>Wire &amp; Fuse Sizing</h1>
+          <p>Calculate minimum wire gauge and fuse rating for your mobile HF installation.</p>
+        </div>
+        <button class="print-btn" onclick="window.print()">&#128424; Print</button>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Left: Inputs -->
+        <div class="calc-panel">
+          <h3>Installation Parameters</h3>
+
+          <label class="select-label" for="preset-select">Transceiver Preset</label>
+          <select class="calc-select" id="preset-select" aria-label="Transceiver preset">
+            <option value="">— Select preset —</option>
+            <option value="10">IC-705 (10 A peak)</option>
+            <option value="22">IC-7300 (22 A peak)</option>
+            <option value="20">IC-7100 (20 A peak)</option>
+            <option value="22b">TS-480 (22 A peak)</option>
+            <option value="75">ALS-500M amp (75 A peak)</option>
+            <option value="custom">Custom</option>
+          </select>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Peak Current</span>
+              <span><span class="slider-value" id="current-val">20</span><span class="slider-unit">A</span></span>
+            </div>
+            <input type="range" id="current-slider" min="1" max="100" value="20" step="1" aria-label="Peak current in amps">
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Wire Run (one way)</span>
+              <span><span class="slider-value" id="length-val">10</span><span class="slider-unit">ft</span></span>
+            </div>
+            <input type="range" id="length-slider" min="1" max="25" value="10" step="1" aria-label="Wire run in feet">
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Acceptable Voltage Drop</span>
+              <span><span class="slider-value" id="vdrop-val">0.5</span><span class="slider-unit">V</span></span>
+            </div>
+            <input type="range" id="vdrop-slider" min="0.1" max="1.0" value="0.5" step="0.1" aria-label="Acceptable voltage drop">
+          </div>
+
+          <div class="radio-label-row">Wire Material</div>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="wire-mat" id="mat-copper" value="copper" checked>
+              Copper
+            </label>
+            <label>
+              <input type="radio" name="wire-mat" id="mat-ccs" value="ccs">
+              Copper Clad Steel (1.4&times; resistance)
+            </label>
+          </div>
+        </div>
+
+        <!-- Right: SVG Diagram -->
+        <div class="calc-diagram">
+          <h3>Wiring Diagram</h3>
+          <div class="svg-wrapper">
+            <svg id="wiring-svg" viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg" aria-label="Wiring diagram">
+              <!-- Updated dynamically by JS -->
+            </svg>
+          </div>
+          <p class="diagram-note">Wire gauge and fuse value update as you adjust the sliders above.</p>
+        </div>
+      </div>
+
+      <!-- Result cards -->
+      <div class="result-cards">
+        <div class="result-card" id="card-awg">
+          <div class="result-number" id="awg-val">—</div>
+          <div class="result-label">Minimum Wire Gauge</div>
+          <div class="result-detail" id="awg-detail">Based on voltage drop</div>
+        </div>
+        <div class="result-card" id="card-vd">
+          <div class="result-number" id="vd-val">—</div>
+          <div class="result-label">Voltage Drop</div>
+          <div class="result-detail">Round-trip resistance loss</div>
+        </div>
+        <div class="result-card" id="card-fuse">
+          <div class="result-number" id="fuse-val">—</div>
+          <div class="result-label">Fuse Rating</div>
+          <div class="result-detail">Nearest standard size ×1.25</div>
+        </div>
+        <div class="result-card" id="card-ftype">
+          <div class="result-number" id="ftype-val">—</div>
+          <div class="result-label">Fuse Type</div>
+          <div class="result-detail" id="ftype-detail">Standard automotive fuse</div>
+        </div>
+        <div class="result-card" id="card-ploss">
+          <div class="result-number" id="ploss-val">—</div>
+          <div class="result-label">Power Loss</div>
+          <div class="result-detail">I² × R in wire</div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict" id="verdict-banner">Calculating...</div>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with a NanoVNA or other test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <script src="../js/main.js"></script>
+  <script>
+    // ── AWG table & constants ──────────────────────────────────────────────
+    const AWG_TABLE = [
+      { awg: 18, mm2: 0.823,  label: 'AWG 18' },
+      { awg: 16, mm2: 1.31,   label: 'AWG 16' },
+      { awg: 14, mm2: 2.08,   label: 'AWG 14' },
+      { awg: 12, mm2: 3.31,   label: 'AWG 12' },
+      { awg: 10, mm2: 5.26,   label: 'AWG 10' },
+      { awg: 8,  mm2: 8.37,   label: 'AWG 8'  },
+      { awg: 6,  mm2: 13.3,   label: 'AWG 6'  },
+      { awg: 4,  mm2: 21.2,   label: 'AWG 4'  },
+      { awg: 2,  mm2: 33.6,   label: 'AWG 2'  },
+      { awg: 0,  mm2: 53.5,   label: 'AWG 1/0' }
+    ];
+    const RHO_COPPER = 1.724e-8;
+    const STANDARD_FUSES = [10, 15, 20, 25, 30, 40, 60, 80, 100];
+
+    // Stroke width for diagram based on AWG
+    const AWG_STROKE = { 18:1, 16:2, 14:2.5, 12:3, 10:3.5, 8:4, 6:4.5, 4:5, 2:6, 0:7 };
+
+    function calcVDrop(currentA, lengthFt, mm2, ccsMult) {
+      const rho      = RHO_COPPER * (ccsMult ? 1.4 : 1.0);
+      const lengthM  = lengthFt * 0.3048 * 2; // round trip
+      const areaM2   = mm2 * 1e-6;
+      return currentA * rho * lengthM / areaM2;
+    }
+
+    function findMinAWG(currentA, lengthFt, maxDrop, ccsMult) {
+      for (const wire of AWG_TABLE) {
+        const vd = calcVDrop(currentA, lengthFt, wire.mm2, ccsMult);
+        if (vd <= maxDrop) return wire;
+      }
+      return AWG_TABLE[AWG_TABLE.length - 1];
+    }
+
+    function nextFuseSize(amps) {
+      const fuseAmp = amps * 1.25;
+      for (const f of STANDARD_FUSES) {
+        if (f >= fuseAmp) return f;
+      }
+      return STANDARD_FUSES[STANDARD_FUSES.length - 1];
+    }
+
+    function fuseType(amps) {
+      if (amps < 40)  return { label: 'ATC',       detail: 'Standard blade fuse' };
+      if (amps <= 80) return { label: 'Maxi Fuse', detail: 'Maxi blade fuse' };
+      return             { label: 'ANL',       detail: 'Inline ANL fuse holder' };
+    }
+
+    // ── SVG wiring diagram ─────────────────────────────────────────────────
+    function isDark() {
+      return document.documentElement.classList.contains('dark');
+    }
+
+    function buildWiringSVG(wire, fuseA, vd, strokeW) {
+      const dark       = isDark();
+      const textColor  = dark ? '#cbd5e1' : '#334155';
+      const lineColor  = dark ? '#475569' : '#94a3b8';
+      const bgRect     = dark ? '#1e2330' : '#f8fafc';
+      const wireColor  = dark ? '#e2e8f0' : '#1e293b';
+
+      // Fuse color based on adequacy vs load
+      let fuseColor;
+      if (fuseA <= 40)       fuseColor = '#16a34a';
+      else if (fuseA <= 80)  fuseColor = '#d97706';
+      else                   fuseColor = '#dc2626';
+
+      // Label color for voltage drop
+      let vdColor;
+      if (vd < 0.3)       vdColor = '#16a34a';
+      else if (vd <= 0.5) vdColor = '#d97706';
+      else                vdColor = '#dc2626';
+
+      const sw = Math.max(1, Math.min(strokeW, 7));
+
+      // Layout: Battery(40,65) → fuse(180,65) → Radio(360,65)
+      // Positions
+      const batX = 30,  batY = 50;
+      const batW = 28,  batH = 34;
+      const fuseX = 170, fuseY = 52;
+      const fuseW = 50,  fuseH = 26;
+      const radioX = 340, radioY = 40;
+      const radioW = 60, radioH = 50;
+      const wireY  = 65;
+
+      const svg = `
+<rect width="420" height="130" rx="8" fill="${bgRect}"/>
+
+<!-- Battery symbol -->
+<rect x="${batX}" y="${batY}" width="${batW}" height="${batH}" rx="3"
+      fill="none" stroke="${lineColor}" stroke-width="1.5"/>
+<!-- Long line (positive) -->
+<line x1="${batX + 6}" y1="${batY + 8}" x2="${batX + 6}" y2="${batY + batH - 8}"
+      stroke="${lineColor}" stroke-width="2.5"/>
+<!-- Short line (negative) -->
+<line x1="${batX + 16}" y1="${batY + 11}" x2="${batX + 16}" y2="${batY + batH - 11}"
+      stroke="${lineColor}" stroke-width="1.5"/>
+<!-- + / - labels -->
+<text x="${batX + 5}" y="${batY - 4}" font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif">+</text>
+<text x="${batX + 16}" y="${batY - 4}" font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif">−</text>
+<text x="${batX + batW/2}" y="${batY + batH + 12}" font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif">Battery</text>
+
+<!-- Wire: battery to fuse -->
+<line x1="${batX + batW}" y1="${wireY}" x2="${fuseX}" y2="${wireY}"
+      stroke="${wireColor}" stroke-width="${sw}" stroke-linecap="round"/>
+
+<!-- Wire gauge label -->
+<text x="${(batX + batW + fuseX) / 2}" y="${wireY - 8}"
+      font-size="10" fill="${vdColor}" text-anchor="middle"
+      font-family="JetBrains Mono,monospace" font-weight="500">${wire.label}</text>
+
+<!-- Fuse block -->
+<rect x="${fuseX}" y="${fuseY}" width="${fuseW}" height="${fuseH}" rx="4"
+      fill="${fuseColor}22" stroke="${fuseColor}" stroke-width="2"/>
+<!-- Fuse body detail lines -->
+<line x1="${fuseX + 8}" y1="${fuseY}" x2="${fuseX + 8}" y2="${fuseY + fuseH}"
+      stroke="${fuseColor}" stroke-width="0.8" opacity="0.5"/>
+<line x1="${fuseX + fuseW - 8}" y1="${fuseY}" x2="${fuseX + fuseW - 8}" y2="${fuseY + fuseH}"
+      stroke="${fuseColor}" stroke-width="0.8" opacity="0.5"/>
+<text x="${fuseX + fuseW/2}" y="${fuseY + fuseH/2 + 4}"
+      font-size="11" fill="${fuseColor}" text-anchor="middle"
+      font-family="JetBrains Mono,monospace" font-weight="600">${fuseA}A</text>
+<text x="${fuseX + fuseW/2}" y="${fuseY + fuseH + 13}"
+      font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif">Fuse</text>
+
+<!-- Wire: fuse to radio -->
+<line x1="${fuseX + fuseW}" y1="${wireY}" x2="${radioX}" y2="${wireY}"
+      stroke="${wireColor}" stroke-width="${sw}" stroke-linecap="round"/>
+
+<!-- Wire gauge label (right segment) -->
+<text x="${(fuseX + fuseW + radioX) / 2}" y="${wireY - 8}"
+      font-size="10" fill="${vdColor}" text-anchor="middle"
+      font-family="JetBrains Mono,monospace" font-weight="500">${wire.label}</text>
+
+<!-- Radio/TRX symbol -->
+<rect x="${radioX}" y="${radioY}" width="${radioW}" height="${radioH}" rx="5"
+      fill="none" stroke="${lineColor}" stroke-width="1.5"/>
+<!-- Speaker grill lines -->
+<line x1="${radioX + 8}"  y1="${radioY + 12}" x2="${radioX + 22}" y2="${radioY + 12}"
+      stroke="${lineColor}" stroke-width="1" opacity="0.5"/>
+<line x1="${radioX + 8}"  y1="${radioY + 17}" x2="${radioX + 22}" y2="${radioY + 17}"
+      stroke="${lineColor}" stroke-width="1" opacity="0.5"/>
+<line x1="${radioX + 8}"  y1="${radioY + 22}" x2="${radioX + 22}" y2="${radioY + 22}"
+      stroke="${lineColor}" stroke-width="1" opacity="0.5"/>
+<!-- VFO knob circle -->
+<circle cx="${radioX + 46}" cy="${radioY + 18}" r="8"
+        fill="none" stroke="${lineColor}" stroke-width="1.5"/>
+<text x="${radioX + radioW/2}" y="${radioY + radioH + 13}"
+      font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif">Transceiver</text>
+<text x="${radioX + radioW/2}" y="${radioY + radioH - 10}"
+      font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif" font-weight="600">TRX</text>
+
+<!-- Ground return wire (dashed, lower) -->
+<line x1="${batX + batW}" y1="95" x2="${radioX + radioW}" y2="95"
+      stroke="${lineColor}" stroke-width="${Math.max(1,sw-1)}" stroke-dasharray="6,3"
+      stroke-linecap="round" opacity="0.5"/>
+<text x="210" y="108" font-size="9" fill="${textColor}" text-anchor="middle"
+      font-family="Inter,sans-serif" opacity="0.7">Ground / return (chassis)</text>
+`;
+      return svg;
+    }
+
+    // ── DOM refs ───────────────────────────────────────────────────────────
+    const presetSel    = document.getElementById('preset-select');
+    const currentSlider = document.getElementById('current-slider');
+    const currentVal   = document.getElementById('current-val');
+    const lengthSlider = document.getElementById('length-slider');
+    const lengthVal    = document.getElementById('length-val');
+    const vdropSlider  = document.getElementById('vdrop-slider');
+    const vdropVal     = document.getElementById('vdrop-val');
+    const svgEl        = document.getElementById('wiring-svg');
+
+    // ── Main calculation + UI update ───────────────────────────────────────
+    function update() {
+      const currentA  = parseFloat(currentSlider.value);
+      const lengthFt  = parseFloat(lengthSlider.value);
+      const maxDrop   = parseFloat(vdropSlider.value);
+      const ccs       = document.getElementById('mat-ccs').checked;
+
+      const wire      = findMinAWG(currentA, lengthFt, maxDrop, ccs);
+      const actualVD  = calcVDrop(currentA, lengthFt, wire.mm2, ccs);
+      const fuseA     = nextFuseSize(currentA);
+      const ft        = fuseType(fuseA);
+
+      // Power loss: I² × R_wire (round trip)
+      const rho       = RHO_COPPER * (ccs ? 1.4 : 1.0);
+      const lengthM   = lengthFt * 0.3048 * 2;
+      const areaM2    = wire.mm2 * 1e-6;
+      const Rwire     = rho * lengthM / areaM2;
+      const pLoss     = currentA * currentA * Rwire;
+
+      // ── Card: AWG ──
+      const cardAwg = document.getElementById('card-awg');
+      document.getElementById('awg-val').textContent = wire.label;
+      document.getElementById('awg-detail').textContent = wire.mm2.toFixed(2) + ' mm² cross-section';
+      if (wire.awg <= 10)      cardAwg.className = 'result-card good';
+      else if (wire.awg <= 6)  cardAwg.className = 'result-card warn';
+      else                     cardAwg.className = 'result-card bad';
+
+      // ── Card: Voltage drop ──
+      const cardVd = document.getElementById('card-vd');
+      document.getElementById('vd-val').textContent = actualVD.toFixed(2) + ' V';
+      if (actualVD < 0.3)       cardVd.className = 'result-card good';
+      else if (actualVD <= 0.5) cardVd.className = 'result-card warn';
+      else                      cardVd.className = 'result-card bad';
+
+      // ── Card: Fuse ──
+      const cardFuse = document.getElementById('card-fuse');
+      document.getElementById('fuse-val').textContent = fuseA + ' A';
+      if (fuseA < 40)       cardFuse.className = 'result-card good';
+      else if (fuseA <= 80) cardFuse.className = 'result-card warn';
+      else                  cardFuse.className = 'result-card bad';
+
+      // ── Card: Fuse type ──
+      const cardFtype = document.getElementById('card-ftype');
+      document.getElementById('ftype-val').textContent = ft.label;
+      document.getElementById('ftype-detail').textContent = ft.detail;
+      if (fuseA < 40)       cardFtype.className = 'result-card good';
+      else if (fuseA <= 80) cardFtype.className = 'result-card warn';
+      else                  cardFtype.className = 'result-card bad';
+
+      // ── Card: Power loss ──
+      const cardPloss = document.getElementById('card-ploss');
+      document.getElementById('ploss-val').textContent = pLoss.toFixed(1) + ' W';
+      if (pLoss < 5)        cardPloss.className = 'result-card good';
+      else if (pLoss <= 15) cardPloss.className = 'result-card warn';
+      else                  cardPloss.className = 'result-card bad';
+
+      // ── Verdict ──
+      const banner = document.getElementById('verdict-banner');
+      const heavyWarn = wire.awg <= 4
+        ? ' Warning: heavy gauge wire required — use ring terminals and proper strain relief.'
+        : '';
+      if (actualVD < 0.3 && wire.awg >= 10) {
+        banner.className = 'verdict good';
+        banner.textContent = '✅ Adequate wiring — voltage drop is within spec.' + heavyWarn;
+      } else if (actualVD <= 0.5) {
+        banner.className = 'verdict warn';
+        banner.textContent = '⚠️ Marginal voltage drop — consider upsizing one gauge.' + heavyWarn;
+      } else {
+        banner.className = 'verdict bad';
+        banner.textContent = '❌ Excessive voltage drop — upsize wire or shorten run.' + heavyWarn;
+      }
+
+      // ── SVG Diagram ──
+      const strokeW = AWG_STROKE[wire.awg] || 3;
+      svgEl.innerHTML = buildWiringSVG(wire, fuseA, actualVD, strokeW);
+    }
+
+    // ── Preset handler ─────────────────────────────────────────────────────
+    presetSel.addEventListener('change', () => {
+      const val = presetSel.value;
+      if (!val || val === 'custom') return;
+      const amps = parseInt(val, 10);
+      if (!isNaN(amps)) {
+        currentSlider.value = amps;
+        currentVal.textContent = amps;
+        update();
+      }
+    });
+
+    // ── Slider display + update ────────────────────────────────────────────
+    currentSlider.addEventListener('input', () => {
+      currentVal.textContent = currentSlider.value;
+      presetSel.value = 'custom';
+      update();
+    });
+    lengthSlider.addEventListener('input', () => {
+      lengthVal.textContent = lengthSlider.value;
+      update();
+    });
+    vdropSlider.addEventListener('input', () => {
+      vdropVal.textContent = parseFloat(vdropSlider.value).toFixed(1);
+      update();
+    });
+    document.querySelectorAll('input[name="wire-mat"]').forEach(r => {
+      r.addEventListener('change', update);
+    });
+
+    // Redraw SVG on theme toggle (colors change)
+    const themeObserver = new MutationObserver(() => { update(); });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    // Initial render
+    update();
+  </script>
+</body>
+</html>

@@ -117,6 +117,38 @@
     });
   });
 
+  // ===== Collapse / Expand All Nav Controls =====
+  var sidebarNav = document.querySelector('.sidebar-nav');
+  if (sidebarNav) {
+    var navControls = document.createElement('div');
+    navControls.className = 'nav-controls';
+    navControls.innerHTML =
+      '<button class="nav-control-btn" id="nav-collapse-all">Collapse all</button>' +
+      '<span class="nav-control-sep">·</span>' +
+      '<button class="nav-control-btn" id="nav-expand-all">Expand all</button>';
+    sidebarNav.insertBefore(navControls, sidebarNav.firstChild);
+
+    document.getElementById('nav-collapse-all').addEventListener('click', function() {
+      document.querySelectorAll('.nav-group').forEach(function(g, i) {
+        g.classList.add('collapsed');
+        var lbl = g.querySelector('.nav-group-label');
+        if (lbl) lbl.setAttribute('aria-expanded', 'false');
+        navCollapsed['g' + i] = true;
+      });
+      try { localStorage.setItem('nav-collapsed', JSON.stringify(navCollapsed)); } catch(e) {}
+    });
+
+    document.getElementById('nav-expand-all').addEventListener('click', function() {
+      document.querySelectorAll('.nav-group').forEach(function(g, i) {
+        g.classList.remove('collapsed');
+        var lbl = g.querySelector('.nav-group-label');
+        if (lbl) lbl.setAttribute('aria-expanded', 'true');
+        delete navCollapsed['g' + i];
+      });
+      try { localStorage.setItem('nav-collapsed', JSON.stringify(navCollapsed)); } catch(e) {}
+    });
+  }
+
   // ===== Collapsible Nav Sub-groups =====
   document.querySelectorAll('.nav-subgroup-toggle').forEach(function(toggle) {
     var subgroup = toggle.closest('.nav-subgroup');

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Bonding Map — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Interactive vehicle bonding map. Click each bonding point to track completed and planned bonds. Includes a printable checklist and real-time ground plane quality score.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .map-btn-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .map-btn:hover { background: var(--bg-tertiary); }
+    .map-btn.print-btn { border-color: var(--accent); color: var(--accent); }
+    .map-btn.share-btn { }
+    .map-btn.reset-btn { border-color: #dc2626; color: #dc2626; }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .score-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+    }
+    .score-item .score-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .score-item .score-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .next-priority {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--accent-amber-light);
+      border-left: 3px solid var(--accent-amber);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.875rem;
+      color: #92400e;
+    }
+    html.dark .next-priority {
+      background: rgba(217,119,6,0.15);
+      color: var(--accent-amber);
+    }
+    .share-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #16a34a;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 9999;
+    }
+    .share-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    /* SVG bonding dot labels */
+    .bond-label { pointer-events: none; }
+
+    @media print {
+      .sidebar, .topbar, .back-to-top, .print-btn, .share-btn, .reset-btn, .map-btn-row { display: none !important; }
+      .main-content { margin-left: 0 !important; }
+      .calc-container { padding: 0 !important; }
+      .bond-print-table { display: table !important; width: 100%; border-collapse: collapse; }
+      .bond-print-table td, .bond-print-table th { border: 1px solid #ccc; padding: 4px 8px; font-size: 10pt; }
+      .bond-print-table th { background: #f0f0f0; font-weight: bold; }
+      .next-priority { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <header class="article-header">
+        <h1>Vehicle Bonding Map</h1>
+        <div class="article-meta">
+          <time datetime="2026-04-20">Updated April 20, 2026</time>
+        </div>
+      </header>
+
+      <p style="font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; color: var(--text);">
+        Click each bonding point to mark it as completed (green). Click again to mark as planned (amber). Click a third time to reset it. Your score updates in real time. Use the print button to generate a paper checklist.
+      </p>
+
+      <!-- Button row -->
+      <div class="map-btn-row">
+        <button class="map-btn print-btn" onclick="window.print()">&#128424; Print Checklist</button>
+        <button class="map-btn share-btn" id="share-btn">&#128279; Share</button>
+        <button class="map-btn reset-btn" id="reset-btn">&#8635; Reset</button>
+      </div>
+
+      <!-- Vehicle SVG map -->
+      <div class="calc-diagram" style="max-width: 540px; overflow-x: auto; margin-bottom: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 1rem;">
+        <svg id="bond-svg" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg"
+          style="width:100%; max-width:500px; display:block; user-select:none;"
+          aria-label="Top-down vehicle bonding diagram">
+
+          <!-- ============================================================
+               TRUCK OUTLINE — top-down pickup
+          ============================================================ -->
+
+          <!-- Hood -->
+          <path d="M 70,60 L 70,30 L 200,30 L 200,60" stroke="currentColor" fill="none" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Grill / front bumper area -->
+          <path d="M 70,30 L 70,14 Q 135,7 200,14 L 200,30" stroke="currentColor" fill="none" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Cab outline -->
+          <rect x="70" y="60" width="165" height="148" rx="4" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Windshield line -->
+          <line x1="80" y1="100" x2="225" y2="100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.5"/>
+          <!-- Cab-bed gap / firewall labels -->
+          <line x1="235" y1="60" x2="235" y2="208" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+          <!-- Bed outline -->
+          <rect x="235" y="60" width="210" height="148" rx="2" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Tailgate (rear of bed) -->
+          <rect x="445" y="60" width="20" height="148" rx="2" stroke="currentColor" fill="rgba(0,0,0,0.04)" stroke-width="2"/>
+
+          <!-- Wheels: front-left -->
+          <rect x="38" y="68" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Wheels: front-right (driver side in top-down) -->
+          <rect x="200" y="68" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Wheels: rear-cab-left -->
+          <rect x="38" y="158" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Wheels: rear-cab-right -->
+          <rect x="200" y="158" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Wheels: bed-left -->
+          <rect x="348" y="68" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+          <!-- Wheels: bed-right -->
+          <rect x="348" y="158" width="32" height="52" rx="6" stroke="currentColor" fill="none" stroke-width="2"/>
+
+          <!-- Exhaust pipe (dashed line under truck center) -->
+          <line x1="135" y1="220" x2="445" y2="220" stroke="currentColor" stroke-width="1" stroke-dasharray="6,3" opacity="0.4"/>
+          <text x="240" y="232" font-size="8" fill="currentColor" opacity="0.5" font-family="sans-serif">exhaust</text>
+
+          <!-- Labels -->
+          <text x="115" y="80" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.55" font-family="sans-serif">HOOD</text>
+          <text x="152" y="135" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.55" font-family="sans-serif">CAB</text>
+          <text x="340" y="135" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.55" font-family="sans-serif">BED</text>
+
+          <!-- ============================================================
+               BONDING POINT DOTS — rendered by JS into this group
+          ============================================================ -->
+          <g id="bond-dots"></g>
+        </svg>
+      </div>
+
+      <!-- Score panel -->
+      <div class="calc-panel" style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text);">Ground Plane Score</h2>
+        <div class="score-grid">
+          <div class="score-item">
+            <div class="score-val" id="score-bonded">0 / 18</div>
+            <div class="score-lbl">Points bonded</div>
+          </div>
+          <div class="score-item">
+            <div class="score-val" id="score-planned">0</div>
+            <div class="score-lbl">Planned</div>
+          </div>
+          <div class="score-item">
+            <div class="score-val" id="score-quality">Poor</div>
+            <div class="score-lbl">Ground plane quality</div>
+          </div>
+          <div class="score-item">
+            <div class="score-val" id="score-noise">0 dB</div>
+            <div class="score-lbl">Est. noise reduction</div>
+          </div>
+        </div>
+        <div class="next-priority" id="next-priority"></div>
+      </div>
+
+      <!-- Print table (hidden on screen) -->
+      <table class="bond-print-table" style="display:none;" id="print-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Bonding Point</th>
+            <th>Priority</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="print-tbody">
+          <!-- Filled by JS -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" style="font-size:9pt; padding-top: 8px; color: #555;">
+              Based on K0BG.com bonding recommendations. Use flat copper braid, minimum 3/4 inch wide, maximum 10 inches long.
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <div class="share-toast" id="share-toast">Link copied to clipboard!</div>
+
+  <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    // ----------------------------------------------------------------
+    // Data
+    // ----------------------------------------------------------------
+    var BOND_POINTS = [
+      { id: 'hood-hinge-l',  x: 95,  y: 80,  label: 'Hood Hinge L',     priority: 'high',   note: 'Use 3/4in copper braid, stainless hardware, clean to bare metal' },
+      { id: 'hood-hinge-r',  x: 175, y: 80,  label: 'Hood Hinge R',     priority: 'high',   note: 'Use 3/4in copper braid, stainless hardware, clean to bare metal' },
+      { id: 'door-fl',       x: 80,  y: 130, label: 'Door Hinge FL',    priority: 'high',   note: 'Bond each hinge; use braided strap between hinge leaves' },
+      { id: 'door-fr',       x: 190, y: 130, label: 'Door Hinge FR',    priority: 'high',   note: 'Bond each hinge; use braided strap between hinge leaves' },
+      { id: 'door-rl',       x: 80,  y: 170, label: 'Door Hinge RL',    priority: 'medium', note: 'Bond each hinge; use braided strap between hinge leaves' },
+      { id: 'door-rr',       x: 190, y: 170, label: 'Door Hinge RR',    priority: 'medium', note: 'Bond each hinge; use braided strap between hinge leaves' },
+      { id: 'exhaust-front', x: 135, y: 215, label: 'Exhaust Front',    priority: 'high',   note: 'Bond to chassis; use stainless braid rated for heat; keep strap short' },
+      { id: 'exhaust-mid',   x: 300, y: 220, label: 'Exhaust Mid',      priority: 'high',   note: 'Bond to chassis; use stainless braid rated for heat; keep strap short' },
+      { id: 'exhaust-rear',  x: 420, y: 220, label: 'Exhaust Rear',     priority: 'high',   note: 'Bond to chassis; use stainless braid rated for heat; keep strap short' },
+      { id: 'engine-frame',  x: 135, y: 155, label: 'Engine to Frame',  priority: 'high',   note: 'Large braid or #2 AWG cable; supplement OEM ground; clean both surfaces' },
+      { id: 'bed-cab-l',     x: 235, y: 130, label: 'Bed-to-Cab L',     priority: 'high',   note: 'Braid across body-to-bed seam; left side; scrape paint at attach points' },
+      { id: 'bed-cab-r',     x: 235, y: 170, label: 'Bed-to-Cab R',     priority: 'high',   note: 'Braid across body-to-bed seam; right side; scrape paint at attach points' },
+      { id: 'tailgate-l',    x: 390, y: 130, label: 'Tailgate Hinge L', priority: 'medium', note: 'Braid on each tailgate hinge; left side' },
+      { id: 'tailgate-r',    x: 390, y: 170, label: 'Tailgate Hinge R', priority: 'medium', note: 'Braid on each tailgate hinge; right side' },
+      { id: 'bumper-front',  x: 135, y: 55,  label: 'Front Bumper',     priority: 'medium', note: 'Bond bumper to frame; important for NMO trunk-lip or hitch mounts' },
+      { id: 'bumper-rear',   x: 430, y: 148, label: 'Rear Bumper',      priority: 'medium', note: 'Bond bumper to frame; especially if antenna mounted at rear' },
+      { id: 'frame-body-l',  x: 130, y: 235, label: 'Frame-to-Body L',  priority: 'low',    note: 'Body-to-frame braid; supplement rubber body mounts' },
+      { id: 'frame-body-r',  x: 140, y: 110, label: 'Frame-to-Body R',  priority: 'low',    note: 'Body-to-frame braid; supplement rubber body mounts' },
+    ];
+
+    var STATE_COLORS = {
+      unbonded: '#dc2626',
+      bonded:   '#16a34a',
+      planned:  '#d97706'
+    };
+
+    var STATE_ICONS = {
+      unbonded: '\u274C',
+      bonded:   '\u2705',
+      planned:  '\u23F3'
+    };
+
+    var PRIORITY_RADIUS = { high: 10, medium: 8, low: 7 };
+
+    // ----------------------------------------------------------------
+    // State init
+    // ----------------------------------------------------------------
+    var bondState = {};
+    try { bondState = JSON.parse(localStorage.getItem('k0bg-bond-map') || '{}'); } catch(e) {}
+    BOND_POINTS.forEach(function(p) { if (!bondState[p.id]) bondState[p.id] = 'unbonded'; });
+
+    // URL hash restore
+    if (window.location.hash) {
+      try {
+        var saved = JSON.parse(atob(window.location.hash.slice(1)));
+        Object.assign(bondState, saved);
+      } catch(e) {}
+    }
+
+    function saveState() {
+      try { localStorage.setItem('k0bg-bond-map', JSON.stringify(bondState)); } catch(e) {}
+    }
+
+    function cycleState(id) {
+      var states = ['unbonded', 'bonded', 'planned'];
+      var current = bondState[id] || 'unbonded';
+      bondState[id] = states[(states.indexOf(current) + 1) % states.length];
+      saveState();
+      updateMap();
+      updateScore();
+    }
+
+    // ----------------------------------------------------------------
+    // SVG dot rendering
+    // ----------------------------------------------------------------
+    function updateMap() {
+      var g = document.getElementById('bond-dots');
+      var html = '';
+      BOND_POINTS.forEach(function(p) {
+        var state = bondState[p.id] || 'unbonded';
+        var color = STATE_COLORS[state];
+        var r = PRIORITY_RADIUS[p.priority] || 8;
+        var strokeW = p.priority === 'high' ? 2 : 1.5;
+
+        // Label offset: push label to right by default; nudge left for right-edge points
+        var lx = p.x + r + 3;
+        var ly = p.y + 4;
+        var anchor = 'start';
+        if (p.x > 400) { lx = p.x - r - 3; anchor = 'end'; }
+
+        html += '<g class="bond-point" data-id="' + p.id + '" style="cursor:pointer;">'
+          + '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + r + '"'
+          +   ' fill="' + color + '"'
+          +   ' stroke="white" stroke-width="' + strokeW + '"'
+          +   ' opacity="0.92">'
+          +   '<title>' + p.label + ' \u2014 ' + state + '</title>'
+          + '</circle>'
+          + '<text x="' + lx + '" y="' + ly + '"'
+          +   ' font-size="8" font-family="sans-serif"'
+          +   ' fill="currentColor" text-anchor="' + anchor + '"'
+          +   ' class="bond-label" opacity="0.75">'
+          +   p.label
+          + '</text>'
+          + '</g>';
+      });
+      g.innerHTML = html;
+
+      // Attach click listeners
+      g.querySelectorAll('.bond-point').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          cycleState(el.dataset.id);
+        });
+        el.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          cycleState(el.dataset.id);
+        });
+      });
+    }
+
+    // ----------------------------------------------------------------
+    // Score panel
+    // ----------------------------------------------------------------
+    function updateScore() {
+      var bonded  = 0;
+      var planned = 0;
+      BOND_POINTS.forEach(function(p) {
+        var s = bondState[p.id];
+        if (s === 'bonded')  bonded++;
+        if (s === 'planned') planned++;
+      });
+      var total = BOND_POINTS.length;
+
+      document.getElementById('score-bonded').textContent  = bonded + ' / ' + total;
+      document.getElementById('score-planned').textContent = planned;
+
+      // Quality
+      var quality;
+      if      (bonded >= 16) quality = 'Excellent';
+      else if (bonded >= 11) quality = 'Good';
+      else if (bonded >= 6)  quality = 'Fair';
+      else                   quality = 'Poor';
+      document.getElementById('score-quality').textContent = quality;
+
+      // Noise reduction: 0→0 dB, 9→6 dB, 18→12 dB (linear)
+      var noiseDB = ((bonded / total) * 12).toFixed(1);
+      document.getElementById('score-noise').textContent = '\u2248' + noiseDB + ' dB';
+
+      // Next priority
+      var exhaustIds = ['exhaust-front', 'exhaust-mid', 'exhaust-rear'];
+      var exhaustAllBonded = exhaustIds.every(function(id) { return bondState[id] === 'bonded'; });
+      var nextEl = document.getElementById('next-priority');
+      if (!exhaustAllBonded) {
+        nextEl.textContent = '\u26A1 Next priority: Exhaust bonding (all three points) gives the greatest single RFI improvement.';
+      } else {
+        // Find first unbonded high-priority point
+        var next = BOND_POINTS.find(function(p) {
+          return p.priority === 'high' && bondState[p.id] !== 'bonded';
+        });
+        if (!next) {
+          next = BOND_POINTS.find(function(p) {
+            return bondState[p.id] !== 'bonded';
+          });
+        }
+        if (next) {
+          nextEl.textContent = '\u26A1 Next priority: ' + next.label + ' (' + next.priority + ' priority)';
+        } else {
+          nextEl.textContent = '\u2705 All bonding points complete. Excellent ground plane!';
+        }
+      }
+
+      // Print table
+      updatePrintTable();
+    }
+
+    // ----------------------------------------------------------------
+    // Print table
+    // ----------------------------------------------------------------
+    function updatePrintTable() {
+      var tbody = document.getElementById('print-tbody');
+      var rows = '';
+      BOND_POINTS.forEach(function(p) {
+        var state = bondState[p.id] || 'unbonded';
+        rows += '<tr>'
+          + '<td style="text-align:center;">' + STATE_ICONS[state] + '</td>'
+          + '<td>' + p.label + '</td>'
+          + '<td style="text-transform:capitalize;">' + p.priority + '</td>'
+          + '<td>' + p.note + '</td>'
+          + '</tr>';
+      });
+      tbody.innerHTML = rows;
+    }
+
+    // ----------------------------------------------------------------
+    // Share button
+    // ----------------------------------------------------------------
+    document.getElementById('share-btn').addEventListener('click', function() {
+      try {
+        window.location.hash = btoa(JSON.stringify(bondState));
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var toast = document.getElementById('share-toast');
+          toast.classList.add('show');
+          setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      } catch(e) {}
+    });
+
+    // ----------------------------------------------------------------
+    // Reset button
+    // ----------------------------------------------------------------
+    document.getElementById('reset-btn').addEventListener('click', function() {
+      if (!confirm('Reset all bonding points to unbonded? This cannot be undone.')) return;
+      BOND_POINTS.forEach(function(p) { bondState[p.id] = 'unbonded'; });
+      saveState();
+      window.location.hash = '';
+      updateMap();
+      updateScore();
+    });
+
+    // ----------------------------------------------------------------
+    // Initial render
+    // ----------------------------------------------------------------
+    updateMap();
+    updateScore();
+  })();
+  </script>
+</body>
+</html>

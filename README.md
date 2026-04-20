@@ -8,7 +8,7 @@ This project reconstructs and organizes that knowledge as a free, permanent comm
 
 ## What's Here
 
-- **16 full-length technical articles** covering every aspect of mobile amateur radio installation
+- **40 articles across 7 topic areas** covering every aspect of mobile amateur radio installation — Getting Started, Electrical System, RFI & Noise, Antenna System, Equipment, Special Installs, and Reference
 - **Comprehensive glossary** of 50+ technical terms
 - **Modernized for 2026** — Alan's original guidance preserved, with new sections covering modern vehicle electrical systems, digital modes, current test equipment, and emerging technologies
 - **Client-side search** across all articles

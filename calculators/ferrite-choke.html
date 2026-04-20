@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferrite Choke Calculator — K0BG Mobile Amateur Radio</title>
+  <meta name="description" content="Interactive ferrite choke impedance calculator for mobile HF installations. Design optimal common-mode chokes using Mix 31, 43, 61, or 73 cores.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .calc-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .calc-header-text { flex: 1; }
+    .calc-header-text h1 { margin-bottom: 0.25rem; }
+    .calc-header-text p { color: var(--text-muted); margin: 0; }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .calc-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .calc-chart {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .calc-chart h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .calc-panel h3 {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .slider-row {
+      margin-bottom: 1.25rem;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+    .slider-label span:first-child {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .slider-value {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .slider-unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .calc-select {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      margin-bottom: 1.25rem;
+    }
+    .calc-select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .select-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .result-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .result-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      border-left: 4px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .result-card.good { border-left-color: #16a34a; }
+    .result-card.warn { border-left-color: var(--accent-amber); }
+    .result-card.bad  { border-left-color: #dc2626; }
+    .result-number {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .result-card.good .result-number { color: #16a34a; }
+    .result-card.warn .result-number { color: var(--accent-amber); }
+    .result-card.bad  .result-number { color: #dc2626; }
+    .result-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .result-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .verdict {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border: 1px solid transparent;
+    }
+    .verdict.good { background: rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.3); color: #15803d; }
+    .verdict.warn { background: var(--accent-amber-light); border-color: rgba(217,119,6,0.3); color: #92400e; }
+    .verdict.bad  { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.3); color: #991b1b; }
+    html.dark .verdict.good { color: #4ade80; }
+    html.dark .verdict.warn { color: var(--accent-amber); }
+    html.dark .verdict.bad  { color: #f87171; }
+    .approx-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 1.25rem;
+      line-height: 1.5;
+    }
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .legend-swatch {
+      width: 24px;
+      height: 3px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .legend-swatch.amber { background: #d97706; }
+    .legend-swatch.blue  { background: #3b82f6; border-top: 2px dashed #3b82f6; background: transparent; }
+    .legend-swatch.dashed-amber { border-top: 2px dashed #d97706; background: transparent; }
+    .legend-swatch.dashed-green { border-top: 2px dashed #16a34a; background: transparent; }
+    .print-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--text);
+      font-family: var(--font-sans);
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .print-btn:hover { background: var(--bg-tertiary); }
+    @media print {
+      .sidebar, .topbar, .back-to-top, .print-btn { display: none !important; }
+      .main-content { margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-logo">
+      <a href="../index.html">
+        <div class="logo-primary">K0BG</div>
+        <div class="logo-secondary">Mobile Amateur Radio</div>
+      </a>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group">
+        <button class="nav-group-label">Calculators <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="index.html">All Calculators</a></li>
+          <li><a href="ferrite-choke.html" aria-current="page">Ferrite Choke</a></li>
+          <li><a href="wire-fuse.html">Wire &amp; Fuse</a></li>
+          <li><a href="shunt-coil.html">Shunt Coil</a></li>
+          <li><a href="bonding-strap.html">Bonding Strap</a></li>
+          <li><a href="antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="bonding-map.html">Bonding Map</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Getting Started <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/abcs.html">ABCs of Mobile HF</a></li>
+          <li><a href="../articles/safety.html">Safety</a></li>
+          <li><a href="../articles/installation.html">Installation Notes</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Electrical System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/bonding.html">Bonding</a></li>
+          <li><a href="../articles/wiring.html">Wiring</a></li>
+          <li><a href="../articles/alternators-batteries.html">Alternators &amp; Batteries</a></li>
+          <li><a href="../articles/grounds.html">RF &amp; DC Grounds</a></li>
+          <li><a href="../articles/cables-interfacing.html">Cables &amp; Interfacing</a></li>
+          <li><a href="../articles/coax-pl259.html">Coax &amp; PL-259</a></li>
+          <li><a href="../articles/hybrid-ev.html">Hybrid &amp; EV Vehicles</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">RFI &amp; Noise <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/common-mode.html">Common Mode Currents</a></li>
+          <li><a href="../articles/rfi.html">RFI Problems</a></li>
+          <li><a href="../articles/digital-electronics.html">Digital Electronics</a></li>
+          <li><a href="../articles/controlling-static.html">Controlling Static</a></li>
+          <li><a href="../articles/how-to-wind-choke.html">How To Wind A Choke</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Antenna System <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-efficiency.html">Antenna Efficiency</a></li>
+          <li><a href="../articles/antenna-mounts.html">Antenna Mounts</a></li>
+          <li><a href="../articles/antenna-commercial.html">Commercial Antennas</a></li>
+          <li><a href="../articles/antenna-cap-hat.html">Cap Hats</a></li>
+          <li><a href="../articles/antenna-problems.html">Antenna Problems</a></li>
+          <li><a href="../articles/antenna-matching.html">Antenna Matching</a></li>
+          <li><a href="../articles/coil-adjustment.html">Coil Adjustment</a></li>
+          <li><a href="../articles/auto-couplers.html">Auto-Couplers</a></li>
+          <li><a href="../articles/antenna-controllers.html">Antenna Controllers</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Equipment <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/amplifiers.html">Amplifiers</a></li>
+          <li><a href="../articles/vhf-options.html">VHF/UHF Options</a></li>
+          <li><a href="../articles/miniature-radios.html">Miniature Radios</a></li>
+          <li><a href="../articles/audio-filtering.html">Audio &amp; Speakers</a></li>
+          <li><a href="../articles/transmit-audio.html">Transmit Audio</a></li>
+          <li><a href="../articles/signal-noise-ratio.html">Signal to Noise Ratio</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Special Installs <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/otr-rv.html">OTR &amp; RV</a></li>
+          <li><a href="../articles/portable-operation.html">Portable Operation</a></li>
+          <li><a href="../articles/insurance.html">Mobile Insurance</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button class="nav-group-label">Reference <span class="chevron">▾</span></button>
+        <ul>
+          <li><a href="../articles/antenna-myths.html">Antenna Myths</a></li>
+          <li><a href="../articles/antenna-shootouts.html">Antenna Shootouts</a></li>
+          <li><a href="../articles/home-brew.html">Home Brew</a></li>
+          <li><a href="../articles/neat-gadgets.html">Neat Gadgets</a></li>
+          <li><a href="../articles/what-i-use.html">What I Use</a></li>
+          <li><a href="../articles/tricks.html">Tricks of the Trade</a></li>
+          <li><a href="../articles/glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="main-content" id="main-content">
+    <div class="topbar">
+      <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <div class="search-wrapper" role="search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+    </div>
+
+    <div class="calc-container">
+
+      <div class="calc-header">
+        <div class="calc-header-text">
+          <h1>Ferrite Choke Designer</h1>
+          <p>Calculate common-mode impedance for ferrite chokes across the HF spectrum.</p>
+        </div>
+        <button class="print-btn" onclick="window.print()">&#128424; Print</button>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Left: Inputs -->
+        <div class="calc-panel">
+          <h3>Choke Parameters</h3>
+
+          <label class="select-label" for="mix-select">Ferrite Mix</label>
+          <select class="calc-select" id="mix-select" aria-label="Ferrite mix">
+            <option value="31">Mix 31 — Best 1–30 MHz (FT240-31)</option>
+            <option value="43">Mix 43 — Better upper HF</option>
+            <option value="61">Mix 61 — 50–300 MHz</option>
+            <option value="73">Mix 73 — AM broadcast / low HF</option>
+          </select>
+
+          <label class="select-label" for="bead-select">Bead / Core Size</label>
+          <select class="calc-select" id="bead-select" aria-label="Bead size">
+            <option value="075">3/4&quot; ID — FT240 size (full size)</option>
+            <option value="050">1/2&quot; ID — FT114 size (65% effective)</option>
+            <option value="clamp">Large clamp-on (40% effective)</option>
+          </select>
+
+          <label class="select-label" for="coax-select">Coax Type</label>
+          <select class="calc-select" id="coax-select" aria-label="Coax type">
+            <option value="rg8x">RG-8X (0.242&quot; OD)</option>
+            <option value="rg58">RG-58 (0.193&quot; OD)</option>
+            <option value="rg213">RG-213 (0.405&quot; OD)</option>
+            <option value="motor">#18 Motor Wire</option>
+          </select>
+
+          <div class="slider-row">
+            <div class="slider-label">
+              <span>Number of Turns</span>
+              <span><span class="slider-value" id="turns-val">6</span><span class="slider-unit">T</span></span>
+            </div>
+            <input type="range" id="turns-slider" min="1" max="12" value="6" step="1" aria-label="Number of turns">
+          </div>
+
+          <p class="approx-note">Values are engineering approximations based on Fair-Rite published data. Verify with a NanoVNA for critical installations.</p>
+        </div>
+
+        <!-- Right: Chart -->
+        <div class="calc-chart">
+          <h3>Impedance vs. Frequency (1–30 MHz)</h3>
+          <canvas id="choke-chart" width="500" height="300" aria-label="Impedance chart"></canvas>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-swatch amber"></div>
+              <span>Resistive (Zr) — choking loss</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch blue"></div>
+              <span>Reactive (Zx) — inductance</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch dashed-green"></div>
+              <span>1 k&#937; minimum</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch dashed-amber"></div>
+              <span>5 k&#937; K0BG rec.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result cards -->
+      <div class="result-cards" id="result-cards">
+        <div class="result-card" id="card-7">
+          <div class="result-number" id="z7-val">—</div>
+          <div class="result-label">Zr at 7 MHz (40m)</div>
+          <div class="result-detail">Resistive impedance</div>
+        </div>
+        <div class="result-card" id="card-14">
+          <div class="result-number" id="z14-val">—</div>
+          <div class="result-label">Zr at 14 MHz (20m)</div>
+          <div class="result-detail">Resistive impedance</div>
+        </div>
+        <div class="result-card" id="card-10">
+          <div class="result-number" id="z10-val">—</div>
+          <div class="result-label">Zr at 10 MHz (30m)</div>
+          <div class="result-detail">Resistive impedance</div>
+        </div>
+        <div class="result-card" id="card-min">
+          <div class="result-number" id="min-turns-val">—</div>
+          <div class="result-label">Min turns for 5 k&#937;</div>
+          <div class="result-detail">At 10 MHz with this core</div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict" id="verdict-banner">
+        Calculating...
+      </div>
+
+      <footer class="site-footer">
+        <p>Based on the original work of Alan Applegate, K0BG. Preserved for the amateur radio community.</p>
+        <div class="site-disclaimer">
+          <p><strong>Important Notice:</strong> Calculator results are engineering approximations. Verify with a NanoVNA or other test equipment for critical installations. This site is not affiliated with or endorsed by Alan Applegate (K0BG).</p>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Return to top">&uarr;</button>
+  <script src="../js/main.js"></script>
+  <script>
+    // ── Impedance model ────────────────────────────────────────────────────
+    const MIX_PARAMS = {
+      '31': { scale: 38, exp: 0.7 },
+      '43': { scale: 22, exp: 0.9 },
+      '61': { scale: 8,  exp: 1.4 },
+      '73': { scale: 60, exp: 0.4 }
+    };
+    const BEAD_MULT = { '075': 1.0, '050': 0.65, 'clamp': 0.4 };
+
+    function calcZ(mix, beadKey, turns, freqMHz) {
+      const p = MIX_PARAMS[mix];
+      const bm = BEAD_MULT[beadKey];
+      const Zr = turns * turns * p.scale * bm * Math.pow(freqMHz / 10, p.exp);
+      const Zx = Zr * 0.3 * Math.pow(freqMHz / 10, 0.3);
+      return { Zr, Zx, Zmag: Math.sqrt(Zr * Zr + Zx * Zx) };
+    }
+
+    function fmtZ(z) {
+      if (z >= 1000) return (z / 1000).toFixed(1) + 'k';
+      return Math.round(z) + '';
+    }
+
+    function cardClass(z) {
+      if (z >= 5000) return 'good';
+      if (z >= 1000) return 'warn';
+      return 'bad';
+    }
+
+    function minTurns(mix, beadKey) {
+      for (let n = 1; n <= 12; n++) {
+        if (calcZ(mix, beadKey, n, 10).Zr >= 5000) return n;
+      }
+      return '>12';
+    }
+
+    // ── Canvas chart ───────────────────────────────────────────────────────
+    const canvas   = document.getElementById('choke-chart');
+    const ctx      = canvas.getContext('2d');
+    const FREQ_MIN = 1, FREQ_MAX = 30;
+    const Z_MIN    = 10, Z_MAX = 100000;
+    const BANDS = [
+      { freq: 1.8,  label: '160' },
+      { freq: 3.5,  label: '80' },
+      { freq: 7,    label: '40' },
+      { freq: 10,   label: '30' },
+      { freq: 14,   label: '20' },
+      { freq: 18,   label: '17' },
+      { freq: 21,   label: '15' },
+      { freq: 24.9, label: '12' },
+      { freq: 28,   label: '10' }
+    ];
+    const Y_LABELS = [100, 500, 1000, 5000, 10000, 50000];
+
+    let animFrame = null;
+    let animProgress = 0;
+    let pendingDraw = false;
+
+    function isDark() {
+      return document.documentElement.classList.contains('dark');
+    }
+
+    function getChartColors() {
+      const dark = isDark();
+      return {
+        bg:         dark ? '#1e2330' : '#f8fafc',
+        gridLine:   dark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)',
+        axisText:   dark ? '#94a3b8' : '#64748b',
+        amber:      dark ? '#f59e0b' : '#d97706',
+        amberFill:  dark ? 'rgba(245,158,11,0.13)' : 'rgba(217,119,6,0.10)',
+        blue:       dark ? '#60a5fa' : '#3b82f6',
+        green:      '#16a34a',
+        bandLine:   dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+        bandText:   dark ? '#64748b' : '#94a3b8',
+      };
+    }
+
+    function toX(freq, W) {
+      return ((freq - FREQ_MIN) / (FREQ_MAX - FREQ_MIN)) * W;
+    }
+    function toY(z, H) {
+      const logMin = Math.log10(Z_MIN);
+      const logMax = Math.log10(Z_MAX);
+      const logZ   = Math.log10(Math.max(Z_MIN, Math.min(Z_MAX, z)));
+      return H - ((logZ - logMin) / (logMax - logMin)) * H;
+    }
+
+    const PAD = { top: 14, right: 18, bottom: 36, left: 54 };
+
+    function drawChart(progress) {
+      const W = canvas.width  - PAD.left - PAD.right;
+      const H = canvas.height - PAD.top  - PAD.bottom;
+      const c = getChartColors();
+      const mix    = document.getElementById('mix-select').value;
+      const bead   = document.getElementById('bead-select').value;
+      const turns  = parseInt(document.getElementById('turns-slider').value, 10);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(PAD.left, PAD.top);
+
+      // Background
+      ctx.fillStyle = c.bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Y grid lines + labels
+      ctx.font = '10px JetBrains Mono, monospace';
+      ctx.fillStyle = c.axisText;
+      ctx.textAlign = 'right';
+      Y_LABELS.forEach(zv => {
+        const y = toY(zv, H);
+        ctx.strokeStyle = c.gridLine;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.stroke();
+        const lbl = zv >= 1000 ? (zv / 1000) + 'k' : zv + '';
+        ctx.fillStyle = c.axisText;
+        ctx.fillText(lbl + ' Ω', -6, y + 3.5);
+      });
+
+      // Band vertical lines
+      BANDS.forEach(b => {
+        const x = toX(b.freq, W);
+        ctx.strokeStyle = c.bandLine;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 4]);
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = c.bandText;
+        ctx.textAlign = 'center';
+        ctx.font = '9px Inter, sans-serif';
+        ctx.fillText(b.label + 'm', x, H + 14);
+      });
+
+      // 1 kΩ reference line
+      {
+        const y1k = toY(1000, H);
+        ctx.strokeStyle = c.green;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(0, y1k);
+        ctx.lineTo(W, y1k);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = c.green;
+        ctx.textAlign = 'left';
+        ctx.font = '9px Inter, sans-serif';
+        ctx.fillText('1 kΩ min', 4, y1k - 3);
+      }
+
+      // 5 kΩ reference line
+      {
+        const y5k = toY(5000, H);
+        ctx.strokeStyle = c.amber;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(0, y5k);
+        ctx.lineTo(W, y5k);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = c.amber;
+        ctx.textAlign = 'left';
+        ctx.font = '9px Inter, sans-serif';
+        ctx.fillText('5 kΩ K0BG rec.', 4, y5k - 3);
+      }
+
+      // Build data points
+      const STEPS = 60;
+      const freqStep = (FREQ_MAX - FREQ_MIN) / STEPS;
+      const ZrPoints = [];
+      const ZxPoints = [];
+      for (let i = 0; i <= STEPS; i++) {
+        const f = FREQ_MIN + i * freqStep;
+        const z = calcZ(mix, bead, turns, f);
+        ZrPoints.push({ x: toX(f, W), y: toY(z.Zr, H), Zr: z.Zr });
+        ZxPoints.push({ x: toX(f, W), y: toY(z.Zx, H) });
+      }
+
+      const cutIdx = Math.floor(progress * STEPS);
+
+      // Green fill under Zr curve (animated)
+      if (cutIdx > 0) {
+        ctx.beginPath();
+        ctx.moveTo(ZrPoints[0].x, H);
+        for (let i = 0; i <= cutIdx; i++) {
+          ctx.lineTo(ZrPoints[i].x, ZrPoints[i].y);
+        }
+        ctx.lineTo(ZrPoints[Math.min(cutIdx, STEPS)].x, H);
+        ctx.closePath();
+        ctx.fillStyle = c.amberFill;
+        ctx.fill();
+      }
+
+      // Zr solid amber line (animated)
+      if (cutIdx > 0) {
+        ctx.beginPath();
+        ctx.moveTo(ZrPoints[0].x, ZrPoints[0].y);
+        for (let i = 1; i <= cutIdx; i++) {
+          ctx.lineTo(ZrPoints[i].x, ZrPoints[i].y);
+        }
+        ctx.strokeStyle = c.amber;
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([]);
+        ctx.stroke();
+      }
+
+      // Zx dashed blue line (animated)
+      if (cutIdx > 0) {
+        ctx.beginPath();
+        ctx.moveTo(ZxPoints[0].x, ZxPoints[0].y);
+        for (let i = 1; i <= cutIdx; i++) {
+          ctx.lineTo(ZxPoints[i].x, ZxPoints[i].y);
+        }
+        ctx.strokeStyle = c.blue;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // X axis label
+      ctx.fillStyle = c.axisText;
+      ctx.textAlign = 'center';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.fillText('Frequency (MHz)', W / 2, H + 28);
+
+      ctx.restore();
+    }
+
+    function animateDraw() {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animProgress = 0;
+      const TOTAL_FRAMES = 30;
+      function step() {
+        animProgress = Math.min(animProgress + 1 / TOTAL_FRAMES, 1);
+        drawChart(animProgress);
+        if (animProgress < 1) {
+          animFrame = requestAnimationFrame(step);
+        }
+      }
+      animFrame = requestAnimationFrame(step);
+    }
+
+    // ── Result cards & verdict ─────────────────────────────────────────────
+    function updateResults() {
+      const mix   = document.getElementById('mix-select').value;
+      const bead  = document.getElementById('bead-select').value;
+      const turns = parseInt(document.getElementById('turns-slider').value, 10);
+
+      const z7  = calcZ(mix, bead, turns, 7).Zr;
+      const z14 = calcZ(mix, bead, turns, 14).Zr;
+      const z10 = calcZ(mix, bead, turns, 10).Zr;
+      const mt  = minTurns(mix, bead);
+
+      // Cards
+      function setCard(id, valEl, z, extra) {
+        const card = document.getElementById(id);
+        const vEl  = document.getElementById(valEl);
+        const cls  = cardClass(z);
+        card.className = 'result-card ' + cls;
+        vEl.textContent = fmtZ(z) + ' Ω';
+      }
+      setCard('card-7',   'z7-val',  z7);
+      setCard('card-14',  'z14-val', z14);
+      setCard('card-10',  'z10-val', z10);
+
+      const minCard = document.getElementById('card-min');
+      const minVal  = document.getElementById('min-turns-val');
+      minVal.textContent = mt + (mt === '>12' ? '' : ' T');
+      if (mt === '>12') {
+        minCard.className = 'result-card bad';
+      } else if (mt <= 4) {
+        minCard.className = 'result-card good';
+      } else if (mt <= 8) {
+        minCard.className = 'result-card warn';
+      } else {
+        minCard.className = 'result-card bad';
+      }
+
+      // Verdict
+      const banner = document.getElementById('verdict-banner');
+      if (z7 >= 5000 && z14 >= 5000) {
+        banner.className = 'verdict good';
+        banner.textContent = '✅ Excellent choking — adequate for all HF bands';
+      } else if (z10 >= 1000) {
+        banner.className = 'verdict warn';
+        banner.textContent = '⚠️ Marginal on lower bands — add a second choke or increase turns';
+      } else {
+        banner.className = 'verdict bad';
+        banner.textContent = '❌ Insufficient — increase turns, use larger core, or choose Mix 31';
+      }
+    }
+
+    // ── Event listeners ────────────────────────────────────────────────────
+    const turnsSlider = document.getElementById('turns-slider');
+    const turnsVal    = document.getElementById('turns-val');
+
+    function onInputChange() {
+      turnsVal.textContent = turnsSlider.value;
+      updateResults();
+      animateDraw();
+    }
+
+    document.getElementById('mix-select').addEventListener('change', onInputChange);
+    document.getElementById('bead-select').addEventListener('change', onInputChange);
+    document.getElementById('coax-select').addEventListener('change', onInputChange);
+    turnsSlider.addEventListener('input', onInputChange);
+
+    // Redraw on theme change (dark mode toggles recolor the chart)
+    const themeObserver = new MutationObserver(() => {
+      drawChart(animProgress < 1 ? animProgress : 1);
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    // Initial render
+    updateResults();
+    animateDraw();
+  </script>
+</body>
+</html>
