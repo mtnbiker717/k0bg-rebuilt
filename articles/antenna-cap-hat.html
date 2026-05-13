@@ -167,8 +167,8 @@
         <p>The radiation resistance of a vertical antenna is a function of its electrical length and how the current flows over that length. In a mobile scenario, we can't increase the overall height beyond about 13 feet (about 11 feet of physical length in most locations). We can't significantly reduce the ground losses &mdash; bonding notwithstanding. Thus the only practical way to increase efficiency, besides reducing ohmic losses (coil Q), is to increase the radiation resistance.</p>
 
         <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_1.jpeg" alt="Diagram comparing base-loaded versus center-loaded antenna showing current node positions" loading="lazy">
-          <figcaption>A base-loaded antenna has the highest current point (node) just above the loading coil. Relocating the loading coil to the approximate center of the antenna raises the current node and doubles the radiation resistance. Center loading increases required reactance and therefore coil losses, but the efficiency gain is still real. A cap hat does even better.</figcaption>
+          <img src="../images/Antenna_Cap_Hat_p1_1.jpeg" alt="Chart of radiation efficiency versus coil position ratio h2/h1 for two ground loss conditions Rq=0 and Rq=10" loading="lazy">
+          <figcaption>Radiation efficiency versus coil position (h2/h1 ratio) from ARRL data, for two ground loss conditions: Rq=0 (ideal ground) and Rq=10 (typical mobile). The optimum coil position shifts lower as ground loss increases. A cap hat at the antenna top raises the effective electrical length without requiring the coil to be repositioned upward. <!-- Vision: radiation efficiency vs coil position chart with h2/h1 x-axis and two Rq curves — placement uncertain, verify manually --></figcaption>
         </figure>
 
         <p>A center-loaded antenna doubles radiation resistance compared to a base-loaded one, which doubles efficiency &mdash; but at the cost of additional coil losses because center loading approximately doubles the required reactance for resonance. Moving the coil higher than center increases Q losses faster than it increases radiation resistance. A cap hat solves this problem more elegantly.</p>
@@ -179,17 +179,19 @@
         </div>
 
         <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_2.jpeg" alt="Chart showing optimal coil position versus ground losses for maximum efficiency" loading="lazy">
-          <figcaption>Optimal coil position versus ground loss, from ARRL data. The point of maximum efficiency varies with ground loss magnitude. With typical mobile ground losses, the optimal coil position is roughly at or below the center of the antenna. A properly mounted cap hat at the top of the antenna raises the current node regardless of coil position, improving the efficiency without the need to move the coil up.</figcaption>
+          <img src="../images/Antenna_Cap_Hat_p1_2.jpeg" alt="Eight-spoke cap hat viewed from above showing straight wires radiating from center hub without an enclosing rim" loading="lazy">
+          <figcaption>An eight-spoke cap hat without an enclosing rim. Straight wires radiating from a center hub, with nothing connecting their tips. This design provides a fraction of the capacitance of a rim-enclosed design of the same overall diameter. Straight wires without a conductive rim are next to worthless as cap hats. <!-- Vision: spoke-design cap hat from above, 8 wires, no rim — placement uncertain, verify manually --></figcaption>
         </figure>
 
         <h2 id="design-considerations">Design Considerations</h2>
 
         <p>Cap hats come in a variety of designs, but some perform better than others. A spoke design &mdash; straight wires radiating from a hub without an enclosing rim &mdash; does not work nearly as well as designs with an enclosing rim. For a given overall diameter, the outer rim nearly doubles the effective capacitance. This has to be weighed against the slightly increased wind loading and a greater chance of the cap hat catching on an errant tree limb.</p>
 
-        <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_3.jpeg" alt="Two cap hat designs side by side: spoke design without rim versus loop design with rim" loading="lazy">
-          <figcaption>Left: spoke design cap hat without an enclosing rim. Right: loop design with a conductive rim. For a given overall diameter, the rim design nearly doubles the effective capacitance. Straight wires without a conductive rim are next to worthless. This fact is not obvious, but it is the difference between a cap hat that works and one that doesn't.</figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Side-by-side cap hat design comparison]</span>
+          <p>Side-by-side photo of spoke-design cap hat (no enclosing rim) versus loop-design cap hat (conductive rim connecting wire tips). Same overall diameter, clearly showing the difference in construction between the two types.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <p>There is a practical limit to maximum diameter, and a limit to the length of the mast supporting the cap hat. Too short a mast, and there will be excessive capacitive loading between the cap hat and the body of the vehicle. Too long, and even the sturdiest of antennas will fail due to the excessive bending moment caused by wind loading.</p>
@@ -202,8 +204,8 @@
         </div>
 
         <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_4.jpeg" alt="Cap hat incorrectly mounted atop the loading coil" loading="lazy">
-          <figcaption>A cap hat incorrectly mounted directly atop the loading coil. This location does increase input impedance and bandwidth, but for the wrong reason &mdash; it is reducing coil Q rather than increasing radiation resistance. The efficiency result is the opposite of what you want. This mistake was illustrated in the 1954 ARRL Mobile Manual and has been propagated ever since.</figcaption>
+          <img src="../images/Antenna_Cap_Hat_p1_4.jpeg" alt="Line drawing of a rim-enclosed cap hat viewed from above showing center hub, radial spokes, and enclosing conductive rim" loading="lazy">
+          <figcaption>Line drawing of a rim-enclosed cap hat from above: a center hub, radial spokes, and a continuous conductive rim connecting all spoke tips. This is the correct design geometry. The closed rim is what distinguishes an effective cap hat from an ineffective spoke-only design. <!-- Vision: circular line drawing of hub-and-rim cap hat from above — placement uncertain, verify manually --></figcaption>
         </figure>
 
         <figure>
@@ -227,8 +229,8 @@
         <p>A small whip spring is temporarily installed in place of the quick disconnect. A piece of Spectra 50-pound test fishing line is attached to one of the loops, and the other end brought into the cab through the moon roof. With the help of a passenger, the vehicle is driven at 60 mph and the line let out just to the point of bowing in the wind, with a reference point marked. Back in the driveway, a second piece of Spectra is attached to the hub and to a hand-held scale. Enough pull is exerted to move the first line to its reference point, and the scale is read. The result: just 6 pounds. This non-scientific exercise isn't perfect, but it gives a solid indication of the bending-moment forces applied to the top of the antenna.</p>
 
         <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_6.jpeg" alt="Wind loading test setup with Spectra fishing line and hand scale measuring cap hat force" loading="lazy">
-          <figcaption>The wind loading measurement setup. A Spectra fishing line from the cap hat through the moon roof, with the vehicle driven at 60 mph to determine the bowing point. A hand scale duplicates the force at the hub. Result: approximately 6 pounds at 60 mph &mdash; well within the capability of a properly mounted, sturdy antenna.</figcaption>
+          <img src="../images/Antenna_Cap_Hat_p1_6.jpeg" alt="Two-loop cap hat mounted atop a tall pole outdoors with several cliff swallows perched on the loop wires" loading="lazy">
+          <figcaption>A two-loop cap hat installed on a static test pole. Cliff swallows have taken an interest in the loops. The image illustrates the loop geometry and mast length at rest. Dynamic wind loading cannot be assessed from a static installation &mdash; the Spectra-line method described in the text is required to measure actual bending force at highway speed. <!-- Vision: two-loop cap hat on outdoor pole with birds perched on loops — placement uncertain, verify manually --></figcaption>
         </figure>
 
         <h2 id="conclusions">Conclusions</h2>
@@ -245,16 +247,20 @@
 
         <p>In each case, the measured input impedance increased approximately 30%, indicating an increase in radiation resistance. Fewer turns needed means less coil resistance in the circuit. Both factors contribute to efficiency improvement.</p>
 
-        <figure>
-          <img src="../images/Antenna_Cap_Hat_p1_7.jpeg" alt="Scorpion 680 with three-loop cap hat showing full installation detail" loading="lazy">
-          <figcaption>Complete installation of a Scorpion 680 with three-loop cap hat. The top of the antenna remains under 13 feet even when tuned to 80 meters &mdash; in many areas of the country, this is effectively a requirement. This installation can be tuned from 80 through 17 meters with the described cap hat configuration.</figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Complete Scorpion 680 with three-loop cap hat installation]</span>
+          <p>Full-vehicle photo showing a Scorpion 680 with three-loop cap hat installed and tuned to 80 meters, antenna top under 13 feet. Shows the complete installation in context on a vehicle.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <p>Another good attribute: the top of the antenna remains under 13 feet even when tuned to 80 meters. In some areas of the country, this is all but a prerequisite.</p>
 
-        <figure>
-          <img src="../images/Antenna_Cap_Hat_p2_8.jpeg" alt="Alternate cap hat design comparison showing spoke design versus three-loop design side by side" loading="lazy">
-          <figcaption>Comparison of a spoke design (left) versus the three-loop design (right). The spoke design's straight wires without a conductive rim provide a fraction of the capacitance per unit of wind loading. Empirical and theoretical analysis both show the three-loop design with a conductive rim is the most efficient design relative to its wind loading penalty. <!-- From PDF page 2 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Spoke-design vs. three-loop cap hat comparison]</span>
+          <p>Side-by-side or sequential photos comparing a spoke-only cap hat design against the three-loop conductive-rim design at equivalent overall diameter, illustrating the superiority of the rim-enclosed design.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <div class="callout warning">

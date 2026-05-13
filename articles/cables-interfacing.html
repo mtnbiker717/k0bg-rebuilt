@@ -160,8 +160,8 @@
         <p>All HF mobile transceivers &mdash; and quite a few FM ones too &mdash; have ports designed to connect to the outside world. They're meant to interface transceivers to programming computers, antenna controllers, amplifiers, and even the Internet. No two brands are alike. The ports (sockets) are different between manufacturers, and in many cases between models from the same manufacturer. Use manufacturer-supplied cabling wherever possible.</p>
 
         <figure>
-          <img src="../images/Cables_and_Interfacing_p1_0.jpeg" alt="Assorted transceiver interface connectors and cables" loading="lazy">
-          <figcaption>The variety of connectors used for transceiver interfacing. Modular jacks and plugs that appear to be standard telephone RJ45 connectors often are not, and substituting standard telephone hardware can destroy expensive equipment. <!-- From PDF page 1 — verify placement --></figcaption>
+          <img src="../images/Cables_and_Interfacing_p1_0.jpeg" alt="Line drawing of an Icom transceiver rear panel showing the separation cable OPC-1443 connection point" loading="lazy">
+          <figcaption>Icom remote separation cable (OPC-1443) installation detail, from the factory manual. This cable carries audio, control, and display signals between the transceiver body and the remote control head &mdash; it is proprietary and not interchangeable with standard CAT5 or telephone cable.</figcaption>
         </figure>
 
         <h2 id="remote-cables">Remote Cables</h2>
@@ -180,8 +180,8 @@
         <p>A similar caution applies to MFJ's interconnect cables, like those supplied with their ALS-500 amplifier remote kit. These are 8-conductor silver satin telephone cables, but the connectors are installed differently from standard telephone cables &mdash; they're straight, not crossed over. This is one of the very few cases where you can shorten them and install a new RJ45 plug with a standard telephone crimp tool, as long as you observe the polarity.</p>
 
         <figure>
-          <img src="../images/Cables_and_Interfacing_p1_1.jpeg" alt="MFJ ALS-500 remote kit cable showing connector orientation" loading="lazy">
-          <figcaption>MFJ amplifier remote cables use silver satin telephone wire with straight (not crossover) connector wiring. These can be shortened and re-terminated if needed, but polarity must be observed. <!-- From PDF page 1 — verify placement --></figcaption>
+          <img src="../images/Cables_and_Interfacing_p1_1.jpeg" alt="Single clear 8-position modular plug (RJ45 style) showing conductor positions" loading="lazy">
+          <figcaption>A standard-appearing 8-position modular plug. MFJ amplifier remote cables use silver satin telephone wire terminated with connectors like this, but wired straight (not crossover). These can be shortened and re-terminated if needed &mdash; but polarity must be observed, and the wiring is not the same as a standard telephone cable.</figcaption>
         </figure>
 
         <div class="callout warning">
@@ -197,9 +197,11 @@
 
         <p>A lot of newer transceivers use modular jacks and plugs for microphone and/or remote cables. While they appear to be standard RJ45 telephone connectors, they typically are not. Modular jacks and plugs come in about 50 different configurations: some for round cables, some for oval cable, some for flat cables, and different types for solid and stranded wire. There are keyed and unkeyed versions, ones with external cord grips, and ones for heavy-duty use. Selecting the correct one isn't as simple as it looks.</p>
 
-        <figure>
-          <img src="../images/Cables_and_Interfacing_p1_2.jpeg" alt="Modular plug configurations and crimp tool" loading="lazy">
-          <figcaption>The variety of modular plug configurations available. A crimping tool designed for round cable will not correctly crimp a flat cable, and vice versa. There are about 8 different die sets to accommodate all types. <!-- From PDF page 1 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Modular Plug Types]</span>
+          <p>Illustration showing the variety of modular plug configurations available for different cable types (round, flat, stranded, solid) and the corresponding crimp tooling required for each.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <p>MFJ and a couple of other manufacturers use RJ45 telephone-style jacks, plugs, and silver satin 8-conductor telephone wire as interconnect cabling. The problem: they aren't wired like telephone cables. Arbitrarily substituting a telephone cable will result in an expensive repair.</p>
@@ -211,8 +213,8 @@
         <p>The pins in Icom's microphone jack are approximately 1/32 inch apart. If you're not precise, you may not be able to properly position and hold the wires during crimping. First attempts often go through several plugs before getting it right.</p>
 
         <figure>
-          <img src="../images/Cables_and_Interfacing_p1_3.jpeg" alt="Icom microphone jack wiring diagram enlarged" loading="lazy">
-          <figcaption>Icom microphone jack wiring diagram, enlarged approximately 4 times actual size. Note the separate ground connections for microphone and PTT. The pin spacing of approximately 1/32 inch requires careful work. <!-- From PDF page 1 — verify placement --></figcaption>
+          <img src="../images/Cables_and_Interfacing_p1_2.jpeg" alt="Icom microphone jack rear panel wiring diagram showing 8 pin assignments: pin 1 = 8V DC output, pin 2 = frequency up/down, pin 3 = AF output, pin 4 = PTT, pin 5 = microphone ground, pin 6 = microphone input, pin 7 = PTT ground, pin 8 = squelch switch" loading="lazy">
+          <figcaption>Icom microphone jack rear-panel wiring diagram showing all 8 pin assignments. Note pin 1 carries an 8V DC regulated supply &mdash; shorting it to ground destroys the regulator. Pin 3 is AF output on the IC-706MkIIg but a microphone sense pin on the IC-7000/7100, which is why a Heil IC-706 headset causes distortion on the IC-7000. The 1/32-inch pin spacing requires careful work when re-terminating.</figcaption>
         </figure>
 
         <div class="callout warning">
@@ -229,9 +231,11 @@
           <p>Icom makes an adapter to convert the microphone jack from modular to a standard 8-pin microphone jack for use with their SM8 and other desk microphones. If you're interfacing through the microphone port of an IC-7000/7100, note that the radio has two microphone ports, but using both simultaneously can cause data corruption.</p>
         </div>
 
-        <figure>
-          <img src="../images/Cables_and_Interfacing_p2_4.jpeg" alt="Heil headset adapter for Icom IC-7000" loading="lazy">
-          <figcaption>Heil has a headset designed specifically for the IC-7000/7100. Its higher output requires a lower gain setting on the radio. This is not the same as the Heil adapter for the IC-706. Do not substitute. <!-- From PDF page 2 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Heil IC-7000 Headset Adapter]</span>
+          <p>Photo of the Heil headset adapter designed specifically for the IC-7000/7100, showing how it differs from the IC-706 version.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <h2 id="making-your-own">If You Just Have to Make Your Own</h2>
@@ -241,8 +245,13 @@
         <p>If you must proceed, DigiKey and Mouser sell the proper modular plugs, listed under Modular Connectors and Jacks. There are about 20 different configurations catalogued, and another 25 or so they don't list.</p>
 
         <figure>
-          <img src="../images/Cables_and_Interfacing_p2_5.jpeg" alt="EZ-Plug modular connectors with through-holes for wire verification" loading="lazy">
-          <figcaption>Bomar EZ-Plug modular connectors (Mouser 678-300568EZ for stranded round cable) have drilled-through holes in the end of the plug, allowing wires to protrude before crimping so you can verify correct wiring. If you don't own the correct EZ crimping tool, an X-Acto knife can trim the extra wire to avoid shorts. <!-- From PDF page 2 — verify placement --></figcaption>
+          <img src="../images/Cables_and_Interfacing_p2_4.jpeg" alt="Bomar EZ-Plug modular connector (PN 300568EZ) with wire conductors protruding through the clear plug body before crimping" loading="lazy">
+          <figcaption>Bomar EZ-Plug modular connectors (Mouser 678-300568EZ for stranded round cable) have drilled-through holes in the end of the plug, allowing wires to protrude before crimping so you can verify correct wiring. If you don't own the correct EZ crimping tool, an X-Acto knife can trim the extra wire to avoid shorts.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/Cables_and_Interfacing_p2_5.jpeg" alt="Professional modular connector crimping tool with compound-action handles" loading="lazy">
+          <figcaption>A quality crimping tool of the type required for modular connectors. Do not use inexpensive Radio Shack-type crimpers &mdash; they are designed for flat telephone cable only and will not properly crimp round stranded cable. Quality tools from AllenTel range from about $75.</figcaption>
         </figure>
 
         <div class="callout warning">

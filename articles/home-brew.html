@@ -188,12 +188,12 @@
 
         <figure>
           <img src="../images/Home_Brew_Things_p1_0.jpeg" alt="Home-brew loading coil on custom insulator form" loading="lazy">
-          <figcaption>A home-brew loading coil built by David Stall, AE5DS, using a custom elongated HV insulator from Breedlove Machine Shop. The screws are threaded into end bosses bored for 3/8&times;24, making them compatible with standard antenna hardware. <!-- From PDF page 1 — verify placement --></figcaption>
+          <figcaption>A home-brew loading coil built by David Stall, AE5DS, using a custom elongated HV insulator from Breedlove Machine Shop. The screws are threaded into end bosses bored for 3/8&times;24, making them compatible with standard antenna hardware.</figcaption>
         </figure>
 
         <figure>
           <img src="../images/Home_Brew_Things_p1_1.jpeg" alt="Completed home-brew loading coil with nylon rope spacer" loading="lazy">
-          <figcaption>The completed coil. Wire is #14 AWG, with nylon rope used as a spacer to keep turns evenly spaced. Vinyl electrical tape (or better, Rescue Tape) seals out moisture. Note: keep coil turns away from the end bosses to minimize Q losses. <!-- From PDF page 1 — verify placement --></figcaption>
+          <figcaption>The completed coil. Wire is #14 AWG, with nylon rope used as a spacer to keep turns evenly spaced. Vinyl electrical tape (or better, Rescue Tape) seals out moisture. Keep coil turns away from the end bosses to minimize Q losses.</figcaption>
         </figure>
 
         <p>David Stall, AE5DS, asked Breedlove Machine Shop to make him an elongated version of their 1.5-inch diameter HV insulator made for use with an auto-coupler. The screws are threaded into the end bosses, which are bored for 3/8&times;24, making them compatible with existing antenna hardware.</p>
@@ -204,9 +204,11 @@
 
         <h2 id="masts">Masts</h2>
 
-        <figure>
-          <img src="../images/Home_Brew_Things_p1_2.jpeg" alt="DX Engineering ready-made mast sections" loading="lazy">
-          <figcaption>DX Engineering sells ready-made masts in several different lengths at reasonable prices. Texas Bug Catcher masts are available from Main Trading Company but are pricier. <!-- From PDF page 1 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Ready-made mast sections]</span>
+          <p>Photo of DX Engineering or Texas Bug Catcher ready-made mast sections needed here.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <p>I can't tell you how many different masts I have used over the years. I've used fiberglass ones with copper wire buried inside of them, steel, aluminum, copper water pipe, stainless steel, chrome-moly, and even wood. Lengths varied from a foot or so to one 10 feet long. DX Engineering sells ready-made masts in several different lengths, and they're reasonably inexpensive.</p>
@@ -215,9 +217,11 @@
 
         <h2 id="brackets">Brackets</h2>
 
-        <figure>
-          <img src="../images/Home_Brew_Things_p2_3.jpeg" alt="Home-brew ball mount made from TecaMax polymer" loading="lazy">
-          <figcaption>A home-brew ball mount made from TecaMax (self-reinforcing polyphenylene). Building this required a drill press, a large machine vise, a 3-inch Forstner bit, and a lot of patience. This type of material has excellent dielectric properties past 1 GHz. <!-- From PDF page 2 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Home-brew TecaMax ball mount]</span>
+          <p>Photo of the home-brew ball mount machined from TecaMax self-reinforcing polyphenylene needed here.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <p>Homebrewing a ball mount is out of the question for most amateurs. The mount shown required a drill press, a large machine vise, a 3-inch Forstner bit (almost $50), and a lot of patience. It is made out of self-reinforcing polyphenylene, better known as TecaMax. It snatches easily &mdash; hence the machine vise &mdash; and it will melt if it gets too hot, so slow drilling is a requirement. It took 15 minutes to drill through a one-inch piece of material.</p>
@@ -240,8 +244,8 @@
         <h2 id="manual-override">Manual Override for Antenna Controllers</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p2_4.jpeg" alt="Manual override relay circuit board" loading="lazy">
-          <figcaption>The manual override circuit. It requires two 12-volt relays and a center-off, spring-loaded DPDT switch. The complete circuit fits in a box no bigger than 2 inches square. <!-- From PDF page 2 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p2_7.jpeg" alt="Manual override relay wiring diagram showing two SPDT 12-volt relays with motor lead connections" loading="lazy">
+          <figcaption>The manual override circuit: two SPDT 12-volt relays wired so a center-off spring-loaded switch can drive the antenna motor independently of the controller. The complete circuit fits in a box no bigger than 2 inches square.</figcaption>
         </figure>
 
         <p>Most automatic antenna tuners incorporate dynamic braking to minimize over-travel by shorting out the motor leads. Because the motor leads are grounded by the controller, it is impossible to parallel a manual control directly. There is a way around the problem, but you have to be willing to slap a few parts together.</p>
@@ -256,8 +260,8 @@
         <h2 id="amplifier-bypass">Amplifier Bypass Circuit</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p2_5.jpeg" alt="Amplifier bypass circuit schematic" loading="lazy">
-          <figcaption>The amplifier bypass circuit. Two parallel diodes act as an OR gate. If either motor lead has positive 12 volts applied, the relay operates, bypassing the amplifier's PTT line during the tuning process. The capacitor creates a delay in the relay release to allow for jogging during tuning. <!-- From PDF page 2 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p2_8.jpeg" alt="Amplifier bypass circuit schematic showing two parallel diodes as OR gate, NPN transistor, relay, and capacitor delay network" loading="lazy">
+          <figcaption>The amplifier bypass circuit. Two parallel diodes act as an OR gate — if either motor lead has 12 volts applied, the relay operates and bypasses the amplifier PTT line. The capacitor provides a release delay to allow jogging during tuning.</figcaption>
         </figure>
 
         <p>The DC motor in all remotely tuned antennas operates the same basic way: it reverses the polarity of the power fed to the antenna, causing it to turn in one direction or the other. During the tuning process, the SWR remains high until resonance is achieved. This is why low power is used during the tuning process. If an amplifier is being used, it must be turned off or bypassed during tuning. Most manual and automatic controllers don't have an amplifier bypass &mdash; if yours doesn't, this simple circuit will do it for you.</p>
@@ -271,8 +275,8 @@
         <h2 id="rocker-switch">The Simple Rocker Switch Controller</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p3_9.png" alt="Simple rocker switch antenna controller schematic" loading="lazy">
-          <figcaption>Schematic of a simple rocker-switch manual antenna controller. The LED can be any color or size; the transistor can be almost any NPN at least equal to a 2N2222. The resistor labeled "See Text" needs to be selected for your antenna. <!-- From PDF page 3 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_11.jpeg" alt="Simple rocker switch antenna controller schematic showing 13.8 VDC supply, 220-ohm LED resistor, NPN transistor, and momentary DPDT rocker wired to antenna motor" loading="lazy">
+          <figcaption>Schematic of a simple rocker-switch manual antenna controller. The LED can be any color or size; the transistor can be almost any NPN at least equal to a 2N2222. The resistor labeled "See Text" must be selected for your specific antenna's motor current.</figcaption>
         </figure>
 
         <p>Manual controllers often sell for $70 or more, and basically they're not much more than a DPDT switch. The circuitry isn't patented; there's nothing special or exotic about it; and you can easily duplicate the effort. How much you spend depends on how fancy you want it to be.</p>
@@ -291,8 +295,8 @@
         <h2 id="debouncer">Debouncer Circuit</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p3_10.jpeg" alt="Reed switch debouncer circuit" loading="lazy">
-          <figcaption>The debouncer circuit. The capacitor size varies depending on the controller, but usually 0.5 &micro;F or 1.0 &micro;F is large enough. Too large and the count will be missed altogether. <!-- From PDF page 3 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_12.jpeg" alt="Reed switch debouncer circuit schematic showing small relay, diode, and capacitor to elongate and debounce the reed switch pulse" loading="lazy">
+          <figcaption>The reed switch debouncer circuit. The capacitor size varies by controller — 0.5 &micro;F to 1.0 &micro;F is usually sufficient. Too large a capacitor and the count will be missed altogether.</figcaption>
         </figure>
 
         <p>Proper RF choking of the control leads is an often-overlooked requirement. Sometimes, even if you do a good job of building the choke, you still get miscounts on controllers which use a reed switch. The reason is that most antenna reed switches only switch states (off to on, and back off) for only a fraction of a second &mdash; typically less than 100 milliseconds. Even though the logic is fast enough to catch the pulse, capacitance in the wiring and a little residual RF can cause a miscount.</p>
@@ -302,13 +306,13 @@
         <h2 id="antenna-switch">Antenna Switch</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p3_11.jpeg" alt="Inside the home-brew antenna switch" loading="lazy">
-          <figcaption>Inside the home-brew antenna switch. The DPDT relay is removed from its plastic enclosure and screwed directly into the bottom of the Hammond cast aluminum box. Poles are wired in parallel and connected to the SO-239 connectors with short pieces of #14 copper wire to keep insertion losses low. <!-- From PDF page 3 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_13.jpeg" alt="Inside the home-brew antenna switch — Hammond cast aluminum box with DPDT relay screwed to the floor and SO-239 connectors wired with #14 copper wire" loading="lazy">
+          <figcaption>Inside the home-brew antenna switch. The DPDT relay is removed from its plastic enclosure and screwed directly into the bottom of the Hammond cast aluminum box. Poles are wired in parallel and connected to the SO-239 connectors with short pieces of #14 copper wire to keep insertion losses low.</figcaption>
         </figure>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p3_12.jpeg" alt="Front-mounted control panel for antenna switch" loading="lazy">
-          <figcaption>The front-mounted control panel for the antenna switch. Power is fed to the switch from here, and the indicator LED shows which antenna is selected. <!-- From PDF page 3 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_10.jpeg" alt="Home-brew antenna switch controller front panel with green LED indicator and up/down rocker switch" loading="lazy">
+          <figcaption>The front-mounted control panel for the antenna switch. The green LED indicator shows which antenna is selected; the rocker switch toggles between positions.</figcaption>
         </figure>
 
         <p>Modern mobile transceivers are often referred to as DC to daylight radios, because they usually cover 160 meters through 70 centimeters. Being as small as they are, there isn't a whole lot of room for antenna connectors. Often, only two connections are provided: one for 160 through 6 meters, and the other for VHF/UHF. If you use separate antennas for VHF and UHF, diplexers are available to split the one port into two. However, if you use a separate antenna for the HF bands and another for 6 meters, you need an antenna switch.</p>
@@ -320,8 +324,8 @@
         <h2 id="amplifier-remote-control">Amplifier Remote Control</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p3_13.jpeg" alt="SG500 amplifier remote control box" loading="lazy">
-          <figcaption>The SG500 amplifier remote control box. The front switch controls the amplifier; the violet LED indicates power on. The rear DPDT switch controls video input and the remote antenna switch. A lot of function packed into a small Hammond box. <!-- From PDF page 3 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_14.jpeg" alt="SGC SG500 amplifier remote control box with blue LCD display showing 14.2, violet LED power indicator, and two toggle switches" loading="lazy">
+          <figcaption>The SG500 amplifier remote control box. The blue LCD displays the current frequency. The violet LED indicates power on — if it goes out with the switch on, you've over-driven the amplifier. The two rear toggle switches control video input and the remote antenna switch.</figcaption>
         </figure>
 
         <p>The front-mounted switch is the amplifier control switch. The violet LED indicates power on &mdash; if it goes out and the switch is on, it means you've over-driven the amplifier.</p>
@@ -338,13 +342,13 @@
         <h2 id="other-things">Other Things: The Rebundled Controller Box</h2>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p4_17.jpeg" alt="Rebundled antenna controller in Hammond box" loading="lazy">
-          <figcaption>A reboxed automatic antenna controller, hour meter, indicator LEDs, and all interconnecting cables in a large Hammond cast aluminum box. Bolted to the amplifier via existing 8&times;24 tapped holes. The complete assembly can be removed in less than a minute. <!-- From PDF page 4 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p4_18.jpeg" alt="Interior of Hammond cast aluminum box containing reboxed automatic antenna controller PCB, Molex connectors, and interconnecting cables" loading="lazy">
+          <figcaption>The rebundled controller box interior. The Hammond aluminum enclosure contains the automatic antenna controller PCB, Molex connectors for the antenna motor, IC-7000 tuner port, and SG500 amplifier control leads. The complete assembly bolts to the amplifier via existing 8&times;24 tapped holes and can be removed in under a minute.</figcaption>
         </figure>
 
         <figure>
-          <img src="../images/Home_Brew_Things_p4_18.jpeg" alt="Complete trunk installation showing controller assembly" loading="lazy">
-          <figcaption>The complete trunk installation. Behind and below the controller box is the IC-7000 main chassis, bolted to the SG500's fan assembly. Eight connectors and two bracket knots are all that's needed to remove the entire assembly for service. <!-- From PDF page 4 — verify placement --></figcaption>
+          <img src="../images/Home_Brew_Things_p3_16.jpeg" alt="Vehicle dashboard showing Icom IC-7000 integrated as head unit, displaying 14.200.00 MHz on 20 meters" loading="lazy">
+          <figcaption>The complete installation: an Icom IC-7000 integrated into the dashboard as the primary head unit, displaying 14.200.00 MHz. The IC-7000's main chassis is mounted in the trunk bolted to the SG500 fan assembly.</figcaption>
         </figure>
 
         <p>Every now and then, every piece of amateur gear has to be worked on, or you experiment a lot. The box shown contains a reboxed automatic antenna controller, hour meter, indicator LEDs, and all of the interconnecting cables. The Molex at the top of the photo is the cable to the front-mounted control box. The smaller Molex goes to the antenna motor, and the other Molex carries the power and control wires from the IC-7000's Tuner port. There is also a cable going to the remote port on the SGC SG500 amplifier, which includes a fuse holder (just a pair of 1/4 spade lug connectors with an ATC 3-amp fuse).</p>

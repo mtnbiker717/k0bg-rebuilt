@@ -173,8 +173,8 @@
         <p>In a base station installation, we typically have a radial field in various configurations. In a mobile, we don't have that luxury. If we don't have a radial field, what do we have?</p>
 
         <figure>
-          <img src="../images/Grounds_RF_and_DC_p1_0.jpeg" alt="Diagram showing metal mass directly under a mobile antenna" loading="lazy">
-          <figcaption>The key principle: place as much metal mass directly under the vertical antenna as possible. What's alongside the antenna doesn't count. This is exactly what a radial field does at a base station. <!-- From PDF page 1 — verify placement --></figcaption>
+          <img src="../images/Grounds_RF_and_DC_p1_0.jpeg" alt="Simple diagram of a mobile vertical antenna (red line with loading coil) mounted at a vehicle fender, with green angled lines showing the fender and mounting bolts below" loading="lazy">
+          <figcaption>Fender-mount geometry: the antenna sits above a small, angled metal surface rather than a flat horizontal ground plane. The key principle &mdash; place as much metal mass directly under the vertical antenna as possible &mdash; is only partially satisfied by a fender mount. What's alongside the antenna doesn't count.</figcaption>
         </figure>
 
         <p>For one, we have the body of the vehicle. That body does capacitively couple to the surface under the vehicle, but technically it isn't a radial field. It's somewhat like installing a base station vertical using nothing more than a pipe driven into the dirt.</p>
@@ -192,9 +192,11 @@
 
         <p>As a rule, unibody vehicles exhibit fewer problems with both ingress and egressed RFI. This is due mainly to the all-welded body construction. However, most still have sound-insulated undercarriages for the suspension, engine, transaxle, and exhaust systems &mdash; and these need to be bonded to maximize RF continuity. The <a href="bonding.html">Bonding article</a> covers that in detail.</p>
 
-        <figure>
-          <img src="../images/Grounds_RF_and_DC_p1_1.jpeg" alt="Truck with poor antenna mounting location illustrating ground plane issues" loading="lazy">
-          <figcaption>A low antenna mounting location forces return current to flow through the lossy surface beneath the vehicle rather than through the vehicle's less lossy superstructure. The difference in efficiency can be dramatic. <!-- From PDF page 1 — verify placement --></figcaption>
+        <figure class="image-placeholder">
+          <span class="placeholder-icon" aria-hidden="true">📷</span>
+          <span class="placeholder-label">[Low Mounting Ground Plane Diagram]</span>
+          <p>Diagram or photo illustrating how a low antenna mounting location forces return current through the lossy surface beneath the vehicle rather than through the vehicle's less-lossy superstructure.</p>
+          <span class="placeholder-source">Original photo not recoverable from PDF extraction</span>
         </figure>
 
         <div class="callout warning">
@@ -216,8 +218,8 @@
         <p>Low mounting heights increase ground losses. The reason: a large portion of the return current is forced to flow in the lossy surface under the vehicle rather than through the vehicle's less-lossy superstructure. How much this affects efficiency depends on many factors, especially the quality of the antenna itself &mdash; coil Q, overall length, cap hat use, and so on. The key to maximum efficiency is placing as much metal mass directly under the antenna as possible.</p>
 
         <figure>
-          <img src="../images/Grounds_RF_and_DC_p2_2.jpeg" alt="Antenna mounted low on a vehicle showing poor ground plane geometry" loading="lazy">
-          <figcaption>Low antenna mounting forces return current through the lossy ground beneath the vehicle. The effective ground plane is severely compromised compared to a center-roof installation. <!-- From PDF page 2 — verify placement --></figcaption>
+          <img src="../images/Grounds_RF_and_DC_p2_2.jpeg" alt="Vehicle hitch receiver area with a spring-base antenna mount, coax routing, and bonding strap attached to the hitch hardware" loading="lazy">
+          <figcaption>A hitch or bumper-mounted antenna installation. This is among the worst mounting locations for ground plane geometry: the antenna sits below the vehicle body, with return current forced through the bumper hardware and ground beneath. RF ground straps in this configuration compensate only slightly. Height and metal mass directly under the antenna determine efficiency.</figcaption>
         </figure>
 
         <h3 id="pickup-bed-mounting">Pickup Bed Mounting</h3>
