@@ -20,9 +20,11 @@ or `[?]` (no match found) as work progresses.
 
 ### Alternators_and_Batteries
 **Likely article:** `alternators-batteries.html`  
-**Count:** 5
+**Count:** 7
 
+- [s] `Alternators_and_Batteries_p1_4.jpeg` — duplicate blue LED DC power monitor (same as p2_6)
 - [s] `Alternators_and_Batteries_p1_5.jpeg` — nav banner "Alternators & Batteries"
+- [x] `Alternators_and_Batteries_p2_8.jpeg` — MFJ DC Line RFI Filter (black enclosure) → Alternator Whine section (brute-force filter example)
 - [x] `Alternators_and_Batteries_p3_12.png` — compact FET-based isolator on L-bracket → Battery Isolators section
 - [x] `Alternators_and_Batteries_p3_14.jpeg` — AC/DC clamp meter (HIDIGIT) → Battery Imbalance section
 - [x] `Alternators_and_Batteries_p3_15.jpeg` — MFJ Super Battery Booster MFJ-4416 → Battery Boosters section
@@ -541,3 +543,4 @@ Screenshots and UI elements from the original K0BG.COM site — not content phot
 |------|-----------------|-------|
 | 2026-05-12 | 0 | Checklist created |
 | 2026-05-13 | 269 | All content images processed — ~215 inserted, ~54 skipped (38 nav banners + 16 duplicates found within content group) |
+| 2026-05-13 | +2 | Two checklist-omitted Alternators_and_Batteries images resolved: p1_4 [s] duplicate, p2_8 [x] inserted into Alternator Whine |
